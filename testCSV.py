@@ -66,24 +66,17 @@ def task(userID,type:int=0,txt:str="No detail"):
         lastIndex = int(table[-1][0])
         writeTaskTable([lastIndex+1,userID,type,datetime.datetime.now(),'dateTarget',txt])
 
+def showTask(userID:int,type:int):
+    table = readTaskTable()
+    result = []
+    for row in table:
+        if userID == int(row[1]) and type == int(row[2]):
+            result.append([row[4],row[5]])
+    for i in result:
+        print(i)
     
     
 
 # print(readDemo())
 # print(login('nut','1234'))
-currentUser = 0
-inp = ''
-while inp != "q":
-    print("....User: {}".format(currentUser))
-    inp = input("Enter mode : ")
-    if inp == 're':
-        txt = input("username password : ").split()
-        registor(txt[0],txt[1])
-    elif inp == 'login':
-        txt = input("username password : ").split()
-        currentUser = login(txt[0],txt[1])
-    elif inp == 'add':
-        if currentUser != None:
-            txt = input("type | string : ").split()
-            task(currentUser,int(txt[0]),txt[1])
 
