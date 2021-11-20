@@ -1,6 +1,25 @@
 import csv
 import os
 import datetime
+
+def deletRow(row):
+    with open("aLotOfText.csv", "r") as f:
+        lines = f.readlines()
+    with open("aLotOfText.csv", "w") as f:
+        
+        # for line in lines:
+        #     if line.strip("\n") != row:
+        #         print("what")
+        #         f.write(line)
+        i = 0
+        for line in lines:
+            print(i)
+            if i != row:
+                print("what")
+                f.write(line)
+            i += 1
+                
+
 def writeDemo(txt:list):
     with open("aLotOfText.csv", "a",newline="",encoding="utf8") as f:
         fw = csv.writer(f)
@@ -56,15 +75,29 @@ def registor(reUser,rePass):
     writeDemo([lastIndex,reUser,rePass])
     print("Register success")
 
-def task(userID,type:int=0,txt:str="No detail"):
+def task(userID,dateTarget:datetime,type:int=0,txt:str="No detail"):
     #index | user_id | type | date_create | date_target | string
     #type 0 = task | 1 = timetable | 2 = note |
+
     if os.path.isfile('./taskTable.csv') == False:
-        writeTaskTable([0,userID,type,datetime.datetime.now(),'dateTarget',txt])
+        writeTaskTable([0,userID,type,datetime.datetime.now(),dateTarget,txt])
     else:
         table = readTaskTable()
         lastIndex = int(table[-1][0])
-        writeTaskTable([lastIndex+1,userID,type,datetime.datetime.now(),'dateTarget',txt])
+        if type == 0:
+            #type = 0 is task (have date and maybe time)
+            writeTaskTable([lastIndex+1,userID,type,datetime.datetime.now(),dateTarget,txt])
+        elif type == 1:
+            #type = 1 is timetable (Have only day of week)
+            #day of week 0 = Monday ... 6 = Sunday
+            writeTaskTable([lastIndex+1,userID,type,datetime.datetime.now(),dateTarget,txt])
+        elif type == 2:
+            #type = 2 is Note 
+            #No time target
+            writeTaskTable([lastIndex+1,userID,type,datetime.datetime.now(),dateTarget,txt])
+        else:
+            print("No type")
+            
 
 def showTask(userID:int,type:int):
     table = readTaskTable()
