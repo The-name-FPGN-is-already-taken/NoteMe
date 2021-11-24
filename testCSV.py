@@ -28,7 +28,9 @@ class Nota:
             #     if i != row:
             #         f.write(line)
             #     i += 1
-                    
+    def showDateOfToday(self):
+        today = datetime.datetime.today()
+        return today              
 
     def writeDemo(self,txt:list):
         with open("aLotOfText.csv", "a",newline="",encoding="utf8") as f:
@@ -93,25 +95,25 @@ class Nota:
         self.writeDemo([lastIndex,reUser,rePass])
         print("Register success")
 
-    def task(self,dateTarget:datetime,type:int=0,txt:str="No detail"):
+    def task(self,dateTarget:datetime,type:int=0,topic:str="No detail",descrption:str="No descrption"):
         #index | user_id | type | date_create | date_target | string
         #type 0 = task | 1 = timetable | 2 = note |
         if os.path.isfile('./taskTable.csv') == False:
-            self.writeTaskTable([0,self.userID,type,datetime.datetime.now(),dateTarget,txt])
+            self.writeTaskTable([0,self.userID,type,datetime.datetime.now(),dateTarget,topic,descrption])
         else:
             table = self.readTaskTable()
             lastIndex = int(table[-1][0])
             if type == 0:
                 #type = 0 is task (have date and maybe time)
-                self.writeTaskTable([lastIndex+1,self.userID,type,datetime.datetime.now(),dateTarget,txt])
+                self.writeTaskTable([lastIndex+1,self.userID,type,datetime.datetime.now(),dateTarget,topic,descrption])
             elif type == 1:
                 #type = 1 is timetable (Have only day of week)
                 #day of week 0 = Monday ... 6 = Sunday
-                self.writeTaskTable([lastIndex+1,self.userID,type,datetime.datetime.now(),dateTarget,txt])
+                self.writeTaskTable([lastIndex+1,self.userID,type,datetime.datetime.now(),dateTarget,topic,descrption])
             elif type == 2:
                 #type = 2 is Note 
                 #No time target
-                self.writeTaskTable([lastIndex+1,self.userID,type,datetime.datetime.now(),dateTarget,txt])
+                self.writeTaskTable([lastIndex+1,self.userID,type,datetime.datetime.now(),dateTarget,topic,descrption])
             else:
                 print("No type")
                 

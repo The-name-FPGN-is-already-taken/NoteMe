@@ -10,7 +10,8 @@ print((t2-t1).days)
 # print(t3)
 str = '2021-11-19 21:39:59.527164'
 t4 = datetime.date.today()  
-print(t4)
+print("today:",t4)
+
 # x = datetime.datetime(inp[0],inp[1],inp[2])
 # print(x.year, x.month ,x.day+1)
 # t5 = 

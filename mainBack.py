@@ -18,7 +18,7 @@ while inp != "q":
     elif inp == 'login':
         txt = input("username password : ").split()
         obj.login(txt[0],txt[1])
-
+        
 
             
     elif inp == 'add':
@@ -33,7 +33,8 @@ while inp != "q":
                 dateTarget = None
             
             txt = input("Detail : ")
-            obj.task(dateTarget,taskType,txt)
+            des = input("Descrpition : ")
+            obj.task(dateTarget,taskType,txt,des)
     elif inp == 'del':
         #Must input taskID
         inp = int(input("Enter row :"))
