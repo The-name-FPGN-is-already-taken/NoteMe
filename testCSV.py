@@ -10,7 +10,7 @@ class Nota:
         self.table = []
     
     def isLogin(self):
-        if self.user == -1:
+        if self.userID == -1:
             return False
         else:
             return True
@@ -30,7 +30,7 @@ class Nota:
             #     i += 1
     def showDateOfToday(self):
         today = datetime.datetime.today()
-        return today              
+        return today
 
     def writeDemo(self,txt:list):
         with open("aLotOfText.csv", "a",newline="",encoding="utf8") as f:
@@ -116,6 +116,7 @@ class Nota:
                 self.writeTaskTable([lastIndex+1,self.userID,type,datetime.datetime.now(),dateTarget,topic,descrption])
             else:
                 print("No type")
+        self.refreshTable()
                 
 
     def showTask(self,userID:int,type:int):
@@ -127,10 +128,11 @@ class Nota:
         for i in result:
             print(i)
 
-    def today(userID):
+    def showTaskByDate(self,targetDate):
         pass
     
 
 # print(readDemo())
 # print(login('nut','1234'))
-
+nota = Nota()
+nota.registor("parn55",231)

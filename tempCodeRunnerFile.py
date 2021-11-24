@@ -1,1 +1,1 @@
-obj.login(txt[0],txt[1])
+txt
