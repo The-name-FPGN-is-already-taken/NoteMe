@@ -2,19 +2,27 @@
 from datetime import date
 import dataType
 from testCSV import *
-currentUser = -1
+
+#sim for testing not implement
+
+obj = Nota()
+
 inp = ''
+table = None
 while inp != "q":
-    print("....User: {}".format(currentUser))
+    print("....User: {}".format(obj.userID))
     inp = input("Enter mode : ")
     if inp == 're':
         txt = input("username password : ").split()
-        registor(txt[0],txt[1])
+        obj.registor(txt[0],txt[1])
     elif inp == 'login':
         txt = input("username password : ").split()
-        currentUser = login(txt[0],txt[1])
+        obj.login(txt[0],txt[1])
+
+
+            
     elif inp == 'add':
-        if currentUser != -1:
+        if obj.isLogin():
             taskType = int(input("Type : "))
             if taskType == 0:
                 dateInp = list(map(int,input("Date Month Year : ").split()))
@@ -25,15 +33,16 @@ while inp != "q":
                 dateTarget = None
             
             txt = input("Detail : ")
-            task(currentUser,dateTarget,taskType,txt)
+            obj.task(dateTarget,taskType,txt)
     elif inp == 'del':
+        #Must input taskID
         inp = int(input("Enter row :"))
         # inp = input("Enter txt del : ")
-        deletRow(inp)
+        obj.deletRow(inp)
     elif inp == 'show':
-        if currentUser != -1:
+        if obj.isLogin():
             txt = input("type : ")
-            showTask(currentUser,int(txt))
+            obj.showTask(currentUser,int(txt))
 
 
 

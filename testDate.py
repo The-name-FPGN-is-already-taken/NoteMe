@@ -14,5 +14,9 @@ print(t4)
 # x = datetime.datetime(inp[0],inp[1],inp[2])
 # print(x.year, x.month ,x.day+1)
 # t5 = 
-
+table = None
+table = [4,5,7]
+print(table)
+table = [2,5]
+print(table[0])
 

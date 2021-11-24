@@ -1,1 +1,1 @@
-print("what")
+obj.login(txt[0],txt[1])
