@@ -2,8 +2,8 @@ import csv
 import os
 import datetime
 from dataType import *
-
-class Task:
+#Record
+class Record:
     def __init__(self,taskID,userID,taskType,dateCreate,dateTarget,topic="No topic",description="No description") -> None:
         """taskID | userID | type | date_create | date_target | string
         type 0 = task | 1 = timetable | 2 = note |"""
@@ -17,6 +17,15 @@ class Task:
 
     def __str__(self) -> str:
         return "{} {} {}".format(self.dateTarget,self.topic,self.description)
+
+    def isTaskType(self):
+        return self.taskType == 0
+    
+    def isTimetableType(self):
+        return self.taskType == 1
+
+    def isNoteType(self):
+        return self.taskType == -1
 
 class Nota:
     def __init__(self) -> None:
@@ -68,12 +77,21 @@ class Nota:
             return list(reader)
 
     def refreshTable(self):
+        #เอาจาก string เป็น Task Object
         self.isTaskTableExis()
         temptable = self.readTaskTable()
         self.table.clear()
         for row in temptable:
             if int(row[1]) == self.userID:
-                self.table.enqueue(Task(int(row[0]),int(row[1]),int(row[2]),row[3],row[4],row[5],row[6]))
+                if int(row[2]) == 0:
+                    self.table.enqueue(Record(int(row[0]),int(row[1]),int(row[2]),datetime.datetime.strptime(row[3],"%Y-%m-%d %H:%M:%S"),
+                    datetime.datetime.strptime(row[4],"%Y-%m-%d %H:%M:%S"),row[5],row[6]))
+                elif int(row[2]) == 1:
+                    self.table.enqueue(Record(int(row[0]),int(row[1]),int(row[2]),datetime.datetime.strptime(row[3],"%Y-%m-%d %H:%M:%S"),
+                    int(row[4]),row[5],row[6]))
+                elif int(row[2]) == 1:
+                    self.table.enqueue(Record(int(row[0]),int(row[1]),int(row[2]),datetime.datetime.strptime(row[3],"%Y-%m-%d %H:%M:%S"),
+                    -1,row[5],row[6]))
         print("Table refreshed")
     #write : id(run) type date string
     #type 1=task 2=timetable 3=note
@@ -98,7 +116,11 @@ class Nota:
             print("User or Pasword is incorrect")
         else:
             self.refreshTable()
-            print("Login success")        
+            print("Login success")
+
+    def logout(self):
+        self.table.li.clear()
+        self.userID = -1        
 
     def registor(self,reUser,rePass):
         #check,Are there exist
@@ -122,7 +144,7 @@ class Nota:
             self.writeUserTable([-1,"username","password"])
 
 
-    def task(self,dateTarget:datetime,type:int=2,topic:str="No detail",descrption:str="No descrption"):
+    def addRecord(self,dateTarget:datetime,type:int=0,topic:str="No detail",descrption:str="No descrption"):
         """taskID | userID | type | date_create | date_target | string
         type 0 = task | 1 = timetable | 2 = note |"""
         self.isTaskTableExis()
@@ -132,15 +154,15 @@ class Nota:
         lastIndex = int(table[-1][0])
         if type == 0:
             #type = 0 is task (have date and maybe time)
-            self.writeTaskTable([lastIndex+1,self.userID,type,datetime.datetime.now(),dateTarget,topic,descrption])
+            self.writeTaskTable([lastIndex+1,self.userID,type,datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),dateTarget,topic,descrption])
         elif type == 1:
             #type = 1 is timetable (Have only day of week)
             #day of week 0 = Monday ... 6 = Sunday
-            self.writeTaskTable([lastIndex+1,self.userID,type,datetime.datetime.now(),dateTarget,topic,descrption])
+            self.writeTaskTable([lastIndex+1,self.userID,type,datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),dateTarget,topic,descrption])
         elif type == 2:
             #type = 2 is Note 
             #No time target
-            self.writeTaskTable([lastIndex+1,self.userID,type,datetime.datetime.now(),dateTarget,topic,descrption])
+            self.writeTaskTable([lastIndex+1,self.userID,type,datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),-1,topic,descrption])
         else:
             print("No type")
         self.refreshTable()
@@ -155,13 +177,42 @@ class Nota:
         for i in result:
             print(i)
 
-    def showTaskByDate(self,targetDate=0):
+    def getTaskByDate(self,targetDate:datetime):
         """targetDate format is YEAR-MONTH-DAY ex.. 2022-01-10"""
+        # tempDate = datetime.datetime.strptime(targetDate,"%Y-%m-%d")
+        result = []
         for row in self.table.li:
-            print(row)
-    
+            if row.isTaskType() and targetDate == row.dateTarget.date():
+                result.append(row)
+        # print(result[0].topic)
+        return result
 
+    def getTaskToday(self)->list:
+        """Return queue of Task obj"""
+        # print(datetime.datetime.today())
+        return self.getTaskByDate(datetime.date.today())
+
+    def getIncomingTask(self,delta:int):
+        result = []
+        for row in self.table.li:
+            if row.isTaskType() and (row.dateTarget.date() - datetime.date.today()).days <= delta:
+                result.append(row)
+        print(result)
+        return result
+
+    def getTimetableByAll(self):
+        result = []
+        for row in self.table.li:
+            if row.isTimetableType():
+                result.append(row)
+        return result
+
+
+        
 # print(readUserTable())
 # print(login('nut','1234'))
-# nota = Nota()
+nota = Nota()
 # nota.registor("parn55",231)
+nota.login("catty","5")
+# nota.getTaskToday()
+nota.getIncomingTask(7)
