@@ -6,7 +6,7 @@ from notaBack import *
 from note import Note
 note1 = list()
     
-class LoginWindow(QDialog):#editing here
+class LoginWindow(QDialog):
     
     def __init__(self) :
         super(LoginWindow,self).__init__()
@@ -19,7 +19,7 @@ class LoginWindow(QDialog):#editing here
         userName = self.username.text()
         password = self.userPassword.text()
         nota.login(userName,password)
-
+  
         if nota.isLogin():
             self.warning.setVisible(False)
             self.LoginToHomeweek()
