@@ -97,12 +97,6 @@ class HomeWeek_window(QDialog):
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: rgb(228, 226, 199); color: black; border-radius: 8px;  }')
 
-        for i in range(len(self.listDayButton)):
-            day = (nota.showDateOfToday()+datetime.timedelta(days=i)).strftime(
-                "%A")+"\n"+str((nota.showDateOfToday()+datetime.timedelta(days=i)).day)
-            print(day)
-            eval(
-                "self." + self.listDayButton[i].objectName()+".setText("+"str(day))")
         global userName
         self.welcomeUser.setText("Welcome, "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
@@ -132,7 +126,37 @@ class HomeCal_window(QDialog):
         self.signOutButton.clicked.connect(self.goToLoginWindow)
         self.weekView_tab.clicked.connect(self.goToHomeWeek)
         self.noteButton.clicked.connect(self.homeCalToNoteWindow)
+        self.welcomeUser.setText("Welcome ,  "+userName)
 
+        x = datetime.datetime.now()
+        self.date.setText(x.strftime("%B")+' ' +
+                          x.strftime("%d")+', '+x.strftime("%Y"))
+
+        self.listCalendarButton = list()
+        self.listCalendarButton.append(self.month1_button)
+        self.listCalendarButton.append(self.month2_button)
+        self.listCalendarButton.append(self.month3_button)
+        self.listCalendarButton.append(self.month4_button)
+        self.listCalendarButton.append(self.month5_button)
+        self.listCalendarButton.append(self.month6_button)
+        self.listCalendarButton.append(self.month7_button)
+
+        for i in range(len(self.listCalendarButton)):
+            # SET TEXT MONTH
+            self.listCalendarButton[i].setText((nota.showDateOfToday()+datetime.timedelta(
+                days=+i)).strftime("%b")+"\n"+str((nota.showDateOfToday()+datetime.timedelta(days=i)).month))
+
+            self.listCalendarButton[i].clicked.connect(self.setCurrent)
+
+    def setCurrent(self):
+        for i in range(len(self.listCalendarButton)):
+            if self.listCalendarButton[i].objectName() == self.sender().objectName():
+                # print(self.sender().objectName())
+                self.listCalendarButton[i].setStyleSheet(
+                    'QPushButton {background: #FFAC4B; color: white; border-radius: 8px; }')
+            else:
+                self.listCalendarButton[i].setStyleSheet(
+                    'QPushButton {background: rgb(228, 226, 199); color: black; border-radius: 8px;  }')
        
         global userName
         self.welcomeUser.setText("Welcome, "+userName)

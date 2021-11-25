@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>timetable_addmenu</class>
+ <widget class="QDialog" name="timetable_addmenu">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>971</width>
+    <height>403</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">border-radius: 8px;</string>
+  </property>
+  <widget class="QFrame" name="topBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>971</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">position: absolute;
+width: 1024px;
+height: 100px;
+left: 0px;
+top: 0px;
+text-align: center;
+box-shadow: 0px 4px 4px 0px #00000040;
+
+background: #FEFAE0;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QFrame" name="app_icon">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>81</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">width: 85px;
+height: 85px;
+image: url(D:/NotaProject/pics/notaKung.png);
+left: 3px;
+top: 5px;
+
+background: #86B18B;
+mix-blend-mode: normal;
+border-radius: 35px;
+</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>80</y>
+      <width>753</width>
+      <height>43</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_6">
+     <item>
+      <widget class="QPushButton" name="monday_button_Repeat">
+       <property name="maximumSize">
+        <size>
+         <width>93</width>
+         <height>41</height>
+        </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">display: flex;
+flex-direction: column;
+align-items: center;
+padding: 8px 0px;
+position: static;
+width: 40px;
+left: calc(50% - 40px/2 - 189.71px);
+top: 0%;
+bottom: 0%;
+background-color: rgb(228, 226, 199);
+border-radius: 8px;</string>
+       </property>
+       <property name="text">
+        <string>MONDAY</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="tuesday_button_Repeat">
+       <property name="maximumSize">
+        <size>
+         <width>93</width>
+         <height>41</height>
+        </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">display: flex;
+flex-direction: column;
+align-items: center;
+padding: 8px 0px;
+position: static;
+width: 40px;
+left: calc(50% - 40px/2 - 189.71px);
+top: 0%;
+bottom: 0%;
+background-color: rgb(228, 226, 199);
+border-radius: 8px;</string>
+       </property>
+       <property name="text">
+        <string>TUESDAY</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="wednesday_Repeat">
+       <property name="maximumSize">
+        <size>
+         <width>93</width>
+         <height>41</height>
+        </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">display: flex;
+flex-direction: column;
+align-items: center;
+padding: 8px 0px;
+position: static;
+width: 40px;
+left: calc(50% - 40px/2 - 189.71px);
+top: 0%;
+bottom: 0%;
+background-color: rgb(228, 226, 199);
+border-radius: 8px;</string>
+       </property>
+       <property name="text">
+        <string>WEDNESDAY</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="thursday_Repeat">
+       <property name="maximumSize">
+        <size>
+         <width>93</width>
+         <height>41</height>
+        </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">display: flex;
+flex-direction: column;
+align-items: center;
+padding: 8px 0px;
+position: static;
+width: 40px;
+left: calc(50% - 40px/2 - 189.71px);
+top: 0%;
+bottom: 0%;
+background-color: rgb(228, 226, 199);
+border-radius: 8px;</string>
+       </property>
+       <property name="text">
+        <string>THURSDAY</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="friday_button_Repeat">
+       <property name="maximumSize">
+        <size>
+         <width>93</width>
+         <height>41</height>
+        </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">display: flex;
+flex-direction: column;
+align-items: center;
+padding: 8px 0px;
+position: static;
+width: 40px;
+left: calc(50% - 40px/2 - 189.71px);
+top: 0%;
+bottom: 0%;
+background-color: rgb(228, 226, 199);
+border-radius: 8px;</string>
+       </property>
+       <property name="text">
+        <string>FRIDAY</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="saturday_button_Repeat">
+       <property name="maximumSize">
+        <size>
+         <width>93</width>
+         <height>41</height>
+        </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">display: flex;
+flex-direction: column;
+align-items: center;
+padding: 8px 0px;
+position: static;
+width: 40px;
+left: calc(50% - 40px/2 - 189.71px);
+top: 0%;
+bottom: 0%;
+background-color: rgb(228, 226, 199);
+border-radius: 8px;</string>
+       </property>
+       <property name="text">
+        <string>SATURDAY</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="sunday_button_Repeat">
+       <property name="maximumSize">
+        <size>
+         <width>93</width>
+         <height>41</height>
+        </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">display: flex;
+flex-direction: column;
+align-items: center;
+padding: 8px 0px;
+position: static;
+width: 40px;
+left: calc(50% - 40px/2 - 189.71px);
+top: 0%;
+bottom: 0%;
+background-color: rgb(228, 226, 199);
+border-radius: 8px;</string>
+       </property>
+       <property name="text">
+        <string>SUNDAY</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="Repate">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>20</y>
+      <width>201</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>AvenirNext LT Pro Bold</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="whatsThis">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">display: flex;
+flex-direction: column;
+align-items: center;
+padding: 8px 0px;
+position: static;
+width: 40px;
+left: calc(50% - 40px/2 - 189.71px);
+top: 0%;
+bottom: 0%;
+background-color: rgb(228, 226, 199);
+border-radius: 8px;</string>
+    </property>
+    <property name="text">
+     <string>Repeat</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QTimeEdit" name="timeEdit">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>20</y>
+      <width>191</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>140</y>
+     <width>971</width>
+     <height>271</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: #84B289;
+</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QFrame" name="frame_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>931</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">width: 744px;
+height: 372px;
+left: 83px;
+top: 53px;
+border-radius: 10px;
+
+background: #E4E2C7;
+box-shadow: 6px 6px 4px 2px rgba(0, 0, 0, 0.25);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QTextEdit" name="textEdit">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>20</y>
+       <width>711</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: rgba(0,0,0,0);
+</string>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="plainTextEdit">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>70</y>
+       <width>711</width>
+       <height>311</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="dailyTaskadd">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>891</width>
+       <height>161</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="maxLength">
+      <number>50</number>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <property name="placeholderText">
+      <string>add dairy task here...</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>730</x>
+      <y>200</y>
+      <width>209</width>
+      <height>52</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QPushButton" name="cancelAdding">
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+background: #EC8E65;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 15px;</string>
+       </property>
+       <property name="text">
+        <string>CANCEL</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="saveNoteButton">
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+background: #C6D57E;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 15px;</string>
+       </property>
+       <property name="text">
+        <string>SAVE</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
