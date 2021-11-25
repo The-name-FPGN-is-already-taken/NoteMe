@@ -2,6 +2,10 @@ import sys
 from PyQt5.uic import loadUi
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QDialog, QApplication
+<<<<<<< Updated upstream
+=======
+from testCSV import *
+>>>>>>> Stashed changes
 from note import Note
 
 note1 = list()
@@ -11,11 +15,62 @@ class LoginWindow(QDialog):
     def __init__(self):
         super(LoginWindow, self).__init__()
         loadUi("nota.ui", self)
+<<<<<<< Updated upstream
         self.loginButton.clicked.connect(self.LoginToHomeweek)
+=======
+        self.loginButton.clicked.connect(self.loginIn)
+        self.signupButton.clicked.connect(self.LoginToSignUp)
+        # self.welComeUser.setText(nota.)
+
+    def loginIn(self):
+        global userName
+        userName = self.username.text()
+        # print(userName)
+        # print(password)
+        try:
+            password = int(self.userPassword.text())
+        except ValueError:
+            password = 1234
+
+        nota.login(userName, password)
+        if nota.isLogin:
+            self.LoginToHomeweek()
+>>>>>>> Stashed changes
 
     def LoginToHomeweek(self):
         homeWeek_window = HomeWeek_window()
         widget.addWidget(homeWeek_window)
+<<<<<<< Updated upstream
+=======
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+    def LoginToSignUp(self):
+        signUpWindow = SignUpWindow()
+        widget.addWidget(signUpWindow)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+
+class SignUpWindow(QDialog):
+    def __init__(self):
+        super(SignUpWindow, self).__init__()
+        loadUi("signUp_temp.ui", self)
+        self.signUpButton.clicked.connect(self.registing)
+        # self.welComeUser.setText(nota.)
+
+    def registing(self):
+        global userName
+        userName = self.username.text()
+        # print(userName)
+        password = int(self.userPassword.text())
+        # print(password)
+        nota.registor(userName, password)
+        if nota.isLogin:
+            self.goToHomeWeekWindow()
+
+    def goToHomeWeekWindow(self):
+        homeWeek_window = HomeWeek_window()
+        widget.addWidget(homeWeek_window)
+>>>>>>> Stashed changes
         widget.setCurrentIndex(widget.currentIndex()+1)
 
 
@@ -28,12 +83,49 @@ class HomeWeek_window(QDialog):
         self.calendar_tab.clicked.connect(self.homeWeekToHomeCal)
         self.noteButton.clicked.connect(self.homeWeekToNoteWindow)
         self.taskButton.clicked.connect(self.homeWeekToTaskWindow)
+<<<<<<< Updated upstream
         # self.monday_button.clicked.connect(self.setCurrentDay(0))
     #     self.tuesday_button.clicked.connect(self.setCurrentDay(1))
 
     def setCurrentDay(self, day=-1):
         self.currentDay = day
         print(self.currentDay)
+=======
+
+        self.welcomeUser.setText("Welcome ,  "+userName)
+
+        x = datetime.datetime.now()
+        self.date.setText(x.strftime("%B")+' ' +
+                          x.strftime("%d")+', '+x.strftime("%Y"))
+
+        self.listDayButton = list()
+        self.listDayButton.append(self.monday_button)
+        self.listDayButton.append(self.tuesday_button)
+        self.listDayButton.append(self.wednesday_button)
+        self.listDayButton.append(self.thursday_button)
+        self.listDayButton.append(self.friday_button)
+        self.listDayButton.append(self.saturday_button)
+        self.listDayButton.append(self.sunday_button)
+
+        for i in range(len(self.listDayButton)):
+
+            # SET TEXT
+            self.listDayButton[i].setText((nota.showDateOfToday()+datetime.timedelta(days=i)).strftime(
+                "%A")+"\n"+str((nota.showDateOfToday()+datetime.timedelta(days=i)).day))
+
+            # SET clicked connect
+            self.listDayButton[i].clicked.connect(self.setCurrent)
+
+    def setCurrent(self):
+        for i in range(len(self.listDayButton)):
+            if self.listDayButton[i].objectName() == self.sender().objectName():
+                # print(self.sender().objectName())
+                self.listDayButton[i].setStyleSheet(
+                    'QPushButton {background: #FFAC4B; color: white; border-radius: 8px; }')
+            else:
+                self.listDayButton[i].setStyleSheet(
+                    'QPushButton {background: rgb(228, 226, 199); color: black; border-radius: 8px;  }')
+>>>>>>> Stashed changes
 
     def homeWeekToLogin(self):
         loginWindow = LoginWindow()
@@ -54,6 +146,7 @@ class HomeWeek_window(QDialog):
         task_window = Task_window()
         widget.addWidget(task_window)
         widget.setCurrentIndex(widget.currentIndex()+1)
+<<<<<<< Updated upstream
     # def setColor(self,A_button ,B_button ): #A_button เป็นปุ่มที่เราไปกด B_button เป็นปุ่มที่เรากำลังอยู่
     #     A_button.setStyleSheet('QPushButton {background: #FFAC4B; color: white; border_radius: 8px; width: 40px;   }')
     #     B_button.setStyleSheet('QPushButton {background: rgb(228, 226, 199); color: white; border_radius: 8px; width: 40px;   }')
@@ -70,16 +163,73 @@ class HomeWeek_window(QDialog):
 # left: calc(50% - 40px/2 - 189.71px);
 # background: #FFAC4B;
 # border-radius: 8px;
+=======
+>>>>>>> Stashed changes
 
 
 class HomeCal_window(QDialog):
     def __init__(self):
         super(HomeCal_window, self).__init__()
         loadUi("home_cal.ui", self)
+<<<<<<< Updated upstream
+=======
+        self.currentbutton = -1
+>>>>>>> Stashed changes
         self.signOutButton.clicked.connect(self.homeCalToLogin)
         self.weekView_tab.clicked.connect(self.homeCalToHomeWeek)
         self.noteButton.clicked.connect(self.homeCalToNoteWindow)
 
+<<<<<<< Updated upstream
+=======
+        # self.month1_button.clicked.connect(self.setCurrentMon)
+        # self.month2_button.clicked.connect(self.setCurrentTue)
+        # self.month3_button.clicked.connect(self.setCurrentWed)
+        # self.month4_button.clicked.connect(self.setCurrentThurs)
+        # self.month5_button.clicked.connect(self.setCurrentFri)
+        # self.month6_button.clicked.connect(self.setCurrentSat)
+        # self.month7_button.clicked.connect(self.setCurrentSun)
+        # self.monday_button.setText("Monday\n"+str(nota.showDateOfToday().weekday()))
+        # self.month1_button.setText(nota.showDateOfToday().strftime("%A")+"\n"+str((nota.showDateOfToday()+datetime.timedelta(days = 0)).day))
+        # self.month2_button.setText((nota.showDateOfToday()+datetime.timedelta(days = 1)).strftime("%A")+"\n"+str((nota.showDateOfToday()+datetime.timedelta(days =1)).day))
+        # self.month3_button.setText((nota.showDateOfToday()+datetime.timedelta(days = 2)).strftime("%A")+"\n"+str((nota.showDateOfToday()+datetime.timedelta(days = 2)).day))
+        # self.month4_button.setText((nota.showDateOfToday()+datetime.timedelta(days = 3)).strftime("%A")+"\n"+str((nota.showDateOfToday()+datetime.timedelta(days = 3)).day))
+        # self.month5_button.setText((nota.showDateOfToday()+datetime.timedelta(days = 4)).strftime("%A")+"\n"+str((nota.showDateOfToday()+datetime.timedelta(days = 4)).day))
+        # self.month6_button.setText((nota.showDateOfToday()+datetime.timedelta(days = 5)).strftime("%A")+"\n"+str((nota.showDateOfToday()+datetime.timedelta(days = 5)).day))
+        # self.month7_button.setText((nota.showDateOfToday()+datetime.timedelta(days = 6)).strftime("%A")+"\n"+str((nota.showDateOfToday()+datetime.timedelta(days = 6)).day))
+
+        self.welcomeUser.setText("Welcome ,  "+userName)
+
+        x = datetime.datetime.now()
+        self.date.setText(x.strftime("%B")+' ' +
+                          x.strftime("%d")+', '+x.strftime("%Y"))
+
+        self.listCalendarButton = list()
+        self.listCalendarButton.append(self.month1_button)
+        self.listCalendarButton.append(self.month2_button)
+        self.listCalendarButton.append(self.month3_button)
+        self.listCalendarButton.append(self.month4_button)
+        self.listCalendarButton.append(self.month5_button)
+        self.listCalendarButton.append(self.month6_button)
+        self.listCalendarButton.append(self.month7_button)
+
+        for i in range(len(self.listCalendarButton)):
+            # SET TEXT MONTH
+            self.listCalendarButton[i].setText((nota.showDateOfToday()+datetime.timedelta(
+                days=+i)).strftime("%b")+"\n"+str((nota.showDateOfToday()+datetime.timedelta(days=i)).month))
+
+            self.listCalendarButton[i].clicked.connect(self.setCurrent)
+
+    def setCurrent(self):
+        for i in range(len(self.listCalendarButton)):
+            if self.listCalendarButton[i].objectName() == self.sender().objectName():
+                # print(self.sender().objectName())
+                self.listCalendarButton[i].setStyleSheet(
+                    'QPushButton {background: #FFAC4B; color: white; border-radius: 8px; }')
+            else:
+                self.listCalendarButton[i].setStyleSheet(
+                    'QPushButton {background: rgb(228, 226, 199); color: black; border-radius: 8px;  }')
+
+>>>>>>> Stashed changes
     def homeCalToLogin(self):
         loginWindow = LoginWindow()
         widget.addWidget(loginWindow)
@@ -115,6 +265,7 @@ class Note_window(QDialog):
             for i in range(len(note1)):
                 print(note1[i].notename)
                 self.listWidget.addItem(note1[i].notename)
+<<<<<<< Updated upstream
         # try:
         #     note1
         # except NameError:
@@ -123,6 +274,10 @@ class Note_window(QDialog):
         #     for i in range(len(note1)):
         #         print(note1[i].notename)
         #         self.listWidget.addItem(note1[i].notename)
+=======
+        global userName
+        self.welcomeUser.setText("Welcome ,  "+userName)
+>>>>>>> Stashed changes
 
     def goToAddNote(self):
         addNoteWindow = AddNoteWindow()
@@ -155,6 +310,12 @@ class AddNoteWindow(QDialog):
 
         self.saveNoteButton.clicked.connect(self.saveNote)
         self.cancelAdding.clicked.connect(self.cancelNote)
+<<<<<<< Updated upstream
+=======
+        global userName
+        self.welcomeUser.setText("Welcome, "+userName)
+# NUT
+>>>>>>> Stashed changes
 
     def saveNote(self):
         note1.append(Note(self.textEdit.toPlainText(),
@@ -191,6 +352,11 @@ class Task_window(QDialog):
         self.addTask.clicked.connect(self.goToAddTask)
         self.noteButton.clicked.connect(self.goToNoteWindow)
         self.homeButton.clicked.connect(self.taskWindowToHomeWeek)
+<<<<<<< Updated upstream
+=======
+        global userName
+        self.welcomeUser.setText("Welcome, "+userName)
+>>>>>>> Stashed changes
 
     def goToAddTask(self):
         addTaskWindow = AddTaskWindow()
@@ -215,6 +381,11 @@ class AddTaskWindow(QDialog):
         self.unAddTask.clicked.connect(self.goToTaskWindow)
         self.noteButton.clicked.connect(self.goToNoteWindow)
         self.homeButton.clicked.connect(self.addTaskWindowToHomeWeek)
+<<<<<<< Updated upstream
+=======
+        global userName
+        self.welcomeUser.setText("Welcome, "+userName)
+>>>>>>> Stashed changes
 
     def goToTaskWindow(self):
         task_window = Task_window()
@@ -236,6 +407,11 @@ class AddTaskWindow(QDialog):
 app = QApplication(sys.argv)
 widget = QtWidgets.QStackedWidget()
 loginWindow = LoginWindow()
+<<<<<<< Updated upstream
+=======
+global nota
+nota = Nota()
+>>>>>>> Stashed changes
 widget.addWidget(loginWindow)
 widget.show()
 try:
