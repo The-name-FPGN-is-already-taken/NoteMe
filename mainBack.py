@@ -41,7 +41,9 @@ while inp != "q":
         obj.deletRow(inp)
     elif inp == 'show':
         if obj.isLogin():
-            obj.showTaskByDate()
+            print(obj.getTaskToday())
+    elif inp == 'logout':
+        obj.logout()
 
 
 

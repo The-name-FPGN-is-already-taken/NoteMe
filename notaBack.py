@@ -2,8 +2,8 @@ import csv
 import os
 import datetime
 from dataType import *
-
-class Task:
+#Record
+class Record:
     def __init__(self,taskID,userID,taskType,dateCreate,dateTarget,topic="No topic",description="No description") -> None:
         """taskID | userID | type | date_create | date_target | string
         type 0 = task | 1 = timetable | 2 = note |"""
@@ -77,13 +77,21 @@ class Nota:
             return list(reader)
 
     def refreshTable(self):
+        #เอาจาก string เป็น Task Object
         self.isTaskTableExis()
         temptable = self.readTaskTable()
         self.table.clear()
         for row in temptable:
             if int(row[1]) == self.userID:
-                self.table.enqueue(Task(int(row[0]),int(row[1]),int(row[2]),datetime.datetime.strptime(row[3],"%Y-%m-%d %H:%M:%S"),
-                datetime.datetime.strptime(row[4],"%Y-%m-%d %H:%M:%S"),row[5],row[6]))
+                if int(row[2]) == 0:
+                    self.table.enqueue(Record(int(row[0]),int(row[1]),int(row[2]),datetime.datetime.strptime(row[3],"%Y-%m-%d %H:%M:%S"),
+                    datetime.datetime.strptime(row[4],"%Y-%m-%d %H:%M:%S"),row[5],row[6]))
+                elif int(row[2]) == 1:
+                    self.table.enqueue(Record(int(row[0]),int(row[1]),int(row[2]),datetime.datetime.strptime(row[3],"%Y-%m-%d %H:%M:%S"),
+                    int(row[4]),row[5],row[6]))
+                elif int(row[2]) == 1:
+                    self.table.enqueue(Record(int(row[0]),int(row[1]),int(row[2]),datetime.datetime.strptime(row[3],"%Y-%m-%d %H:%M:%S"),
+                    -1,row[5],row[6]))
         print("Table refreshed")
     #write : id(run) type date string
     #type 1=task 2=timetable 3=note
@@ -169,15 +177,12 @@ class Nota:
         for i in result:
             print(i)
 
-    def showTaskByDate(self,targetDate:datetime):
+    def getTaskByDate(self,targetDate:datetime):
         """targetDate format is YEAR-MONTH-DAY ex.. 2022-01-10"""
         # tempDate = datetime.datetime.strptime(targetDate,"%Y-%m-%d")
         result = []
-        # print(targetDate - datetime.datetime.strptime(self.table.li[1].dateTarget,"%Y-%m-%d").date())
         for row in self.table.li:
-            # print(targetDate, datetime.datetime.strptime(row.dateTarget,"%Y-%m-%d").date())
-            # print(targetDate == datetime.datetime.strptime(row.dateTarget,"%Y-%m-%d").date())
-            if targetDate == row.dateTarget.date():
+            if row.isTaskType() and targetDate == row.dateTarget.date():
                 result.append(row)
         # print(result[0].topic)
         return result
@@ -185,22 +190,23 @@ class Nota:
     def getTaskToday(self)->list:
         """Return queue of Task obj"""
         # print(datetime.datetime.today())
-        return self.showTaskByDate(datetime.date.today())
+        return self.getTaskByDate(datetime.date.today())
 
     def getIncomingTask(self,delta:int):
         result = []
         for row in self.table.li:
-            if (row.dateTarget.date() - datetime.date.today()).days <= delta:
+            if row.isTaskType() and (row.dateTarget.date() - datetime.date.today()).days <= delta:
                 result.append(row)
         print(result)
         return result
 
-    def getTimetable(self):
+    def getTimetableByAll(self):
         result = []
         for row in self.table.li:
-            if row.taskType == 1:
+            if row.isTimetableType():
                 result.append(row)
         return result
+
 
         
 # print(readUserTable())
