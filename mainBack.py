@@ -1,7 +1,7 @@
 
 from datetime import date
 import dataType
-from testCSV import *
+from notaBack import *
 
 #sim for testing not implement
 
@@ -19,7 +19,6 @@ while inp != "q":
         txt = input("username password : ").split()
         obj.login(txt[0],txt[1])
         
-
             
     elif inp == 'add':
         if obj.isLogin():
@@ -42,8 +41,7 @@ while inp != "q":
         obj.deletRow(inp)
     elif inp == 'show':
         if obj.isLogin():
-            txt = input("type : ")
-            obj.showTask(currentUser,int(txt))
+            obj.showTaskByDate()
 
 
 

@@ -1,4 +1,4 @@
-class stack:
+class Stack:
     def __init__(self) -> None:
         self.li = []
 
@@ -12,7 +12,7 @@ class stack:
     def getSize(self):
         return len(self.li)
 
-class queue:
+class Queue:
     def __init__(self) -> None:
         self.li = []
 
@@ -25,3 +25,6 @@ class queue:
 
     def getSize(self):
         return len(self.li)
+
+    def clear(self):
+        self.li.clear()
