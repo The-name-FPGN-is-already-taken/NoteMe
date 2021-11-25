@@ -144,7 +144,7 @@ class Nota:
             self.writeUserTable([-1,"username","password"])
 
 
-    def task(self,dateTarget:datetime,type:int=0,topic:str="No detail",descrption:str="No descrption"):
+    def addRecord(self,dateTarget:datetime,type:int=0,topic:str="No detail",descrption:str="No descrption"):
         """taskID | userID | type | date_create | date_target | string
         type 0 = task | 1 = timetable | 2 = note |"""
         self.isTaskTableExis()
