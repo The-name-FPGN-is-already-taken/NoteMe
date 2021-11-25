@@ -25,11 +25,11 @@ while inp != "q":
             taskType = int(input("Type : "))
             if taskType == 0:
                 dateInp = list(map(int,input("Date Month Year : ").split()))
-                dateTarget = datetime.date(dateInp[2],dateInp[1],dateInp[0])
+                dateTarget = datetime.datetime(dateInp[2],dateInp[1],dateInp[0])
             elif taskType == 1:
                 dateTarget = int(input("Enter day : "))
             elif taskType == 2:
-                dateTarget = None
+                dateTarget = -1
             
             txt = input("Detail : ")
             des = input("Descrpition : ")

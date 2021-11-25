@@ -34,5 +34,8 @@ f = "2021-11-24"
 t5 = datetime.datetime.strptime("2021-11-25","%Y-%m-%d")
 # t5.strptime("2021-11-25","%Y-%m-%d")
 print(t5)
-
-
+print("--------------------")
+t7 = datetime.datetime(2021,11,26)
+print(t7)
+print("--------------------")
+print("2021-11-24 24.2".split("."))
