@@ -5,6 +5,7 @@ from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import *
 from notaBack import *
 from note import Note
+
 notelst = list()
 
 timetask = list()
@@ -305,7 +306,9 @@ class Task_window(QDialog):
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
         self.listWidget.clear()
         global tasklst
+
         tasklst = nota.getIncomingTask(7)
+        Sort.sortTaskDateTarget(tasklst)
         # temp = QListWidgetItem(tasklst[0].topic, tasklst[0])
 
         for i in range(len(tasklst)):
@@ -363,10 +366,11 @@ class AddTaskWindow(QDialog):
 
         if self.sender().objectName() == "listWidget":
             indextask = self.sender().currentRow()
-
             self.taskName_textEdit.setPlainText(tasklst[indextask].topic)
             self.task_description.setPlainText(tasklst[indextask].description)
             self.dateTimeEdit.setDateTime(tasklst[indextask].dateTarget)
+
+            print(tasklst[indextask].taskID)
             # indextask = self.listWidget.currentRow()
         # print(tasklst[indextask].topic)
 
@@ -395,13 +399,19 @@ class AddTaskWindow(QDialog):
         self.taskName_textEdit.clear()
         self.task_description.clear()
         # self.task_description.overwriteMode(True)
+        print("------S", self.sender().objectName())
+        print("------S", self.taskName_textEdit.toPlainText())
+        print("------S", self.task_description.toPlainText())
         self.goToTaskWindow()
 
     def cancelTask(self):
         self.taskName_textEdit.clear()
         self.task_description.clear()
+        print("------C", self.sender().objectName())
+        print("------C", self.taskName_textEdit.toPlainText())
+        print("------C", self.task_description.toPlainText())
         print("UnSaved")
-        # self.goToTaskWindow()
+        self.goToTaskWindow()
 
     def goToTaskWindow(self):
         task_window = Task_window()
