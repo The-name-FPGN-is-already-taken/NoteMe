@@ -302,7 +302,7 @@ p, li { white-space: pre-wrap; }
        <string>TASKNAME</string>
       </property>
      </widget>
-     <widget class="QPlainTextEdit" name="task_description">
+     <widget class="QTextEdit" name="task_description">
       <property name="geometry">
        <rect>
         <x>40</x>

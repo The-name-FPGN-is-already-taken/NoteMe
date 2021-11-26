@@ -257,6 +257,7 @@ class AddNoteWindow(QDialog):
 
 # NUT
 
+
     def saveNote(self):
         # note1.append(Note(self.noteName.toPlainText(),
         #                   self.textField.toPlainText()))
@@ -298,7 +299,7 @@ class Task_window(QDialog):
         self.addTask.clicked.connect(self.goToAddTask)
         self.noteButton.clicked.connect(self.goToNoteWindow)
         self.homeButton.clicked.connect(self.taskWindowToHomeWeek)
-        self.listWidget.itemDoubleClicked.connect(self.getUpdate)
+        self.listWidget.itemDoubleClicked.connect(self.goToAddTask)
         global userName
         self.welcomeUser.setText("Welcome ,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
@@ -360,6 +361,22 @@ class AddTaskWindow(QDialog):
         self.welcomeUser.setText("Welcome ,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
 
+        if self.sender().objectName() == "listWidget":
+            indextask = self.sender().currentRow()
+
+            self.taskName_textEdit.setPlainText(tasklst[indextask].topic)
+            self.task_description.setPlainText(tasklst[indextask].description)
+            self.dateTimeEdit.setDateTime(tasklst[indextask].dateTarget)
+            # indextask = self.listWidget.currentRow()
+        # print(tasklst[indextask].topic)
+
+        # addTaskWindow.task_description.setPlainText(
+        #     tasklst[indextask].description)
+        # addTaskWindow.taskName_textEdit.setPlainText(tasklst[indextask].topic)
+        # timetarget = tasklst[indextask].dateTarget
+        # print(timetarget)
+        # print(type(timetarget))
+        # addTaskWindow.dateTimeEdit.setDateTime(timetarget)
         print("------>", self.sender().objectName())
         print("------>", self.taskName_textEdit.toPlainText())
         print("------>", self.task_description.toPlainText())
