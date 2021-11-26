@@ -335,6 +335,9 @@ class AddNoteWindow(QDialog):
 # NUT
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -407,11 +410,14 @@ class AddTaskWindow(QDialog):
         self.homeButton.clicked.connect(self.addTaskWindowToHomeWeek)
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
         global userName
         self.welcomeUser.setText("Welcome, "+userName)
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
         self.saveNoteButton.disconnect()
         self.saveNoteButton.clicked.connect(self.addTask)
         self.cancelAdding.clicked.connect(self.cancelTask)
