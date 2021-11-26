@@ -57,7 +57,7 @@ class Ui_homeCal(object):
 "top: 5px;\n"
 "\n"
 "background: #86B18B;\n"
-"mix-blend-mode: normal;\n"
+"\n"
 "border-radius: 35px;\n"
 "")
         self.app_icon.setFrameShape(QFrame.StyledPanel)
@@ -215,7 +215,7 @@ class Ui_homeCal(object):
 "left: 7px;\n"
 "top: 16px;\n"
 "text-align: right;\n"
-"mix-blend-mode: normal;\n"
+"\n"
 "background: #C4C4C4;\n"
 "border: 1px solid #000000;\n"
 "\n"

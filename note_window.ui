@@ -217,13 +217,16 @@ left: 60px;
 top: 30px;
 
 background: #E4E2C7;
-border-radius: 15px;</string>
+</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::VLine</enum>
      </property>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
+     </property>
+     <property name="lineWidth">
+      <number>0</number>
      </property>
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
@@ -251,13 +254,16 @@ border-radius: 15px;</string>
           <string notr="true">font: 75 14pt &quot;AvenirNext LT Pro Bold&quot;;</string>
          </property>
          <property name="text">
-          <string>                             Date Created</string>
+          <string>Date Created</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
       </layout>
      </widget>
-     <widget class="QListWidget" name="listWidget">
+     <widget class="QListWidget" name="noteTray">
       <property name="geometry">
        <rect>
         <x>60</x>
@@ -455,7 +461,7 @@ border-radius: 10px;</string>
       </layout>
      </item>
      <item>
-      <widget class="QPushButton" name="addNote">
+      <widget class="QPushButton" name="addNoteButton">
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>

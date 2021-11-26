@@ -131,9 +131,10 @@ class Ui_homeCal(object):
 "top: 30px;\n"
 "\n"
 "background: #E4E2C7;\n"
-"border-radius: 15px;")
+"")
         self.frame.setFrameShape(QFrame.VLine)
         self.frame.setFrameShadow(QFrame.Raised)
+        self.frame.setLineWidth(0)
         self.layoutWidget1 = QWidget(self.frame)
         self.layoutWidget1.setObjectName(u"layoutWidget1")
         self.layoutWidget1.setGeometry(QRect(60, 30, 761, 30))
@@ -149,13 +150,14 @@ class Ui_homeCal(object):
         self.dateCreated0 = QLabel(self.layoutWidget1)
         self.dateCreated0.setObjectName(u"dateCreated0")
         self.dateCreated0.setStyleSheet(u"font: 75 14pt \"AvenirNext LT Pro Bold\";")
+        self.dateCreated0.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
         self.horizontalLayout_2.addWidget(self.dateCreated0)
 
-        self.listWidget = QListWidget(self.frame)
-        self.listWidget.setObjectName(u"listWidget")
-        self.listWidget.setGeometry(QRect(60, 90, 761, 331))
-        self.listWidget.setStyleSheet(u"background-color: rgb(254, 250, 224);")
+        self.noteTray = QListWidget(self.frame)
+        self.noteTray.setObjectName(u"noteTray")
+        self.noteTray.setGeometry(QRect(60, 90, 761, 331))
+        self.noteTray.setStyleSheet(u"background-color: rgb(254, 250, 224);")
         self.leftBar = QFrame(self.backFrame)
         self.leftBar.setObjectName(u"leftBar")
         self.leftBar.setGeometry(QRect(0, 100, 91, 541))
@@ -290,14 +292,14 @@ class Ui_homeCal(object):
 
         self.verticalLayout_7.addLayout(self.verticalLayout_6)
 
-        self.addNote = QPushButton(self.leftBar)
-        self.addNote.setObjectName(u"addNote")
-        self.addNote.setCursor(QCursor(Qt.PointingHandCursor))
-        self.addNote.setFocusPolicy(Qt.ClickFocus)
-        self.addNote.setStyleSheet(u"background: rgba(0,0,0,0);\n"
+        self.addNoteButton = QPushButton(self.leftBar)
+        self.addNoteButton.setObjectName(u"addNoteButton")
+        self.addNoteButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.addNoteButton.setFocusPolicy(Qt.ClickFocus)
+        self.addNoteButton.setStyleSheet(u"background: rgba(0,0,0,0);\n"
 "image: url(D:/NotaProject/pics/add.png);")
 
-        self.verticalLayout_7.addWidget(self.addNote)
+        self.verticalLayout_7.addWidget(self.addNoteButton)
 
         self.layoutWidget2 = QWidget(homeCal)
         self.layoutWidget2.setObjectName(u"layoutWidget2")
@@ -316,7 +318,7 @@ class Ui_homeCal(object):
         self.welcomeUser.setText(QCoreApplication.translate("homeCal", u"Welcome,", None))
         self.date.setText(QCoreApplication.translate("homeCal", u"November 21, 2021", None))
         self.noteName0.setText(QCoreApplication.translate("homeCal", u"Name", None))
-        self.dateCreated0.setText(QCoreApplication.translate("homeCal", u"                             Date Created", None))
+        self.dateCreated0.setText(QCoreApplication.translate("homeCal", u"Date Created", None))
 #if QT_CONFIG(tooltip)
         self.homeButton.setToolTip(QCoreApplication.translate("homeCal", u"<html><head/><body><p><br/>home</p><p><br/></p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
@@ -331,6 +333,6 @@ class Ui_homeCal(object):
         self.note_label.setText(QCoreApplication.translate("homeCal", u"    NOTE", None))
         self.taskButton.setText("")
         self.task_label.setText(QCoreApplication.translate("homeCal", u"     TASK", None))
-        self.addNote.setText("")
+        self.addNoteButton.setText("")
     # retranslateUi
 

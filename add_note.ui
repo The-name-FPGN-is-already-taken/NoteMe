@@ -342,7 +342,7 @@ border-radius: 10px;</string>
       </layout>
      </item>
      <item>
-      <widget class="QPushButton" name="addNote">
+      <widget class="QPushButton" name="unAddNote">
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
@@ -408,7 +408,7 @@ background: #E4E2C7;
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QTextEdit" name="noteName">
+     <widget class="QTextEdit" name="noteName_textEdit">
       <property name="geometry">
        <rect>
         <x>60</x>
@@ -432,7 +432,7 @@ p, li { white-space: pre-wrap; }
        <string>NOTENAME</string>
       </property>
      </widget>
-     <widget class="QPlainTextEdit" name="textField">
+     <widget class="QPlainTextEdit" name="note_description">
       <property name="geometry">
        <rect>
         <x>60</x>
@@ -507,7 +507,7 @@ background: #C6D57E;
 border-radius: 15px;</string>
         </property>
         <property name="text">
-         <string>SAVE</string>
+         <string>ADD</string>
         </property>
        </widget>
       </item>

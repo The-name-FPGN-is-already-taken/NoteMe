@@ -219,16 +219,27 @@ class Note_window(QDialog):
     def __init__(self):
         super(Note_window, self).__init__()
         loadUi("note_window.ui", self)
-        self.addNote.clicked.connect(self.goToAddNote)
+        self.addNoteButton.clicked.connect(self.goToAddNote)
         self.homeButton.clicked.connect(self.noteWindowToHomeWeek)
         self.taskButton.clicked.connect(self.goToTaskWindow)
         self.timeTableButton.clicked.connect(self.goToTimeTableWindow)
-        self.listWidget.clear()
 
         global userName
         self.welcomeUser.setText("Welcome ,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
+        
+        self.noteTray.itemDoubleClicked.connect(self.goToAddNote)
+        self.noteTray.clear()
+        global notelst
 
+        notelst = nota.getNoteAll()
+        # Sort.sortTaskDateTarget(notelst)
+
+        for i in range(len(notelst)):
+            # print("Topic:", notelst[i].topic,
+            #       "des:", notelst[i].description,
+            #       "I:", i)
+            self.noteTray.addItem(notelst[i].topic)
     def goToAddNote(self):
         addNoteWindow = AddNoteWindow()
         widget.addWidget(addNoteWindow)
@@ -259,36 +270,54 @@ class AddNoteWindow(QDialog):
     def __init__(self):
         super(AddNoteWindow, self).__init__()
         loadUi("add_note.ui", self)
-        self.addNote.clicked.connect(self.goToNoteWindow)
+        self.unAddNote.clicked.connect(self.goToNoteWindow)
         self.homeButton.clicked.connect(self.addNoteWindowToHomeWeek)
         self.taskButton.clicked.connect(self.goToTaskWindow)
 
-        self.saveNoteButton.clicked.connect(self.saveNote)
+        self.saveNoteButton.disconnect()
+        self.saveNoteButton.clicked.connect(self.addNote)
         self.cancelAdding.clicked.connect(self.cancelNote)
         global userName
         self.welcomeUser.setText("Welcome ,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
 
+        if self.sender().objectName() == "noteTray":
+            self.indexNote = self.sender().currentRow()
+            self.noteName_textEdit.setPlainText(notelst[self.indexNote].topic)
+            self.note_description.setPlainText(
+                notelst[self.indexNote].description)
+            self.saveNoteButton.disconnect()
+            self.saveNoteButton.clicked.connect(self.saveNote)
+            self.saveNoteButton.setText("SAVE")
 
-# NUT
+            print(notelst[self.indexNote].taskID)
 
     def saveNote(self):
-        # note1.append(Note(self.noteName.toPlainText(),
-        #                   self.textField.toPlainText()))
-        #  CANT USE   Fri Nov 26 1:44:50 AM
-        nota.addRecord(-1, 2, self.noteName.toPlainText(),
-                       self.textField.toPlainText())
-
-        self.noteName.clear()
-        self.textField.clear()
-        print("Saved")
+        print("------>", self.indexNote)
+        notelst[self.indexNote].topic = self.noteName_textEdit.toPlainText()
+        notelst[self.indexNote].description = self.note_description.toPlainText()
+        nota.editRecord(notelst[self.indexNote])
+        self.note_description.clear()
         self.goToNoteWindow()
-
+    def addNote(self):
+        nota.addRecord(time, 2, self.noteName_textEdit.toPlainText(),
+                       self.note_description.toPlainText())
+        self.noteName_textEdit.clear()
+        self.note_description.clear()
+        # self.task_description.overwriteMode(True)
+        print("------S", self.sender().objectName())
+        print("------S", self.noteName_textEdit.toPlainText())
+        print("------S", self.note_description.toPlainText())
+        self.goToNoteWindow()
+        
     def cancelNote(self):
-        self.noteName.clear()
-        self.textField.clear()
+        self.noteName_textEdit.clear()
+        self.note_description.clear()
+        # print("------C", self.sender().objectName())
+        # print("------C", self.taskName_textEdit.toPlainText())
+        # print("------C", self.task_description.toPlainText())
         print("UnSaved")
-        # self.goToNoteWindow()
+        self.goToNoteWindow()
 
     def goToTaskWindow(self):
         task_window = Task_window()
@@ -324,6 +353,7 @@ class Task_window(QDialog):
         global userName
         self.welcomeUser.setText("Welcome ,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
+        
         self.listWidget.clear()
         global tasklst
 
@@ -426,12 +456,6 @@ class AddTaskWindow(QDialog):
         self.taskName_textEdit.clear()
         self.task_description.clear()
         self.goToTaskWindow()
-
-    def testBranch(self):
-        print("cncd")
-
-    def testFORMNUTBRANCH(self):
-        print("OMGGGGGG")
 
     def addTask(self):
 
