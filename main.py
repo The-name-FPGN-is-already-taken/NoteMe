@@ -272,6 +272,7 @@ class AddNoteWindow(QDialog):
 
 # NUT
 
+
     def saveNote(self):
         # note1.append(Note(self.noteName.toPlainText(),
         #                   self.textField.toPlainText()))
@@ -401,16 +402,7 @@ class AddTaskWindow(QDialog):
             self.saveNoteButton.setText("SAVE")
 
             print(tasklst[self.indextask].taskID)
-            # indextask = self.listWidget.currentRow()
-        # print(tasklst[indextask].topic)
 
-        # addTaskWindow.task_description.setPlainText(
-        #     tasklst[indextask].description)
-        # addTaskWindow.taskName_textEdit.setPlainText(tasklst[indextask].topic)
-        # timetarget = tasklst[indextask].dateTarget
-        # print(timetarget)
-        # print(type(timetarget))
-        # addTaskWindow.dateTimeEdit.setDateTime(timetarget)
         print("------>", self.sender().objectName())
         print("------>", self.taskName_textEdit.toPlainText())
         print("------>", self.task_description.toPlainText())
@@ -427,12 +419,6 @@ class AddTaskWindow(QDialog):
         self.task_description.clear()
         self.goToTaskWindow()
 
-    def testBranch(self):
-        print("cncd")
-
-    def testFORMNUTBRANCH(self):
-        print("OMGGGGGG")
-
     def addTask(self):
 
         # M/d/yy h:mm AP
@@ -447,17 +433,17 @@ class AddTaskWindow(QDialog):
         self.taskName_textEdit.clear()
         self.task_description.clear()
         # self.task_description.overwriteMode(True)
-        print("------S", self.sender().objectName())
-        print("------S", self.taskName_textEdit.toPlainText())
-        print("------S", self.task_description.toPlainText())
+        # print("------S", self.sender().objectName())
+        # print("------S", self.taskName_textEdit.toPlainText())
+        # print("------S", self.task_description.toPlainText())
         self.goToTaskWindow()
 
     def cancelTask(self):
         self.taskName_textEdit.clear()
         self.task_description.clear()
-        print("------C", self.sender().objectName())
-        print("------C", self.taskName_textEdit.toPlainText())
-        print("------C", self.task_description.toPlainText())
+        # print("------C", self.sender().objectName())
+        # print("------C", self.taskName_textEdit.toPlainText())
+        # print("------C", self.task_description.toPlainText())
         print("UnSaved")
         self.goToTaskWindow()
 
@@ -523,9 +509,33 @@ class AddTimeTableWindow(QDialog):
         self.noteButton.clicked.connect(self.goToNoteWindow)
         self.homeButton.clicked.connect(self.goToHomeWeek)
         self.taskButton.clicked.connect(self.goToTaskWindow)
+        self.saveTimetableButton.disconnect()
+        # FAILED SAT NOV 27 2:04:44 AM
+        self.saveTimetableButton.clicked.connect(self.addTimetable)
+        self.cancelTimetableButton.clicked.connect(self.cancelTimetable)
         global userName
         self.welcomeUser.setText("Welcome ,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
+
+    # FAILED SAT NOV 27 2:04:44 AM
+    def addTimetable(self):
+        # M/d/yy h:mm AP
+        # time = self.timetable_Edittime.dateTime()
+        # print("->timeedit:", time)
+        # # yy/m/d h:mm:ss
+        # time = time.toPyDateTime()
+        # print("->timePy:", time)
+        # nota.addRecord(time, 1, self.timetabletitleName_textEdit.toPlainText(
+        # ), self.timetable_description.toPlainText())
+        # self.timetabletitleName_textEdit.clear()
+        # self.timetable_description.clear()
+        self.goToTimeTableWindow()
+
+    def cancelTimetable(self):
+        self.timetabletitleName_textEdit.clear()
+        self.timetable_description.clear()
+        print("UNSAVE TIME TABLE")
+        self.goToTimeTableWindow()
 
     def goToTimeTableWindow(self):
         timeTable_window = TimeTable_window()
