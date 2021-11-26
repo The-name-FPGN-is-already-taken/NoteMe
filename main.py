@@ -411,11 +411,14 @@ class AddTaskWindow(QDialog):
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
         global userName
         self.welcomeUser.setText("Welcome, "+userName)
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
         self.saveNoteButton.disconnect()
@@ -426,15 +429,27 @@ class AddTaskWindow(QDialog):
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
 
         if self.sender().objectName() == "listWidget":
+<<<<<<< Updated upstream
             indextask = self.sender().currentRow()
             self.taskName_textEdit.setPlainText(tasklst[indextask].topic)
             self.task_description.setPlainText(tasklst[indextask].description)
             self.dateTimeEdit.setDateTime(tasklst[indextask].dateTarget)
+=======
+            self.indextask = self.sender().currentRow()
+            self.taskName_textEdit.setPlainText(tasklst[self.indextask].topic)
+            self.task_description.setPlainText(
+                tasklst[self.indextask].description)
+            self.dateTimeEdit.setDateTime(tasklst[self.indextask].dateTarget)
+>>>>>>> Stashed changes
             self.saveNoteButton.disconnect()
             self.saveNoteButton.clicked.connect(self.saveTask)
             self.saveNoteButton.setText("SAVE")
 
+<<<<<<< Updated upstream
             print(tasklst[indextask].taskID)
+=======
+            print(tasklst[self.indextask].taskID)
+>>>>>>> Stashed changes
             # indextask = self.listWidget.currentRow()
         # print(tasklst[indextask].topic)
 
@@ -450,7 +465,22 @@ class AddTaskWindow(QDialog):
         print("------>", self.task_description.toPlainText())
 
     def saveTask(self):
+<<<<<<< Updated upstream
         print("WTF")
+=======
+        print("------>", self.indextask)
+        tasklst[self.indextask].topic = self.taskName_textEdit.toPlainText()
+        tasklst[self.indextask].description = self.task_description.toPlainText()
+        time = self.dateTimeEdit.dateTime()
+        time = time.toPyDateTime()
+        tasklst[self.indextask].dateTarget = time
+        nota.editRecord(tasklst[self.indextask])
+        self.taskName_textEdit.clear()
+        self.task_description.clear()
+        self.goToTaskWindow()
+
+    def addTask(self):
+>>>>>>> Stashed changes
 
     def addTask(self):
         # M/d/yy h:mm AP
