@@ -402,7 +402,7 @@ class AddTaskWindow(QDialog):
         self.goToTaskWindow()
 
     def testBranch(self):
-        pass
+        print("WTF")
 
     def addTask(self):
 
