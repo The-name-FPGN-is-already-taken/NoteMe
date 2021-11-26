@@ -412,11 +412,14 @@ class AddTaskWindow(QDialog):
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
         global userName
         self.welcomeUser.setText("Welcome, "+userName)
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -430,23 +433,33 @@ class AddTaskWindow(QDialog):
 
         if self.sender().objectName() == "listWidget":
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             indextask = self.sender().currentRow()
             self.taskName_textEdit.setPlainText(tasklst[indextask].topic)
             self.task_description.setPlainText(tasklst[indextask].description)
             self.dateTimeEdit.setDateTime(tasklst[indextask].dateTarget)
 =======
+=======
+>>>>>>> Stashed changes
             self.indextask = self.sender().currentRow()
             self.taskName_textEdit.setPlainText(tasklst[self.indextask].topic)
             self.task_description.setPlainText(
                 tasklst[self.indextask].description)
             self.dateTimeEdit.setDateTime(tasklst[self.indextask].dateTarget)
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
             self.saveNoteButton.disconnect()
             self.saveNoteButton.clicked.connect(self.saveTask)
             self.saveNoteButton.setText("SAVE")
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             print(tasklst[indextask].taskID)
+=======
+            print(tasklst[self.indextask].taskID)
+>>>>>>> Stashed changes
 =======
             print(tasklst[self.indextask].taskID)
 >>>>>>> Stashed changes
@@ -466,8 +479,11 @@ class AddTaskWindow(QDialog):
 
     def saveTask(self):
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         print("WTF")
 =======
+=======
+>>>>>>> Stashed changes
         print("------>", self.indextask)
         tasklst[self.indextask].topic = self.taskName_textEdit.toPlainText()
         tasklst[self.indextask].description = self.task_description.toPlainText()
@@ -478,6 +494,11 @@ class AddTaskWindow(QDialog):
         self.taskName_textEdit.clear()
         self.task_description.clear()
         self.goToTaskWindow()
+<<<<<<< Updated upstream
+=======
+
+    def addTask(self):
+>>>>>>> Stashed changes
 
     def addTask(self):
 >>>>>>> Stashed changes
