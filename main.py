@@ -81,10 +81,11 @@ class HomeWeek_window(QDialog):
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
 
         self.currentDay = -1  # ยังไม่เลือกวัน = Today, Monday =0 .... Sunday = 6
-        self.signOutButton.clicked.connect(self.homeWeekToLogin)
+        self.signOutButton.clicked.connect(self.signOut)
         self.calendar_tab.clicked.connect(self.homeWeekToHomeCal)
         self.noteButton.clicked.connect(self.homeWeekToNoteWindow)
         self.taskButton.clicked.connect(self.homeWeekToTaskWindow)
+        self.timeTableButton.clicked.connect(self.goToTimeTableWindow)
 
         self.listDayButton = list()
         self.listDayButton.append(self.monday_button)
@@ -103,7 +104,9 @@ class HomeWeek_window(QDialog):
 
             # SET clicked connect
             self.listDayButton[i].clicked.connect(self.setCurrent)
-
+    def signOut(self):
+        nota.logout()
+        self.homeWeekToLogin()
     def setCurrent(self):
         for i in range(len(self.listDayButton)):
             if self.listDayButton[i].objectName() == self.sender().objectName():
@@ -133,6 +136,11 @@ class HomeWeek_window(QDialog):
         task_window = Task_window()
         widget.addWidget(task_window)
         widget.setCurrentIndex(widget.currentIndex()+1)
+        
+    def goToTimeTableWindow(self):
+        timeTable_window = TimeTable_window()
+        widget.addWidget(timeTable_window)
+        widget.setCurrentIndex(widget.currentIndex()+1)
 
 
 class HomeCal_window(QDialog):
@@ -140,7 +148,8 @@ class HomeCal_window(QDialog):
         super(HomeCal_window, self).__init__()
         loadUi("home_cal.ui", self)
         self.currentbutton = -1
-        self.signOutButton.clicked.connect(self.goToLoginWindow)
+        self.signOutButton.clicked.connect(self.signOut)
+
         self.weekView_tab.clicked.connect(self.goToHomeWeek)
         self.noteButton.clicked.connect(self.homeCalToNoteWindow)
         self.welcomeUser.setText("Welcome ,  "+userName)
@@ -164,7 +173,9 @@ class HomeCal_window(QDialog):
                 days=+i)).strftime("%b")+"\n"+str((nota.showDateOfToday()+datetime.timedelta(days=i)).month))
 
             self.listCalendarButton[i].clicked.connect(self.setCurrent)
-
+    def signOut(self):
+        nota.logout()
+        self.goToLoginWindow()    
     def setCurrent(self):
         for i in range(len(self.listCalendarButton)):
             if self.listCalendarButton[i].objectName() == self.sender().objectName():
@@ -193,6 +204,13 @@ class HomeCal_window(QDialog):
         note_window = Note_window()
         widget.addWidget(note_window)
         widget.setCurrentIndex(widget.currentIndex()+1)
+        
+    def goToTimeTableWindow(self):
+        timeTable_window = TimeTable_window()
+        widget.addWidget(timeTable_window)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+    
+    
 
 
 class Note_window(QDialog):
@@ -202,19 +220,8 @@ class Note_window(QDialog):
         self.addNote.clicked.connect(self.goToAddNote)
         self.homeButton.clicked.connect(self.noteWindowToHomeWeek)
         self.taskButton.clicked.connect(self.goToTaskWindow)
+        self.timeTableButton.clicked.connect(self.goToTimeTableWindow)
         self.listWidget.clear()
-
-        #  CANT USE   Fri Nov 26 1:44:50 AM
-        try:
-            notelst
-        except NameError:
-            print("well, it WASN'T defined after all!")
-        else:
-            print("sure, it was defined.")
-            notelst = nota.getTimetableByAll()
-            for i in range(len(notelst)):
-                # print(notelst[i].topic)
-                self.listWidget.addItem(notelst[i].top)
 
         global userName
         self.welcomeUser.setText("Welcome ,  "+userName)
@@ -238,6 +245,11 @@ class Note_window(QDialog):
     def goToTaskWindow(self):
         task_window = Task_window()
         widget.addWidget(task_window)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+        
+    def goToTimeTableWindow(self):
+        timeTable_window = TimeTable_window()
+        widget.addWidget(timeTable_window)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
 
@@ -291,6 +303,11 @@ class AddNoteWindow(QDialog):
         homeWeek_window = HomeWeek_window()
         widget.addWidget(homeWeek_window)
         widget.setCurrentIndex(widget.currentIndex()+1)
+        
+    def goToTimeTableWindow(self):
+        timeTable_window = TimeTable_window()
+        widget.addWidget(timeTable_window)
+        widget.setCurrentIndex(widget.currentIndex()+1)
 
 
 class Task_window(QDialog):
@@ -301,6 +318,8 @@ class Task_window(QDialog):
         self.noteButton.clicked.connect(self.goToNoteWindow)
         self.homeButton.clicked.connect(self.taskWindowToHomeWeek)
         self.listWidget.itemDoubleClicked.connect(self.goToAddTask)
+        self.timeTableButton.clicked.connect(self.goToTimeTableWindow)
+
         global userName
         self.welcomeUser.setText("Welcome ,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
@@ -347,6 +366,11 @@ class Task_window(QDialog):
     def taskWindowToHomeWeek(self):
         homeWeek_window = HomeWeek_window()
         widget.addWidget(homeWeek_window)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+        
+    def goToTimeTableWindow(self):
+        timeTable_window = TimeTable_window()
+        widget.addWidget(timeTable_window)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
 
@@ -427,8 +451,74 @@ class AddTaskWindow(QDialog):
         homeWeek_window = HomeWeek_window()
         widget.addWidget(homeWeek_window)
         widget.setCurrentIndex(widget.currentIndex()+1)
+        
+    def goToTimeTableWindow(self):
+        timeTable_window = TimeTable_window()
+        widget.addWidget(timeTable_window)
+        widget.setCurrentIndex(widget.currentIndex()+1)
 
+class TimeTable_window(QDialog):
+    def __init__(self):
+        super(TimeTable_window, self).__init__()
+        loadUi("timetable.ui", self)
+        self.addTimeTableButton.clicked.connect(self.goToAddTimeTable)
+        self.noteButton.clicked.connect(self.goToNoteWindow)
+        self.taskButton.clicked.connect(self.goToTaskWindow)
+        self.homeButton.clicked.connect(self.taskWindowToHomeWeek)
+        global userName
+        self.welcomeUser.setText("Welcome ,  "+userName)
+        self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
 
+    def goToAddTimeTable(self):
+        addTimeTableWindow = AddTimeTableWindow()
+        widget.addWidget(addTimeTableWindow)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+        
+    def goToTaskWindow(self):
+        task_window = Task_window()
+        widget.addWidget(task_window)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+    def goToNoteWindow(self):
+        note_window = Note_window()
+        widget.addWidget(note_window)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+    def taskWindowToHomeWeek(self):
+        homeWeek_window = HomeWeek_window()
+        widget.addWidget(homeWeek_window)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+class AddTimeTableWindow(QDialog):
+    def __init__(self):
+        super(AddTimeTableWindow, self).__init__()
+        loadUi("Timetableadd.ui", self)
+        self.unAddButton.clicked.connect(self.goToTimeTableWindow)
+        self.noteButton.clicked.connect(self.goToNoteWindow)
+        self.homeButton.clicked.connect(self.goToHomeWeek)
+        self.taskButton.clicked.connect(self.goToTaskWindow)
+        global userName
+        self.welcomeUser.setText("Welcome ,  "+userName)
+        self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
+    
+    def goToTimeTableWindow(self):
+        timeTable_window = TimeTable_window()
+        widget.addWidget(timeTable_window)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+        
+    def goToTaskWindow(self):
+        task_window = Task_window()
+        widget.addWidget(task_window)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+    def goToNoteWindow(self):
+        note_window = Note_window()
+        widget.addWidget(note_window)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+    def goToHomeWeek(self):
+        homeWeek_window = HomeWeek_window()
+        widget.addWidget(homeWeek_window)
+        widget.setCurrentIndex(widget.currentIndex()+1)
 # main
 app = QApplication(sys.argv)
 widget = QtWidgets.QStackedWidget()
