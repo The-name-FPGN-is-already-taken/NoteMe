@@ -8,7 +8,12 @@ from testCSV import *
 >>>>>>> Stashed changes
 from note import Note
 
+<<<<<<< Updated upstream
 note1 = list()
+=======
+
+timetask = list()
+>>>>>>> Stashed changes
 
 
 class LoginWindow(QDialog):
@@ -256,6 +261,7 @@ class Note_window(QDialog):
 
         self.listWidget.clear()
 
+<<<<<<< Updated upstream
         try:
             note1
         except NameError:
@@ -275,6 +281,18 @@ class Note_window(QDialog):
         #         print(note1[i].notename)
         #         self.listWidget.addItem(note1[i].notename)
 =======
+=======
+        #  CANT USE   Fri Nov 26 1:44:50 AM
+        global notelst
+        notelst = nota.getNoteAll()
+        for i in range(len(notelst)):
+            # print(notelst[i].topic)
+            print("Topic:", notelst[i].topic,
+                  "des:", notelst[i].description,
+                  "I:", i)
+            self.listWidget.addItem(notelst[i].top)
+
+>>>>>>> Stashed changes
         global userName
         self.welcomeUser.setText("Welcome ,  "+userName)
 >>>>>>> Stashed changes
@@ -315,6 +333,9 @@ class AddNoteWindow(QDialog):
         global userName
         self.welcomeUser.setText("Welcome, "+userName)
 # NUT
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
     def saveNote(self):
