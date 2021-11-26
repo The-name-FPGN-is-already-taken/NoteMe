@@ -428,7 +428,7 @@ class AddTaskWindow(QDialog):
         self.goToTaskWindow()
 
     def testBranch(self):
-        print("WTF")
+        print("cncd")
 
     def testFORMNUTBRANCH(self):
         print("OMGGGGGG")
