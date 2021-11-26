@@ -401,6 +401,9 @@ class AddTaskWindow(QDialog):
         self.task_description.clear()
         self.goToTaskWindow()
 
+    def testBranch(self):
+        pass
+
     def addTask(self):
 
         # M/d/yy h:mm AP
