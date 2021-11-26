@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import *
 from notaBack import *
 from note import Note
 notelst = list()
-tasklst = list()
+
 timetask = list()
 
 
@@ -298,15 +298,40 @@ class Task_window(QDialog):
         self.addTask.clicked.connect(self.goToAddTask)
         self.noteButton.clicked.connect(self.goToNoteWindow)
         self.homeButton.clicked.connect(self.taskWindowToHomeWeek)
+        self.listWidget.itemDoubleClicked.connect(self.getTopic)
         global userName
         self.welcomeUser.setText("Welcome ,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
-
-        tasklst = nota.getIncomingTask(7)
-        for i in range(len(tasklst)):
-            print(tasklst[i].topic, tasklst[i].description)
-
         self.listWidget.clear()
+        global tasklst
+        tasklst = nota.getIncomingTask(7)
+        # temp = QListWidgetItem(tasklst[0].topic, tasklst[0])
+
+        for i in range(len(tasklst)):
+            print("Topic:", tasklst[i].topic,
+                  "des:", tasklst[i].description,
+                  "I:", i)
+            self.listWidget.addItem(tasklst[i].topic)
+
+    def getTopic(self):
+        addTaskWindow = AddTaskWindow()
+        indextask = self.listWidget.currentRow()
+        print(tasklst[indextask].topic)
+
+        tempstring = (""+str(tasklst[indextask].description)+"")
+        print(tempstring)
+        addTaskWindow.taskName_textEdit.setPlainText(tasklst[indextask].topic)
+
+        # addTaskWindow.task_description.setOverwriteMode(True)
+        print(addTaskWindow.task_description.overwriteMode())
+        addTaskWindow.task_description.setOverwriteMode(True)
+        addTaskWindow.task_description.clear()
+        addTaskWindow.task_description.setPlainText("KUYPONG")
+        # addTaskWindow.task_description.setPlainText(
+        #     str(tasklst[indextask].description))
+
+        widget.addWidget(addTaskWindow)
+        widget.setCurrentIndex(widget.currentIndex()+1)
 
     def goToAddTask(self):
         addTaskWindow = AddTaskWindow()
