@@ -163,7 +163,7 @@ class Ui_homeCal(object):
 "border-radius: 10px;\n"
 "background-color: rgb(244, 255, 228);\n"
 "color: rgb(88, 105, 82);")
-        self.task_description = QPlainTextEdit(self.widget)
+        self.task_description = QTextEdit(self.widget)
         self.task_description.setObjectName(u"task_description")
         self.task_description.setGeometry(QRect(40, 110, 731, 261))
         self.task_description.setStyleSheet(u"background: rgba(0,0,0,0);\n"
@@ -348,7 +348,7 @@ class Ui_homeCal(object):
         self.welcomeUser.setText(QCoreApplication.translate("homeCal", u"Welcome,", None))
         self.date.setText(QCoreApplication.translate("homeCal", u"November 21, 2021", None))
         self.cancelAdding.setText(QCoreApplication.translate("homeCal", u"CANCEL", None))
-        self.saveNoteButton.setText(QCoreApplication.translate("homeCal", u"ADD", None))
+        self.saveNoteButton.setText(QCoreApplication.translate("homeCal", u"SAVE", None))
         self.taskName_textEdit.setHtml(QCoreApplication.translate("homeCal", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
