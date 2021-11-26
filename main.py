@@ -1,3 +1,4 @@
+from datetime import time
 import sys
 from PyQt5.uic import loadUi
 from PyQt5 import QtWidgets
@@ -256,7 +257,6 @@ class AddNoteWindow(QDialog):
 
 # NUT
 
-
     def saveNote(self):
         # note1.append(Note(self.noteName.toPlainText(),
         #                   self.textField.toPlainText()))
@@ -298,7 +298,7 @@ class Task_window(QDialog):
         self.addTask.clicked.connect(self.goToAddTask)
         self.noteButton.clicked.connect(self.goToNoteWindow)
         self.homeButton.clicked.connect(self.taskWindowToHomeWeek)
-        self.listWidget.itemDoubleClicked.connect(self.getTopic)
+        self.listWidget.itemDoubleClicked.connect(self.getUpdate)
         global userName
         self.welcomeUser.setText("Welcome ,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
@@ -313,25 +313,22 @@ class Task_window(QDialog):
                   "I:", i)
             self.listWidget.addItem(tasklst[i].topic)
 
-    def getTopic(self):
-        addTaskWindow = AddTaskWindow()
-        indextask = self.listWidget.currentRow()
-        print(tasklst[indextask].topic)
+    def getUpdate(self):
+        pass
+        # addTaskWindow = AddTaskWindow()
+        # widget.addWidget(addTaskWindow)
+        # widget.setCurrentIndex(widget.currentIndex()+1)
 
-        tempstring = (""+str(tasklst[indextask].description)+"")
-        print(tempstring)
-        addTaskWindow.taskName_textEdit.setPlainText(tasklst[indextask].topic)
+        # indextask = self.listWidget.currentRow()
+        # print(tasklst[indextask].topic)
 
-        # addTaskWindow.task_description.setOverwriteMode(True)
-        print(addTaskWindow.task_description.overwriteMode())
-        addTaskWindow.task_description.setOverwriteMode(True)
-        addTaskWindow.task_description.clear()
-        addTaskWindow.task_description.setPlainText("KUYPONG")
         # addTaskWindow.task_description.setPlainText(
-        #     str(tasklst[indextask].description))
-
-        widget.addWidget(addTaskWindow)
-        widget.setCurrentIndex(widget.currentIndex()+1)
+        #     tasklst[indextask].description)
+        # addTaskWindow.taskName_textEdit.setPlainText(tasklst[indextask].topic)
+        # timetarget = tasklst[indextask].dateTarget
+        # print(timetarget)
+        # print(type(timetarget))
+        # addTaskWindow.dateTimeEdit.setDateTime(timetarget)
 
     def goToAddTask(self):
         addTaskWindow = AddTaskWindow()
@@ -363,6 +360,10 @@ class AddTaskWindow(QDialog):
         self.welcomeUser.setText("Welcome ,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
 
+        print("------>", self.sender().objectName())
+        print("------>", self.taskName_textEdit.toPlainText())
+        print("------>", self.task_description.toPlainText())
+
     def saveTask(self):
 
         # M/d/yy h:mm AP
@@ -376,6 +377,7 @@ class AddTaskWindow(QDialog):
                        self.task_description.toPlainText())
         self.taskName_textEdit.clear()
         self.task_description.clear()
+        # self.task_description.overwriteMode(True)
         self.goToTaskWindow()
 
     def cancelTask(self):
