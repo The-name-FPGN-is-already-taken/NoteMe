@@ -334,6 +334,9 @@ class AddNoteWindow(QDialog):
         self.welcomeUser.setText("Welcome, "+userName)
 # NUT
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -403,9 +406,72 @@ class AddTaskWindow(QDialog):
         self.noteButton.clicked.connect(self.goToNoteWindow)
         self.homeButton.clicked.connect(self.addTaskWindowToHomeWeek)
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
         global userName
         self.welcomeUser.setText("Welcome, "+userName)
+>>>>>>> Stashed changes
+=======
+        self.saveNoteButton.disconnect()
+        self.saveNoteButton.clicked.connect(self.addTask)
+        self.cancelAdding.clicked.connect(self.cancelTask)
+        global userName
+        self.welcomeUser.setText("Welcome ,  "+userName)
+        self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
+
+        if self.sender().objectName() == "listWidget":
+            indextask = self.sender().currentRow()
+            self.taskName_textEdit.setPlainText(tasklst[indextask].topic)
+            self.task_description.setPlainText(tasklst[indextask].description)
+            self.dateTimeEdit.setDateTime(tasklst[indextask].dateTarget)
+            self.saveNoteButton.disconnect()
+            self.saveNoteButton.clicked.connect(self.saveTask)
+            self.saveNoteButton.setText("SAVE")
+
+            print(tasklst[indextask].taskID)
+            # indextask = self.listWidget.currentRow()
+        # print(tasklst[indextask].topic)
+
+        # addTaskWindow.task_description.setPlainText(
+        #     tasklst[indextask].description)
+        # addTaskWindow.taskName_textEdit.setPlainText(tasklst[indextask].topic)
+        # timetarget = tasklst[indextask].dateTarget
+        # print(timetarget)
+        # print(type(timetarget))
+        # addTaskWindow.dateTimeEdit.setDateTime(timetarget)
+        print("------>", self.sender().objectName())
+        print("------>", self.taskName_textEdit.toPlainText())
+        print("------>", self.task_description.toPlainText())
+
+    def saveTask(self):
+        print("WTF")
+
+    def addTask(self):
+        # M/d/yy h:mm AP
+        time = self.dateTimeEdit.dateTime()
+        # yy/m/d h:mm:ss
+        time = time.toPyDateTime()
+        print(str(time))
+        # print(str(self.taskName_textEdit.toPlainText()))
+        # print(str(self.task_description.toPlainText()))
+        nota.addRecord(time, 0, self.taskName_textEdit.toPlainText(),
+                       self.task_description.toPlainText())
+        self.taskName_textEdit.clear()
+        self.task_description.clear()
+        # self.task_description.overwriteMode(True)
+        print("------S", self.sender().objectName())
+        print("------S", self.taskName_textEdit.toPlainText())
+        print("------S", self.task_description.toPlainText())
+        self.goToTaskWindow()
+
+    def cancelTask(self):
+        self.taskName_textEdit.clear()
+        self.task_description.clear()
+        print("------C", self.sender().objectName())
+        print("------C", self.taskName_textEdit.toPlainText())
+        print("------C", self.task_description.toPlainText())
+        print("UnSaved")
+        self.goToTaskWindow()
 >>>>>>> Stashed changes
 
     def goToTaskWindow(self):
