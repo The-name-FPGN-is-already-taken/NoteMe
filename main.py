@@ -258,7 +258,6 @@ class AddNoteWindow(QDialog):
 
 # NUT
 
-
     def saveNote(self):
         # note1.append(Note(self.noteName.toPlainText(),
         #                   self.textField.toPlainText()))
@@ -358,19 +357,24 @@ class AddTaskWindow(QDialog):
         self.unAddTask.clicked.connect(self.goToTaskWindow)
         self.noteButton.clicked.connect(self.goToNoteWindow)
         self.homeButton.clicked.connect(self.addTaskWindowToHomeWeek)
-        self.saveNoteButton.clicked.connect(self.saveTask)
+        self.saveNoteButton.disconnect()
+        self.saveNoteButton.clicked.connect(self.addTask)
         self.cancelAdding.clicked.connect(self.cancelTask)
         global userName
         self.welcomeUser.setText("Welcome ,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
 
         if self.sender().objectName() == "listWidget":
-            indextask = self.sender().currentRow()
-            self.taskName_textEdit.setPlainText(tasklst[indextask].topic)
-            self.task_description.setPlainText(tasklst[indextask].description)
-            self.dateTimeEdit.setDateTime(tasklst[indextask].dateTarget)
+            self.indextask = self.sender().currentRow()
+            self.taskName_textEdit.setPlainText(tasklst[self.indextask].topic)
+            self.task_description.setPlainText(
+                tasklst[self.indextask].description)
+            self.dateTimeEdit.setDateTime(tasklst[self.indextask].dateTarget)
+            self.saveNoteButton.disconnect()
+            self.saveNoteButton.clicked.connect(self.saveTask)
+            self.saveNoteButton.setText("SAVE")
 
-            print(tasklst[indextask].taskID)
+            print(tasklst[self.indextask].taskID)
             # indextask = self.listWidget.currentRow()
         # print(tasklst[indextask].topic)
 
@@ -386,6 +390,18 @@ class AddTaskWindow(QDialog):
         print("------>", self.task_description.toPlainText())
 
     def saveTask(self):
+        print("------>", self.indextask)
+        tasklst[self.indextask].topic = self.taskName_textEdit.toPlainText()
+        tasklst[self.indextask].description = self.task_description.toPlainText()
+        time = self.dateTimeEdit.dateTime()
+        time = time.toPyDateTime()
+        tasklst[self.indextask].dateTarget = time
+        nota.editRecord(tasklst[self.indextask])
+        self.taskName_textEdit.clear()
+        self.task_description.clear()
+        self.goToTaskWindow()
+
+    def addTask(self):
 
         # M/d/yy h:mm AP
         time = self.dateTimeEdit.dateTime()

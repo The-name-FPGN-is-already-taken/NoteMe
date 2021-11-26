@@ -75,12 +75,12 @@ class Nota:
         else:
             return True
 
-    def deletRow(self, taskID):
-        with open("aLotOfText.csv", "r") as f:
+    def deletRow(self, obj: Record):
+        with open("taskTable.csv", "r") as f:
             lines = f.readlines()
-        with open("aLotOfText.csv", "w") as f:
+        with open("taskTable.csv", "w") as f:
             for row in lines:
-                if int(row[0]) != taskID:
+                if int(row.split(",")[0]) != int(obj.taskID):
                     f.write(row)
         self.refreshTable()
         # i = 0
@@ -258,20 +258,41 @@ class Nota:
                 result.append(row)
         return result
 
+    def editRecord(self, obj: Record):
+        with open("taskTable.csv", "r") as f:
+            lines = f.readlines()
+        with open("taskTable.csv", "w") as f:
+            for row in lines:
+                if int(row.split(",")[0]) == int(obj.taskID):
+                    print("edited-----")
+                    # f.write(str(obj.taskID),str(obj.userID),str(obj.taskType),str(obj.dateCreate),str(obj.dateTarget),str(obj.topic),str(obj.description))
+                    f.write("{},{},{},{},{},{},{}\n".format(obj.taskID, obj.userID,
+                                                            obj.taskType, obj.dateCreate, obj.dateTarget, obj.topic, obj.description))
+                else:
+                    print("default")
+                    f.write(row)
+        self.refreshTable()
+
 # print(readUserTable())
 # print(login('nut','1234'))
 # nota = Nota()
-# nota.registor("parn55",231)
+# # nota.registor("parn55",231)
+# # nota.login("catty","5")
+# # nota.getTaskToday()
+# # nota.getIncomingTask(7)
 # nota.login("catty","5")
-# nota.getTaskToday()
-# nota.getIncomingTask(7)
-# nota.login("catty","5")
-# # nota.addRecord(datetime.datetime.today().strftime("%Y-%m-%d %H:%M:%S"),0,"Test","testNut")
 # cat = nota.getIncomingTask(100)
-# # cat = nota.getTimetableAll()
-# # cat = nota.getNoteAll()
-# print(cat)
-
-# Sort.sortTaskDateTarget(cat)
+# # nota.addRecord(datetime.datetime.today().strftime("%Y-%m-%d %H:%M:%S"),0,"Test","testNut")
 # print(nota.showRecord(cat))
-# print(cat[0].topic)
+# cat[2].topic = "Father died"
+# nota.editRecord(cat[2])
+# nota.deletRow(cat[2])
+# s = "-1"
+# print(int(s))
+
+# cat = nota.getTimetableAll()
+# cat = nota.getNoteAll()
+# -----------------------------g
+# t1 = datetime.datetime(2021,11,26,14,10,11)
+# t2 = datetime.datetime(2021,11,30,16,11,15)
+# print((t2-t1).seconds)

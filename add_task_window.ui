@@ -249,7 +249,7 @@ background: #C6D57E;
 border-radius: 15px;</string>
         </property>
         <property name="text">
-         <string>SAVE</string>
+         <string>ADD</string>
         </property>
        </widget>
       </item>
