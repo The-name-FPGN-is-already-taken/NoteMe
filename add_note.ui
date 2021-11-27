@@ -513,6 +513,22 @@ border-radius: 15px;</string>
       </item>
      </layout>
     </widget>
+    <widget class="QLabel" name="warning">
+     <property name="geometry">
+      <rect>
+       <x>490</x>
+       <y>490</y>
+       <width>141</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>Please fill in note name!!</string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QWidget" name="layoutWidget">

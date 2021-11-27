@@ -182,8 +182,13 @@ class Ui_homeCal(object):
 "border-radius: 10px;\n"
 "background-color: rgb(244, 255, 228);\n"
 "color: rgb(88, 105, 82);")
+        self.warning = QLabel(self.frame_5)
+        self.warning.setObjectName(u"warning")
+        self.warning.setGeometry(QRect(510, 500, 141, 16))
+        self.warning.setStyleSheet(u"color: rgb(255, 0, 0);")
         self.widget.raise_()
         self.layoutWidget_2.raise_()
+        self.warning.raise_()
         self.leftBar = QFrame(self.backFrame)
         self.leftBar.setObjectName(u"leftBar")
         self.leftBar.setGeometry(QRect(0, 100, 91, 541))
@@ -356,6 +361,7 @@ class Ui_homeCal(object):
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><br /></p></body></html>", None))
         self.taskName_textEdit.setPlaceholderText(QCoreApplication.translate("homeCal", u"TASKNAME", None))
         self.task_description.setPlaceholderText(QCoreApplication.translate("homeCal", u"DESCRIPTION", None))
+        self.warning.setText(QCoreApplication.translate("homeCal", u"Please fill in task name!!", None))
 #if QT_CONFIG(tooltip)
         self.homeButton.setToolTip(QCoreApplication.translate("homeCal", u"<html><head/><body><p><br/>home</p><p><br/></p></body></html>", None))
 #endif // QT_CONFIG(tooltip)

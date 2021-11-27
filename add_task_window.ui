@@ -351,8 +351,25 @@ color: rgb(88, 105, 82);</string>
       </property>
      </widget>
     </widget>
+    <widget class="QLabel" name="warning">
+     <property name="geometry">
+      <rect>
+       <x>510</x>
+       <y>500</y>
+       <width>141</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>Please fill in task name!!</string>
+     </property>
+    </widget>
     <zorder>widget</zorder>
     <zorder>layoutWidget_2</zorder>
+    <zorder>warning</zorder>
    </widget>
    <widget class="QFrame" name="leftBar">
     <property name="geometry">

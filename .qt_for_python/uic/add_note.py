@@ -308,6 +308,10 @@ class Ui_homeCal(object):
 
         self.horizontalLayout_2.addWidget(self.saveNoteButton)
 
+        self.warning = QLabel(self.frame_5)
+        self.warning.setObjectName(u"warning")
+        self.warning.setGeometry(QRect(490, 490, 141, 16))
+        self.warning.setStyleSheet(u"color: rgb(255, 0, 0);")
         self.layoutWidget2 = QWidget(homeCal)
         self.layoutWidget2.setObjectName(u"layoutWidget2")
         self.layoutWidget2.setGeometry(QRect(0, 0, 2, 2))
@@ -348,5 +352,6 @@ class Ui_homeCal(object):
         self.note_description.setPlaceholderText(QCoreApplication.translate("homeCal", u"TYPE HERE", None))
         self.cancelAdding.setText(QCoreApplication.translate("homeCal", u"CANCEL", None))
         self.saveNoteButton.setText(QCoreApplication.translate("homeCal", u"ADD", None))
+        self.warning.setText(QCoreApplication.translate("homeCal", u"Please fill in note name!!", None))
     # retranslateUi
 

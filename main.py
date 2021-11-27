@@ -77,7 +77,7 @@ class HomeWeek_window(QDialog):
         super(HomeWeek_window, self).__init__()
         loadUi("home_week.ui", self)
         global userName
-        self.welcomeUser.setText("Welcome ,  "+userName)
+        self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
 
         self.currentDay = -1  # ยังไม่เลือกวัน = Today, Monday =0 .... Sunday = 6
@@ -154,7 +154,7 @@ class HomeCal_window(QDialog):
 
         self.weekView_tab.clicked.connect(self.goToHomeWeek)
         self.noteButton.clicked.connect(self.homeCalToNoteWindow)
-        self.welcomeUser.setText("Welcome ,  "+userName)
+        self.welcomeUser.setText("Welcome,  "+userName)
 
         x = datetime.datetime.now()
         self.date.setText(x.strftime("%B")+' ' +
@@ -191,7 +191,7 @@ class HomeCal_window(QDialog):
                     'QPushButton {background: rgb(228, 226, 199); color: black; border-radius: 8px;  }')
 
         global userName
-        self.welcomeUser.setText("Welcome ,  "+userName)
+        self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
 
     def goToLoginWindow(self):
@@ -225,7 +225,7 @@ class Note_window(QDialog):
         self.timeTableButton.clicked.connect(self.goToTimeTableWindow)
 
         global userName
-        self.welcomeUser.setText("Welcome ,  "+userName)
+        self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
         
         self.noteTray.itemDoubleClicked.connect(self.goToAddNote)
@@ -270,15 +270,16 @@ class AddNoteWindow(QDialog):
     def __init__(self):
         super(AddNoteWindow, self).__init__()
         loadUi("add_note.ui", self)
+        self.warning.setVisible(False)
         self.unAddNote.clicked.connect(self.goToNoteWindow)
         self.homeButton.clicked.connect(self.addNoteWindowToHomeWeek)
         self.taskButton.clicked.connect(self.goToTaskWindow)
-
+        
         self.saveNoteButton.disconnect()
         self.saveNoteButton.clicked.connect(self.addNote)
         self.cancelAdding.clicked.connect(self.cancelNote)
         global userName
-        self.welcomeUser.setText("Welcome ,  "+userName)
+        self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
 
         if self.sender().objectName() == "noteTray":
@@ -300,22 +301,20 @@ class AddNoteWindow(QDialog):
         self.note_description.clear()
         self.goToNoteWindow()
     def addNote(self):
-        nota.addRecord(time, 2, self.noteName_textEdit.toPlainText(),
+        if self.noteName_textEdit.toPlainText()!= "":
+            
+            nota.addRecord(time, 2, self.noteName_textEdit.toPlainText(),
                        self.note_description.toPlainText())
-        self.noteName_textEdit.clear()
-        self.note_description.clear()
-        # self.task_description.overwriteMode(True)
-        print("------S", self.sender().objectName())
-        print("------S", self.noteName_textEdit.toPlainText())
-        print("------S", self.note_description.toPlainText())
-        self.goToNoteWindow()
+            self.noteName_textEdit.clear()
+            self.note_description.clear()
+            self.goToNoteWindow()
+        else:
+            self.warning.setVisible(True)
+        
         
     def cancelNote(self):
         self.noteName_textEdit.clear()
         self.note_description.clear()
-        # print("------C", self.sender().objectName())
-        # print("------C", self.taskName_textEdit.toPlainText())
-        # print("------C", self.task_description.toPlainText())
         print("UnSaved")
         self.goToNoteWindow()
 
@@ -351,7 +350,7 @@ class Task_window(QDialog):
         self.timeTableButton.clicked.connect(self.goToTimeTableWindow)
 
         global userName
-        self.welcomeUser.setText("Welcome ,  "+userName)
+        self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
         
         self.listWidget.clear()
@@ -409,7 +408,7 @@ class AddTaskWindow(QDialog):
     def __init__(self):
         super(AddTaskWindow, self).__init__()
         loadUi("add_task_window.ui", self)
-
+        self.warning.setVisible(False)
         self.unAddTask.clicked.connect(self.goToTaskWindow)
         self.noteButton.clicked.connect(self.goToNoteWindow)
         self.homeButton.clicked.connect(self.addTaskWindowToHomeWeek)
@@ -417,7 +416,7 @@ class AddTaskWindow(QDialog):
         self.saveNoteButton.clicked.connect(self.addTask)
         self.cancelAdding.clicked.connect(self.cancelTask)
         global userName
-        self.welcomeUser.setText("Welcome ,  "+userName)
+        self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
 
         if self.sender().objectName() == "listWidget":
@@ -458,23 +457,25 @@ class AddTaskWindow(QDialog):
         self.goToTaskWindow()
 
     def addTask(self):
-
-        # M/d/yy h:mm AP
-        time = self.dateTimeEdit.dateTime()
-        # yy/m/d h:mm:ss
-        time = time.toPyDateTime()
-        print(str(time))
-        # print(str(self.taskName_textEdit.toPlainText()))
-        # print(str(self.task_description.toPlainText()))
-        nota.addRecord(time, 0, self.taskName_textEdit.toPlainText(),
-                       self.task_description.toPlainText())
-        self.taskName_textEdit.clear()
-        self.task_description.clear()
-        # self.task_description.overwriteMode(True)
-        print("------S", self.sender().objectName())
-        print("------S", self.taskName_textEdit.toPlainText())
-        print("------S", self.task_description.toPlainText())
-        self.goToTaskWindow()
+        if self.taskName_textEdit.toPlainText()!="":
+            # M/d/yy h:mm AP
+            time = self.dateTimeEdit.dateTime()
+            # yy/m/d h:mm:ss
+            time = time.toPyDateTime()
+            print(str(time))
+            # print(str(self.taskName_textEdit.toPlainText()))
+            # print(str(self.task_description.toPlainText()))
+            nota.addRecord(time, 0, self.taskName_textEdit.toPlainText(),
+                        self.task_description.toPlainText())
+            self.taskName_textEdit.clear()
+            self.task_description.clear()
+            # self.task_description.overwriteMode(True)
+            print("------S", self.sender().objectName())
+            print("------S", self.taskName_textEdit.toPlainText())
+            print("------S", self.task_description.toPlainText())
+            self.goToTaskWindow()
+        else:
+            self.warning.setVisible(True)
 
     def cancelTask(self):
         self.taskName_textEdit.clear()
@@ -515,7 +516,7 @@ class TimeTable_window(QDialog):
         self.taskButton.clicked.connect(self.goToTaskWindow)
         self.homeButton.clicked.connect(self.taskWindowToHomeWeek)
         global userName
-        self.welcomeUser.setText("Welcome ,  "+userName)
+        self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
 
     def goToAddTimeTable(self):
@@ -548,7 +549,7 @@ class AddTimeTableWindow(QDialog):
         self.homeButton.clicked.connect(self.goToHomeWeek)
         self.taskButton.clicked.connect(self.goToTaskWindow)
         global userName
-        self.welcomeUser.setText("Welcome ,  "+userName)
+        self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
 
     def goToTimeTableWindow(self):
