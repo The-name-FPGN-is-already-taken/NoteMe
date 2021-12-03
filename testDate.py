@@ -1,5 +1,6 @@
 
 import datetime
+from time import time
 # x = datetime.datetime(2021,12,1)
 # print(x.strftime("%m"))
 inp = [2021,11,21]
@@ -27,15 +28,58 @@ print("today:",t4.weekday())
 # print((t5+datetime.timedelta(days=7)).day)
 # print(t5.strftime("%A"))
 #----------------------------f
-t6 = datetime.datetime.today() + datetime.timedelta(days=40)
-print(t6)
-print("--------------------")
-f = "2021-11-24"
-t5 = datetime.datetime.strptime("2021-11-25","%Y-%m-%d")
-# t5.strptime("2021-11-25","%Y-%m-%d")
-print(t5)
-print("--------------------")
-t7 = datetime.datetime(2021,11,26)
-print(t7)
-print("--------------------")
-print("2021-11-24 24.2".split("."))
+# t6 = datetime.datetime.today() + datetime.timedelta(days=40)
+# print(t6)
+# print("--------------------")
+# f = "2021-11-24"
+# t5 = datetime.datetime.strptime("2021-11-25","%Y-%m-%d")
+# # t5.strptime("2021-11-25","%Y-%m-%d")
+# print(t5)
+# print("--------------------")
+# t7 = datetime.datetime(2021,11,26)
+# print(t7)
+# print("--------------------")
+# print("2021-11-24 24.2".split("."))
+
+#---------------------------------
+def sortTaskDateTargerTime(li:list):
+    for i in range(1,len(li)):
+        key = li[i]
+        j = i -1
+        while j >= 0 and key.dateTarget.date() == li[j].dateTarget.date() and key.dateTarget.seconds > li[j].dateTarget.seconds:
+            print("swap")
+            li[j+1] = li[j]
+            j -= 1
+        li[j+1] = key
+
+def sortTaskDateTarget(li:list,near:int=1):
+        """Insert list of Task object / near = 1 is going to sort nearest come first (near = 0 far come first)"""
+        #This is insertion sort
+        for i in range(1,len(li)):
+            key = li[i]
+            j = i -1
+            if near == 1:
+                while j >= 0 and (key.dateTarget.date() - datetime.date.today()).days < (li[j].dateTarget.date() - datetime.date.today()).days :
+                    print("swap")
+                    li[j+1] = li[j]
+                    j -= 1
+            elif near == 0:
+                while j >= 0 and (key.dateTarget.date() - datetime.date.today()).days > (li[j].dateTarget.date() - datetime.date.today()).days :
+                    print("swap")
+                    li[j+1] = li[j]
+                    j -= 1
+            li[j+1] = key
+# t5 = datetime.datetime.today()
+# print("----------------")
+# print((t5 - t5.replace(hour=0, minute=0, second=0)))
+# print((t5 - t5.replace(hour=0, minute=0, second=0)).total_seconds())
+# print(t5)
+# t6 = datetime.datetime.today() + datetime.timedelta(hours=4)
+# print(t6)
+# li = [datetime.datetime.today() + datetime.timedelta(hours=4),datetime.datetime.today() + datetime.timedelta(hours=2),
+# datetime.datetime.today() + datetime.timedelta(hours=3)]
+# print(li)
+# sortTaskDateTarget(li)
+
+s = "1"
+print(bool(int(s)))
