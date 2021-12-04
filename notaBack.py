@@ -4,12 +4,13 @@ import datetime
 from dataType import *
 #Record
 class Record:
-    def __init__(self,taskID:int,userID:int,taskType:int,dateCreate:datetime,dateTarget,topic:str="No topic",description:str="No description",day:int=-1,star=0) -> None:
+    def __init__(self,taskID:int,userID:int,taskType:int,dateCreate:datetime,dateTarget,topic:str="No topic",
+    description:str="No description",day:int=-1,star=0) -> None:
         """taskID | userID | type | date_create | date_target | string
         type 0 = task | 1 = timetable | 2 = note |"""
         self.taskID = taskID
         self.userID = userID
-        self.taskType = taskType #
+        self.taskType = taskType
         self.dateCreate = dateCreate
         self.dateTarget = dateTarget
         self.topic = topic
@@ -82,8 +83,32 @@ class Sort:
                     li[j+1] = li[j]
                     j -= 1
             li[j+1] = key
-        for i in li:
+        
             
+    def sortTimeTableBeginAt(li:list,dayTarget:int):
+        linkList = Link()
+        for i in li:
+            linkList.append(i)
+        node = linkList.head
+        tempNode = None
+        while node.next != None:
+            if node.next.data.day >= dayTarget and tempNode == None:
+                tempNode = node.next
+                node.next = None
+                node = tempNode
+                print("Found")
+            else:
+                node = node.next
+            
+        else:
+            node.next = linkList.head
+            linkList.head = tempNode
+        node = linkList.head
+        li = []
+        while node != None:
+            li.append(node.data)
+            node = node.next
+        return li        
 
 class Nota:
     def __init__(self) -> None:
@@ -94,14 +119,14 @@ class Nota:
     def __str__(self) -> str:
         s = ''
         for row in self.table.li:
-            s += "{} {} {} {} {} {} {} \n".format(row.taskID,row.userID,row.taskType,row.dateCreate,row.dateTarget,row.topic,row.description)
+            s += "{} {} {} {} {} {} {} {} {} \n".format(row.taskID,row.userID,row.taskType,row.dateCreate,row.dateTarget,row.topic,row.description,row.day,row.star)
         return s
 
-    def showRecord(self,li)->str:
+    def showRecord(li):
         s = ''
         for row in li:
-            s += "{} {} {} {} {} {} {} \n".format(row.taskID,row.userID,row.taskType,row.dateCreate,row.dateTarget,row.topic,row.description)
-        return s
+            s += "{} {} {} {} {} {} {} {} {} \n".format(row.taskID,row.userID,row.taskType,row.dateCreate,row.dateTarget,row.topic,row.description,row.day,row.star)
+        print(s)
     def isLogin(self):
         if self.userID == -1:
             return False
@@ -129,7 +154,6 @@ class Nota:
         with open("userTable.csv", "a",newline="",encoding="utf8") as f:
             fw = csv.writer(f)
             fw.writerow(txt)
-
 
     def readUserTable(self)->list:
         with open('userTable.csv',newline="",encoding="utf8") as f:
@@ -297,7 +321,7 @@ class Nota:
         with open("taskTable.csv", "w") as f:
             for row in lines:
                 if int(row.split(",")[0]) == int(obj.taskID):
-                    f.write("{},{},{},{},{},{},{}\n".format(obj.taskID,obj.userID,obj.taskType,obj.dateCreate,obj.dateTarget,obj.topic,obj.description))
+                    f.write("{},{},{},{},{},{},{},{},{}\n".format(obj.taskID,obj.userID,obj.taskType,obj.dateCreate,obj.dateTarget,obj.topic,obj.description,obj.day,obj.star))
                 else:
                     f.write(row)
         self.refreshTable()
@@ -305,8 +329,8 @@ class Nota:
     def addTimeTable(self,dateTarget:datetime,type:int=0,topic:str="No detail",descrption:str="No descrption"):
         pass
 
-    def addToDoList(self):
-        pass
+    def addToDoList(self,obj:Record):
+        self.toDoList.append(obj)
         
 # print(readUserTable())
 # print(login('nut','1234'))
@@ -317,9 +341,11 @@ nota = Nota()
 # nota.getIncomingTask(7)
 nota.login("catty","5")
 cat = nota.getTimetableAll()
-print(cat[0].day)
-
-
+Nota.showRecord(cat)
+Sort.sortTimeTable(cat)
+Nota.showRecord(cat)
+Sort.sortTimeTableBeginAt(cat,3)
+Nota.showRecord(cat)
 
 # nota.addRecord(datetime.datetime.today().strftime("%Y-%m-%d %H:%M:%S"),0,"Test","testNut")
 

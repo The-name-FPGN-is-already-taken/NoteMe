@@ -1,3 +1,6 @@
+from typing import Text
+
+
 class Stack:
     def __init__(self) -> None:
         self.li = []
@@ -11,6 +14,9 @@ class Stack:
 
     def getSize(self):
         return len(self.li)
+
+    def clear(self):
+        self.li.clear()
 
 class Queue:
     def __init__(self) -> None:
@@ -33,7 +39,6 @@ class Node():
     def __init__(self,data,next=None,prev=None) -> None:
         self.data = data
         self.next = next
-        self.prev = prev
 
 class Link():
     def __init__(self, head = None) -> None:
@@ -119,7 +124,7 @@ class Link():
         isStart = False
         while t:
             if isStart == True:
-                txt += "->"
+                txt += " -> "
             txt += str(t.data)
             isStart = True
             
@@ -128,3 +133,52 @@ class Link():
 
     def getValue(self):
         return self.txt
+
+class TestObj:
+    def __init__(self,text:str,day:int) -> None:
+        self.text = text
+        self.day = day
+
+    def __str__(self) -> str:
+        return "{}:{}".format(self.text,self.day)
+
+def sort(li:Link,dayTarget:int):
+    node = li.head
+    tempNode = None
+    while node.next != None:
+        if node.next.data.day >= dayTarget and tempNode == None:
+            tempNode = node.next
+            node.next = None
+            node = tempNode
+            # print("Found")
+        else:
+            node = node.next
+        
+    else:
+        node.next = li.head
+        li.head = tempNode
+    node = li.head
+    li = []
+    while node != None:
+        li.append(node.data)
+        node = node.next
+    return li
+            
+# linkList = Link()
+# linkList.append(TestObj("Test1",0))
+# linkList.append(TestObj("Test2",1))
+# linkList.append(TestObj("Test3",1))
+# linkList.append(TestObj("Test4",3))
+# linkList.append(TestObj("Test5",5))
+# dayTarget = 5
+# print(linkList)
+# linkList = sort(linkList,dayTarget)
+# for i in linkList:
+#     print(i)
+
+
+
+
+
+
+
