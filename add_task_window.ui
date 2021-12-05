@@ -100,7 +100,7 @@ left: 3px;
 top: 5px;
 
 background: #86B18B;
-mix-blend-mode: normal;
+
 border-radius: 35px;
 </string>
      </property>
@@ -351,8 +351,25 @@ color: rgb(88, 105, 82);</string>
       </property>
      </widget>
     </widget>
+    <widget class="QLabel" name="warning">
+     <property name="geometry">
+      <rect>
+       <x>510</x>
+       <y>500</y>
+       <width>141</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>Please fill in task name!!</string>
+     </property>
+    </widget>
     <zorder>widget</zorder>
     <zorder>layoutWidget_2</zorder>
+    <zorder>warning</zorder>
    </widget>
    <widget class="QFrame" name="leftBar">
     <property name="geometry">
@@ -405,7 +422,7 @@ height: 37px;
 left: 7px;
 top: 16px;
 text-align: right;
-mix-blend-mode: normal;
+
 background: #C4C4C4;
 border: 1px solid #000000;
 
