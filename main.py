@@ -233,13 +233,12 @@ class Note_window(QDialog):
         global notelst
 
         notelst = nota.getNoteAll()
-        # Sort.sortTaskDateTarget(notelst)
+        Sort.sortNote(notelst,1) # new =1 ใหม่ขึ้นก่อน new =0  เก่ามาก่อน
 
         for i in range(len(notelst)):
-            # print("Topic:", notelst[i].topic,
-            #       "des:", notelst[i].description,
-            #       "I:", i)
-            self.noteTray.addItem(notelst[i].topic)
+            self.noteTray.addItem(notelst[i].topic +(165-len(str(notelst[i].dateCreate.strftime("%Y-%m-%d %H:%M:%S"))) - len(notelst[i].topic))*" "+str(notelst[i].dateCreate.strftime("%Y-%m-%d %H:%M:%S")) )
+
+            # self.noteTray.addItem(notelst[i].topic + (761-len(notelst[i].topic)-len(str(notelst[i].dateCreate.strftime("%Y-%m-%d "))))*" "+str(notelst[i].dateCreate.strftime("%Y-%m-%d ")) )
     def goToAddNote(self):
         addNoteWindow = AddNoteWindow()
         widget.addWidget(addNoteWindow)

@@ -276,6 +276,42 @@ background: #E4E2C7;
        <string notr="true">background-color: rgb(254, 250, 224);</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="sortButton">
+      <property name="geometry">
+       <rect>
+        <x>830</x>
+        <y>30</y>
+        <width>25</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(D:/NotaProject/pics/sort.png);
+      
+
+QPushButton#sortButton{
+   background-color:rgb(255, 255, 244);
+	border-radius: 20px;
+}
+
+QPushButton:hover#sortButton{
+   background-color: rgb(255, 255, 244);
+	border-radius: 20px;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QFrame" name="leftBar">
