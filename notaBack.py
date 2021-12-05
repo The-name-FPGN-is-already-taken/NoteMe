@@ -6,7 +6,7 @@ from dataType import *
 
 
 class Record:
-    def __init__(self, taskID, userID, taskType, dateCreate, dateTarget, topic="No topic", description="No description") -> None:
+    def __init__(self, taskID: int, userID: int, taskType: int, dateCreate: datetime, dateTarget, topic: str = "No topic", description: str = "No description") -> None:
         """taskID | userID | type | date_create | date_target | string
         type 0 = task | 1 = timetable | 2 = note |"""
         self.taskID = taskID
@@ -38,13 +38,33 @@ class Sort:
             key = li[i]
             j = i - 1
             if near == 1:
-                while j >= 0 and (key.dateTarget.date() - datetime.date.today()).days < (li[j].dateTarget.date() - datetime.date.today()).days:
-                    print("swap")
+                # while j >= 0 and (key.dateTarget.date() - datetime.date.today()).days < (li[j].dateTarget.date() - datetime.date.today()).days :
+                while j >= 0 and key.dateTarget < li[j].dateTarget:
+                    # print("swap")
                     li[j+1] = li[j]
                     j -= 1
             elif near == 0:
-                while j >= 0 and (key.dateTarget.date() - datetime.date.today()).days > (li[j].dateTarget.date() - datetime.date.today()).days:
-                    print("swap")
+                # while j >= 0 and (key.dateTarget.date() - datetime.date.today()).days > (li[j].dateTarget.date() - datetime.date.today()).days :
+                #     print("swap")
+                while j >= 0 and key.dateTarget > li[j].dateTarget:
+                    li[j+1] = li[j]
+                    j -= 1
+            li[j+1] = key
+
+    def sortNote(li: list, new=1):
+        for i in range(1, len(li)):
+            key = li[i]
+            j = i - 1
+            if new == 1:
+                # while j >= 0 and (key.dateTarget.date() - datetime.date.today()).days < (li[j].dateTarget.date() - datetime.date.today()).days :
+                while j >= 0 and key.dateCreate < li[j].dateCreate:
+                    # print("swap")
+                    li[j+1] = li[j]
+                    j -= 1
+            elif new == 0:
+                # while j >= 0 and (key.dateTarget.date() - datetime.date.today()).days > (li[j].dateTarget.date() - datetime.date.today()).days :
+                #     print("swap")
+                while j >= 0 and key.dateCreate > li[j].dateCreate:
                     li[j+1] = li[j]
                     j -= 1
             li[j+1] = key
@@ -233,6 +253,7 @@ class Nota:
     def getTaskToday(self) -> list:
         """Return queue of Task obj"""
         # print(datetime.datetime.today())
+
         return self.getTaskByDate(datetime.date.today())
 
     def getIncomingTask(self, delta: int) -> list:
@@ -264,12 +285,9 @@ class Nota:
         with open("taskTable.csv", "w") as f:
             for row in lines:
                 if int(row.split(",")[0]) == int(obj.taskID):
-                    print("edited-----")
-                    # f.write(str(obj.taskID),str(obj.userID),str(obj.taskType),str(obj.dateCreate),str(obj.dateTarget),str(obj.topic),str(obj.description))
                     f.write("{},{},{},{},{},{},{}\n".format(obj.taskID, obj.userID,
                                                             obj.taskType, obj.dateCreate, obj.dateTarget, obj.topic, obj.description))
                 else:
-                    print("default")
                     f.write(row)
         self.refreshTable()
 
@@ -283,7 +301,11 @@ class Nota:
 # nota.login("catty","5")
 # cat = nota.getIncomingTask(100)
 # # nota.addRecord(datetime.datetime.today().strftime("%Y-%m-%d %H:%M:%S"),0,"Test","testNut")
+
 # print(nota.showRecord(cat))
+# Sort.sortTaskDateTarget(cat,1)
+# print(nota.showRecord(cat))
+
 # cat[2].topic = "Father died"
 # nota.editRecord(cat[2])
 # nota.deletRow(cat[2])

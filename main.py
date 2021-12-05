@@ -20,6 +20,8 @@ class LoginWindow(QDialog):
         self.loginButton.clicked.connect(self.loginIn)
         self.signupButton.clicked.connect(self.LoginToSignUp)
 
+        print("wcLogin", widget.currentIndex())
+
     def loginIn(self):
         global userName
         userName = self.username.text()
@@ -51,6 +53,7 @@ class SignUpWindow(QDialog):
         self.signUpButton.clicked.connect(self.registing)
         self.signInButton.clicked.connect(self.goToLoginWindow)
         # self.welComeUser.setText(nota.)
+        print("wc", widget.currentIndex())
 
     def registing(self):
         global userName
@@ -104,6 +107,8 @@ class HomeWeek_window(QDialog):
 
             # SET clicked connect
             self.listDayButton[i].clicked.connect(self.setCurrent)
+
+        print("wcHomeweek", widget.currentIndex())
 
     def signOut(self):
         nota.logout()
@@ -319,7 +324,9 @@ class Task_window(QDialog):
         self.addTask.clicked.connect(self.goToAddTask)
         self.noteButton.clicked.connect(self.goToNoteWindow)
         self.homeButton.clicked.connect(self.taskWindowToHomeWeek)
+
         self.listWidget.itemDoubleClicked.connect(self.goToAddTask)
+
         self.timeTableButton.clicked.connect(self.goToTimeTableWindow)
 
         global userName
@@ -392,6 +399,7 @@ class AddTaskWindow(QDialog):
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
 
         if self.sender().objectName() == "listWidget":
+
             self.indextask = self.sender().currentRow()
             self.taskName_textEdit.setPlainText(tasklst[self.indextask].topic)
             self.task_description.setPlainText(
@@ -505,6 +513,7 @@ class AddTimeTableWindow(QDialog):
     def __init__(self):
         super(AddTimeTableWindow, self).__init__()
         loadUi("Timetableadd.ui", self)
+
         self.unAddButton.clicked.connect(self.goToTimeTableWindow)
         self.noteButton.clicked.connect(self.goToNoteWindow)
         self.homeButton.clicked.connect(self.goToHomeWeek)
@@ -512,6 +521,7 @@ class AddTimeTableWindow(QDialog):
         self.saveTimetableButton.disconnect()
         # FAILED SAT NOV 27 2:04:44 AM
         self.saveTimetableButton.clicked.connect(self.addTimetable)
+
         self.cancelTimetableButton.clicked.connect(self.cancelTimetable)
         global userName
         self.welcomeUser.setText("Welcome ,  "+userName)
@@ -520,15 +530,17 @@ class AddTimeTableWindow(QDialog):
     # FAILED SAT NOV 27 2:04:44 AM
     def addTimetable(self):
         # M/d/yy h:mm AP
-        # time = self.timetable_Edittime.dateTime()
-        # print("->timeedit:", time)
-        # # yy/m/d h:mm:ss
-        # time = time.toPyDateTime()
-        # print("->timePy:", time)
-        # nota.addRecord(time, 1, self.timetabletitleName_textEdit.toPlainText(
-        # ), self.timetable_description.toPlainText())
-        # self.timetabletitleName_textEdit.clear()
-        # self.timetable_description.clear()
+        time = self.timetable_Edittime.dateTime()
+        print("->timeedit:", time)
+        # yy/m/d h:mm:ss
+        time = time.toPyDateTime()
+        print("->timePy:", time)
+
+        nota.addRecord(6, 1, self.timetabletitleName_textEdit.toPlainText(
+        ), self.timetable_description.toPlainText())
+
+        self.timetabletitleName_textEdit.clear()
+        self.timetable_description.clear()
         self.goToTimeTableWindow()
 
     def cancelTimetable(self):
@@ -563,6 +575,7 @@ app = QApplication(sys.argv)
 widget = QtWidgets.QStackedWidget()
 loginWindow = LoginWindow()
 nota = Nota()
+
 
 widget.addWidget(loginWindow)
 widget.show()
