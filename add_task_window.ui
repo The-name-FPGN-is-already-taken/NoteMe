@@ -349,6 +349,13 @@ border-radius: 10px;
 background-color: rgb(244, 255, 228);
 color: rgb(88, 105, 82);</string>
       </property>
+      <property name="date">
+       <date>
+        <year>2021</year>
+        <month>12</month>
+        <day>6</day>
+       </date>
+      </property>
      </widget>
     </widget>
     <widget class="QLabel" name="warning">

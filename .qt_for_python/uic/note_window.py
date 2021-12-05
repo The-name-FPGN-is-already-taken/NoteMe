@@ -71,6 +71,7 @@ class Ui_homeCal(object):
         self.welcomeUser.setObjectName(u"welcomeUser")
         font = QFont()
         font.setFamily(u"Tenor Sans")
+        font.setPointSize(1)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(50)
@@ -138,9 +139,38 @@ class Ui_homeCal(object):
         self.noteTray.setObjectName(u"noteTray")
         self.noteTray.setGeometry(QRect(60, 90, 761, 331))
         self.noteTray.setStyleSheet(u"background-color: rgb(254, 250, 224);")
-        self.sortButton = QPushButton(self.frame)
+        self.layoutWidget1 = QWidget(self.frame)
+        self.layoutWidget1.setObjectName(u"layoutWidget1")
+        self.layoutWidget1.setGeometry(QRect(61, 40, 751, 32))
+        self.horizontalLayout_3 = QHBoxLayout(self.layoutWidget1)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.noteName0 = QLabel(self.layoutWidget1)
+        self.noteName0.setObjectName(u"noteName0")
+        self.noteName0.setStyleSheet(u"font: 75 14pt \"AvenirNext LT Pro Bold\";")
+
+        self.horizontalLayout_3.addWidget(self.noteName0)
+
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.frame_3 = QFrame(self.layoutWidget1)
+        self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setFrameShape(QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QFrame.Raised)
+
+        self.horizontalLayout_2.addWidget(self.frame_3)
+
+        self.dateCreated0 = QLabel(self.layoutWidget1)
+        self.dateCreated0.setObjectName(u"dateCreated0")
+        self.dateCreated0.setMaximumSize(QSize(200, 28))
+        self.dateCreated0.setStyleSheet(u"font: 75 14pt \"AvenirNext LT Pro Bold\";")
+        self.dateCreated0.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.horizontalLayout_2.addWidget(self.dateCreated0)
+
+        self.sortButton = QPushButton(self.layoutWidget1)
         self.sortButton.setObjectName(u"sortButton")
-        self.sortButton.setGeometry(QRect(720, 40, 93, 28))
+        self.sortButton.setMaximumSize(QSize(93, 28))
         self.sortButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.sortButton.setStyleSheet(u"QPushButton#sortButton{\n"
 "   background-color: rgb(252, 188, 64);\n"
@@ -154,24 +184,11 @@ class Ui_homeCal(object):
 "	font: 75 9pt \"AvenirNext LT Pro Bold\";\n"
 "	\n"
 "}")
-        self.layoutWidget1 = QWidget(self.frame)
-        self.layoutWidget1.setObjectName(u"layoutWidget1")
-        self.layoutWidget1.setGeometry(QRect(150, 40, 561, 30))
-        self.horizontalLayout_2 = QHBoxLayout(self.layoutWidget1)
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.noteName0 = QLabel(self.layoutWidget1)
-        self.noteName0.setObjectName(u"noteName0")
-        self.noteName0.setStyleSheet(u"font: 75 14pt \"AvenirNext LT Pro Bold\";")
 
-        self.horizontalLayout_2.addWidget(self.noteName0)
+        self.horizontalLayout_2.addWidget(self.sortButton)
 
-        self.dateCreated0 = QLabel(self.layoutWidget1)
-        self.dateCreated0.setObjectName(u"dateCreated0")
-        self.dateCreated0.setStyleSheet(u"font: 75 14pt \"AvenirNext LT Pro Bold\";")
-        self.dateCreated0.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.horizontalLayout_2.addWidget(self.dateCreated0)
+        self.horizontalLayout_3.addLayout(self.horizontalLayout_2)
 
         self.leftBar = QFrame(self.backFrame)
         self.leftBar.setObjectName(u"leftBar")
@@ -337,9 +354,9 @@ class Ui_homeCal(object):
         homeCal.setWindowTitle(QCoreApplication.translate("homeCal", u"Form", None))
         self.welcomeUser.setText(QCoreApplication.translate("homeCal", u"Welcome,", None))
         self.date.setText(QCoreApplication.translate("homeCal", u"November 21, 2021", None))
-        self.sortButton.setText(QCoreApplication.translate("homeCal", u"SORT", None))
         self.noteName0.setText(QCoreApplication.translate("homeCal", u"Name", None))
-        self.dateCreated0.setText(QCoreApplication.translate("homeCal", u"Date Created", None))
+        self.dateCreated0.setText(QCoreApplication.translate("homeCal", u"Date Modified", None))
+        self.sortButton.setText(QCoreApplication.translate("homeCal", u"SORT", None))
 #if QT_CONFIG(tooltip)
         self.homeButton.setToolTip(QCoreApplication.translate("homeCal", u"<html><head/><body><p><br/>home</p><p><br/></p></body></html>", None))
 #endif // QT_CONFIG(tooltip)

@@ -175,15 +175,16 @@ class Note_window(QDialog):
         global notelst
         notelst = nota.getNoteAll()
         if self.sortFromNewToOld:   
-            Sort.sortNote(notelst,0) # new =1 ใหม่ขึ้นก่อน new =0  เก่ามาก่อน
+            Sort.sortNote(notelst,0) 
             for i in range(len(notelst)):
                 self.noteTray.addItem(notelst[i].topic +(165-len(str(notelst[i].dateCreate.strftime("%Y-%m-%d %H:%M:%S"))) - len(notelst[i].topic))*" "+str(notelst[i].dateCreate.strftime("%Y-%m-%d %H:%M:%S")) ) 
             
         else:
-            Sort.sortNote(notelst,1) # new =1 ใหม่ขึ้นก่อน new =0  เก่ามาก่อน
+            Sort.sortNote(notelst,1) 
             for i in range(len(notelst)):
                 self.noteTray.addItem(notelst[i].topic +(165-len(str(notelst[i].dateCreate.strftime("%Y-%m-%d %H:%M:%S"))) - len(notelst[i].topic))*" "+str(notelst[i].dateCreate.strftime("%Y-%m-%d %H:%M:%S")) )  
         self.sortFromNewToOld= not self.sortFromNewToOld   
+        
     def goToAddNote(self):
         addNoteWindow = AddNoteWindow()
         widget.addWidget(addNoteWindow)
@@ -237,9 +238,16 @@ class AddNoteWindow(QDialog):
             print(notelst[self.indexNote].taskID)
 
     def saveNote(self):
-        print("------>", self.indexNote)
+        # print("------>", self.indexNote)
         notelst[self.indexNote].topic = self.noteName_textEdit.toPlainText()
         notelst[self.indexNote].description = self.note_description.toPlainText()
+
+        time = datetime.datetime.now()
+        time = time.strftime("%Y-%m-%d %H:%M:%S")
+        # print("TIME:", time)
+
+        notelst[self.indexNote].dateCreate = time
+
         nota.editRecord(notelst[self.indexNote])
         self.note_description.clear()
         self.goToNoteWindow()
@@ -286,31 +294,66 @@ class Task_window(QDialog):
     def __init__(self):
         super(Task_window, self).__init__()
         loadUi("task_window.ui", self)
+        self.sortFromNearToFar =True
         self.addTask.clicked.connect(self.goToAddTask)
         self.noteButton.clicked.connect(self.goToNoteWindow)
         self.homeButton.clicked.connect(self.taskWindowToHomeWeek)
-
         self.listWidget.itemDoubleClicked.connect(self.goToAddTask)
-
+        self.listWidget_incoming.itemDoubleClicked.connect(self.goToAddTask)
+        self.listWidget.itemClicked.connect(self.markAsCompleted)
+        self.listWidget_incoming.itemClicked.connect(self.markAsCompleted)
+        self.sortButton.clicked.connect(self.sortTaskList)
         self.timeTableButton.clicked.connect(self.goToTimeTableWindow)
-
         global userName
         self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
         
         self.listWidget.clear()
-        global tasklst
+        global today_tasklst
+        today_tasklst = nota.getTaskToday()
+        Sort.sortTaskDateTarget(today_tasklst)
+        for i in range(len(today_tasklst)):
+            self.listWidget.addItem(today_tasklst[i].topic+(60-len(today_tasklst[i].topic))*" "
+                                    +str(today_tasklst[i].dateTarget.strftime("%H:%M:%S"))) 
+            
+        self.listWidget_incoming.clear()
+        global incoming_tasklst
+        incoming_tasklst = nota.getIncomingTask(7)
+        Sort.sortTaskDateTarget(incoming_tasklst)
 
-        tasklst = nota.getIncomingTask(7)
-        Sort.sortTaskDateTarget(tasklst)
-        # temp = QListWidgetItem(tasklst[0].topic, tasklst[0])
-
-        for i in range(len(tasklst)):
-            print("Topic:", tasklst[i].topic,
-                  "des:", tasklst[i].description,
-                  "I:", i)
-            self.listWidget.addItem(tasklst[i].topic)
-
+        for i in range(len(incoming_tasklst)):
+            self.listWidget_incoming.addItem(incoming_tasklst[i].topic+(35-len(incoming_tasklst[i].topic))*" "
+                                    +str(incoming_tasklst[i].dateTarget.strftime("%Y-%m-%d %H:%M:%S"))) 
+            
+        
+    def deleteTask(self):
+        pass
+    
+    def markAsCompleted (self):
+        pass
+            
+    def sortTaskList(self):
+        self.listWidget.clear()
+        self.listWidget_incoming.clear()
+        global today_tasklst
+        today_tasklst = nota.getTaskToday()
+        global incoming_tasklst
+        incoming_tasklst = nota.getIncomingTask(7)
+        
+        if not self.sortFromNearToFar:   
+            x=1
+        else:
+            x =0    
+        Sort.sortTaskDateTarget(today_tasklst,x)
+        for i in range(len(today_tasklst)):
+            self.listWidget.addItem(today_tasklst[i].topic+(60-len(today_tasklst[i].topic))*" "
+                                    +str(today_tasklst[i].dateTarget.strftime("%H:%M:%S"))) 
+        Sort.sortTaskDateTarget(incoming_tasklst,x)
+        for i in range(len(incoming_tasklst)):
+            self.listWidget_incoming.addItem(incoming_tasklst[i].topic+(35-len(incoming_tasklst[i].topic))*" "
+                                    +str(incoming_tasklst[i].dateTarget.strftime("%Y-%m-%d %H:%M:%S")))   
+        self.sortFromNearToFar= not self.sortFromNearToFar   
+        
     def getUpdate(self):
         pass
         # addTaskWindow = AddTaskWindow()
@@ -318,12 +361,12 @@ class Task_window(QDialog):
         # widget.setCurrentIndex(widget.currentIndex()+1)
 
         # indextask = self.listWidget.currentRow()
-        # print(tasklst[indextask].topic)
+        # print(today_tasklst[indextask].topic)
 
         # addTaskWindow.task_description.setPlainText(
-        #     tasklst[indextask].description)
-        # addTaskWindow.taskName_textEdit.setPlainText(tasklst[indextask].topic)
-        # timetarget = tasklst[indextask].dateTarget
+        #     today_tasklst[indextask].description)
+        # addTaskWindow.taskName_textEdit.setPlainText(today_tasklst[indextask].topic)
+        # timetarget = today_tasklst[indextask].dateTarget
         # print(timetarget)
         # print(type(timetarget))
         # addTaskWindow.dateTimeEdit.setDateTime(timetarget)
@@ -364,40 +407,51 @@ class AddTaskWindow(QDialog):
         self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
 
-        if self.sender().objectName() == "listWidget":
-
+        if self.sender().objectName()  in  ["listWidget","listWidget_incoming"] :
             self.indextask = self.sender().currentRow()
-            self.taskName_textEdit.setPlainText(tasklst[self.indextask].topic)
-            self.task_description.setPlainText(
-                tasklst[self.indextask].description)
-            self.dateTimeEdit.setDateTime(tasklst[self.indextask].dateTarget)
+            self.taskName_textEdit.setPlainText(incoming_tasklst[self.indextask].topic)
+            self.task_description.setPlainText(incoming_tasklst[self.indextask].description)
+            self.dateTimeEdit.setDateTime(incoming_tasklst[self.indextask].dateTarget)
             self.saveNoteButton.disconnect()
             self.saveNoteButton.clicked.connect(self.saveTask)
             self.saveNoteButton.setText("SAVE")
-
-            print(tasklst[self.indextask].taskID)
-
+        # elif self.sender().objectName() == "addTask":
+        #     self.dateTimeEdit.setDateTime(datetime.datetime.today())
         print("------>", self.sender().objectName())
         print("------>", self.taskName_textEdit.toPlainText())
         print("------>", self.task_description.toPlainText())
 
     def saveTask(self):
         print("------>", self.indextask)
-        tasklst[self.indextask].topic = self.taskName_textEdit.toPlainText()
-        tasklst[self.indextask].description = self.task_description.toPlainText()
-        time = self.dateTimeEdit.dateTime()
-        time = time.toPyDateTime()
-        tasklst[self.indextask].dateTarget = time
-        nota.editRecord(tasklst[self.indextask])
+        if self.sender().objectName()  ==  "listWidget":
+            today_tasklst[self.indextask].topic = self.taskName_textEdit.toPlainText()
+            today_tasklst[self.indextask].description = self.task_description.toPlainText()
+            time = self.dateTimeEdit.dateTime()
+            time = time.toPyDateTime()
+            today_tasklst[self.indextask].dateTarget = time
+            nota.editRecord(today_tasklst[self.indextask])
+            
+            
+        else:
+            incoming_tasklst[self.indextask].topic = self.taskName_textEdit.toPlainText()
+            incoming_tasklst[self.indextask].description = self.task_description.toPlainText()
+            time = self.dateTimeEdit.dateTime()
+            time = time.toPyDateTime()
+            incoming_tasklst[self.indextask].dateTarget = time
+            nota.editRecord(incoming_tasklst[self.indextask])
         self.taskName_textEdit.clear()
         self.task_description.clear()
         self.goToTaskWindow()
 
     def addTask(self):
+        
         if self.taskName_textEdit.toPlainText()!="":
             # M/d/yy h:mm AP
+            # self.dateTimeEdit.setDateTime(incoming_tasklst[self.indextask].dateTarget)
+            
             time = self.dateTimeEdit.dateTime()
             # yy/m/d h:mm:ss
+            
             time = time.toPyDateTime()
             print(str(time))
             # print(str(self.taskName_textEdit.toPlainText()))

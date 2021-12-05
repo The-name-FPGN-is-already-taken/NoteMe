@@ -126,7 +126,7 @@ border-radius: 35px;
         <property name="font">
          <font>
           <family>Tenor Sans</family>
-          <pointsize>-1</pointsize>
+          <pointsize>1</pointsize>
           <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
@@ -241,46 +241,16 @@ background: #E4E2C7;
        <string notr="true">background-color: rgb(254, 250, 224);</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="sortButton">
-      <property name="geometry">
-       <rect>
-        <x>720</x>
-        <y>40</y>
-        <width>93</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton#sortButton{
-   background-color: rgb(252, 188, 64);
-	border-radius: 10px;
-}
-
-QPushButton:hover#sortButton{
-   background-color: rgb(252, 188, 64);
-	border-radius: 10px;
-	color: rgb(255, 255, 255);
-	font: 75 9pt &quot;AvenirNext LT Pro Bold&quot;;
-	
-}</string>
-      </property>
-      <property name="text">
-       <string>SORT</string>
-      </property>
-     </widget>
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>150</x>
+        <x>61</x>
         <y>40</y>
-        <width>561</width>
-        <height>30</height>
+        <width>751</width>
+        <height>32</height>
        </rect>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
         <widget class="QLabel" name="noteName0">
          <property name="styleSheet">
@@ -292,17 +262,67 @@ QPushButton:hover#sortButton{
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="dateCreated0">
-         <property name="styleSheet">
-          <string notr="true">font: 75 14pt &quot;AvenirNext LT Pro Bold&quot;;</string>
-         </property>
-         <property name="text">
-          <string>Date Created</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QFrame" name="frame_3">
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="dateCreated0">
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>28</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font: 75 14pt &quot;AvenirNext LT Pro Bold&quot;;</string>
+           </property>
+           <property name="text">
+            <string>Date Modified</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="sortButton">
+           <property name="maximumSize">
+            <size>
+             <width>93</width>
+             <height>28</height>
+            </size>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton#sortButton{
+   background-color: rgb(252, 188, 64);
+	border-radius: 10px;
+}
+
+QPushButton:hover#sortButton{
+   background-color: rgb(252, 188, 64);
+	border-radius: 10px;
+	color: rgb(255, 255, 255);
+	font: 75 9pt &quot;AvenirNext LT Pro Bold&quot;;
+	
+}</string>
+           </property>
+           <property name="text">
+            <string>SORT</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>

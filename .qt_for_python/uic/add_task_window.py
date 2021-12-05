@@ -181,6 +181,7 @@ class Ui_homeCal(object):
 "border-radius: 10px;\n"
 "background-color: rgb(244, 255, 228);\n"
 "color: rgb(88, 105, 82);")
+        self.dateTimeEdit.setDate(QDate(2021, 12, 6))
         self.warning = QLabel(self.frame_5)
         self.warning.setObjectName(u"warning")
         self.warning.setGeometry(QRect(510, 500, 141, 16))

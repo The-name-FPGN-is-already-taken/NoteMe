@@ -94,7 +94,7 @@ border-radius: 35px;
        <property name="font">
         <font>
          <family>Tenor Sans</family>
-         <pointsize>-1</pointsize>
+         <pointsize>1</pointsize>
          <weight>50</weight>
          <italic>false</italic>
          <bold>false</bold>
@@ -633,7 +633,7 @@ border-radius: 8px;</string>
     </layout>
    </widget>
   </widget>
-  <widget class="QFrame" name="leftBar">
+  <widget class="QFrame" name="leftBar_2">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -659,11 +659,11 @@ background: #A3C5A7;</string>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_7">
+   <layout class="QVBoxLayout" name="verticalLayout_9">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout_6">
+     <layout class="QVBoxLayout" name="verticalLayout_10">
       <item>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
+       <layout class="QVBoxLayout" name="verticalLayout_11">
         <item>
          <widget class="QPushButton" name="homeButton">
           <property name="cursor">
@@ -684,7 +684,7 @@ height: 37px;
 left: 7px;
 top: 16px;
 text-align: right;
-
+      
 background: #C4C4C4;
 border: 1px solid #000000;
 
@@ -697,7 +697,7 @@ border-radius: 10px;
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="home_label">
+         <widget class="QLabel" name="home_label_2">
           <property name="styleSheet">
            <string notr="true">text-align: center;</string>
           </property>
@@ -709,9 +709,9 @@ border-radius: 10px;
        </layout>
       </item>
       <item>
-       <layout class="QVBoxLayout" name="verticalLayout_3">
+       <layout class="QVBoxLayout" name="verticalLayout_12">
         <item>
-         <widget class="QPushButton" name="timeTableButton">
+         <widget class="QPushButton" name="timeTableButton_2">
           <property name="cursor">
            <cursorShape>ArrowCursor</cursorShape>
           </property>
@@ -724,10 +724,8 @@ left: 7px;
 top: 160px;
 text-align: right;
 background: #ECF39E;
-
-
 border-radius: 10px;
-</string>
+text-align: center;</string>
           </property>
           <property name="text">
            <string/>
@@ -735,7 +733,7 @@ border-radius: 10px;
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="timeTable_label">
+         <widget class="QLabel" name="timeTable_label_2">
           <property name="text">
            <string> TIMETABLE</string>
           </property>
@@ -747,7 +745,7 @@ border-radius: 10px;
        </layout>
       </item>
       <item>
-       <layout class="QVBoxLayout" name="verticalLayout_4">
+       <layout class="QVBoxLayout" name="verticalLayout_13">
         <item>
          <widget class="QPushButton" name="noteButton">
           <property name="cursor">
@@ -762,9 +760,9 @@ left: 7px;
 top: 160px;
 text-align: right;
 background: #C4C4C4;
+border-radius: 10px;
 border: 1px solid #000000;
-
-border-radius: 10px;</string>
+</string>
           </property>
           <property name="text">
            <string/>
@@ -772,7 +770,7 @@ border-radius: 10px;</string>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="note_label">
+         <widget class="QLabel" name="note_label_2">
           <property name="text">
            <string>    NOTE</string>
           </property>
@@ -781,7 +779,7 @@ border-radius: 10px;</string>
        </layout>
       </item>
       <item>
-       <layout class="QVBoxLayout" name="verticalLayout_5">
+       <layout class="QVBoxLayout" name="verticalLayout_14">
         <item>
          <widget class="QPushButton" name="taskButton">
           <property name="cursor">
@@ -795,10 +793,8 @@ height: 37px;
 left: 7px;
 top: 160px;
 text-align: right;
-
 background: #C4C4C4;
 border: 1px solid #000000;
-
 border-radius: 10px;</string>
           </property>
           <property name="text">
@@ -807,7 +803,7 @@ border-radius: 10px;</string>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="task_label">
+         <widget class="QLabel" name="task_label_2">
           <property name="text">
            <string>     TASK</string>
           </property>
@@ -818,20 +814,36 @@ border-radius: 10px;</string>
      </layout>
     </item>
     <item>
-     <widget class="QPushButton" name="addTimeTableButton">
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
+     <widget class="QFrame" name="frame_2">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
       </property>
-      <property name="focusPolicy">
-       <enum>Qt::ClickFocus</enum>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
       </property>
-      <property name="styleSheet">
-       <string notr="true">background: rgba(0,0,0,0);
+      <widget class="QPushButton" name="addTimeTableButton">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>90</y>
+         <width>67</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::ClickFocus</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: rgba(0,0,0,0);
 image: url(D:/NotaProject/pics/add.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
      </widget>
     </item>
    </layout>

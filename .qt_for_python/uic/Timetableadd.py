@@ -12,7 +12,6 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
-import source_rc
 
 class Ui_timetabledialog(object):
     def setupUi(self, timetabledialog):
@@ -72,6 +71,7 @@ class Ui_timetabledialog(object):
         self.welcomeUser.setObjectName(u"welcomeUser")
         font = QFont()
         font.setFamily(u"Tenor Sans")
+        font.setPointSize(1)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(50)
@@ -331,12 +331,12 @@ class Ui_timetabledialog(object):
 "background: #A3C5A7;")
         self.leftBar.setFrameShape(QFrame.StyledPanel)
         self.leftBar.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_7 = QVBoxLayout(self.leftBar)
-        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
-        self.verticalLayout_6 = QVBoxLayout()
-        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.verticalLayout_2 = QVBoxLayout()
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalLayout_9 = QVBoxLayout(self.leftBar)
+        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
+        self.verticalLayout_10 = QVBoxLayout()
+        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
+        self.verticalLayout_11 = QVBoxLayout()
+        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
         self.homeButton = QPushButton(self.leftBar)
         self.homeButton.setObjectName(u"homeButton")
         self.homeButton.setCursor(QCursor(Qt.PointingHandCursor))
@@ -348,30 +348,30 @@ class Ui_timetabledialog(object):
 "left: 7px;\n"
 "top: 16px;\n"
 "text-align: right;\n"
-"\n"
+"      \n"
 "background: #C4C4C4;\n"
 "border: 1px solid #000000;\n"
 "\n"
 "border-radius: 10px;\n"
 "")
 
-        self.verticalLayout_2.addWidget(self.homeButton)
+        self.verticalLayout_11.addWidget(self.homeButton)
 
-        self.home_label = QLabel(self.leftBar)
-        self.home_label.setObjectName(u"home_label")
-        self.home_label.setStyleSheet(u"text-align: center;")
+        self.home_label_2 = QLabel(self.leftBar)
+        self.home_label_2.setObjectName(u"home_label_2")
+        self.home_label_2.setStyleSheet(u"text-align: center;")
 
-        self.verticalLayout_2.addWidget(self.home_label)
+        self.verticalLayout_11.addWidget(self.home_label_2)
 
 
-        self.verticalLayout_6.addLayout(self.verticalLayout_2)
+        self.verticalLayout_10.addLayout(self.verticalLayout_11)
 
-        self.verticalLayout_3 = QVBoxLayout()
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.timeTableButton = QPushButton(self.leftBar)
-        self.timeTableButton.setObjectName(u"timeTableButton")
-        self.timeTableButton.setCursor(QCursor(Qt.ArrowCursor))
-        self.timeTableButton.setStyleSheet(u"image: url(D:/NotaProject/pics/timetable.png);\n"
+        self.verticalLayout_12 = QVBoxLayout()
+        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.timeTableButton_2 = QPushButton(self.leftBar)
+        self.timeTableButton_2.setObjectName(u"timeTableButton_2")
+        self.timeTableButton_2.setCursor(QCursor(Qt.ArrowCursor))
+        self.timeTableButton_2.setStyleSheet(u"image: url(D:/NotaProject/pics/timetable.png);\n"
 "position: absolute;\n"
 "width: 120px;\n"
 "height: 37px;\n"
@@ -379,24 +379,22 @@ class Ui_timetabledialog(object):
 "top: 160px;\n"
 "text-align: right;\n"
 "background: #ECF39E;\n"
-"\n"
-"\n"
 "border-radius: 10px;\n"
-"")
+"text-align: center;")
 
-        self.verticalLayout_3.addWidget(self.timeTableButton)
+        self.verticalLayout_12.addWidget(self.timeTableButton_2)
 
-        self.timeTable_label = QLabel(self.leftBar)
-        self.timeTable_label.setObjectName(u"timeTable_label")
-        self.timeTable_label.setAlignment(Qt.AlignCenter)
+        self.timeTable_label_2 = QLabel(self.leftBar)
+        self.timeTable_label_2.setObjectName(u"timeTable_label_2")
+        self.timeTable_label_2.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_3.addWidget(self.timeTable_label)
+        self.verticalLayout_12.addWidget(self.timeTable_label_2)
 
 
-        self.verticalLayout_6.addLayout(self.verticalLayout_3)
+        self.verticalLayout_10.addLayout(self.verticalLayout_12)
 
-        self.verticalLayout_4 = QVBoxLayout()
-        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_13 = QVBoxLayout()
+        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
         self.noteButton = QPushButton(self.leftBar)
         self.noteButton.setObjectName(u"noteButton")
         self.noteButton.setCursor(QCursor(Qt.PointingHandCursor))
@@ -408,22 +406,22 @@ class Ui_timetabledialog(object):
 "top: 160px;\n"
 "text-align: right;\n"
 "background: #C4C4C4;\n"
+"border-radius: 10px;\n"
 "border: 1px solid #000000;\n"
-"\n"
-"border-radius: 10px;")
+"")
 
-        self.verticalLayout_4.addWidget(self.noteButton)
+        self.verticalLayout_13.addWidget(self.noteButton)
 
-        self.note_label = QLabel(self.leftBar)
-        self.note_label.setObjectName(u"note_label")
+        self.note_label_2 = QLabel(self.leftBar)
+        self.note_label_2.setObjectName(u"note_label_2")
 
-        self.verticalLayout_4.addWidget(self.note_label)
+        self.verticalLayout_13.addWidget(self.note_label_2)
 
 
-        self.verticalLayout_6.addLayout(self.verticalLayout_4)
+        self.verticalLayout_10.addLayout(self.verticalLayout_13)
 
-        self.verticalLayout_5 = QVBoxLayout()
-        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.verticalLayout_14 = QVBoxLayout()
+        self.verticalLayout_14.setObjectName(u"verticalLayout_14")
         self.taskButton = QPushButton(self.leftBar)
         self.taskButton.setObjectName(u"taskButton")
         self.taskButton.setCursor(QCursor(Qt.PointingHandCursor))
@@ -434,33 +432,36 @@ class Ui_timetabledialog(object):
 "left: 7px;\n"
 "top: 160px;\n"
 "text-align: right;\n"
-"\n"
 "background: #C4C4C4;\n"
 "border: 1px solid #000000;\n"
-"\n"
 "border-radius: 10px;")
 
-        self.verticalLayout_5.addWidget(self.taskButton)
+        self.verticalLayout_14.addWidget(self.taskButton)
 
-        self.task_label = QLabel(self.leftBar)
-        self.task_label.setObjectName(u"task_label")
+        self.task_label_2 = QLabel(self.leftBar)
+        self.task_label_2.setObjectName(u"task_label_2")
 
-        self.verticalLayout_5.addWidget(self.task_label)
-
-
-        self.verticalLayout_6.addLayout(self.verticalLayout_5)
+        self.verticalLayout_14.addWidget(self.task_label_2)
 
 
-        self.verticalLayout_7.addLayout(self.verticalLayout_6)
+        self.verticalLayout_10.addLayout(self.verticalLayout_14)
 
-        self.unAddButton = QPushButton(self.leftBar)
+
+        self.verticalLayout_9.addLayout(self.verticalLayout_10)
+
+        self.frame_2 = QFrame(self.leftBar)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+        self.unAddButton = QPushButton(self.frame_2)
         self.unAddButton.setObjectName(u"unAddButton")
+        self.unAddButton.setGeometry(QRect(0, 90, 67, 61))
         self.unAddButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.unAddButton.setFocusPolicy(Qt.ClickFocus)
         self.unAddButton.setStyleSheet(u"background: rgba(0,0,0,0);\n"
 "image: url(D:/NotaProject/pics/unAdd.png);")
 
-        self.verticalLayout_7.addWidget(self.unAddButton)
+        self.verticalLayout_9.addWidget(self.frame_2)
 
         self.frame_5.raise_()
         self.topBar.raise_()
@@ -528,13 +529,13 @@ class Ui_timetabledialog(object):
         self.homeButton.setWhatsThis(QCoreApplication.translate("timetabledialog", u"<html><head/><body><p>home</p></body></html>", None))
 #endif // QT_CONFIG(whatsthis)
         self.homeButton.setText("")
-        self.home_label.setText(QCoreApplication.translate("timetabledialog", u"     HOME", None))
-        self.timeTableButton.setText("")
-        self.timeTable_label.setText(QCoreApplication.translate("timetabledialog", u" TIMETABLE", None))
+        self.home_label_2.setText(QCoreApplication.translate("timetabledialog", u"     HOME", None))
+        self.timeTableButton_2.setText("")
+        self.timeTable_label_2.setText(QCoreApplication.translate("timetabledialog", u" TIMETABLE", None))
         self.noteButton.setText("")
-        self.note_label.setText(QCoreApplication.translate("timetabledialog", u"    NOTE", None))
+        self.note_label_2.setText(QCoreApplication.translate("timetabledialog", u"    NOTE", None))
         self.taskButton.setText("")
-        self.task_label.setText(QCoreApplication.translate("timetabledialog", u"     TASK", None))
+        self.task_label_2.setText(QCoreApplication.translate("timetabledialog", u"     TASK", None))
         self.unAddButton.setText("")
     # retranslateUi
 

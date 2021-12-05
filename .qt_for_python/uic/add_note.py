@@ -63,6 +63,7 @@ class Ui_homeCal(object):
         self.welcomeUser.setObjectName(u"welcomeUser")
         font = QFont()
         font.setFamily(u"Tenor Sans")
+        font.setPointSize(1)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(50)
@@ -76,7 +77,7 @@ class Ui_homeCal(object):
 "font-family: Tenor Sans;\n"
 "font-style: normal;\n"
 "font-weight: normal;\n"
-"font-size: 16px;\n"
+"font-size: 18px;\n"
 "line-height: 21px;\n"
 "\n"
 "color: #000000;")
