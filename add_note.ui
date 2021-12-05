@@ -108,7 +108,7 @@ border-radius: 35px;
         <property name="font">
          <font>
           <family>Tenor Sans</family>
-          <pointsize>-1</pointsize>
+          <pointsize>1</pointsize>
           <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
@@ -124,7 +124,7 @@ text-align: center;
 font-family: Tenor Sans;
 font-style: normal;
 font-weight: normal;
-font-size: 16px;
+font-size: 18px;
 line-height: 21px;
 
 color: #000000;</string>
@@ -342,20 +342,36 @@ border-radius: 10px;</string>
       </layout>
      </item>
      <item>
-      <widget class="QPushButton" name="unAddNote">
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
+      <widget class="QFrame" name="frame_2">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
        </property>
-       <property name="focusPolicy">
-        <enum>Qt::ClickFocus</enum>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
        </property>
-       <property name="styleSheet">
-        <string notr="true">background: rgba(0,0,0,0);
+       <widget class="QPushButton" name="unAddNote">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>90</y>
+          <width>67</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::ClickFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: rgba(0,0,0,0);
 image: url(D:/NotaProject/pics/unAdd.png);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
       </widget>
      </item>
     </layout>
@@ -543,8 +559,6 @@ border-radius: 15px;</string>
    <layout class="QHBoxLayout" name="horizontalLayout"/>
   </widget>
  </widget>
- <resources>
-  <include location="source.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
