@@ -68,7 +68,7 @@ left: 3px;
 top: 5px;
 
 background: #86B18B;
-mix-blend-mode: normal;
+
 border-radius: 35px;
 </string>
     </property>
@@ -685,7 +685,7 @@ height: 37px;
 left: 7px;
 top: 16px;
 text-align: right;
-mix-blend-mode: normal;
+
 background: #C4C4C4;
 border: 1px solid #000000;
 
