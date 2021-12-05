@@ -123,7 +123,7 @@ class HomeWeek_window(QDialog):
             self.taskTray.clear()
             for i in range(len(timetablelst)):
                 self.taskTray.addItem(timetablelst[i].topic)
-            self.taskTray.itemDoubleClicked.connect(self.goTowhere)
+            self.taskTray.itemDoubleClicked.connect(self.goToAddTimetable)
             self.taskTray.setSpacing(15)
 
         for i in range(len(self.listDayButton)):
@@ -134,13 +134,11 @@ class HomeWeek_window(QDialog):
             # SET clicked connect
             self.listDayButton[i].clicked.connect(self.setCurrent)
 
-    def goTowhere(self):
-        # indexHome = self.taskTray.currentRow().text()
-        itemName = self.taskTray.currentItem().text()
-        print("itemName :", itemName)
-        # 0== task // 1== timetable
-        if itemName == "task":
-            self.homeWeekToTaskWindow()
+    def goToAddTimetable(self):
+
+        addTimeTableWindow = AddTimeTableWindow()
+        widget.addWidget(addTimeTableWindow)
+        widget.setCurrentIndex(widget.currentIndex()+1)
 
     def signOut(self):
         nota.logout()
@@ -159,7 +157,7 @@ class HomeWeek_window(QDialog):
                 self.taskTray.clear()
                 for i in range(len(timetablelst)):
                     self.taskTray.addItem(timetablelst[i].topic)
-                self.taskTray.itemDoubleClicked.connect(self.goTowhere)
+                self.taskTray.itemDoubleClicked.connect(self.goToAddTimetable)
                 self.taskTray.setSpacing(15)
 
             else:
@@ -338,7 +336,7 @@ class AddNoteWindow(QDialog):
             self.saveNoteButton.clicked.connect(self.saveNote)
             self.saveNoteButton.setText("SAVE")
 
-            print(notelst[self.indexNote].taskID)
+            # print(notelst[self.indexNote].taskID)
 
     def saveNote(self):
         # print("------>", self.indexNote)
@@ -606,7 +604,23 @@ class AddTimeTableWindow(QDialog):
         self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
 
-    # FAILED SAT NOV 27 2:04:44 AM
+        if self.sender().objectName() == "taskTray":
+            print("HIIII")
+            self.indexTimetable = self.sender().currentRow()
+            print("---<><><>", self.indexTimetable)
+            self.timetabletitleName_textEdit.setPlainText(
+                timetablelst[self.indexTimetable].topic)
+            self.timetable_description.setPlainText(
+                timetablelst[self.indexTimetable].description)
+            self.timetable_Edittime.setHour(9)
+
+            self.saveTimetableButton.disconnect()
+            self.saveTimetableButton.clicked.connect(self.saveTimetable)
+            self.saveTimetableButton.setText("SAVE")
+
+    def saveTimetable(self):
+        timetablelst[self.indexTimetable].topic = self.timetabletitleName_textEdit.toPlainText()
+        timetablelst[self.indexTimetable].description = self.timetable_description.toPlainText()
 
     def addTimetable(self):
         # M/d/yy h:mm AP
