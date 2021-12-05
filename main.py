@@ -299,9 +299,16 @@ class AddNoteWindow(QDialog):
             print(notelst[self.indexNote].taskID)
 
     def saveNote(self):
-        print("------>", self.indexNote)
+        # print("------>", self.indexNote)
         notelst[self.indexNote].topic = self.noteName_textEdit.toPlainText()
         notelst[self.indexNote].description = self.note_description.toPlainText()
+
+        time = datetime.datetime.now()
+        time = time.strftime("%Y-%m-%d %H:%M:%S")
+        # print("TIME:", time)
+
+        notelst[self.indexNote].dateCreate = time
+
         nota.editRecord(notelst[self.indexNote])
         self.note_description.clear()
         self.goToNoteWindow()
