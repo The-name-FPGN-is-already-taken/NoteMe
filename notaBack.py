@@ -48,6 +48,7 @@ class Sort:
                     j -= 1
             li[j+1] = key
 
+
     def sortNote(li:list,new=1):
         for i in range(1,len(li)):
             key = li[i]
@@ -245,7 +246,7 @@ class Nota:
     def getTaskToday(self)->list:
         """Return queue of Task obj"""
         # print(datetime.datetime.today())
-        
+
         return self.getTaskByDate(datetime.date.today())
 
     def getIncomingTask(self,delta:int)->list:
@@ -277,8 +278,38 @@ class Nota:
         with open("taskTable.csv", "w") as f:
             for row in lines:
                 if int(row.split(",")[0]) == int(obj.taskID):
+
                     f.write("{},{},{},{},{},{},{}\n".format(obj.taskID,obj.userID,obj.taskType,obj.dateCreate,obj.dateTarget,obj.topic,obj.description))
                 else:
                     f.write(row)
         self.refreshTable()
-        
+
+
+# print(readUserTable())
+# print(login('nut','1234'))
+# nota = Nota()
+# # nota.registor("parn55",231)
+# # nota.login("catty","5")
+# # nota.getTaskToday()
+# # nota.getIncomingTask(7)
+# nota.login("catty","5")
+# cat = nota.getIncomingTask(100)
+# # nota.addRecord(datetime.datetime.today().strftime("%Y-%m-%d %H:%M:%S"),0,"Test","testNut")
+
+# print(nota.showRecord(cat))
+# Sort.sortTaskDateTarget(cat,1)
+# print(nota.showRecord(cat))
+
+# cat[2].topic = "Father died"
+# nota.editRecord(cat[2])
+# nota.deletRow(cat[2])
+# s = "-1"
+# print(int(s))
+
+# cat = nota.getTimetableAll()
+# cat = nota.getNoteAll()
+# -----------------------------g
+# t1 = datetime.datetime(2021,11,26,14,10,11)
+# t2 = datetime.datetime(2021,11,30,16,11,15)
+# print((t2-t1).seconds)
+
