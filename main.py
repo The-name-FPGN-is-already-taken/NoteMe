@@ -83,7 +83,6 @@ class HomeWeek_window(QDialog):
         self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
 
-        self.currentDay = -1  # ยังไม่เลือกวัน = Today, Monday =0 .... Sunday = 6
         self.signOutButton.clicked.connect(self.signOut)
         self.calendar_tab.clicked.connect(self.homeWeekToHomeCal)
         self.noteButton.clicked.connect(self.homeWeekToNoteWindow)
@@ -99,16 +98,49 @@ class HomeWeek_window(QDialog):
         self.listDayButton.append(self.saturday_button)
         self.listDayButton.append(self.sunday_button)
 
+        self.currentDay = -1  # ยังไม่เลือกวัน = Today, Monday =0 .... Sunday = 6
+        if self.currentDay == -1:
+            dayhw = datetime.datetime.now()
+            dayhw = str(dayhw.strftime("%a"))
+            print(dayhw)
+            if dayhw == "Mon":
+                self.currentDay = 0
+            elif dayhw == "Tue":
+                self.currentDay = 1
+            elif dayhw == "Wed":
+                self.currentDay = 2
+            elif dayhw == "Thur":
+                self.currentDay = 3
+            elif dayhw == "Fri":
+                self.currentDay = 4
+            elif dayhw == "Sat":
+                self.currentDay = 5
+            elif dayhw == "Sun":
+                self.currentDay = 6
+            print(self.currentDay)
+            global timetablelst
+            timetablelst = nota.getTimetableAll(self.currentDay)
+            self.taskTray.clear()
+            for i in range(len(timetablelst)):
+                self.taskTray.addItem(timetablelst[i].topic)
+            self.taskTray.itemDoubleClicked.connect(self.goTowhere)
+            self.taskTray.setSpacing(15)
+
         for i in range(len(self.listDayButton)):
 
             # SET TEXT
             self.listDayButton[i].setText((nota.showDateOfToday()+datetime.timedelta(days=i)).strftime(
                 "%A")+"\n"+str((nota.showDateOfToday()+datetime.timedelta(days=i)).day))
-
             # SET clicked connect
             self.listDayButton[i].clicked.connect(self.setCurrent)
 
-        print("wcHomeweek", widget.currentIndex())
+    def goTowhere(self):
+        # indexHome = self.taskTray.currentRow().text()
+        itemName = self.taskTray.currentItem().text()
+        print("itemName :", itemName)
+        # 0== task // 1== timetable
+        if itemName == "task":
+            self.homeWeekToTaskWindow()
 
     def signOut(self):
         nota.logout()
@@ -120,6 +152,16 @@ class HomeWeek_window(QDialog):
                 # print(self.sender().objectName())
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: #FFAC4B; color: white; border-radius: 8px; }')
+
+                # Update listwidget taskTray
+                global timetablelst
+                timetablelst = nota.getTimetableAll(i)
+                self.taskTray.clear()
+                for i in range(len(timetablelst)):
+                    self.taskTray.addItem(timetablelst[i].topic)
+                self.taskTray.itemDoubleClicked.connect(self.goTowhere)
+                self.taskTray.setSpacing(15)
+
             else:
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: rgb(228, 226, 199); color: black; border-radius: 8px;  }')
