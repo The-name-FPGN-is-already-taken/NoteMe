@@ -1,6 +1,7 @@
 
 import datetime
 from time import time
+from dataType import *
 # x = datetime.datetime(2021,12,1)
 # print(x.strftime("%m"))
 inp = [2021,11,21]
@@ -81,5 +82,8 @@ def sortTaskDateTarget(li:list,near:int=1):
 # print(li)
 # sortTaskDateTarget(li)
 
-s = "1"
-print(bool(int(s)))
+# s = "1"
+# print(bool(int(s)))
+
+
+

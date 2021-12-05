@@ -33,7 +33,8 @@ while inp != "q":
             
             txt = input("Detail : ")
             des = input("Descrpition : ")
-            obj.addRecord(dateTarget,taskType,txt,des)
+            if Nota.checkStrForAdd(txt) and Nota.checkStrForAdd(des):
+                obj.addRecord(dateTarget,taskType,txt,des)
     elif inp == 'del':
         #Must input taskID
         inp = int(input("Enter row :"))

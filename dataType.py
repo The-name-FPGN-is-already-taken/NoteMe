@@ -131,6 +131,10 @@ class Link():
             t = t.next
         return txt
 
+    def show(li):
+        for i in range(len(li)):
+            print("{} : {}".format(i,li[i]))
+
     def getValue(self):
         return self.txt
 
@@ -145,18 +149,20 @@ class TestObj:
 def sort(li:Link,dayTarget:int):
     node = li.head
     tempNode = None
-    while node.next != None:
-        if node.next.data.day >= dayTarget and tempNode == None:
-            tempNode = node.next
-            node.next = None
-            node = tempNode
-            # print("Found")
+    if li.head.data.day < dayTarget and li.getSize() > 1:
+        while node.next != None:
+            if node.next.data.day >= dayTarget and tempNode == None:
+                tempNode = node.next
+                node.next = None
+                node = tempNode
+                # print("Found")
+            else:
+                node = node.next
+            
         else:
-            node = node.next
-        
-    else:
-        node.next = li.head
-        li.head = tempNode
+            if tempNode != None:
+                node.next = li.head
+                li.head = tempNode
     node = li.head
     li = []
     while node != None:
@@ -170,9 +176,10 @@ def sort(li:Link,dayTarget:int):
 # linkList.append(TestObj("Test3",1))
 # linkList.append(TestObj("Test4",3))
 # linkList.append(TestObj("Test5",5))
-# dayTarget = 5
+# dayTarget = 1
 # print(linkList)
 # linkList = sort(linkList,dayTarget)
+# print("sort---------")
 # for i in linkList:
 #     print(i)
 
