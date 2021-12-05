@@ -232,16 +232,17 @@ class Note_window(QDialog):
         global userName
         self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
-        
+
         self.noteTray.itemDoubleClicked.connect(self.goToAddNote)
         self.noteTray.clear()
         global notelst
 
         notelst = nota.getNoteAll()
-        Sort.sortNote(notelst,1) # new =1 ใหม่ขึ้นก่อน new =0  เก่ามาก่อน
+        Sort.sortNote(notelst, 1)  # new =1 ใหม่ขึ้นก่อน new =0  เก่ามาก่อน
 
         for i in range(len(notelst)):
-            self.noteTray.addItem(notelst[i].topic +(165-len(str(notelst[i].dateCreate.strftime("%Y-%m-%d %H:%M:%S"))) - len(notelst[i].topic))*" "+str(notelst[i].dateCreate.strftime("%Y-%m-%d %H:%M:%S")) )
+            self.noteTray.addItem(notelst[i].topic + (165-len(str(notelst[i].dateCreate.strftime("%Y-%m-%d %H:%M:%S"))) - len(
+                notelst[i].topic))*" "+str(notelst[i].dateCreate.strftime("%Y-%m-%d %H:%M:%S")))
 
             # self.noteTray.addItem(notelst[i].topic + (761-len(notelst[i].topic)-len(str(notelst[i].dateCreate.strftime("%Y-%m-%d "))))*" "+str(notelst[i].dateCreate.strftime("%Y-%m-%d ")) )
     def goToAddNote(self):
@@ -278,7 +279,7 @@ class AddNoteWindow(QDialog):
         self.unAddNote.clicked.connect(self.goToNoteWindow)
         self.homeButton.clicked.connect(self.addNoteWindowToHomeWeek)
         self.taskButton.clicked.connect(self.goToTaskWindow)
-        
+
         self.saveNoteButton.disconnect()
         self.saveNoteButton.clicked.connect(self.addNote)
         self.cancelAdding.clicked.connect(self.cancelNote)
@@ -297,7 +298,6 @@ class AddNoteWindow(QDialog):
 
             print(notelst[self.indexNote].taskID)
 
-
     def saveNote(self):
         print("------>", self.indexNote)
         notelst[self.indexNote].topic = self.noteName_textEdit.toPlainText()
@@ -305,18 +305,18 @@ class AddNoteWindow(QDialog):
         nota.editRecord(notelst[self.indexNote])
         self.note_description.clear()
         self.goToNoteWindow()
+
     def addNote(self):
-        if self.noteName_textEdit.toPlainText()!= "":
-            
+        if self.noteName_textEdit.toPlainText() != "":
+
             nota.addRecord(time, 2, self.noteName_textEdit.toPlainText(),
-                       self.note_description.toPlainText())
+                           self.note_description.toPlainText())
             self.noteName_textEdit.clear()
             self.note_description.clear()
             self.goToNoteWindow()
         else:
             self.warning.setVisible(True)
-        
-        
+
     def cancelNote(self):
         self.noteName_textEdit.clear()
         self.note_description.clear()
@@ -359,7 +359,7 @@ class Task_window(QDialog):
         global userName
         self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
-        
+
         self.listWidget.clear()
         global tasklst
 
@@ -456,7 +456,7 @@ class AddTaskWindow(QDialog):
         self.goToTaskWindow()
 
     def addTask(self):
-        if self.taskName_textEdit.toPlainText()!="":
+        if self.taskName_textEdit.toPlainText() != "":
             # M/d/yy h:mm AP
             time = self.dateTimeEdit.dateTime()
             # yy/m/d h:mm:ss
@@ -465,7 +465,7 @@ class AddTaskWindow(QDialog):
             # print(str(self.taskName_textEdit.toPlainText()))
             # print(str(self.task_description.toPlainText()))
             nota.addRecord(time, 0, self.taskName_textEdit.toPlainText(),
-                        self.task_description.toPlainText())
+                           self.task_description.toPlainText())
             self.taskName_textEdit.clear()
             self.task_description.clear()
             # self.task_description.overwriteMode(True)
@@ -475,7 +475,6 @@ class AddTaskWindow(QDialog):
             self.goToTaskWindow()
         else:
             self.warning.setVisible(True)
-
 
     def cancelTask(self):
         self.taskName_textEdit.clear()
@@ -559,6 +558,7 @@ class AddTimeTableWindow(QDialog):
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
 
     # FAILED SAT NOV 27 2:04:44 AM
+
     def addTimetable(self):
         # M/d/yy h:mm AP
         time = self.timetable_Edittime.dateTime()
