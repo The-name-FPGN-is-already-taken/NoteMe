@@ -12,7 +12,6 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
-import source_rc
 
 class Ui_homeCal(object):
     def setupUi(self, homeCal):
@@ -324,14 +323,19 @@ class Ui_homeCal(object):
 
         self.verticalLayout_7.addLayout(self.verticalLayout_6)
 
-        self.unAddTask = QPushButton(self.leftBar)
+        self.frame_2 = QFrame(self.leftBar)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+        self.unAddTask = QPushButton(self.frame_2)
         self.unAddTask.setObjectName(u"unAddTask")
+        self.unAddTask.setGeometry(QRect(0, 90, 67, 61))
         self.unAddTask.setCursor(QCursor(Qt.PointingHandCursor))
         self.unAddTask.setFocusPolicy(Qt.ClickFocus)
         self.unAddTask.setStyleSheet(u"background: rgba(0,0,0,0);\n"
 "image: url(D:/NotaProject/pics/unAdd.png);")
 
-        self.verticalLayout_7.addWidget(self.unAddTask)
+        self.verticalLayout_7.addWidget(self.frame_2)
 
         self.frame_5.raise_()
         self.topBar.raise_()

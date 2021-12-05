@@ -29,7 +29,7 @@ class Ui_Dialog(object):
 "left: 0px;\n"
 "top: 0px;\n"
 "text-align: center;\n"
-"box-shadow: 0px 4px 4px 0px #00000040;\n"
+"\n"
 "\n"
 "background: #FEFAE0;")
         self.topBar.setFrameShape(QFrame.StyledPanel)
@@ -99,7 +99,7 @@ class Ui_Dialog(object):
 
         self.frame = QFrame(Dialog)
         self.frame.setObjectName(u"frame")
-        self.frame.setGeometry(QRect(90, 100, 931, 541))
+        self.frame.setGeometry(QRect(90, 100, 941, 541))
         self.frame.setStyleSheet(u"background: #84B289;\n"
 "")
         self.frame.setFrameShape(QFrame.StyledPanel)
@@ -113,9 +113,9 @@ class Ui_Dialog(object):
         font1.setBold(True)
         font1.setWeight(75)
         self.today_label.setFont(font1)
-        self.today_label.setStyleSheet(u"display: flex;\n"
-"flex-direction: column;\n"
-"align-items: center;\n"
+        self.today_label.setStyleSheet(u";\n"
+" \n"
+"\n"
 "padding: 8px 0px;\n"
 "position: static;\n"
 "width: 40px;\n"
@@ -144,8 +144,7 @@ class Ui_Dialog(object):
 "top: 31px;\n"
 "text-align: center;\n"
 "background: #84B289;\n"
-"border-radius: 15px;\n"
-"transform: rotate(90deg);")
+"border-radius: 15px;")
 
         self.horizontalLayout_3.addWidget(self.previous_button)
 
@@ -155,9 +154,9 @@ class Ui_Dialog(object):
         self.monday_button_2.setObjectName(u"monday_button_2")
         self.monday_button_2.setMaximumSize(QSize(93, 41))
         self.monday_button_2.setCursor(QCursor(Qt.PointingHandCursor))
-        self.monday_button_2.setStyleSheet(u"display: flex;\n"
-"flex-direction: column;\n"
-"align-items: center;\n"
+        self.monday_button_2.setStyleSheet(u";\n"
+" \n"
+"\n"
 "padding: 8px 0px;\n"
 "position: static;\n"
 "width: 40px;\n"
@@ -173,9 +172,9 @@ class Ui_Dialog(object):
         self.tuesday_button_2.setObjectName(u"tuesday_button_2")
         self.tuesday_button_2.setMaximumSize(QSize(93, 41))
         self.tuesday_button_2.setCursor(QCursor(Qt.PointingHandCursor))
-        self.tuesday_button_2.setStyleSheet(u"display: flex;\n"
-"flex-direction: column;\n"
-"align-items: center;\n"
+        self.tuesday_button_2.setStyleSheet(u";\n"
+" \n"
+"\n"
 "padding: 8px 0px;\n"
 "color: rgb(255, 255, 255);\n"
 "position: static;\n"
@@ -194,9 +193,9 @@ class Ui_Dialog(object):
         self.wednesday_button_2.setObjectName(u"wednesday_button_2")
         self.wednesday_button_2.setMaximumSize(QSize(93, 41))
         self.wednesday_button_2.setCursor(QCursor(Qt.PointingHandCursor))
-        self.wednesday_button_2.setStyleSheet(u"display: flex;\n"
-"flex-direction: column;\n"
-"align-items: center;\n"
+        self.wednesday_button_2.setStyleSheet(u";\n"
+" \n"
+"\n"
 "padding: 8px 0px;\n"
 "position: static;\n"
 "width: 40px;\n"
@@ -212,9 +211,9 @@ class Ui_Dialog(object):
         self.thursday_button_2.setObjectName(u"thursday_button_2")
         self.thursday_button_2.setMaximumSize(QSize(93, 41))
         self.thursday_button_2.setCursor(QCursor(Qt.PointingHandCursor))
-        self.thursday_button_2.setStyleSheet(u"display: flex;\n"
-"flex-direction: column;\n"
-"align-items: center;\n"
+        self.thursday_button_2.setStyleSheet(u";\n"
+" \n"
+"\n"
 "padding: 8px 0px;\n"
 "position: static;\n"
 "width: 40px;\n"
@@ -230,9 +229,9 @@ class Ui_Dialog(object):
         self.friday_button_2.setObjectName(u"friday_button_2")
         self.friday_button_2.setMaximumSize(QSize(93, 41))
         self.friday_button_2.setCursor(QCursor(Qt.PointingHandCursor))
-        self.friday_button_2.setStyleSheet(u"display: flex;\n"
-"flex-direction: column;\n"
-"align-items: center;\n"
+        self.friday_button_2.setStyleSheet(u";\n"
+" \n"
+"\n"
 "padding: 8px 0px;\n"
 "position: static;\n"
 "width: 40px;\n"
@@ -248,9 +247,9 @@ class Ui_Dialog(object):
         self.saturday_button_2.setObjectName(u"saturday_button_2")
         self.saturday_button_2.setMaximumSize(QSize(93, 41))
         self.saturday_button_2.setCursor(QCursor(Qt.PointingHandCursor))
-        self.saturday_button_2.setStyleSheet(u"display: flex;\n"
-"flex-direction: column;\n"
-"align-items: center;\n"
+        self.saturday_button_2.setStyleSheet(u";\n"
+" \n"
+"\n"
 "padding: 8px 0px;\n"
 "position: static;\n"
 "width: 40px;\n"
@@ -266,9 +265,9 @@ class Ui_Dialog(object):
         self.sunday_button_2.setObjectName(u"sunday_button_2")
         self.sunday_button_2.setMaximumSize(QSize(93, 41))
         self.sunday_button_2.setCursor(QCursor(Qt.PointingHandCursor))
-        self.sunday_button_2.setStyleSheet(u"display: flex;\n"
-"flex-direction: column;\n"
-"align-items: center;\n"
+        self.sunday_button_2.setStyleSheet(u";\n"
+" \n"
+"\n"
 "padding: 8px 0px;\n"
 "position: static;\n"
 "width: 40px;\n"
@@ -303,9 +302,9 @@ class Ui_Dialog(object):
         self.today_label_2.setObjectName(u"today_label_2")
         self.today_label_2.setGeometry(QRect(590, 90, 201, 51))
         self.today_label_2.setFont(font1)
-        self.today_label_2.setStyleSheet(u"display: flex;\n"
-"flex-direction: column;\n"
-"align-items: center;\n"
+        self.today_label_2.setStyleSheet(u";\n"
+" \n"
+"\n"
 "padding: 8px 0px;\n"
 "position: static;\n"
 "width: 40px;\n"

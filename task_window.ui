@@ -231,7 +231,7 @@ background: #E4E2C7;
         <x>40</x>
         <y>30</y>
         <width>781</width>
-        <height>30</height>
+        <height>31</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="TodayTomorrowLabelLayout">
@@ -254,7 +254,7 @@ background: #E4E2C7;
           <string notr="true">font: 75 14pt &quot;AvenirNext LT Pro Bold&quot;;</string>
          </property>
          <property name="text">
-          <string>TOMORROW</string>
+          <string>INCOMING</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -266,9 +266,104 @@ background: #E4E2C7;
      <widget class="QListWidget" name="listWidget">
       <property name="geometry">
        <rect>
-        <x>60</x>
+        <x>50</x>
         <y>80</y>
-        <width>311</width>
+        <width>371</width>
+        <height>371</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>ยฟหกฟหก</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>New Item</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>New Item</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>New Item</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>New Item</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>New Item</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>New Item</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>New Item</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>New Item</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>New Item</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>New Item</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>New Item</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>New Item</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>New Item</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>New Item</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>New Item</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ฟหกฟหก</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QListWidget" name="listWidget_incoming">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>80</y>
+        <width>361</width>
         <height>371</height>
        </rect>
       </property>
@@ -544,20 +639,36 @@ border-radius: 10px;</string>
       </layout>
      </item>
      <item>
-      <widget class="QPushButton" name="addTask">
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
+      <widget class="QFrame" name="frame_2">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
        </property>
-       <property name="focusPolicy">
-        <enum>Qt::ClickFocus</enum>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
        </property>
-       <property name="styleSheet">
-        <string notr="true">background: rgba(0,0,0,0);
+       <widget class="QPushButton" name="addTask">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>90</y>
+          <width>67</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::ClickFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: rgba(0,0,0,0);
 image: url(D:/NotaProject/pics/add.png);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
       </widget>
      </item>
     </layout>
@@ -575,8 +686,6 @@ image: url(D:/NotaProject/pics/add.png);</string>
    <layout class="QHBoxLayout" name="horizontalLayout"/>
   </widget>
  </widget>
- <resources>
-  <include location="source.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

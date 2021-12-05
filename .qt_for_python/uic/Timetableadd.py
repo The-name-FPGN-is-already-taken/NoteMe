@@ -192,9 +192,9 @@ class Ui_timetabledialog(object):
         self.monday_button_Repeat.setObjectName(u"monday_button_Repeat")
         self.monday_button_Repeat.setMaximumSize(QSize(93, 41))
         self.monday_button_Repeat.setCursor(QCursor(Qt.PointingHandCursor))
-        self.monday_button_Repeat.setStyleSheet(u"display: flex;\n"
-"flex-direction: column;\n"
-"align-items: center;\n"
+        self.monday_button_Repeat.setStyleSheet(u";\n"
+"  \n"
+"\n"
 "padding: 8px 0px;\n"
 "position: static;\n"
 "width: 40px;\n"
@@ -210,9 +210,9 @@ class Ui_timetabledialog(object):
         self.tuesday_button_Repeat.setObjectName(u"tuesday_button_Repeat")
         self.tuesday_button_Repeat.setMaximumSize(QSize(93, 41))
         self.tuesday_button_Repeat.setCursor(QCursor(Qt.PointingHandCursor))
-        self.tuesday_button_Repeat.setStyleSheet(u"display: flex;\n"
-"flex-direction: column;\n"
-"align-items: center;\n"
+        self.tuesday_button_Repeat.setStyleSheet(u";\n"
+"  \n"
+"\n"
 "padding: 8px 0px;\n"
 "position: static;\n"
 "width: 40px;\n"
@@ -228,9 +228,9 @@ class Ui_timetabledialog(object):
         self.wednesday_Repeat.setObjectName(u"wednesday_Repeat")
         self.wednesday_Repeat.setMaximumSize(QSize(93, 41))
         self.wednesday_Repeat.setCursor(QCursor(Qt.PointingHandCursor))
-        self.wednesday_Repeat.setStyleSheet(u"display: flex;\n"
-"flex-direction: column;\n"
-"align-items: center;\n"
+        self.wednesday_Repeat.setStyleSheet(u";\n"
+"  \n"
+"\n"
 "padding: 8px 0px;\n"
 "position: static;\n"
 "width: 40px;\n"
@@ -246,9 +246,9 @@ class Ui_timetabledialog(object):
         self.thursday_Repeat.setObjectName(u"thursday_Repeat")
         self.thursday_Repeat.setMaximumSize(QSize(93, 41))
         self.thursday_Repeat.setCursor(QCursor(Qt.PointingHandCursor))
-        self.thursday_Repeat.setStyleSheet(u"display: flex;\n"
-"flex-direction: column;\n"
-"align-items: center;\n"
+        self.thursday_Repeat.setStyleSheet(u";\n"
+"  \n"
+"\n"
 "padding: 8px 0px;\n"
 "position: static;\n"
 "width: 40px;\n"
@@ -264,9 +264,9 @@ class Ui_timetabledialog(object):
         self.friday_button_Repeat.setObjectName(u"friday_button_Repeat")
         self.friday_button_Repeat.setMaximumSize(QSize(93, 41))
         self.friday_button_Repeat.setCursor(QCursor(Qt.PointingHandCursor))
-        self.friday_button_Repeat.setStyleSheet(u"display: flex;\n"
-"flex-direction: column;\n"
-"align-items: center;\n"
+        self.friday_button_Repeat.setStyleSheet(u";\n"
+"  \n"
+"\n"
 "padding: 8px 0px;\n"
 "position: static;\n"
 "width: 40px;\n"
@@ -282,9 +282,9 @@ class Ui_timetabledialog(object):
         self.saturday_button_Repeat.setObjectName(u"saturday_button_Repeat")
         self.saturday_button_Repeat.setMaximumSize(QSize(93, 41))
         self.saturday_button_Repeat.setCursor(QCursor(Qt.PointingHandCursor))
-        self.saturday_button_Repeat.setStyleSheet(u"display: flex;\n"
-"flex-direction: column;\n"
-"align-items: center;\n"
+        self.saturday_button_Repeat.setStyleSheet(u";\n"
+"  \n"
+"\n"
 "padding: 8px 0px;\n"
 "position: static;\n"
 "width: 40px;\n"
@@ -300,9 +300,9 @@ class Ui_timetabledialog(object):
         self.sunday_button_Repeat.setObjectName(u"sunday_button_Repeat")
         self.sunday_button_Repeat.setMaximumSize(QSize(93, 41))
         self.sunday_button_Repeat.setCursor(QCursor(Qt.PointingHandCursor))
-        self.sunday_button_Repeat.setStyleSheet(u"display: flex;\n"
-"flex-direction: column;\n"
-"align-items: center;\n"
+        self.sunday_button_Repeat.setStyleSheet(u";\n"
+"  \n"
+"\n"
 "padding: 8px 0px;\n"
 "position: static;\n"
 "width: 40px;\n"

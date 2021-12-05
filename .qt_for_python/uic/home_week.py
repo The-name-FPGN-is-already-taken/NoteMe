@@ -12,7 +12,6 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
-import source_rc
 
 class Ui_homeWeek(object):
     def setupUi(self, homeWeek):
@@ -54,48 +53,6 @@ class Ui_homeWeek(object):
 "")
         self.app_icon.setFrameShape(QFrame.StyledPanel)
         self.app_icon.setFrameShadow(QFrame.Raised)
-        self.week_cal_switching_tab = QFrame(self.topBar)
-        self.week_cal_switching_tab.setObjectName(u"week_cal_switching_tab")
-        self.week_cal_switching_tab.setGeometry(QRect(820, 20, 181, 51))
-        self.week_cal_switching_tab.setStyleSheet(u"\n"
-"position: absolute;\n"
-"width: 90px;\n"
-"height: 50px;\n"
-"left: 896px;\n"
-"top: 31px;\n"
-"\n"
-"background: #E4E2C7;\n"
-"border-radius: 15px;")
-        self.week_cal_switching_tab.setFrameShape(QFrame.StyledPanel)
-        self.week_cal_switching_tab.setFrameShadow(QFrame.Raised)
-        self.weekView_tab = QLabel(self.week_cal_switching_tab)
-        self.weekView_tab.setObjectName(u"weekView_tab")
-        self.weekView_tab.setGeometry(QRect(0, 0, 101, 51))
-        self.weekView_tab.setCursor(QCursor(Qt.ArrowCursor))
-        self.weekView_tab.setStyleSheet(u"position: absolute;\n"
-"width: 90px;\n"
-"height: 50px;\n"
-"left: 806px;\n"
-"top: 31px;\n"
-"text-align: center;\n"
-"background: #84B289;\n"
-"border-radius: 15px;\n"
-"")
-        self.calendar_tab = QPushButton(self.week_cal_switching_tab)
-        self.calendar_tab.setObjectName(u"calendar_tab")
-        self.calendar_tab.setGeometry(QRect(80, 0, 101, 51))
-        self.calendar_tab.setCursor(QCursor(Qt.PointingHandCursor))
-        self.calendar_tab.setStyleSheet(u"\n"
-"position: absolute;\n"
-"width: 90px;\n"
-"height: 50px;\n"
-"left: 896px;\n"
-"top: 31px;\n"
-"\n"
-"background: #E4E2C7;\n"
-"border-radius: 15px;")
-        self.calendar_tab.raise_()
-        self.weekView_tab.raise_()
         self.layoutWidget = QWidget(self.topBar)
         self.layoutWidget.setObjectName(u"layoutWidget")
         self.layoutWidget.setGeometry(QRect(100, 20, 581, 53))
@@ -555,8 +512,6 @@ class Ui_homeWeek(object):
 
     def retranslateUi(self, homeWeek):
         homeWeek.setWindowTitle(QCoreApplication.translate("homeWeek", u"Form", None))
-        self.weekView_tab.setText(QCoreApplication.translate("homeWeek", u"         WEEK", None))
-        self.calendar_tab.setText(QCoreApplication.translate("homeWeek", u"     CALENDAR", None))
         self.welcomeUser.setText(QCoreApplication.translate("homeWeek", u"Welcome,", None))
         self.date.setText(QCoreApplication.translate("homeWeek", u"November 21, 2021", None))
 #if QT_CONFIG(tooltip)

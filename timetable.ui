@@ -41,7 +41,7 @@ height: 100px;
 left: 0px;
 top: 0px;
 text-align: center;
-box-shadow: 0px 4px 4px 0px #00000040;
+
 
 background: #FEFAE0;</string>
    </property>
@@ -150,7 +150,7 @@ color: #000000;</string>
     <rect>
      <x>90</x>
      <y>100</y>
-     <width>931</width>
+     <width>941</width>
      <height>541</height>
     </rect>
    </property>
@@ -188,9 +188,9 @@ color: #000000;</string>
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
-     <string notr="true">display: flex;
-flex-direction: column;
-align-items: center;
+     <string notr="true">;
+ 
+
 padding: 8px 0px;
 position: static;
 width: 40px;
@@ -238,8 +238,7 @@ left: 806px;
 top: 31px;
 text-align: center;
 background: #84B289;
-border-radius: 15px;
-transform: rotate(90deg);</string>
+border-radius: 15px;</string>
        </property>
        <property name="text">
         <string/>
@@ -260,9 +259,9 @@ transform: rotate(90deg);</string>
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="styleSheet">
-          <string notr="true">display: flex;
-flex-direction: column;
-align-items: center;
+          <string notr="true">;
+ 
+
 padding: 8px 0px;
 position: static;
 width: 40px;
@@ -289,9 +288,9 @@ border-radius: 8px;</string>
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="styleSheet">
-          <string notr="true">display: flex;
-flex-direction: column;
-align-items: center;
+          <string notr="true">;
+ 
+
 padding: 8px 0px;
 color: rgb(255, 255, 255);
 position: static;
@@ -321,9 +320,9 @@ border-radius: 8px;</string>
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="styleSheet">
-          <string notr="true">display: flex;
-flex-direction: column;
-align-items: center;
+          <string notr="true">;
+ 
+
 padding: 8px 0px;
 position: static;
 width: 40px;
@@ -350,9 +349,9 @@ border-radius: 8px;</string>
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="styleSheet">
-          <string notr="true">display: flex;
-flex-direction: column;
-align-items: center;
+          <string notr="true">;
+ 
+
 padding: 8px 0px;
 position: static;
 width: 40px;
@@ -379,9 +378,9 @@ border-radius: 8px;</string>
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="styleSheet">
-          <string notr="true">display: flex;
-flex-direction: column;
-align-items: center;
+          <string notr="true">;
+ 
+
 padding: 8px 0px;
 position: static;
 width: 40px;
@@ -408,9 +407,9 @@ border-radius: 8px;</string>
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="styleSheet">
-          <string notr="true">display: flex;
-flex-direction: column;
-align-items: center;
+          <string notr="true">;
+ 
+
 padding: 8px 0px;
 position: static;
 width: 40px;
@@ -437,9 +436,9 @@ border-radius: 8px;</string>
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="styleSheet">
-          <string notr="true">display: flex;
-flex-direction: column;
-align-items: center;
+          <string notr="true">;
+ 
+
 padding: 8px 0px;
 position: static;
 width: 40px;
@@ -509,9 +508,9 @@ border-radius: 15px;</string>
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
-     <string notr="true">display: flex;
-flex-direction: column;
-align-items: center;
+     <string notr="true">;
+ 
+
 padding: 8px 0px;
 position: static;
 width: 40px;

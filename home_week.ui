@@ -93,89 +93,6 @@ border-radius: 35px;
       <enum>QFrame::Raised</enum>
      </property>
     </widget>
-    <widget class="QFrame" name="week_cal_switching_tab">
-     <property name="geometry">
-      <rect>
-       <x>820</x>
-       <y>20</y>
-       <width>181</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">
-position: absolute;
-width: 90px;
-height: 50px;
-left: 896px;
-top: 31px;
-
-background: #E4E2C7;
-border-radius: 15px;</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <widget class="QLabel" name="weekView_tab">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>101</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="cursor">
-       <cursorShape>ArrowCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">position: absolute;
-width: 90px;
-height: 50px;
-left: 806px;
-top: 31px;
-text-align: center;
-background: #84B289;
-border-radius: 15px;
-</string>
-      </property>
-      <property name="text">
-       <string>         WEEK</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="calendar_tab">
-      <property name="geometry">
-       <rect>
-        <x>80</x>
-        <y>0</y>
-        <width>101</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">
-position: absolute;
-width: 90px;
-height: 50px;
-left: 896px;
-top: 31px;
-
-background: #E4E2C7;
-border-radius: 15px;</string>
-      </property>
-      <property name="text">
-       <string>     CALENDAR</string>
-      </property>
-     </widget>
-     <zorder>calendar_tab</zorder>
-     <zorder>weekView_tab</zorder>
-    </widget>
     <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
@@ -913,8 +830,6 @@ border-radius: 15px;</string>
    <layout class="QHBoxLayout" name="horizontalLayout"/>
   </widget>
  </widget>
- <resources>
-  <include location="source.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
