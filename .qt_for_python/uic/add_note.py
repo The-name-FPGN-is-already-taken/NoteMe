@@ -236,14 +236,14 @@ class Ui_homeCal(object):
 
         self.verticalLayout_7.addLayout(self.verticalLayout_6)
 
-        self.addNote = QPushButton(self.leftBar)
-        self.addNote.setObjectName(u"addNote")
-        self.addNote.setCursor(QCursor(Qt.PointingHandCursor))
-        self.addNote.setFocusPolicy(Qt.ClickFocus)
-        self.addNote.setStyleSheet(u"background: rgba(0,0,0,0);\n"
+        self.unAddNote = QPushButton(self.leftBar)
+        self.unAddNote.setObjectName(u"unAddNote")
+        self.unAddNote.setCursor(QCursor(Qt.PointingHandCursor))
+        self.unAddNote.setFocusPolicy(Qt.ClickFocus)
+        self.unAddNote.setStyleSheet(u"background: rgba(0,0,0,0);\n"
 "image: url(D:/NotaProject/pics/unAdd.png);")
 
-        self.verticalLayout_7.addWidget(self.addNote)
+        self.verticalLayout_7.addWidget(self.unAddNote)
 
         self.frame_5 = QFrame(self.backFrame)
         self.frame_5.setObjectName(u"frame_5")
@@ -269,14 +269,14 @@ class Ui_homeCal(object):
 "")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
-        self.noteName = QTextEdit(self.frame)
-        self.noteName.setObjectName(u"noteName")
-        self.noteName.setGeometry(QRect(60, 20, 711, 31))
-        self.noteName.setStyleSheet(u"background: rgba(0,0,0,0);\n"
+        self.noteName_textEdit = QTextEdit(self.frame)
+        self.noteName_textEdit.setObjectName(u"noteName_textEdit")
+        self.noteName_textEdit.setGeometry(QRect(60, 20, 711, 31))
+        self.noteName_textEdit.setStyleSheet(u"background: rgba(0,0,0,0);\n"
 "")
-        self.textField = QPlainTextEdit(self.frame)
-        self.textField.setObjectName(u"textField")
-        self.textField.setGeometry(QRect(60, 80, 711, 301))
+        self.note_description = QPlainTextEdit(self.frame)
+        self.note_description.setObjectName(u"note_description")
+        self.note_description.setGeometry(QRect(60, 80, 711, 301))
         self.line = QFrame(self.frame)
         self.line.setObjectName(u"line")
         self.line.setGeometry(QRect(60, 60, 711, 20))
@@ -308,6 +308,10 @@ class Ui_homeCal(object):
 
         self.horizontalLayout_2.addWidget(self.saveNoteButton)
 
+        self.warning = QLabel(self.frame_5)
+        self.warning.setObjectName(u"warning")
+        self.warning.setGeometry(QRect(490, 490, 141, 16))
+        self.warning.setStyleSheet(u"color: rgb(255, 0, 0);")
         self.layoutWidget2 = QWidget(homeCal)
         self.layoutWidget2.setObjectName(u"layoutWidget2")
         self.layoutWidget2.setGeometry(QRect(0, 0, 2, 2))
@@ -338,15 +342,16 @@ class Ui_homeCal(object):
         self.note_label.setText(QCoreApplication.translate("homeCal", u"    NOTE", None))
         self.taskButton.setText("")
         self.task_label.setText(QCoreApplication.translate("homeCal", u"     TASK", None))
-        self.addNote.setText("")
-        self.noteName.setHtml(QCoreApplication.translate("homeCal", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        self.unAddNote.setText("")
+        self.noteName_textEdit.setHtml(QCoreApplication.translate("homeCal", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><br /></p></body></html>", None))
-        self.noteName.setPlaceholderText(QCoreApplication.translate("homeCal", u"NOTENAME", None))
-        self.textField.setPlaceholderText(QCoreApplication.translate("homeCal", u"TYPE HERE", None))
+        self.noteName_textEdit.setPlaceholderText(QCoreApplication.translate("homeCal", u"NOTENAME", None))
+        self.note_description.setPlaceholderText(QCoreApplication.translate("homeCal", u"TYPE HERE", None))
         self.cancelAdding.setText(QCoreApplication.translate("homeCal", u"CANCEL", None))
-        self.saveNoteButton.setText(QCoreApplication.translate("homeCal", u"SAVE", None))
+        self.saveNoteButton.setText(QCoreApplication.translate("homeCal", u"ADD", None))
+        self.warning.setText(QCoreApplication.translate("homeCal", u"Please fill in note name!!", None))
     # retranslateUi
 
