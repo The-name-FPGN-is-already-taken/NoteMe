@@ -192,7 +192,7 @@ class Note_window(QDialog):
         super(Note_window, self).__init__()
         loadUi("note_window.ui", self)
         self.addNoteButton.clicked.connect(self.goToAddNote)
-        self.homeButton.clicked.connect(self.noteWindowToHomeWeek)
+        self.homeButton.clicked.connect(self.goToHomeWeek)
         self.taskButton.clicked.connect(self.goToTaskWindow)
         self.timeTableButton.clicked.connect(self.goToTimeTableWindow)
         self.sortFromNewToOld = True
@@ -201,12 +201,14 @@ class Note_window(QDialog):
         self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
 
-        self.noteTray.itemDoubleClicked.connect(self.goToAddNote)
+
+        self.noteTray.itemDoubleClicked.connect(self.showPopUp)
+
         self.noteTray.clear()
         global notelst
-
         notelst = nota.getNoteAll()
-        Sort.sortNote(notelst, 1)  # new =1 ใหม่ขึ้นก่อน new =0  เก่ามาก่อน
+
+        Sort.sortNote(notelst,1) # new =1 ใหม่ขึ้นก่อน new =0  เก่ามาก่อน
 
         for i in range(len(notelst)):
             self.noteTray.addItem(notelst[i].topic + (165-len(str(notelst[i].dateCreate.strftime("%Y-%m-%d %H:%M:%S"))) - len(
@@ -227,17 +229,24 @@ class Note_window(QDialog):
                 self.noteTray.addItem(notelst[i].topic +(165-len(str(notelst[i].dateCreate.strftime("%Y-%m-%d %H:%M:%S"))) - len(notelst[i].topic))*" "+str(notelst[i].dateCreate.strftime("%Y-%m-%d %H:%M:%S")) )  
         self.sortFromNewToOld= not self.sortFromNewToOld   
         
+    def refreshTable(self):
+        self.noteTray.clear()
+        global notelst
+        notelst = nota.getNoteAll()
+        Sort.sortNote(notelst,1) # new =1 ใหม่ขึ้นก่อน new =0  เก่ามาก่อน
+        for i in range(len(notelst)):
+            self.noteTray.addItem(notelst[i].topic +(165-len(str(notelst[i].dateCreate.strftime("%Y-%m-%d %H:%M:%S"))) - len(notelst[i].topic))*" "+str(notelst[i].dateCreate.strftime("%Y-%m-%d %H:%M:%S")) )
+    
+    def showPopUp(self):
+        pop = Popup(self)
+        pop.show()    
+    
     def goToAddNote(self):
         addNoteWindow = AddNoteWindow()
         widget.addWidget(addNoteWindow)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
     def goToHomeWeek(self):
-        homeWeek_window = HomeWeek_window()
-        widget.addWidget(homeWeek_window)
-        widget.setCurrentIndex(widget.currentIndex()+1)
-
-    def noteWindowToHomeWeek(self):
         homeWeek_window = HomeWeek_window()
         widget.addWidget(homeWeek_window)
         widget.setCurrentIndex(widget.currentIndex()+1)
@@ -269,11 +278,10 @@ class AddNoteWindow(QDialog):
         self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
 
-        if self.sender().objectName() == "noteTray":
-            self.indexNote = self.sender().currentRow()
+        if self.sender().objectName() == "edit":
+            self.indexNote = fromWho.currentRow()
             self.noteName_textEdit.setPlainText(notelst[self.indexNote].topic)
-            self.note_description.setPlainText(
-                notelst[self.indexNote].description)
+            self.note_description.setPlainText(notelst[self.indexNote].description)
             self.saveNoteButton.disconnect()
             self.saveNoteButton.clicked.connect(self.saveNote)
             self.saveNoteButton.setText("SAVE")
@@ -675,16 +683,35 @@ class Popup(QDialog):
         self.cancel.setVisible(False)
         self.confirmation.setVisible(False)
         self.delete_2.clicked.connect(self.showConfirmationBox)
-        self.edit.clicked.connect(self.goToAddTask)
         self.mark.clicked.connect(self.markAsCompleted)
+         
+        global fromWho
+        fromWho = self.sender()
+        self.indextask = self.sender().currentRow()
         
-        if self.sender().objectName()  in  ["listWidget","listWidget_incoming"] :
-            global fromWho
-            fromWho = self.sender()
-            self.indextask = self.sender().currentRow()
+        if fromWho.objectName() == 'noteTray':
+            self.mark.setVisible(False)
+            self.direction.setText("Please choose action you want to do with this note")
+            self.edit.clicked.connect(self.goToAddNote)
+        else:
+            self.edit.clicked.connect(self.goToAddTask)
+        
      
-    def markAsCompleted(self):
-        pass       
+    def markAsCompleted(self):#edit here na FAME
+        if fromWho.objectName()  ==  "listWidget":
+            today_tasklst[self.indextask].finish = 1
+            nota.editRecord(today_tasklst[self.indextask])         
+        else:
+            incoming_tasklst[self.indextask].finish =1
+            nota.editRecord(incoming_tasklst[self.indextask])
+        self.close() 
+        
+    def goToAddNote(self):
+        addNoteWindow = AddNoteWindow()
+        widget.addWidget(addNoteWindow)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+        self.close()       
+          
     def goToAddTask(self):
         addTaskWindow = AddTaskWindow()
         widget.addWidget(addTaskWindow)
@@ -701,12 +728,15 @@ class Popup(QDialog):
         self.cancel.clicked.connect(self.close)
         
     def deleteTask(self):
-        nota.deletRow(incoming_tasklst[self.indextask])
-        self.parent().refreshTable()
-        self.close()
+        if fromWho.objectName() != "noteTray":
+            nota.deletRow(incoming_tasklst[self.indextask])
+            self.parent().refreshTable()
+            self.close()
+        else:
+            nota.deletRow(notelst[self.indextask])
+            self.parent().refreshTable()
+            self.close()
     
-        
-
 # main
 app = QApplication(sys.argv)
 widget = QtWidgets.QStackedWidget()
