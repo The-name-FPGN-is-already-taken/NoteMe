@@ -3,10 +3,11 @@
 ################################################################################
 ## Form generated from reading UI file 'add_task_window.ui'
 ##
-## Created by: Qt User Interface Compiler version 5.15.2
+## Created by: Qt User Interface Compiler version 6.2.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
+
 
 from PySide2.QtCore import *
 from PySide2.QtGui import *
@@ -70,10 +71,9 @@ class Ui_homeCal(object):
         self.welcomeUser = QLabel(self.layoutWidget)
         self.welcomeUser.setObjectName(u"welcomeUser")
         font = QFont()
-        font.setFamily(u"Tenor Sans")
+        font.setFamilies([u"Tenor Sans"])
         font.setBold(False)
         font.setItalic(False)
-        font.setWeight(50)
         self.welcomeUser.setFont(font)
         self.welcomeUser.setStyleSheet(u"position: absolute;\n"
 "width: 190px;\n"

@@ -84,7 +84,6 @@ class HomeWeek_window(QDialog):
         self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
 
-        self.currentDay = -1  # ยังไม่เลือกวัน = Today, Monday =0 .... Sunday = 6
         self.signOutButton.clicked.connect(self.signOut)
         self.noteButton.clicked.connect(self.homeWeekToNoteWindow)
         self.taskButton.clicked.connect(self.homeWeekToTaskWindow)
@@ -99,16 +98,47 @@ class HomeWeek_window(QDialog):
         self.listDayButton.append(self.saturday_button)
         self.listDayButton.append(self.sunday_button)
 
+        self.currentDay = -1  # ยังไม่เลือกวัน = Today, Monday =0 .... Sunday = 6
+        if self.currentDay == -1:
+            dayhw = datetime.datetime.now()
+            dayhw = str(dayhw.strftime("%a"))
+            print(dayhw)
+            if dayhw == "Mon":
+                self.currentDay = 0
+            elif dayhw == "Tue":
+                self.currentDay = 1
+            elif dayhw == "Wed":
+                self.currentDay = 2
+            elif dayhw == "Thur":
+                self.currentDay = 3
+            elif dayhw == "Fri":
+                self.currentDay = 4
+            elif dayhw == "Sat":
+                self.currentDay = 5
+            elif dayhw == "Sun":
+                self.currentDay = 6
+            print(self.currentDay)
+            global timetablelst
+            timetablelst = nota.getTimetableAll(self.currentDay)
+            self.taskTray.clear()
+            for i in range(len(timetablelst)):
+                self.taskTray.addItem(timetablelst[i].topic)
+            self.taskTray.itemDoubleClicked.connect(self.goToAddTimetable)
+            self.taskTray.setSpacing(15)
+
         for i in range(len(self.listDayButton)):
 
             # SET TEXT
             self.listDayButton[i].setText((nota.showDateOfToday()+datetime.timedelta(days=i)).strftime(
                 "%A")+"\n"+str((nota.showDateOfToday()+datetime.timedelta(days=i)).day))
-
             # SET clicked connect
             self.listDayButton[i].clicked.connect(self.setCurrent)
 
-        print("wcHomeweek", widget.currentIndex())
+    def goToAddTimetable(self):
+
+        addTimeTableWindow = AddTimeTableWindow()
+        widget.addWidget(addTimeTableWindow)
+        widget.setCurrentIndex(widget.currentIndex()+1)
 
     def signOut(self):
         nota.logout()
@@ -120,6 +150,16 @@ class HomeWeek_window(QDialog):
                 # print(self.sender().objectName())
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: #FFAC4B; color: white; border-radius: 8px; }')
+
+                # Update listwidget taskTray
+                global timetablelst
+                timetablelst = nota.getTimetableAll(i)
+                self.taskTray.clear()
+                for i in range(len(timetablelst)):
+                    self.taskTray.addItem(timetablelst[i].topic)
+                self.taskTray.itemDoubleClicked.connect(self.goToAddTimetable)
+                self.taskTray.setSpacing(15)
+
             else:
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: rgb(228, 226, 199); color: black; border-radius: 8px;  }')
@@ -160,16 +200,17 @@ class Note_window(QDialog):
         global userName
         self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
-        
+
         self.noteTray.itemDoubleClicked.connect(self.goToAddNote)
         self.noteTray.clear()
         global notelst
 
         notelst = nota.getNoteAll()
-        Sort.sortNote(notelst,1) # new =1 ใหม่ขึ้นก่อน new =0  เก่ามาก่อน
+        Sort.sortNote(notelst, 1)  # new =1 ใหม่ขึ้นก่อน new =0  เก่ามาก่อน
 
         for i in range(len(notelst)):
-            self.noteTray.addItem(notelst[i].topic +(165-len(str(notelst[i].dateCreate.strftime("%Y-%m-%d %H:%M:%S"))) - len(notelst[i].topic))*" "+str(notelst[i].dateCreate.strftime("%Y-%m-%d %H:%M:%S")) )
+            self.noteTray.addItem(notelst[i].topic + (165-len(str(notelst[i].dateCreate.strftime("%Y-%m-%d %H:%M:%S"))) - len(
+                notelst[i].topic))*" "+str(notelst[i].dateCreate.strftime("%Y-%m-%d %H:%M:%S")))
 
     def sortNoteList(self):
         self.noteTray.clear()
@@ -220,6 +261,7 @@ class AddNoteWindow(QDialog):
         self.unAddNote.clicked.connect(self.goToNoteWindow)
         self.homeButton.clicked.connect(self.addNoteWindowToHomeWeek)
         self.taskButton.clicked.connect(self.goToTaskWindow)
+
         self.saveNoteButton.disconnect()
         self.saveNoteButton.clicked.connect(self.addNote)
         self.cancelAdding.clicked.connect(self.cancelNote)
@@ -236,7 +278,9 @@ class AddNoteWindow(QDialog):
             self.saveNoteButton.clicked.connect(self.saveNote)
             self.saveNoteButton.setText("SAVE")
 
+
             print(notelst[self.indexNote].taskID)
+
 
     def saveNote(self):
         # print("------>", self.indexNote)
@@ -252,18 +296,18 @@ class AddNoteWindow(QDialog):
         nota.editRecord(notelst[self.indexNote])
         self.note_description.clear()
         self.goToNoteWindow()
+
     def addNote(self):
-        if self.noteName_textEdit.toPlainText()!= "":
-            
+        if self.noteName_textEdit.toPlainText() != "":
+
             nota.addRecord(time, 2, self.noteName_textEdit.toPlainText(),
-                       self.note_description.toPlainText())
+                           self.note_description.toPlainText())
             self.noteName_textEdit.clear()
             self.note_description.clear()
             self.goToNoteWindow()
         else:
             self.warning.setVisible(True)
-        
-        
+
     def cancelNote(self):
         self.noteName_textEdit.clear()
         self.note_description.clear()
@@ -306,7 +350,7 @@ class Task_window(QDialog):
         global userName
         self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
-        
+
         self.listWidget.clear()
         global today_tasklst
         today_tasklst = nota.getTaskToday()
@@ -459,6 +503,7 @@ class AddTaskWindow(QDialog):
     def addTask(self):
         
         if self.taskName_textEdit.toPlainText()!="":
+
             # M/d/yy h:mm AP
             # self.dateTimeEdit.setDateTime(incoming_tasklst[self.indextask].dateTarget)
             
@@ -470,7 +515,7 @@ class AddTaskWindow(QDialog):
             # print(str(self.taskName_textEdit.toPlainText()))
             # print(str(self.task_description.toPlainText()))
             nota.addRecord(time, 0, self.taskName_textEdit.toPlainText(),
-                        self.task_description.toPlainText())
+                           self.task_description.toPlainText())
             self.taskName_textEdit.clear()
             self.task_description.clear()
             # self.task_description.overwriteMode(True)
@@ -480,7 +525,6 @@ class AddTaskWindow(QDialog):
             self.goToTaskWindow()
         else:
             self.warning.setVisible(True)
-
 
     def cancelTask(self):
         self.taskName_textEdit.clear()
@@ -563,7 +607,25 @@ class AddTimeTableWindow(QDialog):
         self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
 
-    # FAILED SAT NOV 27 2:04:44 AM
+        if self.sender().objectName() == "taskTray":
+            print("HIIII")
+            self.indexTimetable = self.sender().currentRow()
+            print("---<><><>", self.indexTimetable)
+            self.timetabletitleName_textEdit.setPlainText(
+                timetablelst[self.indexTimetable].topic)
+            self.timetable_description.setPlainText(
+                timetablelst[self.indexTimetable].description)
+
+            # self.timetable_Edittime.setHour(9)
+
+            self.saveTimetableButton.disconnect()
+            self.saveTimetableButton.clicked.connect(self.saveTimetable)
+            self.saveTimetableButton.setText("SAVE")
+
+    def saveTimetable(self):
+        timetablelst[self.indexTimetable].topic = self.timetabletitleName_textEdit.toPlainText()
+        timetablelst[self.indexTimetable].description = self.timetable_description.toPlainText()
+
     def addTimetable(self):
         # M/d/yy h:mm AP
         time = self.timetable_Edittime.dateTime()

@@ -3,15 +3,15 @@
 ################################################################################
 ## Form generated from reading UI file 'Timetableadd.ui'
 ##
-## Created by: Qt User Interface Compiler version 5.15.2
+## Created by: Qt User Interface Compiler version 6.2.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
+
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
-
 
 class Ui_timetabledialog(object):
     def setupUi(self, timetabledialog):
@@ -70,11 +70,11 @@ class Ui_timetabledialog(object):
         self.welcomeUser = QLabel(self.layoutWidget)
         self.welcomeUser.setObjectName(u"welcomeUser")
         font = QFont()
+
         font.setFamily(u"Tenor Sans")
         font.setPointSize(1)
         font.setBold(False)
         font.setItalic(False)
-        font.setWeight(50)
         self.welcomeUser.setFont(font)
         self.welcomeUser.setStyleSheet(u"position: absolute;\n"
 "width: 190px;\n"
