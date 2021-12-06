@@ -436,12 +436,11 @@ class Nota:
         with open("taskTable.csv", "w") as f:
             for row in lines:
                 if int(row.split(",")[0]) == int(obj.taskID):
-                    f.write("{},{},{},{},{},{},{},{},{}\n".format(obj.taskID,obj.userID,obj.taskType,obj.dateCreate,obj.dateTarget,obj.topic,obj.description,obj.day,obj.star))
+                    f.write("{},{},{},{},{},{},{},{},{},{}\n".format(obj.taskID,obj.userID,obj.taskType,obj.dateCreate
+                    ,obj.dateTarget,obj.topic,obj.description,obj.day,obj.star,obj.finish))
                 else:
                     f.write(row)
         self.refreshTable()
 
     def addToDoList(self,obj:Record):
         self.toDoList.append(obj)
-    
-    
