@@ -26,18 +26,18 @@ class Ui_Dialog(object):
         self.frame.setFrameShadow(QFrame.Raised)
         self.direction = QLabel(self.frame)
         self.direction.setObjectName(u"direction")
-        self.direction.setGeometry(QRect(20, 20, 480, 24))
+        self.direction.setGeometry(QRect(20, 20, 501, 24))
         self.direction.setStyleSheet(u"	font: 75 12pt \"AvenirNext LT Pro Bold\";\n"
 "")
-        self.widget = QWidget(self.frame)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(90, 70, 361, 151))
-        self.verticalLayout = QVBoxLayout(self.widget)
+        self.layoutWidget = QWidget(self.frame)
+        self.layoutWidget.setObjectName(u"layoutWidget")
+        self.layoutWidget.setGeometry(QRect(90, 70, 361, 151))
+        self.verticalLayout = QVBoxLayout(self.layoutWidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.option = QHBoxLayout()
         self.option.setObjectName(u"option")
-        self.edit = QPushButton(self.widget)
+        self.edit = QPushButton(self.layoutWidget)
         self.edit.setObjectName(u"edit")
         self.edit.setMaximumSize(QSize(60, 28))
         self.edit.setCursor(QCursor(Qt.PointingHandCursor))
@@ -56,7 +56,7 @@ class Ui_Dialog(object):
 
         self.option.addWidget(self.edit)
 
-        self.mark = QPushButton(self.widget)
+        self.mark = QPushButton(self.layoutWidget)
         self.mark.setObjectName(u"mark")
         self.mark.setMaximumSize(QSize(150, 28))
         self.mark.setCursor(QCursor(Qt.PointingHandCursor))
@@ -75,7 +75,7 @@ class Ui_Dialog(object):
 
         self.option.addWidget(self.mark)
 
-        self.delete_2 = QPushButton(self.widget)
+        self.delete_2 = QPushButton(self.layoutWidget)
         self.delete_2.setObjectName(u"delete_2")
         self.delete_2.setMaximumSize(QSize(60, 28))
         self.delete_2.setCursor(QCursor(Qt.PointingHandCursor))
@@ -99,7 +99,7 @@ class Ui_Dialog(object):
 
         self.confirmationBox = QHBoxLayout()
         self.confirmationBox.setObjectName(u"confirmationBox")
-        self.frame_3 = QFrame(self.widget)
+        self.frame_3 = QFrame(self.layoutWidget)
         self.frame_3.setObjectName(u"frame_3")
         self.frame_3.setFrameShape(QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QFrame.Raised)
@@ -114,7 +114,7 @@ class Ui_Dialog(object):
 
         self.confirmationBox.addWidget(self.frame_3)
 
-        self.confirm = QPushButton(self.widget)
+        self.confirm = QPushButton(self.layoutWidget)
         self.confirm.setObjectName(u"confirm")
         self.confirm.setMaximumSize(QSize(60, 28))
         self.confirm.setCursor(QCursor(Qt.PointingHandCursor))
@@ -133,7 +133,7 @@ class Ui_Dialog(object):
 
         self.confirmationBox.addWidget(self.confirm)
 
-        self.cancel = QPushButton(self.widget)
+        self.cancel = QPushButton(self.layoutWidget)
         self.cancel.setObjectName(u"cancel")
         self.cancel.setMaximumSize(QSize(60, 28))
         self.cancel.setCursor(QCursor(Qt.PointingHandCursor))
