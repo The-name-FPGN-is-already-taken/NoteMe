@@ -5,9 +5,9 @@ class Stack:
     def __init__(self) -> None:
         self.li = []
 
-    def append(self,data):
+    def append(self, data):
         self.li.append(data)
-    
+
     def pop(self):
         if self.getSize() > 0:
             return self.li.pop()
@@ -18,11 +18,12 @@ class Stack:
     def clear(self):
         self.li.clear()
 
+
 class Queue:
     def __init__(self) -> None:
         self.li = []
 
-    def enqueue(self,data):
+    def enqueue(self, data):
         self.li.append(data)
 
     def pop(self):
@@ -34,6 +35,7 @@ class Queue:
 
     def clear(self):
         self.li.clear()
+
 
 class Node():
     def __init__(self,data,next=None,prev=None) -> None:
@@ -58,12 +60,12 @@ class Link():
             self.head = newNode
         else:
             t = self.head
+
             while t.next != None: #Run to last
                 t = t.next
             t.next = newNode
             newNode.prev = t
-            
-    
+
     def getSize(self):
         t = self.head
         count = 0
@@ -71,21 +73,24 @@ class Link():
             t = t.next
             count += 1
         return count
-    
+
     def isEmpty(self):
         if self.getSize() == 0:
             return True
         else:
             return False
 
+
     def pop(self,pos = -1):
-        
+
         if self.getSize() > 0:
             if pos == -1:
                 pos = self.getSize() - 1
 
             if pos == 0:
+
                 result =  self.head.data
+
                 temp = self.head.next
                 del self.head
                 self.head = temp
@@ -108,7 +113,6 @@ class Link():
                 
                 return result
 
-
     def getTail(self):
         if self.getSize() > 0:
             t = self.head
@@ -127,7 +131,7 @@ class Link():
                 txt += " -> "
             txt += str(t.data)
             isStart = True
-            
+
             t = t.next
         return txt
 
@@ -135,11 +139,14 @@ class Link():
         for i in range(len(li)):
             print("{} : {}".format(i,li[i]))
 
+
     def getValue(self):
         return self.txt
 
+
 class TestObj:
     def __init__(self,text:str,day:int) -> None:
+
         self.text = text
         self.day = day
 
@@ -158,7 +165,7 @@ def sort(li:Link,dayTarget:int):
                 # print("Found")
             else:
                 node = node.next
-            
+
         else:
             if tempNode != None:
                 node.next = li.head
@@ -169,3 +176,4 @@ def sort(li:Link,dayTarget:int):
         li.append(node.data)
         node = node.next
     return li
+
