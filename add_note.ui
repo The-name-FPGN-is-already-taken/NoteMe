@@ -124,7 +124,7 @@ text-align: center;
 font-family: Tenor Sans;
 font-style: normal;
 font-weight: normal;
-font-size: 16px;
+font-size: 18px;
 line-height: 21px;
 
 color: #000000;</string>
@@ -342,20 +342,36 @@ border-radius: 10px;</string>
       </layout>
      </item>
      <item>
-      <widget class="QPushButton" name="unAddNote">
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
+      <widget class="QFrame" name="frame_2">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
        </property>
-       <property name="focusPolicy">
-        <enum>Qt::ClickFocus</enum>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
        </property>
-       <property name="styleSheet">
-        <string notr="true">background: rgba(0,0,0,0);
+       <widget class="QPushButton" name="unAddNote">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>90</y>
+          <width>67</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::ClickFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: rgba(0,0,0,0);
 image: url(D:/NotaProject/pics/unAdd.png);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
       </widget>
      </item>
     </layout>
@@ -427,6 +443,9 @@ background: #E4E2C7;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="tabStopWidth">
+       <number>80</number>
       </property>
       <property name="placeholderText">
        <string>NOTENAME</string>
@@ -543,8 +562,6 @@ border-radius: 15px;</string>
    <layout class="QHBoxLayout" name="horizontalLayout"/>
   </widget>
  </widget>
- <resources>
-  <include location="source.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

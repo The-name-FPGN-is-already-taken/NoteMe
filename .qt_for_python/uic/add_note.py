@@ -8,17 +8,11 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QHBoxLayout,
-    QLabel, QPlainTextEdit, QPushButton, QSizePolicy,
-    QTextEdit, QVBoxLayout, QWidget)
-import source_rc
+
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
+
 
 class Ui_homeCal(object):
     def setupUi(self, homeCal):
@@ -82,7 +76,7 @@ class Ui_homeCal(object):
 "font-family: Tenor Sans;\n"
 "font-style: normal;\n"
 "font-weight: normal;\n"
-"font-size: 16px;\n"
+"font-size: 18px;\n"
 "line-height: 21px;\n"
 "\n"
 "color: #000000;")
@@ -241,14 +235,19 @@ class Ui_homeCal(object):
 
         self.verticalLayout_7.addLayout(self.verticalLayout_6)
 
-        self.unAddNote = QPushButton(self.leftBar)
+        self.frame_2 = QFrame(self.leftBar)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+        self.unAddNote = QPushButton(self.frame_2)
         self.unAddNote.setObjectName(u"unAddNote")
+        self.unAddNote.setGeometry(QRect(0, 90, 67, 61))
         self.unAddNote.setCursor(QCursor(Qt.PointingHandCursor))
         self.unAddNote.setFocusPolicy(Qt.ClickFocus)
         self.unAddNote.setStyleSheet(u"background: rgba(0,0,0,0);\n"
 "image: url(D:/NotaProject/pics/unAdd.png);")
 
-        self.verticalLayout_7.addWidget(self.unAddNote)
+        self.verticalLayout_7.addWidget(self.frame_2)
 
         self.frame_5 = QFrame(self.backFrame)
         self.frame_5.setObjectName(u"frame_5")
@@ -279,6 +278,7 @@ class Ui_homeCal(object):
         self.noteName_textEdit.setGeometry(QRect(60, 20, 711, 31))
         self.noteName_textEdit.setStyleSheet(u"background: rgba(0,0,0,0);\n"
 "")
+        self.noteName_textEdit.setTabStopWidth(80)
         self.note_description = QPlainTextEdit(self.frame)
         self.note_description.setObjectName(u"note_description")
         self.note_description.setGeometry(QRect(60, 80, 711, 301))

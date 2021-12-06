@@ -126,7 +126,7 @@ border-radius: 35px;
         <property name="font">
          <font>
           <family>Tenor Sans</family>
-          <pointsize>-1</pointsize>
+          <pointsize>1</pointsize>
           <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
@@ -228,41 +228,6 @@ background: #E4E2C7;
      <property name="lineWidth">
       <number>0</number>
      </property>
-     <widget class="QWidget" name="layoutWidget">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>30</y>
-        <width>761</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item>
-        <widget class="QLabel" name="noteName0">
-         <property name="styleSheet">
-          <string notr="true">font: 75 14pt &quot;AvenirNext LT Pro Bold&quot;;</string>
-         </property>
-         <property name="text">
-          <string>Name</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="dateCreated0">
-         <property name="styleSheet">
-          <string notr="true">font: 75 14pt &quot;AvenirNext LT Pro Bold&quot;;</string>
-         </property>
-         <property name="text">
-          <string>Date Created</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
      <widget class="QListWidget" name="noteTray">
       <property name="geometry">
        <rect>
@@ -276,41 +241,90 @@ background: #E4E2C7;
        <string notr="true">background-color: rgb(254, 250, 224);</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="sortButton">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>830</x>
-        <y>30</y>
-        <width>25</width>
-        <height>25</height>
+        <x>61</x>
+        <y>40</y>
+        <width>751</width>
+        <height>32</height>
        </rect>
       </property>
-      <property name="maximumSize">
-       <size>
-        <width>40</width>
-        <height>40</height>
-       </size>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(D:/NotaProject/pics/sort.png);
-      
-
-QPushButton#sortButton{
-   background-color:rgb(255, 255, 244);
-	border-radius: 20px;
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QLabel" name="noteName0">
+         <property name="styleSheet">
+          <string notr="true">font: 75 14pt &quot;AvenirNext LT Pro Bold&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Name</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QFrame" name="frame_3">
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="dateCreated0">
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>28</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font: 75 14pt &quot;AvenirNext LT Pro Bold&quot;;</string>
+           </property>
+           <property name="text">
+            <string>Date Modified</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="sortButton">
+           <property name="maximumSize">
+            <size>
+             <width>93</width>
+             <height>28</height>
+            </size>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton#sortButton{
+   background-color: rgb(252, 188, 64);
+	border-radius: 10px;
 }
 
 QPushButton:hover#sortButton{
-   background-color: rgb(255, 255, 244);
-	border-radius: 20px;
+   background-color: rgb(252, 188, 64);
+	border-radius: 10px;
+	color: rgb(255, 255, 255);
+	font: 75 9pt &quot;AvenirNext LT Pro Bold&quot;;
+	
 }</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
+           </property>
+           <property name="text">
+            <string>SORT</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
      </widget>
     </widget>
    </widget>
@@ -497,20 +511,36 @@ border-radius: 10px;</string>
       </layout>
      </item>
      <item>
-      <widget class="QPushButton" name="addNoteButton">
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
+      <widget class="QFrame" name="frame_2">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
        </property>
-       <property name="focusPolicy">
-        <enum>Qt::ClickFocus</enum>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
        </property>
-       <property name="styleSheet">
-        <string notr="true">background: rgba(0,0,0,0);
+       <widget class="QPushButton" name="addNoteButton">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>90</y>
+          <width>67</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::ClickFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: rgba(0,0,0,0);
 image: url(D:/NotaProject/pics/add.png);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
       </widget>
      </item>
     </layout>
@@ -528,8 +558,6 @@ image: url(D:/NotaProject/pics/add.png);</string>
    <layout class="QHBoxLayout" name="horizontalLayout"/>
   </widget>
  </widget>
- <resources>
-  <include location="source.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
