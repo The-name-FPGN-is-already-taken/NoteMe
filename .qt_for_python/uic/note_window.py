@@ -8,11 +8,16 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-
-from PySide2.QtCore import *
-from PySide2.QtGui import *
-from PySide2.QtWidgets import *
-
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QHBoxLayout,
+    QLabel, QListWidget, QListWidgetItem, QPushButton,
+    QSizePolicy, QVBoxLayout, QWidget)
 
 class Ui_homeCal(object):
     def setupUi(self, homeCal):
@@ -71,10 +76,8 @@ class Ui_homeCal(object):
         self.welcomeUser = QLabel(self.layoutWidget)
         self.welcomeUser.setObjectName(u"welcomeUser")
         font = QFont()
-
-        font.setFamily(u"Tenor Sans")
+        font.setFamilies([u"Tenor Sans"])
         font.setPointSize(1)
-
         font.setBold(False)
         font.setItalic(False)
         self.welcomeUser.setFont(font)
