@@ -1,5 +1,6 @@
 from datetime import time
 import sys
+from PyQt5.QtCore import center
 from PyQt5.uic import loadUi
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import *
@@ -301,7 +302,7 @@ class Task_window(QDialog):
         self.listWidget.itemDoubleClicked.connect(self.goToAddTask)
         self.listWidget_incoming.itemDoubleClicked.connect(self.goToAddTask)
         self.listWidget.itemClicked.connect(self.markAsCompleted)
-        self.listWidget_incoming.itemClicked.connect(self.markAsCompleted)
+        self.listWidget_incoming.itemClicked.connect(self.showPopUp)
         self.sortButton.clicked.connect(self.sortTaskList)
         self.timeTableButton.clicked.connect(self.goToTimeTableWindow)
         global userName
@@ -314,8 +315,7 @@ class Task_window(QDialog):
         Sort.sortTaskDateTarget(today_tasklst)
         for i in range(len(today_tasklst)):
             self.listWidget.addItem(today_tasklst[i].topic+(60-len(today_tasklst[i].topic))*" "
-                                    +str(today_tasklst[i].dateTarget.strftime("%H:%M:%S"))) 
-            
+                                    +str(today_tasklst[i].dateTarget.strftime("%H:%M:%S")))   
         self.listWidget_incoming.clear()
         global incoming_tasklst
         incoming_tasklst = nota.getIncomingTask(7)
@@ -326,8 +326,9 @@ class Task_window(QDialog):
                                     +str(incoming_tasklst[i].dateTarget.strftime("%Y-%m-%d %H:%M:%S"))) 
             
         
-    def deleteTask(self):
-        pass
+    def showPopUp(self):
+        pop = Popup(self)
+        pop.show()
     
     def markAsCompleted (self):
         pass
@@ -353,7 +354,23 @@ class Task_window(QDialog):
             self.listWidget_incoming.addItem(incoming_tasklst[i].topic+(35-len(incoming_tasklst[i].topic))*" "
                                     +str(incoming_tasklst[i].dateTarget.strftime("%Y-%m-%d %H:%M:%S")))   
         self.sortFromNearToFar= not self.sortFromNearToFar   
-        
+    def refreshTable(self):
+        self.listWidget.clear()
+        global today_tasklst
+        today_tasklst = nota.getTaskToday()
+        Sort.sortTaskDateTarget(today_tasklst)
+        for i in range(len(today_tasklst)):
+            self.listWidget.addItem(today_tasklst[i].topic+(60-len(today_tasklst[i].topic))*" "
+                                    +str(today_tasklst[i].dateTarget.strftime("%H:%M:%S")))   
+        self.listWidget_incoming.clear()
+        global incoming_tasklst
+        incoming_tasklst = nota.getIncomingTask(7)
+        Sort.sortTaskDateTarget(incoming_tasklst)
+
+        for i in range(len(incoming_tasklst)):
+            self.listWidget_incoming.addItem(incoming_tasklst[i].topic+(35-len(incoming_tasklst[i].topic))*" "
+                                    +str(incoming_tasklst[i].dateTarget.strftime("%Y-%m-%d %H:%M:%S"))) 
+            
     def getUpdate(self):
         pass
         # addTaskWindow = AddTaskWindow()
@@ -592,6 +609,23 @@ class AddTimeTableWindow(QDialog):
         widget.addWidget(homeWeek_window)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
+class Popup(QDialog):
+    def __init__(self,parent):
+        super(Popup, self).__init__(parent)
+        loadUi("popUp.ui", self)
+        self.confirm.clicked.connect(self.deleteTask)
+        self.cancel.clicked.connect(self.close)
+        if self.sender().objectName()  in  ["listWidget","listWidget_incoming"] :
+            self.indextask = self.sender().currentRow()
+            
+            
+    
+    def deleteTask(self):
+        nota.deletRow(incoming_tasklst[self.indextask])
+        self.parent().refreshTable()
+        self.close()
+    
+        
 
 # main
 app = QApplication(sys.argv)

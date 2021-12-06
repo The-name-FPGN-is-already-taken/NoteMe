@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>170</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>141</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 14pt &quot;AvenirNext LT Pro Bold&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Delete Task</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>60</y>
+     <width>361</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 10pt &quot;AvenirNext LT Pro &quot;;</string>
+   </property>
+   <property name="text">
+    <string>Do you really want to delete task?</string>
+   </property>
+  </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>400</width>
+     <height>170</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(254, 250, 224);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QPushButton" name="confirm">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>120</y>
+      <width>60</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>60</width>
+      <height>28</height>
+     </size>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton#confirm{
+   background-color:rgb(132, 178, 137);
+	border-radius: 10px;
+}
+
+QPushButton:hover#confirm{
+   background-color: rgb(132, 178, 137);
+	border-radius: 10px;
+	color: rgb(255, 255, 255);
+	font: 75 7pt &quot;AvenirNext LT Pro Bold&quot;;
+	
+}</string>
+    </property>
+    <property name="text">
+     <string>YES</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="cancel">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>120</y>
+      <width>60</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>60</width>
+      <height>28</height>
+     </size>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton#cancel{
+   background-color: rgb(181, 181, 181);
+	border-radius: 10px;
+}
+
+QPushButton:hover#cancel{
+   background-color: rgb(181, 181, 181);
+	border-radius: 10px;
+	color: rgb(255, 255, 255);
+	font: 75 7pt &quot;AvenirNext LT Pro Bold&quot;;
+	
+}</string>
+    </property>
+    <property name="text">
+     <string>CANCEL</string>
+    </property>
+   </widget>
+  </widget>
+  <zorder>frame</zorder>
+  <zorder>label</zorder>
+  <zorder>label_2</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
