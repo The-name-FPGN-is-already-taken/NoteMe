@@ -1,5 +1,6 @@
 from datetime import time
 import sys
+from PyQt5 import QtCore
 from PyQt5.QtCore import center
 from PyQt5.uic import loadUi
 from PyQt5 import QtWidgets
@@ -619,8 +620,12 @@ class AddTimeTableWindow(QDialog):
                 timetablelst[self.indexTimetable].topic)
             self.timetable_description.setPlainText(
                 timetablelst[self.indexTimetable].description)
-
-            # self.timetable_Edittime.setHour(9)
+            # hour = int(datetime.datetime.now().strftime("%H"))
+            # min = int(datetime.datetime.now().strftime("%M"))
+            hhmm = timetablelst[self.indexTimetable].dateTarget
+            test = QtCore.QTime(int(hhmm.strftime("%H")),
+                                int(hhmm.strftime("%M")), 00)
+            self.timetable_Edittime.setTime(test)
 
             self.saveTimetableButton.disconnect()
             self.saveTimetableButton.clicked.connect(self.saveTimetable)
