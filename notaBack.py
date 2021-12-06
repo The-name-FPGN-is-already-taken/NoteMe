@@ -20,7 +20,7 @@ class Record:
         self.star = star
         self.finish = finish
     def __str__(self) -> str:
-        return "{} {} {}".format(self.dateTarget,self.topic,self.description)
+        return "{} {} {} {}".format(self.dateCreate,self.dateTarget,self.topic,self.description)
 
     def isTaskType(self):
         return self.taskType == 0
@@ -58,27 +58,29 @@ class Sort:
                     j -= 1
             li[j+1] = key
 
-    def sortNote(li:list,new=1):
-        for i in range(1,len(li)):
-            key = li[i]
-            j = i -1
-            if new == 1:
-                # while j >= 0 and (key.dateTarget.date() - datetime.date.today()).days < (li[j].dateTarget.date() - datetime.date.today()).days :
-                while j >= 0 and key.dateCreate < li[j].dateCreate:
-                    # print("swap")
-                    li[j+1] = li[j]
-                    j -= 1
-            elif new == 0:
-                # while j >= 0 and (key.dateTarget.date() - datetime.date.today()).days > (li[j].dateTarget.date() - datetime.date.today()).days :
-                #     print("swap")
-                while j >= 0 and key.dateCreate > li[j].dateCreate:
-                    li[j+1] = li[j]
-                    j -= 1
-            li[j+1] = key
+    # def sortNote(self,li:list,new=1):
+        # self.quick_sort(0, len(li) - 1, li)
+        # for i in range(1,len(li)):
+        #     key = li[i]
+        #     j = i -1
+        #     if new == 1:
+        #         # while j >= 0 and (key.dateTarget.date() - datetime.date.today()).days < (li[j].dateTarget.date() - datetime.date.today()).days :
+        #         while j >= 0 and key.dateCreate < li[j].dateCreate:
+        #             # print("swap")
+        #             li[j+1] = li[j]
+        #             j -= 1
+        #     elif new == 0:
+        #         # while j >= 0 and (key.dateTarget.date() - datetime.date.today()).days > (li[j].dateTarget.date() - datetime.date.today()).days :
+        #         #     print("swap")
+        #         while j >= 0 and key.dateCreate > li[j].dateCreate:
+        #             li[j+1] = li[j]
+        #             j -= 1
+        #     li[j+1] = key
 
     def sortTimeTable(self,li:list,near:int=1):
         for i in li:
             i.head = self.mergeSort(i.head)
+    
     def sortedMerge(self, a, b):
         result = None
         if a == None:
@@ -140,6 +142,44 @@ class Sort:
             li.append(node.data)
             node = node.next
         return li        
+
+    def partition(self,start, end, array,new):
+
+        pivot_index = start 
+        pivot = array[pivot_index]
+        
+        if new == 1:
+            while start < end:
+                while start < len(array) and array[start].dateCreate > pivot.dateCreate:
+                    start += 1
+                while array[end].dateCreate <= pivot.dateCreate:
+                    end -= 1
+                
+                if(start < end):
+                    array[start], array[end] = array[end], array[start]
+        else:
+            while start < end:
+                while start < len(array) and array[start].dateCreate <= pivot.dateCreate:
+                    start += 1
+                while array[end].dateCreate > pivot.dateCreate:
+                    end -= 1
+                
+                if(start < end):
+                    array[start], array[end] = array[end], array[start]
+        
+        array[end], array[pivot_index] = array[pivot_index], array[end]
+        return end
+       
+    def quick_sort(self,start, end, array,new):
+    
+        if (start < end):
+            p = self.partition(start, end, array,new)
+            self.quick_sort(start, p - 1, array,new)
+            self.quick_sort(p + 1, end, array,new)
+
+    def sortNote(li:list,new=1):
+        sort = Sort()
+        sort.quick_sort(0, len(li) - 1, li,new)
 
 class Nota:
     def __init__(self) -> None:
@@ -347,7 +387,23 @@ class Nota:
         for row in self.table.li:
             if row.isTaskType():
                 result.append(row)
-        return result   
+        return result
+
+    def getNotFinishTask(self):
+        """Only not finish task"""
+        result = []
+        for row in self.table.li:
+            if row.isTaskType() and row.isFinish() == False:
+                result.append(row)
+        return result
+
+    def getFinishTask(self):
+        """Only finish task"""
+        result = []
+        for row in self.table.li:
+            if row.isTaskType() and row.isFinish() == True:
+                result.append(row)
+        return result
 
     def getTimetableAll(self,day):
         self.timeTable.clear()
@@ -401,6 +457,17 @@ class Nota:
 
 
 # nota.login("catty","5")
+# li = nota.getNoteAll()
+#Test getAllTask (finsih and not finish)-----
+# for i in li:
+#     print(i)
+# Sort.sortNote(li,0)
+# print("-"*10)
+# for i in li:
+#     print(i)
+
+
+#------------------------------------------------
 
 #Test getTimeTable---------------------
 # nota.getTimetableAll()
