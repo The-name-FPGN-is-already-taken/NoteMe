@@ -612,7 +612,8 @@ class AddTimeTableWindow(QDialog):
                 timetablelst[self.indexTimetable].topic)
             self.timetable_description.setPlainText(
                 timetablelst[self.indexTimetable].description)
-            self.timetable_Edittime.setHour(9)
+
+            # self.timetable_Edittime.setHour(9)
 
             self.saveTimetableButton.disconnect()
             self.saveTimetableButton.clicked.connect(self.saveTimetable)
