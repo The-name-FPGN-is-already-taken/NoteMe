@@ -63,7 +63,6 @@ class Ui_homeCal(object):
         self.welcomeUser.setObjectName(u"welcomeUser")
         font = QFont()
         font.setFamily(u"Tenor Sans")
-        font.setPointSize(1)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(50)
@@ -279,6 +278,7 @@ class Ui_homeCal(object):
         self.noteName_textEdit.setGeometry(QRect(60, 20, 711, 31))
         self.noteName_textEdit.setStyleSheet(u"background: rgba(0,0,0,0);\n"
 "")
+        self.noteName_textEdit.setTabStopWidth(80)
         self.note_description = QPlainTextEdit(self.frame)
         self.note_description.setObjectName(u"note_description")
         self.note_description.setGeometry(QRect(60, 80, 711, 301))
