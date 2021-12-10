@@ -181,6 +181,10 @@ class Sort:
         sort = Sort()
         sort.quick_sort(0, len(li) - 1, li,new)
 
+    def transposition(li:list,index:int):
+        if index > 0:
+            li[index],li[index-1] = li[index-1],li[index]
+
 class Nota:
     def __init__(self) -> None:
         self.userID = -1
@@ -207,9 +211,9 @@ class Nota:
         else:
             return True
     def deletRow(self,obj:Record):
-        with open("taskTable.csv", "r") as f:
+        with open("taskTable.csv", "r",encoding="utf8") as f:
             lines = f.readlines()
-        with open("taskTable.csv", "w") as f:
+        with open("taskTable.csv", "w",encoding="utf8") as f:
             for row in lines:
                 if int(row.split(",")[0]) != int(obj.taskID):
                     f.write(row)
@@ -436,7 +440,8 @@ class Nota:
         with open("taskTable.csv", "w") as f:
             for row in lines:
                 if int(row.split(",")[0]) == int(obj.taskID):
-                    f.write("{},{},{},{},{},{},{},{},{}\n".format(obj.taskID,obj.userID,obj.taskType,obj.dateCreate,obj.dateTarget,obj.topic,obj.description,obj.day,obj.star))
+                    f.write("{},{},{},{},{},{},{},{},{},{}\n".format(obj.taskID,obj.userID,obj.taskType,obj.dateCreate
+                    ,obj.dateTarget,obj.topic,obj.description,obj.day,obj.star,obj.finish))
                 else:
                     f.write(row)
         self.refreshTable()
@@ -449,14 +454,16 @@ class Nota:
         
 # print(readUserTable())
 # print(login('nut','1234')) 
-# nota = Nota()
+nota = Nota()
 # nota.registor("parn55",231)
 # nota.login("catty","5")
 # nota.getTaskToday()
 # nota.getIncomingTask(7)
 
 
-# nota.login("catty","5")
+nota.login("catty","5")
+
+
 # li = nota.getNoteAll()
 #Test getAllTask (finsih and not finish)-----
 # for i in li:
@@ -466,6 +473,12 @@ class Nota:
 # for i in li:
 #     print(i)
 
+
+#------------------------------------------------
+
+# nota.addRecord(-1,2,"ภาษาไทย","นี่คือภาษาไทยนาจา2")
+li = nota.getNoteAll()
+Nota.showRecord(li)
 
 #------------------------------------------------
 

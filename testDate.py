@@ -70,6 +70,10 @@ def sortTaskDateTarget(li:list,near:int=1):
                     li[j+1] = li[j]
                     j -= 1
             li[j+1] = key
+
+def transposition(li:list,index:int):
+    if index > 0:
+        li[index],li[index-1] = li[index-1],li[index]
 # t5 = datetime.datetime.today()
 # print("----------------")
 # print((t5 - t5.replace(hour=0, minute=0, second=0)))
@@ -84,6 +88,18 @@ def sortTaskDateTarget(li:list,near:int=1):
 
 # s = "1"
 # print(bool(int(s)))
+print("--------------------")
+s = "Test\nLovely"
+print(s)
 
 
+print("--------------------")
+li = [20,15,30,12,13,17]
+target = 21
+print(li)
+for i in range(len(li)):
+    if target > li[i]:
+        print("Yeah :",i)
+        transposition(li,i)
+print(li)
 
