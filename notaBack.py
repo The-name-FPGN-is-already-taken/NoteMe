@@ -355,29 +355,29 @@ class Nota:
         """For timetable dateTarget is time"""
         """taskID | userID | type | date_create | date_target | string
         type 0 = task | 1 = timetable | 2 = note |"""
-        try:
-            self.isTaskTableExis()
-            table = self.readTaskTable()
-            lastIndex = int(table[-1][0])
-            if type == 0:
+        #try:
+        self.isTaskTableExis()
+        table = self.readTaskTable()
+        lastIndex = int(table[-1][0])
+        if type == 0:
 
-                #type = 0 is task (have date and maybe time)
-                self.writeTaskTable([lastIndex+1,self.userID,type,datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),dateTarget,topic,descrption,day,star,finish])
-            elif type == 1:
-                #type = 1 is timetable (Have only day of week)
-                #day of week 0 = Monday ... 6 = Sunday
-                # self.writeTaskTable([lastIndex+1,self.userID,type,datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),dateTarget,topic,descrption])
-                self.writeTaskTable([lastIndex+1,self.userID,type,datetime.datetime.now().strftime("%H:%M:%S"),dateTarget,topic,descrption,day,star,finish])
-            elif type == 2:
-                #type = 2 is Note 
-                #No time target
-                self.writeTaskTable([lastIndex+1,self.userID,type,datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),-1,topic,descrption,day,star,finish])
+            #type = 0 is task (have date and maybe time)
+            self.writeTaskTable([lastIndex+1,self.userID,type,datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),dateTarget,topic,descrption,day,star,finish])
+        elif type == 1:
+            #type = 1 is timetable (Have only day of week)
+            #day of week 0 = Monday ... 6 = Sunday
+            # self.writeTaskTable([lastIndex+1,self.userID,type,datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),dateTarget,topic,descrption])
+            self.writeTaskTable([lastIndex+1,self.userID,type,datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),dateTarget,topic,descrption,day,star,finish])
+        elif type == 2:
+            #type = 2 is Note 
+            #No time target
+            self.writeTaskTable([lastIndex+1,self.userID,type,datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),-1,topic,descrption,day,star,finish])
 
-            else:
-                print("No type")
-            self.refreshTable()
-        except:
-            print("Error in add fuction")
+        else:
+            print("No type")
+        self.refreshTable()
+       # except:
+        #    print("Error in add fuction")
 
 
     def showTask(self, userID: int, type: int):
