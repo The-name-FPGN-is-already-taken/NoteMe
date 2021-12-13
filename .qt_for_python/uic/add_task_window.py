@@ -3,11 +3,10 @@
 ################################################################################
 ## Form generated from reading UI file 'add_task_window.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.2.1
+## Created by: Qt User Interface Compiler version 5.15.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
-
 
 from PySide2.QtCore import *
 from PySide2.QtGui import *
@@ -71,9 +70,10 @@ class Ui_homeCal(object):
         self.welcomeUser = QLabel(self.layoutWidget)
         self.welcomeUser.setObjectName(u"welcomeUser")
         font = QFont()
-        font.setFamilies([u"Tenor Sans"])
+        font.setFamily(u"Tenor Sans")
         font.setBold(False)
         font.setItalic(False)
+        font.setWeight(50)
         self.welcomeUser.setFont(font)
         self.welcomeUser.setStyleSheet(u"position: absolute;\n"
 "width: 190px;\n"
@@ -158,10 +158,12 @@ class Ui_homeCal(object):
         self.taskName_textEdit.setObjectName(u"taskName_textEdit")
         self.taskName_textEdit.setGeometry(QRect(40, 40, 361, 31))
         self.taskName_textEdit.setMaximumSize(QSize(759, 50))
+        self.taskName_textEdit.viewport().setProperty("cursor", QCursor(Qt.IBeamCursor))
         self.taskName_textEdit.setStyleSheet(u"background: rgba(0,0,0,0);\n"
 "border-radius: 10px;\n"
 "background-color: rgb(244, 255, 228);\n"
 "color: rgb(88, 105, 82);")
+        self.taskName_textEdit.setProperty("maxLength", 0)
         self.task_description = QTextEdit(self.widget)
         self.task_description.setObjectName(u"task_description")
         self.task_description.setGeometry(QRect(40, 110, 731, 261))

@@ -126,7 +126,7 @@ border-radius: 35px;
         <property name="font">
          <font>
           <family>Tenor Sans</family>
-          <pointsize>1</pointsize>
+          <pointsize>-1</pointsize>
           <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
@@ -231,14 +231,21 @@ background: #E4E2C7;
      <widget class="QListWidget" name="noteTray">
       <property name="geometry">
        <rect>
-        <x>60</x>
-        <y>90</y>
-        <width>761</width>
+        <x>63</x>
+        <y>91</y>
+        <width>581</width>
         <height>331</height>
        </rect>
       </property>
+      <property name="maximumSize">
+       <size>
+        <width>123123</width>
+        <height>331</height>
+       </size>
+      </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(254, 250, 224);</string>
+       <string notr="true">background-color: rgb(254, 250, 224);
+border: 0px;</string>
       </property>
      </widget>
      <widget class="QWidget" name="layoutWidget">
@@ -325,6 +332,35 @@ QPushButton:hover#sortButton{
         </layout>
        </item>
       </layout>
+     </widget>
+     <widget class="QListWidget" name="dateModifiedTray">
+      <property name="geometry">
+       <rect>
+        <x>636</x>
+        <y>91</y>
+        <width>181</width>
+        <height>331</height>
+       </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>391</width>
+        <height>331</height>
+       </size>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(254, 250, 224);
+border: 0px;</string>
+      </property>
+      <property name="showDropIndicator" stdset="0">
+       <bool>true</bool>
+      </property>
+      <property name="sortingEnabled">
+       <bool>false</bool>
+      </property>
      </widget>
     </widget>
    </widget>

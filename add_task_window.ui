@@ -285,6 +285,9 @@ border-radius: 15px;</string>
         <height>50</height>
        </size>
       </property>
+      <property name="cursor" stdset="0">
+       <cursorShape>IBeamCursor</cursorShape>
+      </property>
       <property name="styleSheet">
        <string notr="true">background: rgba(0,0,0,0);
 border-radius: 10px;
@@ -300,6 +303,9 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="placeholderText">
        <string>TASKNAME</string>
+      </property>
+      <property name="maxLength" stdset="0">
+       <number>0</number>
       </property>
      </widget>
      <widget class="QTextEdit" name="task_description">

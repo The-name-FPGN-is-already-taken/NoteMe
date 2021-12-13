@@ -3,11 +3,10 @@
 ################################################################################
 ## Form generated from reading UI file 'note_window.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.2.1
+## Created by: Qt User Interface Compiler version 5.15.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
-
 
 from PySide2.QtCore import *
 from PySide2.QtGui import *
@@ -71,12 +70,10 @@ class Ui_homeCal(object):
         self.welcomeUser = QLabel(self.layoutWidget)
         self.welcomeUser.setObjectName(u"welcomeUser")
         font = QFont()
-
         font.setFamily(u"Tenor Sans")
-        font.setPointSize(1)
-
         font.setBold(False)
         font.setItalic(False)
+        font.setWeight(50)
         self.welcomeUser.setFont(font)
         self.welcomeUser.setStyleSheet(u"position: absolute;\n"
 "width: 190px;\n"
@@ -139,8 +136,10 @@ class Ui_homeCal(object):
         self.frame.setLineWidth(0)
         self.noteTray = QListWidget(self.frame)
         self.noteTray.setObjectName(u"noteTray")
-        self.noteTray.setGeometry(QRect(60, 90, 761, 331))
-        self.noteTray.setStyleSheet(u"background-color: rgb(254, 250, 224);")
+        self.noteTray.setGeometry(QRect(63, 91, 581, 331))
+        self.noteTray.setMaximumSize(QSize(123123, 331))
+        self.noteTray.setStyleSheet(u"background-color: rgb(254, 250, 224);\n"
+"border: 0px;")
         self.layoutWidget1 = QWidget(self.frame)
         self.layoutWidget1.setObjectName(u"layoutWidget1")
         self.layoutWidget1.setGeometry(QRect(61, 40, 751, 32))
@@ -192,6 +191,15 @@ class Ui_homeCal(object):
 
         self.horizontalLayout_3.addLayout(self.horizontalLayout_2)
 
+        self.dateModifiedTray = QListWidget(self.frame)
+        self.dateModifiedTray.setObjectName(u"dateModifiedTray")
+        self.dateModifiedTray.setGeometry(QRect(636, 91, 181, 331))
+        self.dateModifiedTray.setMaximumSize(QSize(391, 331))
+        self.dateModifiedTray.setLayoutDirection(Qt.LeftToRight)
+        self.dateModifiedTray.setStyleSheet(u"background-color: rgb(254, 250, 224);\n"
+"border: 0px;")
+        self.dateModifiedTray.setProperty("showDropIndicator", True)
+        self.dateModifiedTray.setSortingEnabled(False)
         self.leftBar = QFrame(self.backFrame)
         self.leftBar.setObjectName(u"leftBar")
         self.leftBar.setGeometry(QRect(0, 100, 91, 541))
