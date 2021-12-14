@@ -70,7 +70,9 @@ class Ui_homeCal(object):
         self.welcomeUser = QLabel(self.layoutWidget)
         self.welcomeUser.setObjectName(u"welcomeUser")
         font = QFont()
+
         font.setFamily(u"Tenor Sans")
+
         font.setPointSize(1)
         font.setBold(False)
         font.setItalic(False)

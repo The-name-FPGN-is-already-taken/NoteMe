@@ -58,7 +58,9 @@ class Ui_Dialog(object):
         self.welcomeUser = QLabel(self.layoutWidget)
         self.welcomeUser.setObjectName(u"welcomeUser")
         font = QFont()
+
         font.setFamily(u"Tenor Sans")
+
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(50)
