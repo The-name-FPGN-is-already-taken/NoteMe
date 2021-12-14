@@ -143,43 +143,38 @@ class Sort:
             node = node.next
         return li        
 
-    def partition(self,start, end, array,new):
-
-        pivot_index = start 
-        pivot = array[pivot_index]
-        
-        if new == 1:
-            while start < end:
-                while start < len(array) and array[start].dateCreate > pivot.dateCreate:
-                    start += 1
-                while array[end].dateCreate <= pivot.dateCreate:
-                    end -= 1
-                
-                if(start < end):
-                    array[start], array[end] = array[end], array[start]
-        else:
-            while start < end:
-                while start < len(array) and array[start].dateCreate <= pivot.dateCreate:
-                    start += 1
-                while array[end].dateCreate > pivot.dateCreate:
-                    end -= 1
-                
-                if(start < end):
-                    array[start], array[end] = array[end], array[start]
-        
-        array[end], array[pivot_index] = array[pivot_index], array[end]
-        return end
-       
-    def quick_sort(self,start, end, array,new):
+    def partition(self,arr, low, high,new):
+        i = (low-1)         # index of smaller element
+        pivot = arr[high]     # pivot
     
-        if (start < end):
-            p = self.partition(start, end, array,new)
-            self.quick_sort(start, p - 1, array,new)
-            self.quick_sort(p + 1, end, array,new)
+        for j in range(low, high):
+    
+            if arr[j].dateCreate <= pivot.dateCreate and new == 1:
+                i = i+1
+                arr[i], arr[j] = arr[j], arr[i]
+            elif arr[j].dateCreate >= pivot.dateCreate and new == 0:
+                i = i+1
+                arr[i], arr[j] = arr[j], arr[i]
+    
+        arr[i+1], arr[high] = arr[high], arr[i+1]
+        return (i+1)
+ 
+    def quickSort(self,arr, low, high,new):
+        if len(arr) == 1:
+            return arr
+        if low < high:
+            # pi is partitioning index, arr[p] is now
+            # at right place
+            pi = self.partition(arr, low, high,new)
+    
+            # Separately sort elements before
+            # partition and after partition
+            self.quickSort(arr, low, pi-1,new)
+            self.quickSort(arr, pi+1, high,new)
 
     def sortNote(li:list,new=1):
         sort = Sort()
-        sort.quick_sort(0, len(li) - 1, li,new)
+        sort.quickSort(li, 0, len(li)-1,new)
 
     def transposition(li:list,index:int):
         if index > 0:
@@ -428,9 +423,9 @@ class Nota:
         return result
 
     def editRecord(self,obj:Record):
-        with open("taskTable.csv", "r") as f:
+        with open("taskTable.csv", "r",encoding="utf8") as f:
             lines = f.readlines()
-        with open("taskTable.csv", "w") as f:
+        with open("taskTable.csv", "w",encoding="utf8") as f:
             for row in lines:
                 if int(row.split(",")[0]) == int(obj.taskID):
                     f.write("{},{},{},{},{},{},{},{},{},{}\n".format(obj.taskID,obj.userID,obj.taskType,obj.dateCreate
