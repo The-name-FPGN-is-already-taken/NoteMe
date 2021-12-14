@@ -154,16 +154,14 @@ class Ui_Dialog(object):
         self.tuesday_button_2.setStyleSheet(u";\n"
 " \n"
 "\n"
-"padding: 8px 0px;\n"
-"color: rgb(255, 255, 255);\n"
-"position: static;\n"
+"\n"
 "width: 40px;\n"
 "left: calc(50% - 40px/2 - 189.71px);\n"
 "top: 0%;\n"
 "bottom: 0%;\n"
 "\n"
+"background-color: rgb(228, 226, 199);\n"
 "\n"
-"background: #FFAC4B;\n"
 "border-radius: 8px;")
 
         self.horizontalLayout_4.addWidget(self.tuesday_button_2)
@@ -299,12 +297,12 @@ class Ui_Dialog(object):
 
         self.verticalLayout_2.addWidget(self.label)
 
-        self.listWidget = QListWidget(self.widget)
-        self.listWidget.setObjectName(u"listWidget")
-        self.listWidget.setMaximumSize(QSize(600, 600))
-        self.listWidget.setStyleSheet(u"background: #FEFAE0;")
+        self.today_TimetableTray = QListWidget(self.widget)
+        self.today_TimetableTray.setObjectName(u"today_TimetableTray")
+        self.today_TimetableTray.setMaximumSize(QSize(600, 600))
+        self.today_TimetableTray.setStyleSheet(u"background: #FEFAE0;")
 
-        self.verticalLayout_2.addWidget(self.listWidget)
+        self.verticalLayout_2.addWidget(self.today_TimetableTray)
 
 
         self.horizontalLayout.addLayout(self.verticalLayout_2)
@@ -341,12 +339,12 @@ class Ui_Dialog(object):
 
         self.verticalLayout_3.addLayout(self.horizontalLayout_6)
 
-        self.listWidget_2 = QListWidget(self.widget)
-        self.listWidget_2.setObjectName(u"listWidget_2")
-        self.listWidget_2.setMaximumSize(QSize(600, 600))
-        self.listWidget_2.setStyleSheet(u"background: #FEFAE0;")
+        self.completed_TimetableTray = QListWidget(self.widget)
+        self.completed_TimetableTray.setObjectName(u"completed_TimetableTray")
+        self.completed_TimetableTray.setMaximumSize(QSize(600, 600))
+        self.completed_TimetableTray.setStyleSheet(u"background: #FEFAE0;")
 
-        self.verticalLayout_3.addWidget(self.listWidget_2)
+        self.verticalLayout_3.addWidget(self.completed_TimetableTray)
 
 
         self.horizontalLayout.addLayout(self.verticalLayout_3)

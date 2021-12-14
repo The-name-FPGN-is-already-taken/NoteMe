@@ -248,16 +248,14 @@ border-radius: 8px;</string>
           <string notr="true">;
  
 
-padding: 8px 0px;
-color: rgb(255, 255, 255);
-position: static;
+
 width: 40px;
 left: calc(50% - 40px/2 - 189.71px);
 top: 0%;
 bottom: 0%;
 
+background-color: rgb(228, 226, 199);
 
-background: #FFAC4B;
 border-radius: 8px;</string>
          </property>
          <property name="text">
@@ -484,7 +482,7 @@ border-radius: 15px;</string>
          </widget>
         </item>
         <item>
-         <widget class="QListWidget" name="listWidget">
+         <widget class="QListWidget" name="today_TimetableTray">
           <property name="maximumSize">
            <size>
             <width>600</width>
@@ -545,7 +543,7 @@ QPushButton:hover#sortButton{
          </layout>
         </item>
         <item>
-         <widget class="QListWidget" name="listWidget_2">
+         <widget class="QListWidget" name="completed_TimetableTray">
           <property name="maximumSize">
            <size>
             <width>600</width>
