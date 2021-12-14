@@ -3,21 +3,15 @@
 ################################################################################
 ## Form generated from reading UI file 'timetable.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.2.1
+## Created by: Qt User Interface Compiler version 5.15.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QHBoxLayout,
-    QLabel, QListWidget, QListWidgetItem, QPushButton,
-    QSizePolicy, QVBoxLayout, QWidget)
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
+
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
@@ -64,12 +58,10 @@ class Ui_Dialog(object):
         self.welcomeUser = QLabel(self.layoutWidget)
         self.welcomeUser.setObjectName(u"welcomeUser")
         font = QFont()
-
         font.setFamily(u"Tenor Sans")
-        font.setPointSize(1)
-
         font.setBold(False)
         font.setItalic(False)
+        font.setWeight(50)
         self.welcomeUser.setFont(font)
         self.welcomeUser.setStyleSheet(u"position: absolute;\n"
 "width: 190px;\n"
@@ -112,29 +104,9 @@ class Ui_Dialog(object):
 "")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
-        self.today_label = QLabel(self.frame)
-        self.today_label.setObjectName(u"today_label")
-        self.today_label.setGeometry(QRect(110, 90, 201, 51))
-        font1 = QFont()
-        font1.setFamilies([u"AvenirNext LT Pro Bold"])
-        font1.setPointSize(12)
-        font1.setBold(True)
-        self.today_label.setFont(font1)
-        self.today_label.setStyleSheet(u";\n"
-" \n"
-"\n"
-"padding: 8px 0px;\n"
-"position: static;\n"
-"width: 40px;\n"
-"left: calc(50% - 40px/2 - 189.71px);\n"
-"top: 0%;\n"
-"bottom: 0%;\n"
-"background-color: rgb(228, 226, 199);\n"
-"border-radius: 8px;")
-        self.today_label.setAlignment(Qt.AlignCenter)
         self.layoutWidget_2 = QWidget(self.frame)
         self.layoutWidget_2.setObjectName(u"layoutWidget_2")
-        self.layoutWidget_2.setGeometry(QRect(10, 20, 871, 45))
+        self.layoutWidget_2.setGeometry(QRect(30, 10, 871, 45))
         self.horizontalLayout_3 = QHBoxLayout(self.layoutWidget_2)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
@@ -182,16 +154,14 @@ class Ui_Dialog(object):
         self.tuesday_button_2.setStyleSheet(u";\n"
 " \n"
 "\n"
-"padding: 8px 0px;\n"
-"color: rgb(255, 255, 255);\n"
-"position: static;\n"
+"\n"
 "width: 40px;\n"
 "left: calc(50% - 40px/2 - 189.71px);\n"
 "top: 0%;\n"
 "bottom: 0%;\n"
 "\n"
+"background-color: rgb(228, 226, 199);\n"
 "\n"
-"background: #FFAC4B;\n"
 "border-radius: 8px;")
 
         self.horizontalLayout_4.addWidget(self.tuesday_button_2)
@@ -305,73 +275,82 @@ class Ui_Dialog(object):
 
         self.horizontalLayout_3.addWidget(self.next_button)
 
-        self.today_label_2 = QLabel(self.frame)
-        self.today_label_2.setObjectName(u"today_label_2")
-        self.today_label_2.setGeometry(QRect(590, 90, 201, 51))
-        self.today_label_2.setFont(font1)
-        self.today_label_2.setStyleSheet(u";\n"
-" \n"
+        self.frame_3 = QFrame(self.frame)
+        self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setGeometry(QRect(20, 80, 891, 431))
+        self.frame_3.setStyleSheet(u"background: #E4E2C7;\n"
 "\n"
-"padding: 8px 0px;\n"
-"position: static;\n"
-"width: 40px;\n"
-"left: calc(50% - 40px/2 - 189.71px);\n"
-"top: 0%;\n"
-"bottom: 0%;\n"
-"background-color: rgb(228, 226, 199);\n"
-"border-radius: 8px;")
-        self.today_label_2.setAlignment(Qt.AlignCenter)
-        self.horizontalLayoutWidget = QWidget(self.frame)
-        self.horizontalLayoutWidget.setObjectName(u"horizontalLayoutWidget")
-        self.horizontalLayoutWidget.setGeometry(QRect(30, 160, 851, 331))
-        self.horizontalLayout = QHBoxLayout(self.horizontalLayoutWidget)
+"")
+        self.frame_3.setFrameShape(QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QFrame.Raised)
+        self.widget = QWidget(self.frame_3)
+        self.widget.setObjectName(u"widget")
+        self.widget.setGeometry(QRect(31, 11, 821, 411))
+        self.horizontalLayout = QHBoxLayout(self.widget)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
-        self.listWidget_2 = QListWidget(self.horizontalLayoutWidget)
-        self.listWidget_2.setObjectName(u"listWidget_2")
-        self.listWidget_2.setStyleSheet(u"background: #FEFAE0;")
+        self.verticalLayout_2 = QVBoxLayout()
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.label = QLabel(self.widget)
+        self.label.setObjectName(u"label")
+        self.label.setStyleSheet(u"font: 75 14pt \"AvenirNext LT Pro Bold\";")
 
-        self.horizontalLayout.addWidget(self.listWidget_2)
+        self.verticalLayout_2.addWidget(self.label)
 
-        self.verticalLayout_8 = QVBoxLayout()
-        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
-        self.verticalLayout_8.setContentsMargins(0, -1, 0, -1)
-        self.pushButton = QPushButton(self.horizontalLayoutWidget)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setMinimumSize(QSize(81, 31))
-        self.pushButton.setMaximumSize(QSize(81, 31))
-        self.pushButton.setStyleSheet(u"background-color: rgb(228, 226, 199);\n"
-"border-radius: 8px;")
+        self.today_TimetableTray = QListWidget(self.widget)
+        self.today_TimetableTray.setObjectName(u"today_TimetableTray")
+        self.today_TimetableTray.setMaximumSize(QSize(600, 600))
+        self.today_TimetableTray.setStyleSheet(u"background: #FEFAE0;")
 
-        self.verticalLayout_8.addWidget(self.pushButton)
-
-        self.pushButton_2 = QPushButton(self.horizontalLayoutWidget)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-        self.pushButton_2.setMinimumSize(QSize(81, 31))
-        self.pushButton_2.setMaximumSize(QSize(81, 31))
-        self.pushButton_2.setStyleSheet(u"background-color: rgb(228, 226, 199);\n"
-"border-radius: 8px;")
-
-        self.verticalLayout_8.addWidget(self.pushButton_2)
-
-        self.pushButton_3 = QPushButton(self.horizontalLayoutWidget)
-        self.pushButton_3.setObjectName(u"pushButton_3")
-        self.pushButton_3.setMinimumSize(QSize(81, 31))
-        self.pushButton_3.setMaximumSize(QSize(81, 31))
-        self.pushButton_3.setStyleSheet(u"background-color: rgb(228, 226, 199);\n"
-"border-radius: 8px;")
-
-        self.verticalLayout_8.addWidget(self.pushButton_3)
+        self.verticalLayout_2.addWidget(self.today_TimetableTray)
 
 
-        self.horizontalLayout.addLayout(self.verticalLayout_8)
+        self.horizontalLayout.addLayout(self.verticalLayout_2)
 
-        self.listWidget = QListWidget(self.horizontalLayoutWidget)
-        self.listWidget.setObjectName(u"listWidget")
-        self.listWidget.setStyleSheet(u"background: #FEFAE0;")
+        self.verticalLayout_3 = QVBoxLayout()
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.horizontalLayout_6 = QHBoxLayout()
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.label_2 = QLabel(self.widget)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setStyleSheet(u"font: 75 14pt \"AvenirNext LT Pro Bold\";")
 
-        self.horizontalLayout.addWidget(self.listWidget)
+        self.horizontalLayout_6.addWidget(self.label_2)
 
+        self.sortButton = QPushButton(self.widget)
+        self.sortButton.setObjectName(u"sortButton")
+        self.sortButton.setMaximumSize(QSize(60, 28))
+        self.sortButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.sortButton.setStyleSheet(u"QPushButton#sortButton{\n"
+"   background-color: rgb(252, 188, 64);\n"
+"	border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover#sortButton{\n"
+"   background-color: rgb(252, 188, 64);\n"
+"	border-radius: 10px;\n"
+"	color: rgb(255, 255, 255);\n"
+"	font: 75 9pt \"AvenirNext LT Pro Bold\";\n"
+"	\n"
+"}")
+
+        self.horizontalLayout_6.addWidget(self.sortButton)
+
+
+        self.verticalLayout_3.addLayout(self.horizontalLayout_6)
+
+        self.completed_TimetableTray = QListWidget(self.widget)
+        self.completed_TimetableTray.setObjectName(u"completed_TimetableTray")
+        self.completed_TimetableTray.setMaximumSize(QSize(600, 600))
+        self.completed_TimetableTray.setStyleSheet(u"background: #FEFAE0;")
+
+        self.verticalLayout_3.addWidget(self.completed_TimetableTray)
+
+
+        self.horizontalLayout.addLayout(self.verticalLayout_3)
+
+        self.frame_3.raise_()
+        self.layoutWidget_2.raise_()
         self.leftBar_2 = QFrame(Dialog)
         self.leftBar_2.setObjectName(u"leftBar_2")
         self.leftBar_2.setGeometry(QRect(0, 100, 91, 541))
@@ -518,6 +497,18 @@ class Ui_Dialog(object):
 
         self.verticalLayout_9.addWidget(self.frame_2)
 
+        self.widget1 = QWidget(Dialog)
+        self.widget1.setObjectName(u"widget1")
+        self.widget1.setGeometry(QRect(0, 0, 2, 2))
+        self.horizontalLayout_5 = QHBoxLayout(self.widget1)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.widget2 = QWidget(Dialog)
+        self.widget2.setObjectName(u"widget2")
+        self.widget2.setGeometry(QRect(0, 0, 2, 2))
+        self.verticalLayout_4 = QVBoxLayout(self.widget2)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
 
         self.retranslateUi(Dialog)
 
@@ -528,13 +519,6 @@ class Ui_Dialog(object):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
         self.welcomeUser.setText(QCoreApplication.translate("Dialog", u"Welcome,", None))
         self.date.setText(QCoreApplication.translate("Dialog", u"November 21, 2021", None))
-#if QT_CONFIG(tooltip)
-        self.today_label.setToolTip(QCoreApplication.translate("Dialog", u"<html><head/><body><p align=\"center\"><br/></p></body></html>", None))
-#endif // QT_CONFIG(tooltip)
-#if QT_CONFIG(whatsthis)
-        self.today_label.setWhatsThis(QCoreApplication.translate("Dialog", u"<html><head/><body><p align=\"center\"><br/></p></body></html>", None))
-#endif // QT_CONFIG(whatsthis)
-        self.today_label.setText(QCoreApplication.translate("Dialog", u"Daily Task", None))
         self.previous_button.setText("")
         self.monday_button_2.setText(QCoreApplication.translate("Dialog", u"MONDAY", None))
         self.tuesday_button_2.setText(QCoreApplication.translate("Dialog", u"TUESDAY", None))
@@ -544,16 +528,9 @@ class Ui_Dialog(object):
         self.saturday_button_2.setText(QCoreApplication.translate("Dialog", u"SATURDAY", None))
         self.sunday_button_2.setText(QCoreApplication.translate("Dialog", u"SUNDAY", None))
         self.next_button.setText("")
-#if QT_CONFIG(tooltip)
-        self.today_label_2.setToolTip(QCoreApplication.translate("Dialog", u"<html><head/><body><p align=\"center\"><br/></p></body></html>", None))
-#endif // QT_CONFIG(tooltip)
-#if QT_CONFIG(whatsthis)
-        self.today_label_2.setWhatsThis(QCoreApplication.translate("Dialog", u"<html><head/><body><p align=\"center\"><br/></p></body></html>", None))
-#endif // QT_CONFIG(whatsthis)
-        self.today_label_2.setText(QCoreApplication.translate("Dialog", u"Finish Daily Task", None))
-        self.pushButton.setText(QCoreApplication.translate("Dialog", u"done", None))
-        self.pushButton_2.setText(QCoreApplication.translate("Dialog", u"ReDo", None))
-        self.pushButton_3.setText(QCoreApplication.translate("Dialog", u"Reset", None))
+        self.label.setText(QCoreApplication.translate("Dialog", u"TODAY", None))
+        self.label_2.setText(QCoreApplication.translate("Dialog", u"COMPLETED", None))
+        self.sortButton.setText(QCoreApplication.translate("Dialog", u"SORT", None))
 #if QT_CONFIG(tooltip)
         self.homeButton.setToolTip(QCoreApplication.translate("Dialog", u"<html><head/><body><p><br/>home</p><p><br/></p></body></html>", None))
 #endif // QT_CONFIG(tooltip)

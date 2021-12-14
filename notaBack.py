@@ -327,7 +327,7 @@ class Nota:
                 #type = 1 is timetable (Have only day of week)
                 #day of week 0 = Monday ... 6 = Sunday
                 # self.writeTaskTable([lastIndex+1,self.userID,type,datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),dateTarget,topic,descrption])
-                self.writeTaskTable([lastIndex+1,self.userID,type,datetime.datetime.now().strftime("%H:%M:%S"),dateTarget,topic,descrption,day,star,finish])
+                self.writeTaskTable([lastIndex+1,self.userID,type,datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),dateTarget,topic,descrption,day,star,finish])
             elif type == 2:
                 #type = 2 is Note 
                 #No time target
@@ -423,9 +423,9 @@ class Nota:
         return result
 
     def editRecord(self,obj:Record):
-        with open("taskTable.csv", "r") as f:
+        with open("taskTable.csv", "r",encoding="utf8") as f:
             lines = f.readlines()
-        with open("taskTable.csv", "w") as f:
+        with open("taskTable.csv", "w",encoding="utf8") as f:
             for row in lines:
                 if int(row.split(",")[0]) == int(obj.taskID):
                     f.write("{},{},{},{},{},{},{},{},{},{}\n".format(obj.taskID,obj.userID,obj.taskType,obj.dateCreate
