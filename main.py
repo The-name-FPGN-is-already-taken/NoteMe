@@ -5,7 +5,6 @@ from PyQt5.uic import loadUi
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import *
 from notaBack import *
-from note import Note
 
 notelst = list()
 
@@ -148,14 +147,11 @@ class HomeWeek_window(QDialog):
                 # print(self.sender().objectName())
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: #FFAC4B; color: white; border-radius: 8px; }')
-
-                # Update listwidget taskTray
                 timetablelst = nota.getTimetableAll(i)
-                self.taskTray.clear()
+                self.timeTableTray.clear()
                 for i in range(len(timetablelst)):
-                    self.taskTray.addItem(timetablelst[i].topic)
-                self.taskTray.itemDoubleClicked.connect(self.goToAddTimetable)
-                self.taskTray.setSpacing(15)
+                    self.timeTableTray.addItem(timetablelst[i].topic)
+                # self.timeTableTray.setSpacing(15)
 
             else:
                 self.listDayButton[i].setStyleSheet(
@@ -584,6 +580,8 @@ class TimeTable_window(QDialog):
         self.listDayButton.append(self.friday_button_2)
         self.listDayButton.append(self.saturday_button_2)
         self.listDayButton.append(self.sunday_button_2)
+        self.dayBarButtonList = ["monday_button_2","tuesday_button_2","wednesday_button_2","thursday_button_2","friday_button_2","saturday_button_2","sunday_button_2"]
+            
         for i in range(len(self.listDayButton)):
             # SET clicked connect
             self.listDayButton[i].clicked.connect(self.setCurrent)
@@ -606,6 +604,7 @@ class TimeTable_window(QDialog):
                 self.currentDay = 5
             elif dayhw == "Sun":
                 self.currentDay = 6
+            self.currentDay_objectName = self.dayBarButtonList[self.currentDay]
             timetablelst = nota.getTimetableAll(self.currentDay)
             # self.setCurrent(self.currentDay)
             self.today_TimetableTray.clear()
@@ -614,9 +613,8 @@ class TimeTable_window(QDialog):
             # self.today_TimetableTray.setSpacing(15)
 
         for i in range(len(self.listDayButton)):
-
-            # SET clicked connect
             self.listDayButton[i].clicked.connect(self.setCurrent)
+        self.setColorAtStart()
             
     def showPopUp(self):
         pop = Popup(self)
@@ -637,19 +635,18 @@ class TimeTable_window(QDialog):
         widget.addWidget(note_window)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
-    def taskWindowToHomeWeek(self):
+    def taskWindowToHomeWeek(self): 
         homeWeek_window = HomeWeek_window()
         widget.addWidget(homeWeek_window)
         widget.setCurrentIndex(widget.currentIndex()+1)
-
-    def setCurrent(self):
+    
+    def refreshTable(self):
         for i in range(len(self.listDayButton)):
-            if self.listDayButton[i].objectName() == self.sender().objectName():
-                # print(self.sender().objectName())
+            if self.listDayButton[i].objectName() == self.currentEditingDay:
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: #FFAC4B; color: white; border-radius: 8px; }')
-
-                # Update listwidget taskTray
+                global timetablelst
+                timetablelst = list()
                 timetablelst = nota.getTimetableAll(i)
                 self.today_TimetableTray.clear()
                 for i in range(len(timetablelst)):
@@ -659,10 +656,45 @@ class TimeTable_window(QDialog):
             else:
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: rgb(228, 226, 199); color: black; border-radius: 8px;  }')
-    def setColorAtStart(self):
-        # if self.
+    
+    def setCurrent(self):
+        self.currentEditingDay = self.sender().objectName()
+        if self.sender().objectName() == self.currentDay_objectName:
+            self.label.setText("TODAY")
+        elif self.sender().objectName() == self.dayBarButtonList[0]:
+            self.label.setText("MONDAY")
+        elif self.sender().objectName() == self.dayBarButtonList[1]:
+            self.label.setText("TUESDAY")
+        elif self.sender().objectName() == self.dayBarButtonList[2]:
+            self.label.setText("WEDNESDAY")
+        elif self.sender().objectName() == self.dayBarButtonList[3]:
+            self.label.setText("THURSDAY")
+        elif self.sender().objectName() == self.dayBarButtonList[4]:
+            self.label.setText("FRIDAY")
+        elif self.sender().objectName() == self.dayBarButtonList[5]:
+            self.label.setText("SATURDAY")
+        elif self.sender().objectName() == self.dayBarButtonList[6]:
+            self.label.setText("SUNDAY")
+                   
         for i in range(len(self.listDayButton)):
             if self.listDayButton[i].objectName() == self.sender().objectName():
+                self.listDayButton[i].setStyleSheet(
+                    'QPushButton {background: #FFAC4B; color: white; border-radius: 8px; }')
+                global timetablelst
+                timetablelst = list()
+                timetablelst = nota.getTimetableAll(i)
+                self.today_TimetableTray.clear()
+                for i in range(len(timetablelst)):
+                    self.today_TimetableTray.addItem(timetablelst[i].topic)
+                # self.today_TimetableTray.setSpacing(15)
+
+            else:
+                self.listDayButton[i].setStyleSheet(
+                    'QPushButton {background: rgb(228, 226, 199); color: black; border-radius: 8px;  }')
+        
+    def setColorAtStart(self):
+        for i in range(len(self.listDayButton)):
+            if self.listDayButton[i].objectName() == self.currentDay_objectName:
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: #FFAC4B; color: white; border-radius: 8px; }')
                 timetablelst = nota.getTimetableAll(i)
@@ -673,17 +705,16 @@ class TimeTable_window(QDialog):
             else:
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: rgb(228, 226, 199); color: black; border-radius: 8px;  }')
+        self.currentEditingDay = self.currentDay_objectName
 class AddTimeTableWindow(QDialog):
     def __init__(self):
         super(AddTimeTableWindow, self).__init__()
         loadUi("Timetableadd.ui", self)
-
         self.unAddButton.clicked.connect(self.goToTimeTableWindow)
         self.noteButton.clicked.connect(self.goToNoteWindow)
         self.homeButton.clicked.connect(self.goToHomeWeek)
         self.taskButton.clicked.connect(self.goToTaskWindow)
         self.saveTimetableButton.disconnect()
-        # FAILED SAT NOV 27 2:04:44 AM
         self.saveTimetableButton.clicked.connect(self.addTimetable)
         self.cancelTimetableButton.clicked.connect(self.cancelTimetable)
         self.welcomeUser.setText("Welcome,  "+userName)
@@ -702,7 +733,14 @@ class AddTimeTableWindow(QDialog):
             
         if self.sender().objectName() == "edit":
             self.indexTimetable = fromWho.currentRow()
-            # self.timetable_Edittime.setTime(timetablelst[self.indexTimetable].dateTarget)
+            print("List TimeTable",timetablelst)
+            a= str(timetablelst[self.indexTimetable].dateTarget)
+            a= a[11:13]
+            a = int(a)
+            b= str(timetablelst[self.indexTimetable].dateTarget)
+            b= b[14:16]
+            b = int(b)
+            self.timetable_Edittime.setTime(time(a,b))
             self.timetabletitleName_textEdit.setPlainText(timetablelst[self.indexTimetable].topic)
             self.timetable_description.setPlainText(
                 timetablelst[self.indexTimetable].description)
@@ -726,8 +764,9 @@ class AddTimeTableWindow(QDialog):
     def saveTimetable(self):#ได้แค่ของ Today
         timetablelst[self.indexTimetable].topic = self.timetabletitleName_textEdit.toPlainText()
         timetablelst[self.indexTimetable].description = self.timetable_description.toPlainText()
-        # time = time.toPyDateTime()
-        timetablelst[self.indexTimetable].dateTarget = time
+        a= str(self.timetable_Edittime.dateTime().toPyDateTime())
+        a=a[11:]
+        timetablelst[self.indexTimetable].dateTarget = a
         nota.editRecord(timetablelst[self.indexTimetable])
         self.timetabletitleName_textEdit.clear()
         self.timetable_description.clear()
@@ -843,9 +882,8 @@ class Popup(QDialog):
             'QPushButton{background-color:rgb(212, 0, 0);border-radius: 10px;color: rgb(255, 255, 255);}')
         self.confirm.clicked.connect(self.deleteTask)
         self.cancel.clicked.connect(self.close)
-
-    def deleteTask(self):
         
+    def deleteTask(self):
         if fromWho.objectName() in ["listWidget","listWidget_incoming"] :
             nota.deletRow(incoming_tasklst[self.indextask])
             self.parent().refreshTable()
@@ -856,7 +894,7 @@ class Popup(QDialog):
             self.close()
         elif fromWho.objectName() == "today_TimetableTray":
             nota.deletRow(timetablelst[self.indextask])
-            # self.parent().refreshTable()
+            self.parent().refreshTable()
             self.close()
 
 
@@ -865,8 +903,6 @@ app = QApplication(sys.argv)
 widget = QtWidgets.QStackedWidget()
 loginWindow = LoginWindow()
 nota = Nota()
-
-
 widget.addWidget(loginWindow)
 widget.show()
 try:

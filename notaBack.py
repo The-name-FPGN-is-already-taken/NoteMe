@@ -436,3 +436,8 @@ class Nota:
 
     def addToDoList(self,obj:Record):
         self.toDoList.append(obj)
+
+# s1 = "Task1p\t\t\t\tspace"
+# s2 = "Task1poioio\t\t\t\tspace7"
+# print(s1)
+# print(s2)
