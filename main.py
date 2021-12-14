@@ -99,6 +99,9 @@ class HomeWeek_window(QDialog):
         self.listDayButton.append(self.saturday_button)
         self.listDayButton.append(self.sunday_button)
 
+        self.taskTray.clear()
+        self.timeTableTray.clear()
+
         self.currentDay = -1  # ยังไม่เลือกวัน = Today, Monday =0 .... Sunday = 6
         if self.currentDay == -1:
             dayhw = datetime.datetime.now()
@@ -119,7 +122,7 @@ class HomeWeek_window(QDialog):
             elif dayhw == "Sun":
                 self.currentDay = 6
             print(self.currentDay)
-            global timetablelst
+            global timetablelst, notelst
             timetablelst = nota.getTimetableAll(self.currentDay)
             self.timeTableTray.clear()
             for i in range(len(timetablelst)):
@@ -134,6 +137,13 @@ class HomeWeek_window(QDialog):
                 "%A")+"\n"+str((nota.showDateOfToday()+datetime.timedelta(days=i)).day))
             # SET clicked connect
             self.listDayButton[i].clicked.connect(self.setCurrent)
+
+        global today_tasklst
+        today_tasklst = nota.getTaskToday()
+        Sort.sortTaskDateTarget(today_tasklst)
+        for i in range(len(today_tasklst)):
+            self.taskTray.addItem(today_tasklst[i].topic+(60-len(today_tasklst[i].topic))*" "
+                                  + str(today_tasklst[i].dateTarget.strftime("%H:%M:%S")))
 
     def goToAddTimetable(self):
 
@@ -151,7 +161,9 @@ class HomeWeek_window(QDialog):
                 # print(self.sender().objectName())
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: #FFAC4B; color: white; border-radius: 8px; }')
-
+                print("PICKER:", self.sender().objectName())
+                print("text", self.listDayButton[i].objectName())
+                i = (self.currentDay+i) % 7
                 # Update listwidget timeTableTray
                 global timetablelst
                 timetablelst = nota.getTimetableAll(i)
@@ -463,6 +475,16 @@ class AddTaskWindow(QDialog):
         self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
 
+        temp = datetime.datetime.now()
+        print("))))))--->", temp)
+        test = QtCore.QDateTime(int(temp.strftime("%Y")),
+                                int(temp.strftime("%m")),
+                                int(temp.strftime("%d")),
+                                int(temp.strftime("%H")),
+                                int(temp.strftime("%M")),
+                                int(temp.strftime("%S")))
+        self.dateTimeEdit.setDateTime(test)
+
         if self.sender().objectName() == "edit":
             global fromWho
             self.indextask = fromWho.currentRow()
@@ -514,7 +536,6 @@ class AddTaskWindow(QDialog):
 
             time = self.dateTimeEdit.dateTime()
             # yy/m/d h:mm:ss
-
             time = time.toPyDateTime()
             print(str(time))
             # print(str(self.taskName_textEdit.toPlainText()))
