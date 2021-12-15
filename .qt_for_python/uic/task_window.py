@@ -139,9 +139,14 @@ class Ui_homeCal(object):
 "")
         self.frame.setFrameShape(QFrame.NoFrame)
         self.frame.setFrameShadow(QFrame.Raised)
+        self.frame_6 = QFrame(self.frame)
+        self.frame_6.setObjectName(u"frame_6")
+        self.frame_6.setGeometry(QRect(151, 33, 16, 28))
+        self.frame_6.setFrameShape(QFrame.StyledPanel)
+        self.frame_6.setFrameShadow(QFrame.Raised)
         self.widget = QWidget(self.frame)
         self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(60, 30, 755, 412))
+        self.widget.setGeometry(QRect(62, 31, 755, 412))
         self.horizontalLayout_4 = QHBoxLayout(self.widget)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
@@ -149,7 +154,6 @@ class Ui_homeCal(object):
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalLayout_2.setSizeConstraint(QLayout.SetDefaultConstraint)
         self.Today_Label = QLabel(self.widget)
         self.Today_Label.setObjectName(u"Today_Label")
         sizePolicy.setHeightForWidth(self.Today_Label.sizePolicy().hasHeightForWidth())
@@ -166,6 +170,25 @@ class Ui_homeCal(object):
         self.frame_3.setFrameShadow(QFrame.Raised)
 
         self.horizontalLayout_2.addWidget(self.frame_3)
+
+        self.showButton = QPushButton(self.widget)
+        self.showButton.setObjectName(u"showButton")
+        self.showButton.setMaximumSize(QSize(200, 28))
+        self.showButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.showButton.setStyleSheet(u"QPushButton#showButton{\n"
+"   background-color: rgb(252, 188, 64);\n"
+"	border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover#showButton{\n"
+"   background-color: rgb(252, 188, 64);\n"
+"	border-radius: 10px;\n"
+"	color: rgb(255, 255, 255);\n"
+"	font: 75 8pt \"AvenirNext LT Pro Bold\";\n"
+"	\n"
+"}")
+
+        self.horizontalLayout_2.addWidget(self.showButton)
 
 
         self.verticalLayout_8.addLayout(self.horizontalLayout_2)
@@ -431,6 +454,7 @@ class Ui_homeCal(object):
         self.welcomeUser.setText(QCoreApplication.translate("homeCal", u"Welcome,", None))
         self.date.setText(QCoreApplication.translate("homeCal", u"November 21, 2021", None))
         self.Today_Label.setText(QCoreApplication.translate("homeCal", u"TODAY", None))
+        self.showButton.setText(QCoreApplication.translate("homeCal", u"SHOW COMPLETED TASKS", None))
 
         __sortingEnabled = self.listWidget.isSortingEnabled()
         self.listWidget.setSortingEnabled(False)

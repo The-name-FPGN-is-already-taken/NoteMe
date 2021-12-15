@@ -6,7 +6,6 @@ from PyQt5.uic import loadUi
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import *
 from notaBack import *
-from note import Note
 
 notelst = list()
 
@@ -21,7 +20,6 @@ class LoginWindow(QDialog):
         self.warning.setVisible(False)
         self.loginButton.clicked.connect(self.loginIn)
         self.signupButton.clicked.connect(self.LoginToSignUp)
-
         print("wcLogin", widget.currentIndex())
 
     def loginIn(self):
@@ -111,7 +109,7 @@ class HomeWeek_window(QDialog):
                 self.currentDay = 1
             elif dayhw == "Wed":
                 self.currentDay = 2
-            elif dayhw == "Thur":
+            elif dayhw == "Thu":
                 self.currentDay = 3
             elif dayhw == "Fri":
                 self.currentDay = 4
@@ -119,14 +117,23 @@ class HomeWeek_window(QDialog):
                 self.currentDay = 5
             elif dayhw == "Sun":
                 self.currentDay = 6
-            print(self.currentDay)
-            global timetablelst, notelst
-            timetablelst = nota.getTimetableAll(self.currentDay)
-            self.timeTableTray.clear()
-            for i in range(len(timetablelst)):
-                self.timeTableTray.addItem(timetablelst[i].topic)
-            self.timeTableTray.itemDoubleClicked.connect(self.goToAddTimetable)
+           print(self.currentDay)
+           global timetablelst, notelst
+           timetablelst = nota.getTimetableAll(self.currentDay)
+           self.timeTableTray.clear()
+           for i in range(len(timetablelst)):
+               self.timeTableTray.addItem(timetablelst[i].topic)
+            # self.timeTableTray.itemDoubleClicked.connect(self.goToAddTimetable)
             # self.timeTableTray.setSpacing(15)
+# =======
+#         global timetablelst
+#         timetablelst = nota.getTimetableAll(self.currentDay)
+#         self.taskTray.clear()
+#         for i in range(len(timetablelst)):
+#             self.taskTray.addItem(timetablelst[i].topic)
+#         self.taskTray.itemDoubleClicked.connect(self.goToAddTimetable)
+#         # self.taskTray.setSpacing(15)
+# >>>>>>> parnBranch2.1.1
 
         for i in range(len(self.listDayButton)):
 
@@ -160,16 +167,17 @@ class HomeWeek_window(QDialog):
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: #FFAC4B; color: white; border-radius: 8px; }')
 
+
                 # Update listwidget taskTray
                 i = (self.currentDay+i) % 7
                 global timetablelst
+
                 timetablelst = nota.getTimetableAll(i)
                 self.timeTableTray.clear()
                 for i in range(len(timetablelst)):
                     self.timeTableTray.addItem(timetablelst[i].topic)
-                self.timeTableTray.itemDoubleClicked.connect(
-                    self.goToAddTimetable)
-                # self.timeTableTray.setSpacing(15)
+
+                self.timeTableTray.setSpacing(15)
 
             else:
                 self.listDayButton[i].setStyleSheet(
@@ -370,88 +378,121 @@ class Task_window(QDialog):
         self.listWidget_incoming.itemDoubleClicked.connect(self.showPopUp)
         self.sortButton.clicked.connect(self.sortTaskList)
         self.timeTableButton.clicked.connect(self.goToTimeTableWindow)
+        self.showButton.clicked.connect(self.show_hide_completed_tasks)
         global userName
         self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
-
+        self.hideCompletedTask = True 
         self.listWidget.clear()
         global today_tasklst
-        today_tasklst = nota.getTaskToday()
+        today_tasklst = nota.getTodayNotFinishTask()
         Sort.sortTaskDateTarget(today_tasklst)
         for i in range(len(today_tasklst)):
 
             self.listWidget.addItem(today_tasklst[i].topic+(35-len(today_tasklst[i].topic))*" "
-
-                                    + str(today_tasklst[i].dateTarget.strftime("%H:%M:%S")))
+                                + str(today_tasklst[i].dateTarget.strftime("%Y-%m-%d %H:%M:%S")))
         self.listWidget_incoming.clear()
         global incoming_tasklst
-        incoming_tasklst = nota.getIncomingTask(7)
+        incoming_tasklst = nota.getIncomingNotFinishTask()
         Sort.sortTaskDateTarget(incoming_tasklst)
-
         for i in range(len(incoming_tasklst)):
             self.listWidget_incoming.addItem(incoming_tasklst[i].topic+(35-len(incoming_tasklst[i].topic))*" "
-                                             + str(incoming_tasklst[i].dateTarget.strftime("%Y-%m-%d %H:%M:%S")))
+                                            + str(incoming_tasklst[i].dateTarget.strftime("%Y-%m-%d %H:%M:%S")))
+        
 
     def showPopUp(self):
         pop = Popup(self)
         pop.show()
 
     def sortTaskList(self):
+        global today_tasklst
+        global incoming_tasklst
         self.listWidget.clear()
         self.listWidget_incoming.clear()
-        global today_tasklst
-        today_tasklst = nota.getTaskToday()
-        global incoming_tasklst
-        incoming_tasklst = nota.getIncomingTask(7)
-
         if not self.sortFromNearToFar:
             x = 1
         else:
             x = 0
+        if  self.hideCompletedTask:
+            today_tasklst = nota.getTodayNotFinishTask()
+            incoming_tasklst = nota.getIncomingNotFinishTask()
+        else:
+            today_tasklst = nota.getTaskToday()
+            incoming_tasklst = nota.getIncomingTask(7)
+            
         Sort.sortTaskDateTarget(today_tasklst, x)
         for i in range(len(today_tasklst)):
-            self.listWidget.addItem(today_tasklst[i].topic+(60-len(today_tasklst[i].topic))*" "
-                                    + str(today_tasklst[i].dateTarget.strftime("%H:%M:%S")))
+            self.listWidget.addItem(today_tasklst[i].topic+(35-len(today_tasklst[i].topic))*" "
+                                    + str(today_tasklst[i].dateTarget.strftime("%Y-%m-%d %H:%M:%S")))
         Sort.sortTaskDateTarget(incoming_tasklst, x)
         for i in range(len(incoming_tasklst)):
             self.listWidget_incoming.addItem(incoming_tasklst[i].topic+(35-len(incoming_tasklst[i].topic))*" "
                                              + str(incoming_tasklst[i].dateTarget.strftime("%Y-%m-%d %H:%M:%S")))
         self.sortFromNearToFar = not self.sortFromNearToFar
-
+        
+    def show_hide_completed_tasks(self):
+        if  self.hideCompletedTask:
+            self.listWidget.clear()
+            global today_tasklst
+            today_tasklst = nota.getTaskToday()
+            Sort.sortTaskDateTarget(today_tasklst)
+            for i in range(len(today_tasklst)):
+                self.listWidget.addItem(today_tasklst[i].topic+(35-len(today_tasklst[i].topic))*" "
+                                        + str(today_tasklst[i].dateTarget.strftime("%Y-%m-%d %H:%M:%S")))
+            self.listWidget_incoming.clear()
+            global incoming_tasklst
+            incoming_tasklst = nota.getIncomingTask(7)
+            Sort.sortTaskDateTarget(incoming_tasklst)
+            for i in range(len(incoming_tasklst)):
+                self.listWidget_incoming.addItem(incoming_tasklst[i].topic+(35-len(incoming_tasklst[i].topic))*" "
+                                                + str(incoming_tasklst[i].dateTarget.strftime("%Y-%m-%d %H:%M:%S")))
+            self.showButton.setText("HIDE COMPLETED TASKS")
+        else:
+            self.listWidget.clear()
+            today_tasklst = nota.getTodayNotFinishTask()
+            Sort.sortTaskDateTarget(today_tasklst)
+            for i in range(len(today_tasklst)):
+                self.listWidget.addItem(today_tasklst[i].topic+(35-len(today_tasklst[i].topic))*" "
+                                        + str(today_tasklst[i].dateTarget.strftime("%Y-%m-%d %H:%M:%S")))
+            self.listWidget_incoming.clear()
+            incoming_tasklst = nota.getIncomingNotFinishTask()
+            Sort.sortTaskDateTarget(incoming_tasklst)
+            for i in range(len(incoming_tasklst)):
+                self.listWidget_incoming.addItem(incoming_tasklst[i].topic+(35-len(incoming_tasklst[i].topic))*" "
+                                                + str(incoming_tasklst[i].dateTarget.strftime("%Y-%m-%d %H:%M:%S")))
+            self.showButton.setText("SHOW COMPLETED TASKS")
+        self.hideCompletedTask   = not self.hideCompletedTask 
+        
     def refreshTable(self):
-        self.listWidget.clear()
         global today_tasklst
-        today_tasklst = nota.getTaskToday()
-        Sort.sortTaskDateTarget(today_tasklst)
-        for i in range(len(today_tasklst)):
-            self.listWidget.addItem(today_tasklst[i].topic+(60-len(today_tasklst[i].topic))*" "
-                                    + str(today_tasklst[i].dateTarget.strftime("%H:%M:%S")))
-        self.listWidget_incoming.clear()
         global incoming_tasklst
-        incoming_tasklst = nota.getIncomingTask(7)
-        Sort.sortTaskDateTarget(incoming_tasklst)
-
-        for i in range(len(incoming_tasklst)):
-            self.listWidget_incoming.addItem(incoming_tasklst[i].topic+(35-len(incoming_tasklst[i].topic))*" "
-                                             + str(incoming_tasklst[i].dateTarget.strftime("%Y-%m-%d %H:%M:%S")))
-
-    def getUpdate(self):
-        pass
-        # addTaskWindow = AddTaskWindow()
-        # widget.addWidget(addTaskWindow)
-        # widget.setCurrentIndex(widget.currentIndex()+1)
-
-        # indextask = self.listWidget.currentRow()
-        # print(today_tasklst[indextask].topic)
-
-        # addTaskWindow.task_description.setPlainText(
-        #     today_tasklst[indextask].description)
-        # addTaskWindow.taskName_textEdit.setPlainText(today_tasklst[indextask].topic)
-        # timetarget = today_tasklst[indextask].dateTarget
-        # print(timetarget)
-        # print(type(timetarget))
-        # addTaskWindow.dateTimeEdit.setDateTime(timetarget)
-
+        if  self.hideCompletedTask:
+            self.listWidget.clear()
+            today_tasklst = nota.getTodayNotFinishTask()
+            Sort.sortTaskDateTarget(today_tasklst)
+            for i in range(len(today_tasklst)):
+                self.listWidget.addItem(today_tasklst[i].topic+(35-len(today_tasklst[i].topic))*" "+ str(today_tasklst[i].dateTarget.strftime("%Y-%m-%d %H:%M:%S")))
+            self.listWidget_incoming.clear()
+            
+            incoming_tasklst = nota.getIncomingNotFinishTask()
+            Sort.sortTaskDateTarget(incoming_tasklst)
+            for i in range(len(incoming_tasklst)):
+                self.listWidget_incoming.addItem(incoming_tasklst[i].topic+(35-len(incoming_tasklst[i].topic))*" "
+                                                + str(incoming_tasklst[i].dateTarget.strftime("%Y-%m-%d %H:%M:%S")))
+        else:
+            self.listWidget.clear()
+            today_tasklst = nota.getTaskToday()
+            Sort.sortTaskDateTarget(today_tasklst)
+            for i in range(len(today_tasklst)):
+                self.listWidget.addItem(today_tasklst[i].topic+(35-len(today_tasklst[i].topic))*" "
+                                        + str(today_tasklst[i].dateTarget.strftime("%Y-%m-%d %H:%M:%S")))
+            self.listWidget_incoming.clear()
+            incoming_tasklst = nota.getIncomingTask(7)
+            Sort.sortTaskDateTarget(incoming_tasklst)
+            for i in range(len(incoming_tasklst)):
+                self.listWidget_incoming.addItem(incoming_tasklst[i].topic+(35-len(incoming_tasklst[i].topic))*" "
+                                                + str(incoming_tasklst[i].dateTarget.strftime("%Y-%m-%d %H:%M:%S")))
+            
     def goToAddTask(self):
         addTaskWindow = AddTaskWindow()
         widget.addWidget(addTaskWindow)
@@ -618,7 +659,13 @@ class TimeTable_window(QDialog):
         self.listDayButton.append(self.saturday_button_2)
         self.listDayButton.append(self.sunday_button_2)
 
+        self.dayBarButtonList = ["monday_button_2","tuesday_button_2","wednesday_button_2","thursday_button_2","friday_button_2","saturday_button_2","sunday_button_2"]
+            
+        for i in range(len(self.listDayButton)):
+            # SET clicked connect
+            self.listDayButton[i].clicked.connect(self.setCurrent)
         self.currentDay = -1  # ยังไม่เลือกวัน = Today, Monday =0 .... Sunday = 6
+
         if self.currentDay == -1:
             dayhw = datetime.datetime.now()
             dayhw = str(dayhw.strftime("%a"))
@@ -628,7 +675,8 @@ class TimeTable_window(QDialog):
                 self.currentDay = 1
             elif dayhw == "Wed":
                 self.currentDay = 2
-            elif dayhw == "Thur":
+            elif dayhw == "Thu":
+                print("Check")
                 self.currentDay = 3
             elif dayhw == "Fri":
                 self.currentDay = 4
@@ -636,16 +684,19 @@ class TimeTable_window(QDialog):
                 self.currentDay = 5
             elif dayhw == "Sun":
                 self.currentDay = 6
-            timetablelst = nota.getTimetableAll(self.currentDay)
-            # self.setCurrent(self.currentDay)
-            self.today_TimetableTray.clear()
-            for i in range(len(timetablelst)):
-                self.today_TimetableTray.addItem(timetablelst[i].topic)
-            # self.today_TimetableTray.setSpacing(15)
+        print(self.currentDay)
+        self.currentDay_objectName = self.dayBarButtonList[self.currentDay]
+        timetablelst = nota.getTimetableAll(self.currentDay)
+        
+        self.today_TimetableTray.clear()
+        for i in range(len(timetablelst)):
+            self.today_TimetableTray.addItem(timetablelst[i].topic)
+        # self.today_TimetableTray.setSpacing(15)
 
         for i in range(len(self.listDayButton)):
-            # SET clicked connect
+
             self.listDayButton[i].clicked.connect(self.setCurrent)
+        self.setColorAtStart()
 
     def showPopUp(self):
         pop = Popup(self)
@@ -666,19 +717,17 @@ class TimeTable_window(QDialog):
         widget.addWidget(note_window)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
-    def taskWindowToHomeWeek(self):
+    def taskWindowToHomeWeek(self): 
         homeWeek_window = HomeWeek_window()
         widget.addWidget(homeWeek_window)
         widget.setCurrentIndex(widget.currentIndex()+1)
-
-    def setCurrent(self):
+    
+    def refreshTable(self):
         for i in range(len(self.listDayButton)):
-            if self.listDayButton[i].objectName() == self.sender().objectName():
-                # print(self.sender().objectName())
+            if self.listDayButton[i].objectName() == self.currentEditingDay:
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: #FFAC4B; color: white; border-radius: 8px; }')
 
-                # Update listwidget taskTray
                 global timetablelst
                 timetablelst = list()
                 timetablelst = nota.getTimetableAll(i)
@@ -692,9 +741,8 @@ class TimeTable_window(QDialog):
                     'QPushButton {background: rgb(228, 226, 199); color: black; border-radius: 8px;  }')
 
     def setColorAtStart(self):
-        # if self.
         for i in range(len(self.listDayButton)):
-            if self.listDayButton[i].objectName() == self.sender().objectName():
+            if self.listDayButton[i].objectName() == self.currentDay_objectName:
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: #FFAC4B; color: white; border-radius: 8px; }')
                 timetablelst = nota.getTimetableAll(i)
@@ -705,19 +753,60 @@ class TimeTable_window(QDialog):
             else:
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: rgb(228, 226, 199); color: black; border-radius: 8px;  }')
+        self.currentEditingDay = self.currentDay_objectName
+        
+    def setCurrent(self):
+        self.currentEditingDay = self.sender().objectName()
+        if self.sender().objectName() == self.currentDay_objectName:
+            self.currentEditingDay_int = int(self.currentDay)
+            self.label.setText("TODAY")
+        elif self.sender().objectName() == self.dayBarButtonList[0]:
+            self.currentEditingDay_int = 0
+            self.label.setText("MONDAY")
+        elif self.sender().objectName() == self.dayBarButtonList[1]:
+            self.currentEditingDay_int = 1
+            self.label.setText("TUESDAY")
+        elif self.sender().objectName() == self.dayBarButtonList[2]:
+            self.currentEditingDay_int = 2
+            self.label.setText("WEDNESDAY")
+        elif self.sender().objectName() == self.dayBarButtonList[3]:
+            self.currentEditingDay_int = 3
+            self.label.setText("THURSDAY")
+        elif self.sender().objectName() == self.dayBarButtonList[4]:
+            self.currentEditingDay_int = 4
+            self.label.setText("FRIDAY")
+        elif self.sender().objectName() == self.dayBarButtonList[5]:
+            self.label.setText("SATURDAY")
+            self.currentEditingDay_int = 5
+        elif self.sender().objectName() == self.dayBarButtonList[6]:
+            self.currentEditingDay_int = 6
+            self.label.setText("SUNDAY")
+                   
+        for i in range(len(self.listDayButton)):
+            if self.listDayButton[i].objectName() == self.sender().objectName():
+                self.listDayButton[i].setStyleSheet(
+                    'QPushButton {background: #FFAC4B; color: white; border-radius: 8px; }')
+                global timetablelst
+                timetablelst = list()
+                timetablelst = nota.getTimetableAll(i)
+                self.today_TimetableTray.clear()
+                for i in range(len(timetablelst)):
+                    self.today_TimetableTray.addItem(timetablelst[i].topic)
+                # self.today_TimetableTray.setSpacing(15)
 
+            else:
+                self.listDayButton[i].setStyleSheet(
+                    'QPushButton {background: rgb(228, 226, 199); color: black; border-radius: 8px;  }')
 
 class AddTimeTableWindow(QDialog):
     def __init__(self):
         super(AddTimeTableWindow, self).__init__()
         loadUi("Timetableadd.ui", self)
-
         self.unAddButton.clicked.connect(self.goToTimeTableWindow)
         self.noteButton.clicked.connect(self.goToNoteWindow)
         self.homeButton.clicked.connect(self.goToHomeWeek)
         self.taskButton.clicked.connect(self.goToTaskWindow)
         self.saveTimetableButton.disconnect()
-        # FAILED SAT NOV 27 2:04:44 AM
         self.saveTimetableButton.clicked.connect(self.addTimetable)
         self.cancelTimetableButton.clicked.connect(self.cancelTimetable)
         self.welcomeUser.setText("Welcome,  "+userName)
@@ -734,9 +823,16 @@ class AddTimeTableWindow(QDialog):
 
         if self.sender().objectName() == "edit":
             self.indexTimetable = fromWho.currentRow()
-            # self.timetable_Edittime.setTime(timetablelst[self.indexTimetable].dateTarget)
-            self.timetabletitleName_textEdit.setPlainText(
-                timetablelst[self.indexTimetable].topic)
+
+            a= str(timetablelst[self.indexTimetable].dateTarget)
+            a= a[11:13]
+            a = int(a)
+            b= str(timetablelst[self.indexTimetable].dateTarget)
+            b= b[14:16]
+            b = int(b)
+            self.timetable_Edittime.setTime(time(a,b))
+            self.timetabletitleName_textEdit.setPlainText(timetablelst[self.indexTimetable].topic)
+
             self.timetable_description.setPlainText(
                 timetablelst[self.indexTimetable].description)
 
@@ -764,8 +860,9 @@ class AddTimeTableWindow(QDialog):
     def saveTimetable(self):  # ได้แค่ของ Today
         timetablelst[self.indexTimetable].topic = self.timetabletitleName_textEdit.toPlainText()
         timetablelst[self.indexTimetable].description = self.timetable_description.toPlainText()
-        # time = time.toPyDateTime()
-        timetablelst[self.indexTimetable].dateTarget = time
+        a= str(self.timetable_Edittime.dateTime().toPyDateTime())
+        a=a[11:]
+        timetablelst[self.indexTimetable].dateTarget = a
         nota.editRecord(timetablelst[self.indexTimetable])
         self.timetabletitleName_textEdit.clear()
         self.timetable_description.clear()
@@ -774,10 +871,8 @@ class AddTimeTableWindow(QDialog):
     def addTimetable(self):
         # M/d/yy h:mm AP
         time = self.timetable_Edittime.dateTime()
-        print("->timeedit:", time)
         # yy/m/d h:mm:ss
         time = time.toPyDateTime()
-        print("->timePy:", time)
         for i in range(len(checkbox)):
             if checkbox[i] == False:
                 nota.addRecord(time.strftime("%H:%M:%S"), 1, self.timetabletitleName_textEdit.toPlainText(
@@ -833,25 +928,24 @@ class Popup(QDialog):
                 "Please choose action you want to do with this note")
             self.edit.clicked.connect(self.goToAddNote)
 
-        elif fromWho.objectName() == 'today_TimetableTray':
-            # self.mark.setText("Redo")
-            # self.edit.setText("Done")
-            # self.delete_2.setText("Reset")
-
-            # self.direction.setText(
-            #     "Please choose action you want to do with this task")
+        
+        elif fromWho.objectName() == 'today_TimetableTray':           
 
             self.edit.clicked.connect(self.goToAddTimeTable)
         else:
+            
             self.edit.clicked.connect(self.goToAddTask)
 
-    def markAsCompleted(self):
+            
+    def markAsCompleted(self):  
+
         if fromWho.objectName() == "listWidget":
             today_tasklst[self.indextask].finish = 1
             nota.editRecord(today_tasklst[self.indextask])
         else:
             incoming_tasklst[self.indextask].finish = 1
             nota.editRecord(incoming_tasklst[self.indextask])
+        self.parent().refreshTable()
         self.close()
 
     def goToAddNote(self):
@@ -884,7 +978,8 @@ class Popup(QDialog):
 
     def deleteTask(self):
 
-        if fromWho.objectName() in ["listWidget", "listWidget_incoming"]:
+        if fromWho.objectName() in ["listWidget","listWidget_incoming"] :
+
             nota.deletRow(incoming_tasklst[self.indextask])
             self.parent().refreshTable()
             self.close()
@@ -894,7 +989,7 @@ class Popup(QDialog):
             self.close()
         elif fromWho.objectName() == "today_TimetableTray":
             nota.deletRow(timetablelst[self.indextask])
-            # self.parent().refreshTable()
+            self.parent().refreshTable()
             self.close()
 
 
@@ -903,8 +998,6 @@ app = QApplication(sys.argv)
 widget = QtWidgets.QStackedWidget()
 loginWindow = LoginWindow()
 nota = Nota()
-
-
 widget.addWidget(loginWindow)
 widget.show()
 try:

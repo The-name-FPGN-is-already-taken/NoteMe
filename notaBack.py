@@ -58,28 +58,18 @@ class Sort:
                     j -= 1
             li[j+1] = key
 
-    # def sortNote(self,li:list,new=1):
-        # self.quick_sort(0, len(li) - 1, li)
-        # for i in range(1,len(li)):
-        #     key = li[i]
-        #     j = i -1
-        #     if new == 1:
-        #         # while j >= 0 and (key.dateTarget.date() - datetime.date.today()).days < (li[j].dateTarget.date() - datetime.date.today()).days :
-        #         while j >= 0 and key.dateCreate < li[j].dateCreate:
-        #             # print("swap")
-        #             li[j+1] = li[j]
-        #             j -= 1
-        #     elif new == 0:
-        #         # while j >= 0 and (key.dateTarget.date() - datetime.date.today()).days > (li[j].dateTarget.date() - datetime.date.today()).days :
-        #         #     print("swap")
-        #         while j >= 0 and key.dateCreate > li[j].dateCreate:
-        #             li[j+1] = li[j]
-        #             j -= 1
-        #     li[j+1] = key
 
     def sortTimeTable(self,li:list,near:int=1):
         for i in li:
             i.head = self.mergeSort(i.head)
+    
+    def getFinishTask(self):
+        """Only finish task"""
+        result = []
+        for row in self.table.li:
+            if row.isTaskType() and row.isFinish() == True and row.dateTarget == datetime.datetime.today():
+                result.append(row)
+        return result
     
     def sortedMerge(self, a, b):
         result = None
@@ -388,12 +378,36 @@ class Nota:
             if row.isTaskType() and row.isFinish() == False:
                 result.append(row)
         return result
+    
+    def getTodayNotFinishTask(self):
+        """Only not finish task for today"""
+        result = []
+        for row in self.table.li:
+            if row.isTaskType() and row.isFinish() == False and  (row.dateTarget.date() - datetime.date.today()).days == 0:
+                result.append(row)
+        return result
+    
+    def getIncomingNotFinishTask(self):
+        """Only not finish task for incoming 7 days"""
+        result = []
+        for row in self.table.li:
+            if row.isTaskType() and 0 <= (row.dateTarget.date() - datetime.date.today()).days <= 7 and row.isFinish() == False:
+                result.append(row)
+        return result
 
     def getFinishTask(self):
         """Only finish task"""
         result = []
         for row in self.table.li:
             if row.isTaskType() and row.isFinish() == True:
+                result.append(row)
+        return result
+    
+    def getTodayFinishTask(self):
+        """Only finish task for today"""
+        result = []
+        for row in self.table.li:
+            if row.isTaskType() and row.isFinish() == True and row.dateTarget == datetime.datetime.today():
                 result.append(row)
         return result
 
@@ -436,3 +450,8 @@ class Nota:
 
     def addToDoList(self,obj:Record):
         self.toDoList.append(obj)
+
+# s1 = "Task1p\t\t\t\tspace"
+# s2 = "Task1poioio\t\t\t\tspace7"
+# print(s1)
+# print(s2)
