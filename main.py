@@ -731,9 +731,6 @@ class AddTimeTableWindow(QDialog):
         self.listDayButton.append(self.friday_button_Repeat)
         self.listDayButton.append(self.saturday_button_Repeat)
         self.listDayButton.append(self.sunday_button_Repeat)
-        for i in range(len(self.listDayButton)):
-            # SET clicked connect
-            self.listDayButton[i].clicked.connect(self.setCurrent)
 
         if self.sender().objectName() == "edit":
             self.indexTimetable = fromWho.currentRow()
@@ -746,6 +743,10 @@ class AddTimeTableWindow(QDialog):
             self.saveTimetableButton.disconnect()
             self.saveTimetableButton.clicked.connect(self.saveTimetable)
             self.saveTimetableButton.setText("SAVE")
+
+        for i in range(len(self.listDayButton)):
+            # SET clicked connect
+            self.listDayButton[i].clicked.connect(self.setCurrent)
 
     def setCurrent(self):
         for i in range(len(self.listDayButton)):
