@@ -59,7 +59,6 @@ class Ui_Dialog(object):
         self.welcomeUser.setObjectName(u"welcomeUser")
         font = QFont()
         font.setFamily(u"Tenor Sans")
-        font.setPointSize(1)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(50)
@@ -284,21 +283,21 @@ class Ui_Dialog(object):
 "")
         self.frame_3.setFrameShape(QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QFrame.Raised)
-        self.widget = QWidget(self.frame_3)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(31, 11, 821, 411))
-        self.horizontalLayout = QHBoxLayout(self.widget)
+        self.layoutWidget1 = QWidget(self.frame_3)
+        self.layoutWidget1.setObjectName(u"layoutWidget1")
+        self.layoutWidget1.setGeometry(QRect(31, 11, 821, 411))
+        self.horizontalLayout = QHBoxLayout(self.layoutWidget1)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_2 = QVBoxLayout()
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.label = QLabel(self.widget)
+        self.label = QLabel(self.layoutWidget1)
         self.label.setObjectName(u"label")
         self.label.setStyleSheet(u"font: 75 14pt \"AvenirNext LT Pro Bold\";")
 
         self.verticalLayout_2.addWidget(self.label)
 
-        self.today_TimetableTray = QListWidget(self.widget)
+        self.today_TimetableTray = QListWidget(self.layoutWidget1)
         self.today_TimetableTray.setObjectName(u"today_TimetableTray")
         self.today_TimetableTray.setMaximumSize(QSize(600, 600))
         self.today_TimetableTray.setStyleSheet(u"background: #FEFAE0;")
@@ -312,35 +311,16 @@ class Ui_Dialog(object):
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.horizontalLayout_6 = QHBoxLayout()
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.label_2 = QLabel(self.widget)
+        self.label_2 = QLabel(self.layoutWidget1)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setStyleSheet(u"font: 75 14pt \"AvenirNext LT Pro Bold\";")
 
         self.horizontalLayout_6.addWidget(self.label_2)
 
-        self.sortButton = QPushButton(self.widget)
-        self.sortButton.setObjectName(u"sortButton")
-        self.sortButton.setMaximumSize(QSize(60, 28))
-        self.sortButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.sortButton.setStyleSheet(u"QPushButton#sortButton{\n"
-"   background-color: rgb(252, 188, 64);\n"
-"	border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:hover#sortButton{\n"
-"   background-color: rgb(252, 188, 64);\n"
-"	border-radius: 10px;\n"
-"	color: rgb(255, 255, 255);\n"
-"	font: 75 9pt \"AvenirNext LT Pro Bold\";\n"
-"	\n"
-"}")
-
-        self.horizontalLayout_6.addWidget(self.sortButton)
-
 
         self.verticalLayout_3.addLayout(self.horizontalLayout_6)
 
-        self.completed_TimetableTray = QListWidget(self.widget)
+        self.completed_TimetableTray = QListWidget(self.layoutWidget1)
         self.completed_TimetableTray.setObjectName(u"completed_TimetableTray")
         self.completed_TimetableTray.setMaximumSize(QSize(600, 600))
         self.completed_TimetableTray.setStyleSheet(u"background: #FEFAE0;")
@@ -498,16 +478,16 @@ class Ui_Dialog(object):
 
         self.verticalLayout_9.addWidget(self.frame_2)
 
-        self.widget1 = QWidget(Dialog)
-        self.widget1.setObjectName(u"widget1")
-        self.widget1.setGeometry(QRect(0, 0, 2, 2))
-        self.horizontalLayout_5 = QHBoxLayout(self.widget1)
+        self.layoutWidget2 = QWidget(Dialog)
+        self.layoutWidget2.setObjectName(u"layoutWidget2")
+        self.layoutWidget2.setGeometry(QRect(0, 0, 2, 2))
+        self.horizontalLayout_5 = QHBoxLayout(self.layoutWidget2)
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
         self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
-        self.widget2 = QWidget(Dialog)
-        self.widget2.setObjectName(u"widget2")
-        self.widget2.setGeometry(QRect(0, 0, 2, 2))
-        self.verticalLayout_4 = QVBoxLayout(self.widget2)
+        self.layoutWidget3 = QWidget(Dialog)
+        self.layoutWidget3.setObjectName(u"layoutWidget3")
+        self.layoutWidget3.setGeometry(QRect(0, 0, 2, 2))
+        self.verticalLayout_4 = QVBoxLayout(self.layoutWidget3)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
 
@@ -531,7 +511,6 @@ class Ui_Dialog(object):
         self.next_button.setText("")
         self.label.setText(QCoreApplication.translate("Dialog", u"TODAY", None))
         self.label_2.setText(QCoreApplication.translate("Dialog", u"COMPLETED", None))
-        self.sortButton.setText(QCoreApplication.translate("Dialog", u"SORT", None))
 #if QT_CONFIG(tooltip)
         self.homeButton.setToolTip(QCoreApplication.translate("Dialog", u"<html><head/><body><p><br/>home</p><p><br/></p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
