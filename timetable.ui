@@ -459,7 +459,7 @@ border-radius: 15px;</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>31</x>
@@ -510,36 +510,6 @@ border-radius: 15px;</string>
             </property>
            </widget>
           </item>
-          <item>
-           <widget class="QPushButton" name="sortButton">
-            <property name="maximumSize">
-             <size>
-              <width>60</width>
-              <height>28</height>
-             </size>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton#sortButton{
-   background-color: rgb(252, 188, 64);
-	border-radius: 10px;
-}
-
-QPushButton:hover#sortButton{
-   background-color: rgb(252, 188, 64);
-	border-radius: 10px;
-	color: rgb(255, 255, 255);
-	font: 75 9pt &quot;AvenirNext LT Pro Bold&quot;;
-	
-}</string>
-            </property>
-            <property name="text">
-             <string>SORT</string>
-            </property>
-           </widget>
-          </item>
          </layout>
         </item>
         <item>
@@ -562,9 +532,6 @@ QPushButton:hover#sortButton{
    </widget>
    <zorder>frame_3</zorder>
    <zorder>layoutWidget_2</zorder>
-   <zorder>horizontalLayoutWidget</zorder>
-   <zorder>pushButton_2</zorder>
-   <zorder>pushButton</zorder>
   </widget>
   <widget class="QFrame" name="leftBar_2">
    <property name="geometry">
@@ -781,7 +748,7 @@ image: url(D:/NotaProject/pics/add.png);</string>
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -792,7 +759,7 @@ image: url(D:/NotaProject/pics/add.png);</string>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_5"/>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>0</x>
