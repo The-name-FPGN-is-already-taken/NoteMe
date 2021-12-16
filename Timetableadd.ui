@@ -126,7 +126,7 @@ border-radius: 35px;
         <property name="font">
          <font>
           <family>Tenor Sans</family>
-          <pointsize>-1</pointsize>
+          <pointsize>1</pointsize>
           <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
@@ -590,29 +590,9 @@ border-radius: 8px;</string>
       </item>
      </layout>
     </widget>
-    <widget class="QLabel" name="warning">
-     <property name="geometry">
-      <rect>
-       <x>360</x>
-       <y>500</y>
-       <width>291</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color: rgb(255, 0, 0);</string>
-     </property>
-     <property name="text">
-      <string>Please fill in task name!!!</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
     <zorder>widget</zorder>
     <zorder>layoutWidget_2</zorder>
     <zorder>layoutWidget_3</zorder>
-    <zorder>warning</zorder>
    </widget>
    <widget class="QFrame" name="leftBar">
     <property name="geometry">
@@ -651,10 +631,10 @@ background: #A3C5A7;</string>
             <cursorShape>PointingHandCursor</cursorShape>
            </property>
            <property name="toolTip">
-            <string/>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;home&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="whatsThis">
-            <string/>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;home&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="styleSheet">
             <string notr="true">position: absolute;
