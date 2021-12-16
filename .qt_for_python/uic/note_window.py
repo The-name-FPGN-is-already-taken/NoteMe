@@ -70,9 +70,7 @@ class Ui_homeCal(object):
         self.welcomeUser = QLabel(self.layoutWidget)
         self.welcomeUser.setObjectName(u"welcomeUser")
         font = QFont()
-
         font.setFamily(u"Tenor Sans")
-
         font.setPointSize(1)
         font.setBold(False)
         font.setItalic(False)
@@ -360,10 +358,10 @@ class Ui_homeCal(object):
         self.dateCreated0.setText(QCoreApplication.translate("homeCal", u"Date Modified", None))
         self.sortButton.setText(QCoreApplication.translate("homeCal", u"SORT", None))
 #if QT_CONFIG(tooltip)
-        self.homeButton.setToolTip(QCoreApplication.translate("homeCal", u"<html><head/><body><p><br/>home</p><p><br/></p></body></html>", None))
+        self.homeButton.setToolTip("")
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(whatsthis)
-        self.homeButton.setWhatsThis(QCoreApplication.translate("homeCal", u"<html><head/><body><p>home</p></body></html>", None))
+        self.homeButton.setWhatsThis("")
 #endif // QT_CONFIG(whatsthis)
         self.homeButton.setText("")
         self.home_label.setText(QCoreApplication.translate("homeCal", u"     HOME", None))

@@ -3,21 +3,15 @@
 ################################################################################
 ## Form generated from reading UI file 'task_window.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.2.1
+## Created by: Qt User Interface Compiler version 5.15.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QHBoxLayout,
-    QLabel, QLayout, QListWidget, QListWidgetItem,
-    QPushButton, QSizePolicy, QVBoxLayout, QWidget)
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
+
 
 class Ui_homeCal(object):
     def setupUi(self, homeCal):
@@ -76,10 +70,11 @@ class Ui_homeCal(object):
         self.welcomeUser = QLabel(self.layoutWidget)
         self.welcomeUser.setObjectName(u"welcomeUser")
         font = QFont()
-        font.setFamilies([u"Tenor Sans"])
+        font.setFamily(u"Tenor Sans")
         font.setPointSize(1)
         font.setBold(False)
         font.setItalic(False)
+        font.setWeight(50)
         self.welcomeUser.setFont(font)
         self.welcomeUser.setStyleSheet(u"position: absolute;\n"
 "width: 190px;\n"
@@ -144,17 +139,17 @@ class Ui_homeCal(object):
         self.frame_6.setGeometry(QRect(151, 33, 16, 28))
         self.frame_6.setFrameShape(QFrame.StyledPanel)
         self.frame_6.setFrameShadow(QFrame.Raised)
-        self.widget = QWidget(self.frame)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(62, 31, 755, 412))
-        self.horizontalLayout_4 = QHBoxLayout(self.widget)
+        self.layoutWidget1 = QWidget(self.frame)
+        self.layoutWidget1.setObjectName(u"layoutWidget1")
+        self.layoutWidget1.setGeometry(QRect(62, 31, 755, 412))
+        self.horizontalLayout_4 = QHBoxLayout(self.layoutWidget1)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_8 = QVBoxLayout()
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.Today_Label = QLabel(self.widget)
+        self.Today_Label = QLabel(self.layoutWidget1)
         self.Today_Label.setObjectName(u"Today_Label")
         sizePolicy.setHeightForWidth(self.Today_Label.sizePolicy().hasHeightForWidth())
         self.Today_Label.setSizePolicy(sizePolicy)
@@ -164,14 +159,14 @@ class Ui_homeCal(object):
 
         self.horizontalLayout_2.addWidget(self.Today_Label)
 
-        self.frame_3 = QFrame(self.widget)
+        self.frame_3 = QFrame(self.layoutWidget1)
         self.frame_3.setObjectName(u"frame_3")
         self.frame_3.setFrameShape(QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QFrame.Raised)
 
         self.horizontalLayout_2.addWidget(self.frame_3)
 
-        self.showButton = QPushButton(self.widget)
+        self.showButton = QPushButton(self.layoutWidget1)
         self.showButton.setObjectName(u"showButton")
         self.showButton.setMaximumSize(QSize(200, 28))
         self.showButton.setCursor(QCursor(Qt.PointingHandCursor))
@@ -193,7 +188,7 @@ class Ui_homeCal(object):
 
         self.verticalLayout_8.addLayout(self.horizontalLayout_2)
 
-        self.listWidget = QListWidget(self.widget)
+        self.listWidget = QListWidget(self.layoutWidget1)
         QListWidgetItem(self.listWidget)
         QListWidgetItem(self.listWidget)
         QListWidgetItem(self.listWidget)
@@ -224,7 +219,7 @@ class Ui_homeCal(object):
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.Tomorrow_Label = QLabel(self.widget)
+        self.Tomorrow_Label = QLabel(self.layoutWidget1)
         self.Tomorrow_Label.setObjectName(u"Tomorrow_Label")
         self.Tomorrow_Label.setMaximumSize(QSize(200, 28))
         self.Tomorrow_Label.setStyleSheet(u"font: 75 14pt \"AvenirNext LT Pro Bold\";")
@@ -232,14 +227,14 @@ class Ui_homeCal(object):
 
         self.horizontalLayout_3.addWidget(self.Tomorrow_Label)
 
-        self.frame_4 = QFrame(self.widget)
+        self.frame_4 = QFrame(self.layoutWidget1)
         self.frame_4.setObjectName(u"frame_4")
         self.frame_4.setFrameShape(QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QFrame.Raised)
 
         self.horizontalLayout_3.addWidget(self.frame_4)
 
-        self.sortButton = QPushButton(self.widget)
+        self.sortButton = QPushButton(self.layoutWidget1)
         self.sortButton.setObjectName(u"sortButton")
         self.sortButton.setMaximumSize(QSize(60, 28))
         self.sortButton.setCursor(QCursor(Qt.PointingHandCursor))
@@ -261,7 +256,7 @@ class Ui_homeCal(object):
 
         self.verticalLayout_9.addLayout(self.horizontalLayout_3)
 
-        self.listWidget_incoming = QListWidget(self.widget)
+        self.listWidget_incoming = QListWidget(self.layoutWidget1)
         QListWidgetItem(self.listWidget_incoming)
         QListWidgetItem(self.listWidget_incoming)
         QListWidgetItem(self.listWidget_incoming)
@@ -437,10 +432,10 @@ class Ui_homeCal(object):
 
         self.verticalLayout_7.addWidget(self.frame_2)
 
-        self.layoutWidget1 = QWidget(homeCal)
-        self.layoutWidget1.setObjectName(u"layoutWidget1")
-        self.layoutWidget1.setGeometry(QRect(0, 0, 2, 2))
-        self.horizontalLayout = QHBoxLayout(self.layoutWidget1)
+        self.layoutWidget2 = QWidget(homeCal)
+        self.layoutWidget2.setObjectName(u"layoutWidget2")
+        self.layoutWidget2.setGeometry(QRect(0, 0, 2, 2))
+        self.horizontalLayout = QHBoxLayout(self.layoutWidget2)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
 
@@ -542,10 +537,10 @@ class Ui_homeCal(object):
         self.listWidget_incoming.setToolTip(QCoreApplication.translate("homeCal", u"<html><head/><body><p>double click to edit</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
-        self.homeButton.setToolTip(QCoreApplication.translate("homeCal", u"<html><head/><body><p><br/></p></body></html>", None))
+        self.homeButton.setToolTip("")
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(whatsthis)
-        self.homeButton.setWhatsThis(QCoreApplication.translate("homeCal", u"<html><head/><body><p>home</p></body></html>", None))
+        self.homeButton.setWhatsThis("")
 #endif // QT_CONFIG(whatsthis)
         self.homeButton.setText("")
         self.home_label.setText(QCoreApplication.translate("homeCal", u"     HOME", None))

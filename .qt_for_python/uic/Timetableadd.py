@@ -3,21 +3,15 @@
 ################################################################################
 ## Form generated from reading UI file 'Timetableadd.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.2.1
+## Created by: Qt User Interface Compiler version 5.15.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QHBoxLayout,
-    QLabel, QPushButton, QSizePolicy, QTextEdit,
-    QTimeEdit, QVBoxLayout, QWidget)
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
+
 
 class Ui_timetabledialog(object):
     def setupUi(self, timetabledialog):
@@ -76,10 +70,10 @@ class Ui_timetabledialog(object):
         self.welcomeUser = QLabel(self.layoutWidget)
         self.welcomeUser.setObjectName(u"welcomeUser")
         font = QFont()
-        font.setFamilies([u"Tenor Sans"])
-        font.setPointSize(1)
+        font.setFamily(u"Tenor Sans")
         font.setBold(False)
         font.setItalic(False)
+        font.setWeight(50)
         self.welcomeUser.setFont(font)
         self.welcomeUser.setStyleSheet(u"position: absolute;\n"
 "width: 190px;\n"
@@ -319,9 +313,15 @@ class Ui_timetabledialog(object):
 
         self.horizontalLayout_6.addWidget(self.sunday_button_Repeat)
 
+        self.warning = QLabel(self.frame_5)
+        self.warning.setObjectName(u"warning")
+        self.warning.setGeometry(QRect(360, 500, 291, 20))
+        self.warning.setStyleSheet(u"color: rgb(255, 0, 0);")
+        self.warning.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
         self.widget.raise_()
         self.layoutWidget_2.raise_()
         self.layoutWidget_3.raise_()
+        self.warning.raise_()
         self.leftBar = QFrame(self.backFrame)
         self.leftBar.setObjectName(u"leftBar")
         self.leftBar.setGeometry(QRect(0, 100, 91, 541))
@@ -527,11 +527,12 @@ class Ui_timetabledialog(object):
         self.sunday_button_Repeat.setToolTip(QCoreApplication.translate("timetabledialog", u"<html><head/><body><p align=\"center\">Press to select the day that you want to do every day. </p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.sunday_button_Repeat.setText(QCoreApplication.translate("timetabledialog", u"SUNDAY", None))
+        self.warning.setText(QCoreApplication.translate("timetabledialog", u"Please fill in task name!!!", None))
 #if QT_CONFIG(tooltip)
-        self.homeButton.setToolTip(QCoreApplication.translate("timetabledialog", u"<html><head/><body><p><br/>home</p><p><br/></p></body></html>", None))
+        self.homeButton.setToolTip("")
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(whatsthis)
-        self.homeButton.setWhatsThis(QCoreApplication.translate("timetabledialog", u"<html><head/><body><p>home</p></body></html>", None))
+        self.homeButton.setWhatsThis("")
 #endif // QT_CONFIG(whatsthis)
         self.homeButton.setText("")
         self.home_label_2.setText(QCoreApplication.translate("timetabledialog", u"     HOME", None))

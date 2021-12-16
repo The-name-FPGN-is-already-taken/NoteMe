@@ -361,6 +361,14 @@ class Nota:
                 result.append(row)
         # print(result[0].topic)
         return result
+    
+    def getTaskByDateNotFinish(self,targetDate):
+        result = []
+        for row in self.table.li:
+            if row.isTaskType() and targetDate == row.dateTarget.date() and row.finish == 0:
+                result.append(row)
+        # print(result[0].topic)
+        return result
 
     def getTaskToday(self) -> list:
         """Return queue of Task obj"""
