@@ -303,10 +303,13 @@ class AddNoteWindow(QDialog):
         self.unAddNote.clicked.connect(self.goToNoteWindow)
         self.homeButton.clicked.connect(self.addNoteWindowToHomeWeek)
         self.taskButton.clicked.connect(self.goToTaskWindow)
-
         self.saveNoteButton.disconnect()
         self.saveNoteButton.clicked.connect(self.addNote)
         self.cancelAdding.clicked.connect(self.cancelNote)
+
+        self.noteName_textEdit.textChanged.connect(self.mytxtChanged)
+        self.noteName_textEdit.setLineWrapMode(0)
+
         global userName
         self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
@@ -319,8 +322,6 @@ class AddNoteWindow(QDialog):
             self.saveNoteButton.disconnect()
             self.saveNoteButton.clicked.connect(self.saveNote)
             self.saveNoteButton.setText("SAVE")
-
-            print(notelst[self.indexNote].taskID)
 
     def saveNote(self):
         # print("------>", self.indexNote)
@@ -353,6 +354,17 @@ class AddNoteWindow(QDialog):
         self.note_description.clear()
         print("UnSaved")
         self.goToNoteWindow()
+
+    def mytxtChanged(self):
+        maxlengthtext = 15
+        if (len(self.noteName_textEdit.toPlainText())) > maxlengthtext:
+            maxstringtext = self.noteName_textEdit.toPlainText()
+            print(len(maxstringtext))
+            self.noteName_textEdit.setPlainText(maxstringtext[:-1])
+
+            cursor = self.noteName_textEdit.textCursor()
+            cursor.setPosition(maxlengthtext)
+            self.noteName_textEdit.setTextCursor(cursor)
 
     def goToTaskWindow(self):
         task_window = Task_window()
@@ -534,12 +546,13 @@ class AddTaskWindow(QDialog):
         self.saveNoteButton.disconnect()
         self.saveNoteButton.clicked.connect(self.addTask)
         self.cancelAdding.clicked.connect(self.cancelTask)
+        self.taskName_textEdit.textChanged.connect(self.mytxtChanged)
+        self.taskName_textEdit.setLineWrapMode(0)
         global userName
         self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
 
         temp = datetime.datetime.now()
-        print("))))))--->", temp)
         test = QtCore.QDateTime(int(temp.strftime("%Y")),
                                 int(temp.strftime("%m")),
                                 int(temp.strftime("%d")),
@@ -560,11 +573,6 @@ class AddTaskWindow(QDialog):
             self.saveNoteButton.disconnect()
             self.saveNoteButton.clicked.connect(self.saveTask)
             self.saveNoteButton.setText("SAVE")
-        # elif self.sender().objectName() == "addTask":
-        #     self.dateTimeEdit.setDateTime(datetime.datetime.today())
-        print("------>", self.sender().parent())
-        print("------>", self.taskName_textEdit.toPlainText())
-        print("------>", self.task_description.toPlainText())
 
     def saveTask(self):
         print("------>", self.indextask)
@@ -623,6 +631,18 @@ class AddTaskWindow(QDialog):
         # print("------C", self.task_description.toPlainText())
         print("UnSaved")
         self.goToTaskWindow()
+
+    def mytxtChanged(self):
+        # dont use max 30      textlistwidget will bug cant see anything in list
+        maxlengthtext = 15
+        if (len(self.taskName_textEdit.toPlainText())) > maxlengthtext:
+            maxstringtext = self.taskName_textEdit.toPlainText()
+            print(len(maxstringtext))
+            self.taskName_textEdit.setPlainText(maxstringtext[:-1])
+
+            cursor = self.taskName_textEdit.textCursor()
+            cursor.setPosition(maxlengthtext)
+            self.taskName_textEdit.setTextCursor(cursor)
 
     def goToTaskWindow(self):
         task_window = Task_window()
@@ -823,6 +843,9 @@ class AddTimeTableWindow(QDialog):
         self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
 
+        self.timetabletitleName_textEdit.textChanged.connect(self.mytxtChanged)
+        self.timetabletitleName_textEdit.setLineWrapMode(0)
+
         self.listDayButton = list()
         self.listDayButton.append(self.monday_button_Repeat)
         self.listDayButton.append(self.tuesday_button_Repeat)
@@ -899,6 +922,17 @@ class AddTimeTableWindow(QDialog):
         self.timetable_description.clear()
         print("UNSAVE TIME TABLE")
         self.goToTimeTableWindow()
+
+    def mytxtChanged(self):
+        maxlengthtext = 15
+        if (len(self.timetabletitleName_textEdit.toPlainText())) > maxlengthtext:
+            maxstringtext = self.timetabletitleName_textEdit.toPlainText()
+            print(len(maxstringtext))
+            self.timetabletitleName_textEdit.setPlainText(maxstringtext[:-1])
+
+            cursor = self.timetabletitleName_textEdit.textCursor()
+            cursor.setPosition(maxlengthtext)
+            self.timetabletitleName_textEdit.setTextCursor(cursor)
 
     def goToTimeTableWindow(self):
         timeTable_window = TimeTable_window()
