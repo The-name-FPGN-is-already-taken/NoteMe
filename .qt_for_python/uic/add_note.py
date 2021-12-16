@@ -3,21 +3,15 @@
 ################################################################################
 ## Form generated from reading UI file 'add_note.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.2.1
+## Created by: Qt User Interface Compiler version 5.15.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QHBoxLayout,
-    QLabel, QPlainTextEdit, QPushButton, QSizePolicy,
-    QTextEdit, QVBoxLayout, QWidget)
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
+
 
 class Ui_homeCal(object):
     def setupUi(self, homeCal):
@@ -68,10 +62,10 @@ class Ui_homeCal(object):
         self.welcomeUser = QLabel(self.layoutWidget)
         self.welcomeUser.setObjectName(u"welcomeUser")
         font = QFont()
-        font.setFamilies([u"Tenor Sans"])
-        font.setPointSize(1)
+        font.setFamily(u"Tenor Sans")
         font.setBold(False)
         font.setItalic(False)
+        font.setWeight(50)
         self.welcomeUser.setFont(font)
         self.welcomeUser.setStyleSheet(u"position: absolute;\n"
 "width: 190px;\n"
@@ -340,10 +334,10 @@ class Ui_homeCal(object):
         self.welcomeUser.setText(QCoreApplication.translate("homeCal", u"Welcome,", None))
         self.date.setText(QCoreApplication.translate("homeCal", u"November 21, 2021", None))
 #if QT_CONFIG(tooltip)
-        self.homeButton.setToolTip(QCoreApplication.translate("homeCal", u"<html><head/><body><p><br/>home</p><p><br/></p></body></html>", None))
+        self.homeButton.setToolTip("")
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(whatsthis)
-        self.homeButton.setWhatsThis(QCoreApplication.translate("homeCal", u"<html><head/><body><p>home</p></body></html>", None))
+        self.homeButton.setWhatsThis("")
 #endif // QT_CONFIG(whatsthis)
         self.homeButton.setText("")
         self.home_label.setText(QCoreApplication.translate("homeCal", u"     HOME", None))
