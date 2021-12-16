@@ -313,9 +313,15 @@ class Ui_timetabledialog(object):
 
         self.horizontalLayout_6.addWidget(self.sunday_button_Repeat)
 
+        self.warning = QLabel(self.frame_5)
+        self.warning.setObjectName(u"warning")
+        self.warning.setGeometry(QRect(360, 500, 291, 20))
+        self.warning.setStyleSheet(u"color: rgb(255, 0, 0);")
+        self.warning.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
         self.widget.raise_()
         self.layoutWidget_2.raise_()
         self.layoutWidget_3.raise_()
+        self.warning.raise_()
         self.leftBar = QFrame(self.backFrame)
         self.leftBar.setObjectName(u"leftBar")
         self.leftBar.setGeometry(QRect(0, 100, 91, 541))
@@ -521,6 +527,7 @@ class Ui_timetabledialog(object):
         self.sunday_button_Repeat.setToolTip(QCoreApplication.translate("timetabledialog", u"<html><head/><body><p align=\"center\">Press to select the day that you want to do every day. </p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.sunday_button_Repeat.setText(QCoreApplication.translate("timetabledialog", u"SUNDAY", None))
+        self.warning.setText(QCoreApplication.translate("timetabledialog", u"Please fill in task name!!!", None))
 #if QT_CONFIG(tooltip)
         self.homeButton.setToolTip("")
 #endif // QT_CONFIG(tooltip)

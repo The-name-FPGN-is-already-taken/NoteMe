@@ -818,6 +818,7 @@ class AddTimeTableWindow(QDialog):
     def __init__(self):
         super(AddTimeTableWindow, self).__init__()
         loadUi("Timetableadd.ui", self)
+        self.warning.setVisible(False)
         self.unAddButton.clicked.connect(self.goToTimeTableWindow)
         self.noteButton.clicked.connect(self.goToNoteWindow)
         self.homeButton.clicked.connect(self.goToHomeWeek)
@@ -879,10 +880,6 @@ class AddTimeTableWindow(QDialog):
         a= str(self.timetable_Edittime.dateTime().toPyDateTime())
         a=a[11:]
         timetablelst[self.indexTimetable].dateTarget = a
-        nota.editRecord(timetablelst[self.indexTimetable])
-        self.timetabletitleName_textEdit.clear()
-        self.timetable_description.clear()
-        self.goToTimeTableWindow()
 
     def addTimetable(self):
         # M/d/yy h:mm AP
@@ -893,10 +890,13 @@ class AddTimeTableWindow(QDialog):
             if checkbox[i] == False:
                 nota.addRecord(time.strftime("%H:%M:%S"), 1, self.timetabletitleName_textEdit.toPlainText(
                 ), self.timetable_description.toPlainText(), i)
-
-        self.timetabletitleName_textEdit.clear()
-        self.timetable_description.clear()
-        self.goToTimeTableWindow()
+        if self.timetabletitleName_textEdit.toPlainText() == "" :
+            self.warning.setVisible(True)
+        else:
+            nota.editRecord(timetablelst[self.indexTimetable])
+            self.timetabletitleName_textEdit.clear()
+            self.timetable_description.clear()
+            self.goToTimeTableWindow()
 
     def cancelTimetable(self):
         self.timetabletitleName_textEdit.clear()
