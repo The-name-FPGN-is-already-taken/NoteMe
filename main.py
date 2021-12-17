@@ -551,7 +551,7 @@ class AddTaskWindow(QDialog):
 
         if self.sender().objectName() == "edit":
             global fromWho
-            print ("fromWho Object Name",fromWho.objectName())
+            # print ("fromWho Object Name",fromWho.objectName())
             if fromWho.objectName()  == "taskTray":
                 self.indextask = fromWho.currentRow()
                 self.taskName_textEdit.setPlainText(
@@ -670,6 +670,8 @@ class AddTaskWindow(QDialog):
 
 class TimeTable_window(QDialog):
     def __init__(self):
+        global checkbox
+        checkbox = [True, True, True, True, True, True, True]
         super(TimeTable_window, self).__init__()
         loadUi("timetable.ui", self)
         self.addTimeTableButton.clicked.connect(self.goToAddTimeTable)
@@ -841,7 +843,6 @@ class AddTimeTableWindow(QDialog):
         self.cancelTimetableButton.clicked.connect(self.cancelTimetable)
         self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
-        self.self.checkbox = [True, True, True, True, True, True, True]
 
         self.listDayButton = list()
         self.listDayButton.append(self.monday_button_Repeat)
@@ -877,14 +878,14 @@ class AddTimeTableWindow(QDialog):
 
     def setCurrent(self):
         for i in range(len(self.listDayButton)):
-            if self.listDayButton[i].objectName() == self.sender().objectName() and self.self.checkbox[i] == True:
+            if self.listDayButton[i].objectName() == self.sender().objectName() and checkbox[i] == True:
                 # print(self.sender().objectName())
-                self.checkbox[i] = False
+                checkbox[i] = False
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: #FFAC4B; color: white; border-radius: 8px; }')
 
-            elif self.listDayButton[i].objectName() == self.sender().objectName() and self.checkbox[i] == False:
-                self.checkbox[i] = True
+            elif self.listDayButton[i].objectName() == self.sender().objectName() and checkbox[i] == False:
+                checkbox[i] = True
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: rgb(228, 226, 199); color: black; border-radius: 8px;  }')
 
@@ -900,8 +901,8 @@ class AddTimeTableWindow(QDialog):
         time = self.timetable_Edittime.dateTime()
         # yy/m/d h:mm:ss
         time = time.toPyDateTime()
-        for i in range(len(self.checkbox)):
-            if self.checkbox[i] == False:
+        for i in range(len(checkbox)):
+            if checkbox[i] == False:
                 nota.addRecord(time.strftime("%H:%M:%S"), 1, self.timetabletitleName_textEdit.toPlainText(
                 ), self.timetable_description.toPlainText(), i)
         if self.timetabletitleName_textEdit.toPlainText() == "" :
