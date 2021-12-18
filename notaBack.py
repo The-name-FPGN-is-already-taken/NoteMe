@@ -377,6 +377,7 @@ class Nota:
         # print(result[0].topic)
         return result
 
+
     
     def getTaskByDateNotFinish(self,targetDate):
         result = []
@@ -385,6 +386,7 @@ class Nota:
                 result.append(row)
         # print(result[0].topic)
         return result
+
 
     def getTaskToday(self) -> list:
         """Return queue of Task obj"""

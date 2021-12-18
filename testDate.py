@@ -88,6 +88,7 @@ def transposition(li:list,index:int):
 
 # s = "1"
 # print(bool(int(s)))
+
 # print("--------------------")
 # s = "Test\nLovely"
 # print(s)
@@ -106,4 +107,5 @@ def transposition(li:list,index:int):
 
 t = datetime.time(12,10,00)
 print(datetime.date.today().strftime("%Y-%m-%d") + " " + t.strftime("%H:%M:%S"))
+
 
