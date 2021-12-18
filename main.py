@@ -10,7 +10,6 @@ from notaBack import *
 notelst = list()
 
 timetask = list()
-# currentClickingDay = datetime.datetime.now().date()
 
 
 class LoginWindow(QDialog):
@@ -22,8 +21,10 @@ class LoginWindow(QDialog):
         self.loginButton.clicked.connect(self.loginIn)
         self.signupButton.clicked.connect(self.LoginToSignUp)
         print("wcLogin", widget.currentIndex())
-        global currentClickingDay #this mf should not be here but, whatever
+        global currentClickingDay,currentClickingDay_week #this mf should not be here but, whatever
         currentClickingDay = datetime.datetime.today().date()
+        currentClickingDay_week = self.loginButton
+
 
     def loginIn(self):
         global userName
@@ -57,6 +58,8 @@ class SignUpWindow(QDialog):
         self.signInButton.clicked.connect(self.goToLoginWindow)
         # self.welComeUser.setText(nota.)
         print("wc", widget.currentIndex())
+        global currentClickingDay_week #this mf should not be here but, whatever
+        currentClickingDay_week = self.signUpButton
 
     def registing(self):
         userName = self.username.text()
@@ -122,7 +125,6 @@ class HomeWeek_window(QDialog):
             elif dayhw == "Sun":
                 self.currentDay = 6
                 
-        # print(self.currentDay)
         
         self.timeTableTray.clear()
         self.taskTray.clear()
@@ -131,7 +133,6 @@ class HomeWeek_window(QDialog):
         for i in range(len(timetablelst)):
            self.timeTableTray.addItem(timetablelst[i].topic)
         global today_tasklst,currentClickingDay       
-        print(currentClickingDay)
         today_tasklst = nota.getTaskByDateNotFinish(currentClickingDay)
         Sort.sortTaskDateTarget(today_tasklst)
         for i in range(len(today_tasklst)):
@@ -139,6 +140,9 @@ class HomeWeek_window(QDialog):
                                   + str(today_tasklst[i].dateTarget.strftime("%H:%M:%S")))
         self.timeTableTray.setSpacing(15)
         if self.sender().objectName() not in ["signUpButton","loginButton"]:
+            global currentClickingDay_week 
+            if currentClickingDay_week.objectName() in  ["signUpButton","loginButton"]:
+                currentClickingDay_week = self.monday_button
             self.setColorAtStart()
         
         for i in range(len(self.listDayButton)):
@@ -210,7 +214,7 @@ class HomeWeek_window(QDialog):
                     'QPushButton {background: rgb(228, 226, 199); color: black; border-radius: 8px;  }')
 
     def setColorAtStart(self): # bug here when editing from today when we didnt click other Day button!! 
-        global currentClickingDay
+        global currentClickingDay,fromWho
         if currentClickingDay  == datetime.datetime.today().date():
             self.label.setText("Today")
         elif fromWho.objectName()  == "tuesday_button":
@@ -650,6 +654,7 @@ class AddTaskWindow(QDialog):
         global userName
         self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
+        self.fromWho = self.sender()
 
         temp = datetime.datetime.now()
         test = QtCore.QDateTime(int(temp.strftime("%Y")),
@@ -739,14 +744,14 @@ class AddTaskWindow(QDialog):
     def cancelTask(self):
         self.taskName_textEdit.clear()
         self.task_description.clear()
-        # print("------C", self.sender().objectName())
-        # print("------C", self.taskName_textEdit.toPlainText())
-        # print("------C", self.task_description.toPlainText())
         print("UnSaved")
-        if fromWho.objectName() =="taskTray":
+        if self.fromWho.objectName() == "addTask":
+            self.goToTaskWindow() 
+        elif fromWho.objectName() =="taskTray":
             self.goToHomeWeek()
         else:
             self.goToTaskWindow()
+
         
     def goToHomeWeek(self):
         homeWeek_window = HomeWeek_window()
