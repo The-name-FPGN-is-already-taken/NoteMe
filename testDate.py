@@ -1,4 +1,3 @@
-
 import datetime
 from time import time
 from dataType import *
@@ -88,24 +87,17 @@ def transposition(li:list,index:int):
 
 # s = "1"
 # print(bool(int(s)))
-
-# print("--------------------")
-# s = "Test\nLovely"
-# print(s)
-
-
-# print("--------------------")
-# li = [20,15,30,12,13,17]
-# target = 21
-# print(li)
-# for i in range(len(li)):
-#     if target > li[i]:
-#         print("Yeah :",i)
-#         transposition(li,i)
-# print(li)
+print("--------------------")
+s = "Test\nLovely"
+print(s)
 
 
-t = datetime.time(12,10,00)
-print(datetime.date.today().strftime("%Y-%m-%d") + " " + t.strftime("%H:%M:%S"))
-
-
+print("--------------------")
+li = [20,15,30,12,13,17]
+target = 21
+print(li)
+for i in range(len(li)):
+    if target > li[i]:
+        print("Yeah :",i)
+        transposition(li,i)
+print(li)
