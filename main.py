@@ -317,8 +317,11 @@ class AddNoteWindow(QDialog):
         if self.sender().objectName() == "edit":
             self.indexNote = fromWho.currentRow()
             self.noteName_textEdit.setPlainText(notelst[self.indexNote].topic)
-            self.note_description.setPlainText(
-                notelst[self.indexNote].description)
+
+            temptext = notelst[self.indexNote].description
+            print(temptext)
+            self.note_description.setPlainText(temptext.replace("\\n", '\n'))
+
             self.saveNoteButton.disconnect()
             self.saveNoteButton.clicked.connect(self.saveNote)
             self.saveNoteButton.setText("SAVE")
@@ -326,7 +329,10 @@ class AddNoteWindow(QDialog):
     def saveNote(self):
         # print("------>", self.indexNote)
         notelst[self.indexNote].topic = self.noteName_textEdit.toPlainText()
-        notelst[self.indexNote].description = self.note_description.toPlainText()
+
+        # notelst[self.indexNote].description = self.note_description.toPlainText()
+        temptext = self.note_description.toPlainText()
+        notelst[self.indexNote].description = '\\n'.join(temptext.splitlines())
 
         time = datetime.datetime.now()
         time = time.strftime("%Y-%m-%d %H:%M:%S")
@@ -340,9 +346,10 @@ class AddNoteWindow(QDialog):
 
     def addNote(self):
         if self.noteName_textEdit.toPlainText() != "":
-
-            nota.addRecord(time, 2, self.noteName_textEdit.toPlainText(),
-                           self.note_description.toPlainText())
+            temptext = self.note_description.toPlainText()
+            temptext = '\\n'.join(temptext.splitlines())
+            nota.addRecord(
+                time, 2, self.noteName_textEdit.toPlainText(), temptext)
             self.noteName_textEdit.clear()
             self.note_description.clear()
             self.goToNoteWindow()
@@ -566,8 +573,14 @@ class AddTaskWindow(QDialog):
             self.indextask = fromWho.currentRow()
             self.taskName_textEdit.setPlainText(
                 incoming_tasklst[self.indextask].topic)
+
+            # temptxt = incoming_tasklst[self.indextask].description
+            # temptxt = temptxt.replace("\\n", '\n')
+            # print(temptxt)
+
             self.task_description.setPlainText(
-                incoming_tasklst[self.indextask].description)
+                incoming_tasklst[self.indextask].description.replace("\\n", '\n'))
+
             self.dateTimeEdit.setDateTime(
                 incoming_tasklst[self.indextask].dateTarget)
             self.saveNoteButton.disconnect()
@@ -578,8 +591,14 @@ class AddTaskWindow(QDialog):
         print("------>", self.indextask)
         if self.sender().objectName() == "listWidget":
             today_tasklst[self.indextask].topic = self.taskName_textEdit.toPlainText()
-            today_tasklst[self.indextask].description = self.task_description.toPlainText(
-            )
+            # today_tasklst[self.indextask].description = self.task_description.toPlainText(
+            # )
+
+            temptext = self.task_description.toPlainText()
+
+            today_tasklst[self.indextask].description = '\\n'.join(
+                temptext.splitlines())
+
             time = self.dateTimeEdit.dateTime()
             time = time.toPyDateTime()
             today_tasklst[self.indextask].dateTarget = time
@@ -588,12 +607,17 @@ class AddTaskWindow(QDialog):
         else:
             incoming_tasklst[self.indextask].topic = self.taskName_textEdit.toPlainText(
             )
-            incoming_tasklst[self.indextask].description = self.task_description.toPlainText(
-            )
+            # incoming_tasklst[self.indextask].description = self.task_description.toPlainText(
+            # )
+            temptext = self.task_description.toPlainText()
+            incoming_tasklst[self.indextask].description = '\\n'.join(
+                temptext.splitlines())
+
             time = self.dateTimeEdit.dateTime()
             time = time.toPyDateTime()
             incoming_tasklst[self.indextask].dateTarget = time
             nota.editRecord(incoming_tasklst[self.indextask])
+
         self.taskName_textEdit.clear()
         self.task_description.clear()
         self.goToTaskWindow()
@@ -609,24 +633,9 @@ class AddTaskWindow(QDialog):
             # yy/m/d h:mm:ss
             time = time.toPyDateTime()
 
-            print(self.task_description.toPlainText())
             temptext = self.task_description.toPlainText()
-            print("BEFORE", len(temptext))
-            temptext = '\\n'.join(temptext.splitlines())
-            # for i in range(int(len(temptext))):
-            #     if temptext[i] == "\n":
-            #         temptext = temptext[:i]+"\\"+"n"+temptext[i+1:]
-            #         print(temptext)
-            #         i = i+1
-            # elif temptext[i] == "\n" and i == (int(len(temptext)))-1:
-            #     print("YES")
-            #     temptext = temptext[:i]+"\\"+"n"
-            #     break
-            # if i == (int(len(temptext)))-1:
-            #     print("YES")
-            #     temptext = temptext+"\\"+"n"
 
-            print(temptext)
+            temptext = '\\n'.join(temptext.splitlines())
             nota.addRecord(
                 time, 0, self.taskName_textEdit.toPlainText(), temptext)
 
@@ -648,15 +657,33 @@ class AddTaskWindow(QDialog):
 
     def mytxtChanged(self):
         # dont use max 30      textlistwidget will bug cant see anything in list
-        maxlengthtext = 15
-        if (len(self.taskName_textEdit.toPlainText())) > maxlengthtext:
-            maxstringtext = self.taskName_textEdit.toPlainText()
-            print(len(maxstringtext))
-            self.taskName_textEdit.setPlainText(maxstringtext[:-1])
+        if self.sender().objectName() == "taskName_textEdit":
+            maxlengthtext = 15
+            if (len(self.taskName_textEdit.toPlainText())) > maxlengthtext:
+                maxstringtext = self.taskName_textEdit.toPlainText()
 
-            cursor = self.taskName_textEdit.textCursor()
-            cursor.setPosition(maxlengthtext)
-            self.taskName_textEdit.setTextCursor(cursor)
+                self.taskName_textEdit.setPlainText(maxstringtext[:-1])
+
+                cursor = self.taskName_textEdit.textCursor()
+                cursor.setPosition(maxlengthtext)
+                self.taskName_textEdit.setTextCursor(cursor)
+        # elif self.sender().objectName() == "task_description":
+            # maxRow = 12
+            # maxCharPerRow = 80
+            # maxdescripText = self.task_description.toPlainText()
+            # countn = 0
+            # for i in range(len(maxdescripText)):
+            #     if maxdescripText[i] == '\n':
+            #         countn += 1
+            # print(countn)
+            # print("LENS:", len(maxdescripText))
+            # if (len(maxdescripText)-(2*countn)) > maxCharPerRow-1 or countn > maxRow-1:
+            #     maxdescripText = self.task_description.toPlainText()
+            #     self.task_description.setPlainText(maxdescripText[:-1])
+
+            #     cursor = self.task_description.textCursor()
+            #     cursor.setPosition(len(maxdescripText))
+            #     self.task_description.setTextCursor(cursor)
 
     def goToTaskWindow(self):
         task_window = Task_window()
