@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'signUp_temp.ui'
+# Form generated from reading UI file 'signUp_temp.ui'
 ##
-## Created by: Qt User Interface Compiler version 5.15.2
+# Created by: Qt User Interface Compiler version 5.15.2
 ##
-## WARNING! All changes made in this file will be lost when recompiling UI file!
+# WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
 from PySide2.QtCore import *
@@ -13,6 +13,7 @@ from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
 import loginWindowSource_rc
+
 
 class Ui_loginWindowDialog(object):
     def setupUi(self, loginWindowDialog):
@@ -22,7 +23,8 @@ class Ui_loginWindowDialog(object):
         sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(loginWindowDialog.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            loginWindowDialog.sizePolicy().hasHeightForWidth())
         loginWindowDialog.setSizePolicy(sizePolicy)
         loginWindowDialog.setMinimumSize(QSize(1024, 640))
         loginWindowDialog.setMaximumSize(QSize(1920, 1080))
@@ -38,7 +40,8 @@ class Ui_loginWindowDialog(object):
         sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.frame.sizePolicy().hasHeightForWidth())
+        sizePolicy1.setHeightForWidth(
+            self.frame.sizePolicy().hasHeightForWidth())
         self.frame.setSizePolicy(sizePolicy1)
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
@@ -60,7 +63,8 @@ class Ui_loginWindowDialog(object):
         sizePolicy2 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Preferred)
         sizePolicy2.setHorizontalStretch(0)
         sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.verticalFrame.sizePolicy().hasHeightForWidth())
+        sizePolicy2.setHeightForWidth(
+            self.verticalFrame.sizePolicy().hasHeightForWidth())
         self.verticalFrame.setSizePolicy(sizePolicy2)
         self.verticalFrame.setMaximumSize(QSize(16777215, 500))
         self.verticalFrame.setStyleSheet(u"")
@@ -77,12 +81,13 @@ class Ui_loginWindowDialog(object):
         sizePolicy3 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         sizePolicy3.setHorizontalStretch(0)
         sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.notaIconFrame.sizePolicy().hasHeightForWidth())
+        sizePolicy3.setHeightForWidth(
+            self.notaIconFrame.sizePolicy().hasHeightForWidth())
         self.notaIconFrame.setSizePolicy(sizePolicy3)
         self.notaIconFrame.setMinimumSize(QSize(200, 200))
         self.notaIconFrame.setStyleSheet(u"image: url(D:/NotaProject/pics/notaKung.png);\n"
-"border: none;\n"
-"padding-right: 30px;")
+                                         "border: none;\n"
+                                         "padding-right: 30px;")
         self.notaIconFrame.setFrameShape(QFrame.StyledPanel)
         self.notaIconFrame.setFrameShadow(QFrame.Raised)
         self.notaIconFrame.setLineWidth(0)
@@ -103,7 +108,7 @@ class Ui_loginWindowDialog(object):
         font.setKerning(True)
         self.nota.setFont(font)
         self.nota.setStyleSheet(u"color: rgb(123, 160, 108);\n"
-"")
+                                "")
         self.nota.setFrameShape(QFrame.NoFrame)
         self.nota.setTextFormat(Qt.AutoText)
         self.nota.setScaledContents(False)
@@ -119,7 +124,8 @@ class Ui_loginWindowDialog(object):
         self.username = QLineEdit(self.frame_3)
         self.username.setObjectName(u"username")
         self.username.setGeometry(QRect(20, 20, 220, 40))
-        sizePolicy.setHeightForWidth(self.username.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.username.sizePolicy().hasHeightForWidth())
         self.username.setSizePolicy(sizePolicy)
         self.username.setMinimumSize(QSize(220, 40))
         self.username.setMaximumSize(QSize(220, 40))
@@ -129,62 +135,65 @@ class Ui_loginWindowDialog(object):
         self.username.setFont(font1)
         self.username.setFocusPolicy(Qt.StrongFocus)
         self.username.setStyleSheet(u"QLineEdit#username{\n"
-"background-color: rgb(241, 241, 241);\n"
-"border-radius: 20px;\n"
-"border: none;\n"
-"qproperty-frame: false;\n"
-"padding: 0 12px;\n"
-"selection-background-color: gray;\n"
-"\n"
-"\n"
-"}\n"
-"QLineEdit:focus#username{\n"
-"background-color: rgb(241, 241, 241);\n"
-"border-radius: 20px;\n"
-"border: none;\n"
-"qproperty-frame: false;\n"
-"padding: 0 12px;\n"
-"selection-background-color: gray;\n"
-"outline: none;\n"
-"\n"
-"}")
+                                    "background-color: rgb(241, 241, 241);\n"
+                                    "border-radius: 20px;\n"
+                                    "border: none;\n"
+                                    "qproperty-frame: false;\n"
+                                    "padding: 0 12px;\n"
+                                    "selection-background-color: gray;\n"
+                                    "\n"
+                                    "\n"
+                                    "}\n"
+                                    "QLineEdit:focus#username{\n"
+                                    "background-color: rgb(241, 241, 241);\n"
+                                    "border-radius: 20px;\n"
+                                    "border: none;\n"
+                                    "qproperty-frame: false;\n"
+                                    "padding: 0 12px;\n"
+                                    "selection-background-color: gray;\n"
+                                    "outline: none;\n"
+                                    "\n"
+                                    "}")
         self.username.setMaxLength(16)
-        self.username.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.username.setAlignment(
+            Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.userPassword = QLineEdit(self.frame_3)
         self.userPassword.setObjectName(u"userPassword")
         self.userPassword.setGeometry(QRect(20, 70, 220, 40))
-        sizePolicy.setHeightForWidth(self.userPassword.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.userPassword.sizePolicy().hasHeightForWidth())
         self.userPassword.setSizePolicy(sizePolicy)
         self.userPassword.setMinimumSize(QSize(220, 40))
         self.userPassword.setMaximumSize(QSize(220, 40))
         self.userPassword.setFont(font1)
         self.userPassword.setFocusPolicy(Qt.StrongFocus)
         self.userPassword.setStyleSheet(u"QLineEdit#userPassword{\n"
-"background-color: rgb(241, 241, 241);\n"
-"border-radius: 20px;\n"
-"border: none;\n"
-"qproperty-frame: false;\n"
-"padding: 0 12px;\n"
-"selection-background-color: gray;\n"
-"\n"
-"\n"
-"}\n"
-"QLineEdit:focus#userPassword{\n"
-"background-color: rgb(241, 241, 241);\n"
-"border-radius: 20px;\n"
-"border: none;\n"
-"qproperty-frame: false;\n"
-"padding: 0 12px;\n"
-"selection-background-color: gray;\n"
-"outline: none;\n"
-"\n"
-"}")
+                                        "background-color: rgb(241, 241, 241);\n"
+                                        "border-radius: 20px;\n"
+                                        "border: none;\n"
+                                        "qproperty-frame: false;\n"
+                                        "padding: 0 12px;\n"
+                                        "selection-background-color: gray;\n"
+                                        "\n"
+                                        "\n"
+                                        "}\n"
+                                        "QLineEdit:focus#userPassword{\n"
+                                        "background-color: rgb(241, 241, 241);\n"
+                                        "border-radius: 20px;\n"
+                                        "border: none;\n"
+                                        "qproperty-frame: false;\n"
+                                        "padding: 0 12px;\n"
+                                        "selection-background-color: gray;\n"
+                                        "outline: none;\n"
+                                        "\n"
+                                        "}")
         self.userPassword.setMaxLength(16)
         self.userPassword.setEchoMode(QLineEdit.Normal)
         self.signUpButton = QPushButton(self.frame_3)
         self.signUpButton.setObjectName(u"signUpButton")
         self.signUpButton.setGeometry(QRect(270, 50, 80, 40))
-        sizePolicy1.setHeightForWidth(self.signUpButton.sizePolicy().hasHeightForWidth())
+        sizePolicy1.setHeightForWidth(
+            self.signUpButton.sizePolicy().hasHeightForWidth())
         self.signUpButton.setSizePolicy(sizePolicy1)
         self.signUpButton.setMinimumSize(QSize(0, 0))
         self.signUpButton.setMaximumSize(QSize(80, 40))
@@ -194,16 +203,16 @@ class Ui_loginWindowDialog(object):
         self.signUpButton.setFont(font2)
         self.signUpButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.signUpButton.setStyleSheet(u"QPushButton#signUpButton{\n"
-"   background-color: rgb(148, 194, 130);\n"
-"	border-radius: 20px;\n"
-"}\n"
-"\n"
-"QPushButton:hover#signUpButton{\n"
-"   background-color: rgb(148, 194, 130);\n"
-"	border-radius: 20px;\n"
-"	color: rgb(255, 255, 255);\n"
-"	font: 75 10pt \"AvenirNext LT Pro Bold\";\n"
-"}")
+                                        "   background-color: rgb(148, 194, 130);\n"
+                                        "	border-radius: 20px;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover#signUpButton{\n"
+                                        "   background-color: rgb(148, 194, 130);\n"
+                                        "	border-radius: 20px;\n"
+                                        "	color: rgb(255, 255, 255);\n"
+                                        "	font: 75 10pt \"AvenirNext LT Pro Bold\";\n"
+                                        "}")
         self.signUpButton.setIconSize(QSize(20, 20))
         self.signUpButton.setAutoDefault(False)
 
@@ -236,13 +245,15 @@ class Ui_loginWindowDialog(object):
         font3 = QFont()
         font3.setFamily(u"MS Shell Dlg 2")
         self.dontHaveAnyAccountYet.setFont(font3)
-        self.dontHaveAnyAccountYet.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.dontHaveAnyAccountYet.setAlignment(
+            Qt.AlignRight | Qt.AlignTrailing | Qt.AlignVCenter)
 
         self.horizontalLayout_2.addWidget(self.dontHaveAnyAccountYet)
 
         self.signInButton = QPushButton(self.horizontalFrame_4)
         self.signInButton.setObjectName(u"signInButton")
-        sizePolicy1.setHeightForWidth(self.signInButton.sizePolicy().hasHeightForWidth())
+        sizePolicy1.setHeightForWidth(
+            self.signInButton.sizePolicy().hasHeightForWidth())
         self.signInButton.setSizePolicy(sizePolicy1)
         self.signInButton.setMaximumSize(QSize(158, 55))
         font4 = QFont()
@@ -255,28 +266,25 @@ class Ui_loginWindowDialog(object):
         self.signInButton.setFont(font4)
         self.signInButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.signInButton.setStyleSheet(u"QPushButton#signInButton{\n"
-"   background-color:rgb(255, 255, 244);\n"
-"	text-decoration: underline;\n"
-"	font: 75 15pt \"AvenirNext LT Pro Bold\";\n"
-"	border-radius: 20px;\n"
-"}\n"
-"\n"
-"QPushButton:hover#signInButton{\n"
-"   background-color: rgb(255, 255, 244);\n"
-"	border-radius: 20px;\n"
-"	color: rgb(145, 191, 127);\n"
-"	font: 75 15pt \"AvenirNext LT Pro Bold\";\n"
-"}")
+                                        "   background-color:rgb(255, 255, 244);\n"
+                                        "	text-decoration: underline;\n"
+                                        "	font: 75 15pt \"AvenirNext LT Pro Bold\";\n"
+                                        "	border-radius: 20px;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover#signInButton{\n"
+                                        "   background-color: rgb(255, 255, 244);\n"
+                                        "	border-radius: 20px;\n"
+                                        "	color: rgb(145, 191, 127);\n"
+                                        "	font: 75 15pt \"AvenirNext LT Pro Bold\";\n"
+                                        "}")
         self.signInButton.setAutoDefault(False)
 
         self.horizontalLayout_2.addWidget(self.signInButton)
 
-
         self.verticalLayout_3.addWidget(self.horizontalFrame_4)
 
-
         self.horizontalLayout.addWidget(self.mainLayout)
-
 
         self.verticalLayout_2.addWidget(self.frame)
 
@@ -293,13 +301,20 @@ class Ui_loginWindowDialog(object):
     # setupUi
 
     def retranslateUi(self, loginWindowDialog):
-        loginWindowDialog.setWindowTitle(QCoreApplication.translate("loginWindowDialog", u"Nota", None))
-        self.nota.setText(QCoreApplication.translate("loginWindowDialog", u"Nota", None))
-        self.username.setPlaceholderText(QCoreApplication.translate("loginWindowDialog", u"Username", None))
-        self.userPassword.setPlaceholderText(QCoreApplication.translate("loginWindowDialog", u"Password", None))
-        self.signUpButton.setText(QCoreApplication.translate("loginWindowDialog", u"SIGN UP", None))
-        self.warning.setText(QCoreApplication.translate("loginWindowDialog", u"Sign up failed. Already have this username.", None))
-        self.dontHaveAnyAccountYet.setText(QCoreApplication.translate("loginWindowDialog", u"ALREADY HAVE AN ACCOUNT ?", None))
-        self.signInButton.setText(QCoreApplication.translate("loginWindowDialog", u"SIGN IN", None))
+        loginWindowDialog.setWindowTitle(
+            QCoreApplication.translate("loginWindowDialog", u"Nota", None))
+        self.nota.setText(QCoreApplication.translate(
+            "loginWindowDialog", u"Nota", None))
+        self.username.setPlaceholderText(QCoreApplication.translate(
+            "loginWindowDialog", u"Username", None))
+        self.userPassword.setPlaceholderText(
+            QCoreApplication.translate("loginWindowDialog", u"Password", None))
+        self.signUpButton.setText(QCoreApplication.translate(
+            "loginWindowDialog", u"SIGN UP", None))
+        self.warning.setText(QCoreApplication.translate(
+            "loginWindowDialog", u"Sign up failed. Already have this username.", None))
+        self.dontHaveAnyAccountYet.setText(QCoreApplication.translate(
+            "loginWindowDialog", u"ALREADY HAVE AN ACCOUNT ?", None))
+        self.signInButton.setText(QCoreApplication.translate(
+            "loginWindowDialog", u"SIGN IN", None))
     # retranslateUi
-

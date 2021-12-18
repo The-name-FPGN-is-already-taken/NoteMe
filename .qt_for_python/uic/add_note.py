@@ -16,8 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QHBoxLayout,
-    QLabel, QPlainTextEdit, QPushButton, QSizePolicy,
-    QTextEdit, QVBoxLayout, QWidget)
+    QLabel, QPushButton, QSizePolicy, QTextEdit,
+    QVBoxLayout, QWidget)
 
 class Ui_homeCal(object):
     def setupUi(self, homeCal):
@@ -285,7 +285,7 @@ class Ui_homeCal(object):
         self.noteName_textEdit.setStyleSheet(u"background: rgba(0,0,0,0);\n"
 "")
         self.noteName_textEdit.setTabStopWidth(80)
-        self.note_description = QPlainTextEdit(self.frame)
+        self.note_description = QTextEdit(self.frame)
         self.note_description.setObjectName(u"note_description")
         self.note_description.setGeometry(QRect(60, 80, 711, 301))
         self.line = QFrame(self.frame)

@@ -1,4 +1,6 @@
 import time
+
+
 class Note:
     def __init__(self, notename="", notefield="", time=time.time()):
         self.notename = notename
