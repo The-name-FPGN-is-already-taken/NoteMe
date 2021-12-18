@@ -41,6 +41,7 @@ class Record:
             return False
 
 class Sort:
+    
     def sortTaskDateTarget(li:list,near:int=1):
         """Insert list of Task object / near = 1 is going to sort nearest come first (near = 0 far come first)"""
         #This is insertion sort
@@ -48,14 +49,11 @@ class Sort:
             key = li[i]
             j = i -1
             if near == 1:
-                # while j >= 0 and (key.dateTarget.date() - datetime.date.today()).days < (li[j].dateTarget.date() - datetime.date.today()).days :
                 while j >= 0 and key.dateTarget < li[j].dateTarget:
                     # print("swap")
                     li[j+1] = li[j]
                     j -= 1
             elif near == 0:
-                # while j >= 0 and (key.dateTarget.date() - datetime.date.today()).days > (li[j].dateTarget.date() - datetime.date.today()).days :
-                #     print("swap")
                 while j >= 0 and key.dateTarget > li[j].dateTarget:
                     li[j+1] = li[j]
                     j -= 1
@@ -463,6 +461,7 @@ class Nota:
         return result
         
     def editTimetable(self,obj:Record,li:list=[]):
+        '''Obj is Record that is updated And li is list of day'''
         with open("taskTable.csv", "r",encoding="utf8") as f:
             lines = f.readlines()
         with open("taskTable.csv", "w",encoding="utf8") as f:
@@ -496,9 +495,25 @@ class Nota:
                     result.append(int(row[7]))
         return result
 
+    def getTimetableByday(self,day:int,finish=True):
+        tempTimetable = self.getTimetableAll(day)
+        result = []
+        for i in tempTimetable:
+            if finish == True:
+                if i.isFinish():
+                    result.append(i)
+            else:
+                if i.isFinish() == False:
+                    result.append(i)
+        return result
+                    
+    def getTimetableAllByDate(self,x:datetime):
+
+        result = self.getTimetableAll(x.weekday())
+        return result
+
+
     def markCompleteTimetable(self,obj:Record,finish=1):
-        '''ID can be Record object Or taskID'''
-        
         with open("taskTable.csv", "r",encoding="utf8") as f:
             lines = f.readlines()
         with open("taskTable.csv", "w",encoding="utf8") as f:
