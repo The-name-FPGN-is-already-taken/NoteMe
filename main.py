@@ -608,17 +608,31 @@ class AddTaskWindow(QDialog):
             time = self.dateTimeEdit.dateTime()
             # yy/m/d h:mm:ss
             time = time.toPyDateTime()
-            print(str(time))
-            # print(str(self.taskName_textEdit.toPlainText()))
-            # print(str(self.task_description.toPlainText()))
-            nota.addRecord(time, 0, self.taskName_textEdit.toPlainText(),
-                           self.task_description.toPlainText())
+
+            print(self.task_description.toPlainText())
+            temptext = self.task_description.toPlainText()
+            print("BEFORE", len(temptext))
+            temptext = '\\n'.join(temptext.splitlines())
+            # for i in range(int(len(temptext))):
+            #     if temptext[i] == "\n":
+            #         temptext = temptext[:i]+"\\"+"n"+temptext[i+1:]
+            #         print(temptext)
+            #         i = i+1
+            # elif temptext[i] == "\n" and i == (int(len(temptext)))-1:
+            #     print("YES")
+            #     temptext = temptext[:i]+"\\"+"n"
+            #     break
+            # if i == (int(len(temptext)))-1:
+            #     print("YES")
+            #     temptext = temptext+"\\"+"n"
+
+            print(temptext)
+            nota.addRecord(
+                time, 0, self.taskName_textEdit.toPlainText(), temptext)
+
             self.taskName_textEdit.clear()
             self.task_description.clear()
-            # self.task_description.overwriteMode(True)
-            print("------S", self.sender().objectName())
-            print("------S", self.taskName_textEdit.toPlainText())
-            print("------S", self.task_description.toPlainText())
+
             self.goToTaskWindow()
         else:
             self.warning.setVisible(True)
