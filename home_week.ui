@@ -359,13 +359,7 @@ left: 29px;
 top: 346px;
 background: #EC8E65;
 border-radius: 15px;
-
-QPushButton:hover#signOutButton{
-	background-color: rgb(148, 194, 130);
-	border-radius: 20px;
-	color: rgb(255, 255, 255);
-	font: 14pt;
-                                       }</string>
+</string>
        </property>
        <property name="text">
         <string>SIGN OUT</string>
