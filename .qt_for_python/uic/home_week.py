@@ -341,7 +341,7 @@ class Ui_homeWeek(object):
         self.Today_Label.setSizePolicy(sizePolicy)
         self.Today_Label.setMaximumSize(QSize(100, 20))
         self.Today_Label.setStyleSheet(u"font: 75 10pt \"AvenirNext LT Pro Bold\";")
-        self.Today_Label.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.Today_Label.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_5.addWidget(self.Today_Label)
 
@@ -351,25 +351,6 @@ class Ui_homeWeek(object):
         self.frame_3.setFrameShadow(QFrame.Raised)
 
         self.horizontalLayout_5.addWidget(self.frame_3)
-
-        self.sortButton = QPushButton(self.layoutWidget1)
-        self.sortButton.setObjectName(u"sortButton")
-        self.sortButton.setMaximumSize(QSize(60, 20))
-        self.sortButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.sortButton.setStyleSheet(u"QPushButton#sortButton{\n"
-"   background-color: rgb(252, 188, 64);\n"
-"	border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:hover#sortButton{\n"
-"   background-color: rgb(252, 188, 64);\n"
-"	border-radius: 10px;\n"
-"	color: rgb(255, 255, 255);\n"
-"	font: 75 7pt \"AvenirNext LT Pro Bold\";\n"
-"	\n"
-"}")
-
-        self.horizontalLayout_5.addWidget(self.sortButton)
 
 
         self.verticalLayout_8.addLayout(self.horizontalLayout_5)
@@ -392,30 +373,35 @@ class Ui_homeWeek(object):
         self.Tomorrow_Label.setObjectName(u"Tomorrow_Label")
         self.Tomorrow_Label.setMaximumSize(QSize(200, 20))
         self.Tomorrow_Label.setStyleSheet(u"font: 75 10pt \"AvenirNext LT Pro Bold\";")
-        self.Tomorrow_Label.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.Tomorrow_Label.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_6.addWidget(self.Tomorrow_Label)
 
+        self.frame_4 = QFrame(self.widget)
+        self.frame_4.setObjectName(u"frame_4")
+        self.frame_4.setFrameShape(QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QFrame.Raised)
 
-        self.showButton = QPushButton(self.layoutWidget1)
-        self.showButton.setObjectName(u"showButton")
-        self.showButton.setMaximumSize(QSize(200, 28))
-        self.showButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.showButton.setStyleSheet(u"QPushButton#showButton{\n"
+        self.horizontalLayout_6.addWidget(self.frame_4)
 
+        self.sortButton = QPushButton(self.widget)
+        self.sortButton.setObjectName(u"sortButton")
+        self.sortButton.setMaximumSize(QSize(60, 20))
+        self.sortButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.sortButton.setStyleSheet(u"QPushButton#sortButton{\n"
 "   background-color: rgb(252, 188, 64);\n"
 "	border-radius: 10px;\n"
 "}\n"
 "\n"
-"QPushButton:hover#showButton{\n"
+"QPushButton:hover#sortButton{\n"
 "   background-color: rgb(252, 188, 64);\n"
 "	border-radius: 10px;\n"
 "	color: rgb(255, 255, 255);\n"
-"	font: 75 8pt \"AvenirNext LT Pro Bold\";\n"
+"	font: 75 7pt \"AvenirNext LT Pro Bold\";\n"
 "	\n"
 "}")
 
-        self.horizontalLayout_6.addWidget(self.showButton)
+        self.horizontalLayout_6.addWidget(self.sortButton)
 
 
         self.verticalLayout_9.addLayout(self.horizontalLayout_6)
@@ -640,12 +626,11 @@ class Ui_homeWeek(object):
         self.signOutButton.setText(QCoreApplication.translate("homeWeek", u"SIGN OUT", None))
         self.today_label.setText(QCoreApplication.translate("homeWeek", u"Today", None))
         self.Today_Label.setText(QCoreApplication.translate("homeWeek", u"TASK", None))
-        self.sortButton.setText(QCoreApplication.translate("homeWeek", u"SORT", None))
 #if QT_CONFIG(tooltip)
         self.taskTray.setToolTip(QCoreApplication.translate("homeWeek", u"<html><head/><body><p>double click to edit</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.Tomorrow_Label.setText(QCoreApplication.translate("homeWeek", u"TIMETABLE", None))
-        self.showButton.setText(QCoreApplication.translate("homeWeek", u"SHOW COMPLETED TASKS", None))
+        self.sortButton.setText(QCoreApplication.translate("homeWeek", u"SORT", None))
 #if QT_CONFIG(tooltip)
         self.timeTableTray.setToolTip(QCoreApplication.translate("homeWeek", u"<html><head/><body><p>double click to edit</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
