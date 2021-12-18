@@ -5,9 +5,8 @@ class Stack:
     def __init__(self) -> None:
         self.li = []
 
-    def append(self,data):
+    def append(self, data):
         self.li.append(data)
-    
 
     def pop(self):
         if self.getSize() > 0:
@@ -36,6 +35,7 @@ class Queue:
 
     def clear(self):
         self.li.clear()
+
 
 class Node():
     def __init__(self,data,next=None,prev=None) -> None:
@@ -139,8 +139,10 @@ class Link():
         for i in range(len(li)):
             print("{} : {}".format(i,li[i]))
 
+
     def getValue(self):
         return self.txt
+
 
 class TestObj:
     def __init__(self,text:str,day:int) -> None:
