@@ -71,7 +71,6 @@ class Ui_homeCal(object):
         self.welcomeUser.setObjectName(u"welcomeUser")
         font = QFont()
         font.setFamily(u"Tenor Sans")
-        font.setPointSize(1)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(50)
@@ -141,13 +140,15 @@ class Ui_homeCal(object):
         self.frame_6.setFrameShadow(QFrame.Raised)
         self.layoutWidget1 = QWidget(self.frame)
         self.layoutWidget1.setObjectName(u"layoutWidget1")
-        self.layoutWidget1.setGeometry(QRect(62, 31, 755, 412))
+        self.layoutWidget1.setGeometry(QRect(62, 31, 755, 442))
         self.horizontalLayout_4 = QHBoxLayout(self.layoutWidget1)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_8 = QVBoxLayout()
+        self.verticalLayout_8.setSpacing(0)
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setSpacing(7)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.Today_Label = QLabel(self.layoutWidget1)
         self.Today_Label.setObjectName(u"Today_Label")
@@ -188,6 +189,31 @@ class Ui_homeCal(object):
 
         self.verticalLayout_8.addLayout(self.horizontalLayout_2)
 
+        self.frame_7 = QFrame(self.layoutWidget1)
+        self.frame_7.setObjectName(u"frame_7")
+        self.frame_7.setStyleSheet(u"width: 763px;\n"
+"height: 456px;\n"
+"left: 60px;\n"
+"top: 30px;\n"
+"\n"
+"background: #E4E2C7;\n"
+"")
+        self.frame_7.setFrameShape(QFrame.NoFrame)
+        self.frame_7.setFrameShadow(QFrame.Raised)
+        self.frame_11 = QFrame(self.frame_7)
+        self.frame_11.setObjectName(u"frame_11")
+        self.frame_11.setGeometry(QRect(151, 33, 16, 28))
+        self.frame_11.setFrameShape(QFrame.StyledPanel)
+        self.frame_11.setFrameShadow(QFrame.Raised)
+
+        self.verticalLayout_8.addWidget(self.frame_7)
+
+        self.label_3 = QLabel(self.layoutWidget1)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setStyleSheet(u"background: #84B289;")
+
+        self.verticalLayout_8.addWidget(self.label_3)
+
         self.listWidget = QListWidget(self.layoutWidget1)
         QListWidgetItem(self.listWidget)
         QListWidgetItem(self.listWidget)
@@ -216,6 +242,7 @@ class Ui_homeCal(object):
         self.horizontalLayout_4.addLayout(self.verticalLayout_8)
 
         self.verticalLayout_9 = QVBoxLayout()
+        self.verticalLayout_9.setSpacing(0)
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
@@ -255,6 +282,31 @@ class Ui_homeCal(object):
 
 
         self.verticalLayout_9.addLayout(self.horizontalLayout_3)
+
+        self.frame_12 = QFrame(self.layoutWidget1)
+        self.frame_12.setObjectName(u"frame_12")
+        self.frame_12.setStyleSheet(u"width: 763px;\n"
+"height: 456px;\n"
+"left: 60px;\n"
+"top: 30px;\n"
+"\n"
+"background: #E4E2C7;\n"
+"")
+        self.frame_12.setFrameShape(QFrame.NoFrame)
+        self.frame_12.setFrameShadow(QFrame.Raised)
+        self.frame_13 = QFrame(self.frame_12)
+        self.frame_13.setObjectName(u"frame_13")
+        self.frame_13.setGeometry(QRect(151, 33, 16, 28))
+        self.frame_13.setFrameShape(QFrame.StyledPanel)
+        self.frame_13.setFrameShadow(QFrame.Raised)
+
+        self.verticalLayout_9.addWidget(self.frame_12)
+
+        self.label_2 = QLabel(self.layoutWidget1)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setStyleSheet(u"background: #84B289;")
+
+        self.verticalLayout_9.addWidget(self.label_2)
 
         self.listWidget_incoming = QListWidget(self.layoutWidget1)
         QListWidgetItem(self.listWidget_incoming)
@@ -450,6 +502,7 @@ class Ui_homeCal(object):
         self.date.setText(QCoreApplication.translate("homeCal", u"November 21, 2021", None))
         self.Today_Label.setText(QCoreApplication.translate("homeCal", u"TODAY", None))
         self.showButton.setText(QCoreApplication.translate("homeCal", u"SHOW COMPLETED TASKS", None))
+        self.label_3.setText(QCoreApplication.translate("homeCal", u"  TASK                                           TIME", None))
 
         __sortingEnabled = self.listWidget.isSortingEnabled()
         self.listWidget.setSortingEnabled(False)
@@ -494,6 +547,7 @@ class Ui_homeCal(object):
 #endif // QT_CONFIG(tooltip)
         self.Tomorrow_Label.setText(QCoreApplication.translate("homeCal", u"ALL TASKS", None))
         self.sortButton.setText(QCoreApplication.translate("homeCal", u"SORT", None))
+        self.label_2.setText(QCoreApplication.translate("homeCal", u"  TASK                                     DATE              TIME", None))
 
         __sortingEnabled1 = self.listWidget_incoming.isSortingEnabled()
         self.listWidget_incoming.setSortingEnabled(False)
