@@ -1014,8 +1014,10 @@ class AddTimeTableWindow(QDialog):
             self.timetabletitleName_textEdit.setPlainText(
                 timetablelst[self.indexTimetable].topic)
 
+            # self.timetable_description.setPlainText(
+            #     timetablelst[self.indexTimetable].description)
             self.timetable_description.setPlainText(
-                timetablelst[self.indexTimetable].description)
+                timetablelst[self.indexTimetable].description.replace("\\n", '\n'))
 
             self.saveTimetableButton.disconnect()
             self.saveTimetableButton.clicked.connect(self.saveTimetable)
@@ -1039,7 +1041,12 @@ class AddTimeTableWindow(QDialog):
 
     def saveTimetable(self):  # ได้แค่ของ Today
         timetablelst[self.indexTimetable].topic = self.timetabletitleName_textEdit.toPlainText()
-        timetablelst[self.indexTimetable].description = self.timetable_description.toPlainText()
+
+        # timetablelst[self.indexTimetable].description = self.timetable_description.toPlainText()
+        temptext = self.timetable_description.toPlainText()
+        timetablelst[self.indexTimetable].description = '\\n'.join(
+            temptext.splitlines())
+
         a = str(self.timetable_Edittime.dateTime().toPyDateTime())
         a = a[11:]
         timetablelst[self.indexTimetable].dateTarget = a
@@ -1068,8 +1075,11 @@ class AddTimeTableWindow(QDialog):
             for i in range(len(checkbox)):
                 if checkbox[i] == False:
                     temp.append(i)
+            temptext = self.timetable_description.toPlainText()
+            temptext = '\\n'.join(temptext.splitlines())
             nota.addTimetable(time.strftime("%H:%M:%S"), 1, self.timetabletitleName_textEdit.toPlainText(
-            ), self.timetable_description.toPlainText(), temp, 0, 0, -1)
+            ), temptext, temp, 0, 0, -1)
+
             global timetablelst
             timetablelst = nota.getTimetableAll(currentClickingDay_int_ttb)
             self.timetabletitleName_textEdit.clear()
