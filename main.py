@@ -134,7 +134,7 @@ class HomeWeek_window(QDialog):
         self.timeTableTray.clear()
         self.taskTray.clear()
         global timetablelst
-        timetablelst = nota.getTimetableAll(self.currentDay)
+        timetablelst = nota.getTimetableByday(self.currentDay, 0)
         for i in range(len(timetablelst)):
            self.timeTableTray.addItem(timetablelst[i].topic)
            self.timeTableTray.item(i).setFont(QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))
@@ -191,7 +191,7 @@ class HomeWeek_window(QDialog):
                 nextday = (self.currentDay+i) % 7
                 global timetablelst, currentClickingDay_week
                 currentClickingDay_week = self.sender()
-                timetablelst = nota.getTimetableAll(nextday)
+                timetablelst = nota.getTimetableByday(nextday, 0)
                 self.timeTableTray.clear()
                 for j in range(len(timetablelst)):
                     self.timeTableTray.addItem(timetablelst[j].topic)
@@ -240,7 +240,7 @@ class HomeWeek_window(QDialog):
                 # Update listwidget taskTray
                 nextday = (self.currentDay+i) % 7
                 global timetablelst
-                timetablelst = nota.getTimetableAll(nextday)
+                timetablelst = nota.getTimetableByday(nextday, 0)
                 self.timeTableTray.clear()
                 for j in range(len(timetablelst)):
                     self.timeTableTray.addItem(timetablelst[j].topic)
@@ -891,9 +891,14 @@ class TimeTable_window(QDialog):
                 self.currentDay = 5
             elif dayhw == "Sun":
                 self.currentDay = 6
-        global currentClickingDay_int_ttb,timetablelst
-        self.currentDay_objectName = self.listDayButton[self.currentDay]
-        timetablelst = nota.getTimetableAll(currentClickingDay_int_ttb)
+
+        global currentClickingDay_int_ttb, timetablelst
+        self.currentDay_objectName = self.dayBarButtonList[currentClickingDay_int_ttb]
+        
+
+        timetablelst = nota.getTimetableByday(currentClickingDay_int_ttb, 0)
+
+
         self.today_TimetableTray.clear()
         for i in range(len(timetablelst)):
             self.today_TimetableTray.addItem(timetablelst[i].topic)
@@ -936,7 +941,9 @@ class TimeTable_window(QDialog):
 
                 global timetablelst
                 timetablelst = list()
-                timetablelst = nota.getTimetableAll(i)
+                # timetablelst = nota.getTimetableAll(i)
+                timetablelst = nota.getTimetableByday(i, 0)
+
                 self.today_TimetableTray.clear()
                 for i in range(len(timetablelst)):
                     self.today_TimetableTray.addItem(timetablelst[i].topic)
@@ -955,7 +962,7 @@ class TimeTable_window(QDialog):
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: #FFAC4B; color: white; border-radius: 8px; }')
                 global timetablelst
-                timetablelst = nota.getTimetableAll(i)
+                timetablelst = nota.getTimetableByday(i, 0)
                 self.today_TimetableTray.clear()
                 for i in range(len(timetablelst)):
                     self.today_TimetableTray.addItem(timetablelst[i].topic)
@@ -994,7 +1001,7 @@ class TimeTable_window(QDialog):
                 global timetablelst, currentClickingDay_int_ttb
                 timetablelst = list()
                 currentClickingDay_int_ttb = i
-                timetablelst = nota.getTimetableAll(i)
+                timetablelst = nota.getTimetableByday(i, 0)
                 self.today_TimetableTray.clear()
                 for i in range(len(timetablelst)):
                     self.today_TimetableTray.addItem(timetablelst[i].topic)
@@ -1114,7 +1121,8 @@ class AddTimeTableWindow(QDialog):
             ), temptext, temp, 0, 0, -1)
 
             global timetablelst
-            timetablelst = nota.getTimetableAll(currentClickingDay_int_ttb)
+            timetablelst = nota.getTimetableByday(
+                currentClickingDay_int_ttb, 0)
             self.timetabletitleName_textEdit.clear()
             self.timetable_description.clear()
             self.goToTimeTableWindow()
@@ -1194,6 +1202,13 @@ class Popup(QDialog):
             incoming_tasklst[self.indextask].finish = 1
             nota.editRecord(incoming_tasklst[self.indextask])
             self.parent().refreshTable()
+        elif fromWho.objectName() == "today_TimetableTray":
+            print("_>_>_>_>_>_>", timetablelst[self.indextask].topic)
+            # timetablelst[self.indextask].finish =1
+            nota.markCompleteTimetable(timetablelst[self.indextask], 1)
+
+            self.parent().refreshTable()
+
         self.close()
 
     def goToAddNote(self):
