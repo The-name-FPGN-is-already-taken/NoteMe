@@ -21,9 +21,10 @@ class LoginWindow(QDialog):
         self.loginButton.clicked.connect(self.loginIn)
         self.signupButton.clicked.connect(self.LoginToSignUp)
         print("wcLogin", widget.currentIndex())
-        global currentClickingDay,currentClickingDay_week #this mf should not be here but, whatever
-        currentClickingDay = datetime.datetime.today().date()
-        currentClickingDay_week = self.loginButton
+        global currentClickingDay,currentClickingDay_week,currentClickingDay_int_ttb #this mf should not be here but, whatever
+        currentClickingDay = datetime.datetime.today().date() #เก็บวันที่ของวันปัจจุบันที่เรากดอยู่
+        currentClickingDay_week = self.loginButton # เก็บaddressของปุ่มวันที่กดในหน้าHome
+        currentClickingDay_int_ttb = 0 #เก็บเลขวันที่กำลังกดอยู่ ณ ปัจจุบัน ใช้กับหน้าTTB
 
 
     def loginIn(self):
@@ -105,7 +106,7 @@ class HomeWeek_window(QDialog):
         self.listDayButton.append(self.saturday_button)
         self.listDayButton.append(self.sunday_button)    
 
-        self.currentDay = -1  # ยังไม่เลือกวัน = Today, Monday =0 .... Sunday = 6
+        self.currentDay = -1  # ยังไม่เลือกวัน = Today, Monday =0 .... Sunday = 6, currentDayเก็บวัน(สัปดาห์)ของวันปัจจุบัน
         if self.currentDay == -1:
             dayhw = datetime.datetime.now()
             dayhw = str(dayhw.strftime("%a"))
@@ -124,7 +125,8 @@ class HomeWeek_window(QDialog):
                 self.currentDay = 5
             elif dayhw == "Sun":
                 self.currentDay = 6
-                
+        global currentClickingDay_int_ttb
+        currentClickingDay_int_ttb = self.currentDay        
         self.timeTableTray.clear()
         self.taskTray.clear()
         global timetablelst
@@ -342,7 +344,7 @@ class Note_window(QDialog):
 
     def sortNoteList(self):
         self.noteTray.clear()
-        # global notelst
+        global notelst
         notelst = nota.getNoteAll()
         if self.sortFromNewToOld:
             Sort.sortNote(notelst, 0)
@@ -824,10 +826,13 @@ class TimeTable_window(QDialog):
                 self.currentDay = 5
             elif dayhw == "Sun":
                 self.currentDay = 6
-        self.currentDay_objectName = self.dayBarButtonList[self.currentDay]        
-        timetablelst = nota.getTimetableAll(self.currentDay)
+        global currentClickingDay_int_ttb,timetablelst
+        self.currentDay_objectName = self.dayBarButtonList[currentClickingDay_int_ttb] 
+        print("ಥ_ಥ",currentClickingDay_int_ttb)       
+        timetablelst = nota.getTimetableAll(currentClickingDay_int_ttb)
         self.today_TimetableTray.clear()
         for i in range(len(timetablelst)):
+            print(timetablelst[i].topic)
             self.today_TimetableTray.addItem(timetablelst[i].topic)
         # self.today_TimetableTray.setSpacing(15)
 
@@ -896,7 +901,8 @@ class TimeTable_window(QDialog):
         
     def setCurrent(self):
         self.currentEditingDay = self.sender().objectName()
-        if self.sender().objectName() == self.currentDay_objectName:
+        #รกมาก เดะค่อยม่าแก้อีกที
+        if self.sender().objectName() == self.currentDay_objectName: 
             self.label.setText("TODAY")
         elif self.sender().objectName() == self.dayBarButtonList[0]:
             self.label.setText("MONDAY")
@@ -917,8 +923,9 @@ class TimeTable_window(QDialog):
             if self.listDayButton[i].objectName() == self.sender().objectName():
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: #FFAC4B; color: white; border-radius: 8px; }')
-                global timetablelst
+                global timetablelst,currentClickingDay_int_ttb
                 timetablelst = list()
+                currentClickingDay_int_ttb = i
                 timetablelst = nota.getTimetableAll(i)
                 self.today_TimetableTray.clear()
                 for i in range(len(timetablelst)):
@@ -999,7 +1006,8 @@ class AddTimeTableWindow(QDialog):
         a = str(self.timetable_Edittime.dateTime().toPyDateTime())
         a = a[11:]
         timetablelst[self.indexTimetable].dateTarget = a
-        nota.editRecord(timetablelst[self.indexTimetable])
+        # nota.editRecord(timetablelst[self.indexTimetable])
+        # nota.editTimetable(timetablelst[self.indexTimetable],)
         if fromWho.objectName() in ["today_TimetableTray","completed_TimetableTray"]:
             self.goToTimeTableWindow()
         else:
@@ -1024,6 +1032,8 @@ class AddTimeTableWindow(QDialog):
                 if checkbox[i] == False:
                     temp.append(i)
             nota.addTimetable(time.strftime("%H:%M:%S"),1,self.timetabletitleName_textEdit.toPlainText(), self.timetable_description.toPlainText(),temp,0,0,-1)
+            global timetablelst
+            timetablelst  = nota.getTimetableAll(currentClickingDay_int_ttb)
             self.timetabletitleName_textEdit.clear()
             self.timetable_description.clear()
             self.goToTimeTableWindow()

@@ -472,6 +472,7 @@ class Nota:
         for i in day:
             self.writeTaskTable([lastIndex+1,self.userID,type,datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),dateTarget,topic,descrption,i,star,finish,timeTableID])
         print("Add timetable")
+        self.refreshTable()
 
     def getTimetableAll(self,day):
         self.timeTable.clear()
@@ -505,6 +506,7 @@ class Nota:
                 else:
                     if int(row.split(",")[0]) != obj.taskID:
                         f.write(row)
+        self.refreshTable()
                     
         # self.deletRow(obj)
         # for i in li:
