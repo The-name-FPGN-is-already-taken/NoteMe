@@ -1096,8 +1096,8 @@ class AddTimeTableWindow(QDialog):
             self.indexTimetable = fromWho.currentRow()
 
             a = str(timetablelst[self.indexTimetable].dateTarget)
-            a = a[11:13]
-            a = int(a)
+            # a = a[11:13]
+            # a = int(a)
             b = str(timetablelst[self.indexTimetable].dateTarget)
 
             if len(a) > 10 and len(b) > 10:  # เขียนดักบั๊ก
