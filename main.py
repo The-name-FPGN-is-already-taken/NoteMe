@@ -392,7 +392,7 @@ class Note_window(QDialog):
 
     def refreshTable(self):
         self.noteTray.clear()
-        # global notelst
+        global notelst
         notelst = nota.getNoteAll()
         Sort.sortNote(notelst, 1)  # new =1 ใหม่ขึ้นก่อน new =0  เก่ามาก่อน
         for i in range(len(notelst)):
