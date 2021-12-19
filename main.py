@@ -11,8 +11,6 @@ notelst = list()
 
 timetask = list()
 
-qwerasdf = list()
-
 
 class LoginWindow(QDialog):
 
