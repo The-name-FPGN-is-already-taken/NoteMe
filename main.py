@@ -389,8 +389,8 @@ class Note_window(QDialog):
         notelst = nota.getNoteAll()
         Sort.sortNote(notelst, 1)  # new =1 ใหม่ขึ้นก่อน new =0  เก่ามาก่อน
         for i in range(len(notelst)):
-            self.noteTray.addItem(notelst[i].topic) + (50-len(str(notelst[i].dateCreate.strftime("%Y-%m-%d"+9*" "+"%H:%M:%S"))) - len(
-                notelst[i].topic))*" "+str(notelst[i].dateCreate.strftime("%Y-%m-%d"+8*" "+"%H:%M:%S"))
+            self.noteTray.addItem((notelst[i].topic) + (50-len(str(notelst[i].dateCreate.strftime("%Y-%m-%d"+9*" "+"%H:%M:%S"))) - len(
+                notelst[i].topic))*" "+str(notelst[i].dateCreate.strftime("%Y-%m-%d"+8*" "+"%H:%M:%S")))
             self.noteTray.item(i).setFont(QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))    
 
     def showPopUp(self):
