@@ -318,9 +318,15 @@ class HomeWeek_window(QDialog):
                 self.taskTray.addItem(today_tasklst[i].topic+(35-len(today_tasklst[i].topic))*" " + str(
                     today_tasklst[i].dateTarget.strftime("%H:%M:%S")))
 
+            # self.timeTableTray.clear()
+            # timetablelst = nota.getTimetableAllByDateCompleteAndNot(
+            #     currentClickingDay)
+            # Sort.sortTaskDateTarget(timetablelst)
+            # for i in range(len(timetablelst)):
+            #     self.timeTableTray.addItem(timetablelst[i].topic+(35-len(timetablelst[i].topic))*" "
+            #                                + str(timetablelst[i].dateTarget.strftime("%H:%M:%S")))
             self.timeTableTray.clear()
-            timetablelst = nota.getTimetableAllByDateCompleteAndNot(
-                currentClickingDay)
+            timetablelst = nota.getTimetableAllByDate(currentClickingDay, 0)
             Sort.sortTaskDateTarget(timetablelst)
             for i in range(len(timetablelst)):
                 self.timeTableTray.addItem(timetablelst[i].topic+(35-len(timetablelst[i].topic))*" "
@@ -334,8 +340,15 @@ class HomeWeek_window(QDialog):
                 self.taskTray.addItem(today_tasklst[i].topic+(35-len(today_tasklst[i].topic))*" "
                                       + str(today_tasklst[i].dateTarget.strftime("%H:%M:%S")))
 
+            # self.timeTableTray.clear()
+            # timetablelst = nota.getTimetableAllByDate(currentClickingDay, 0)
+            # Sort.sortTaskDateTarget(timetablelst)
+            # for i in range(len(timetablelst)):
+            #     self.timeTableTray.addItem(timetablelst[i].topic+(35-len(timetablelst[i].topic))*" "
+            #                                + str(timetablelst[i].dateTarget.strftime("%H:%M:%S")))
             self.timeTableTray.clear()
-            timetablelst = nota.getTimetableAllByDate(currentClickingDay, 0)
+            timetablelst = nota.getTimetableAllByDateCompleteAndNot(
+                currentClickingDay)
             Sort.sortTaskDateTarget(timetablelst)
             for i in range(len(timetablelst)):
                 self.timeTableTray.addItem(timetablelst[i].topic+(35-len(timetablelst[i].topic))*" "
