@@ -3,15 +3,21 @@
 ################################################################################
 ## Form generated from reading UI file 'nut.ui'
 ##
-## Created by: Qt User Interface Compiler version 5.15.2
+## Created by: Qt User Interface Compiler version 6.2.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide2.QtCore import *
-from PySide2.QtGui import *
-from PySide2.QtWidgets import *
-
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
+    QLineEdit, QMainWindow, QPushButton, QSizePolicy,
+    QSpacerItem, QVBoxLayout, QWidget)
 import imageteest_rc
 
 class Ui_MainWindow(object):
@@ -84,7 +90,7 @@ class Ui_MainWindow(object):
         self.busyText.setSizePolicy(sizePolicy1)
         self.busyText.setMaximumSize(QSize(700, 16777215))
         font = QFont()
-        font.setFamily(u"Telugu MN")
+        font.setFamilies([u"Telugu MN"])
         font.setPointSize(21)
         self.busyText.setFont(font)
         self.busyText.setStyleSheet(u"color: rgb(255, 255, 255);\n"
@@ -127,12 +133,11 @@ class Ui_MainWindow(object):
         self.nota.setObjectName(u"nota")
         self.nota.setMaximumSize(QSize(16777215, 100))
         font1 = QFont()
-        font1.setFamily(u"Telugu MN")
+        font1.setFamilies([u"Telugu MN"])
         font1.setPointSize(100)
         font1.setBold(False)
         font1.setItalic(False)
         font1.setUnderline(False)
-        font1.setWeight(50)
         font1.setStrikeOut(False)
         font1.setKerning(True)
         self.nota.setFont(font1)
@@ -150,12 +155,11 @@ class Ui_MainWindow(object):
         self.powerful.setObjectName(u"powerful")
         self.powerful.setMaximumSize(QSize(16777215, 30))
         font2 = QFont()
-        font2.setFamily(u"Avenir Next")
+        font2.setFamilies([u"Avenir Next"])
         font2.setPointSize(18)
         font2.setBold(False)
         font2.setItalic(False)
         font2.setUnderline(False)
-        font2.setWeight(50)
         font2.setStrikeOut(False)
         font2.setKerning(True)
         self.powerful.setFont(font2)
@@ -260,7 +264,7 @@ class Ui_MainWindow(object):
         self.loginButton.setMinimumSize(QSize(0, 0))
         self.loginButton.setMaximumSize(QSize(80, 40))
         font4 = QFont()
-        font4.setFamily(u"Avenir Next")
+        font4.setFamilies([u"Avenir Next"])
         font4.setPointSize(13)
         self.loginButton.setFont(font4)
         self.loginButton.setStyleSheet(u"QPushButton#loginButton{\n"
@@ -292,12 +296,11 @@ class Ui_MainWindow(object):
         self.powerful_2.setObjectName(u"powerful_2")
         self.powerful_2.setMinimumSize(QSize(0, 100))
         font5 = QFont()
-        font5.setFamily(u"Avenir Next")
+        font5.setFamilies([u"Avenir Next"])
         font5.setPointSize(18)
         font5.setBold(False)
         font5.setItalic(True)
         font5.setUnderline(False)
-        font5.setWeight(50)
         font5.setStrikeOut(False)
         font5.setKerning(True)
         self.powerful_2.setFont(font5)
@@ -314,7 +317,7 @@ class Ui_MainWindow(object):
         self.signupButton.setSizePolicy(sizePolicy)
         self.signupButton.setMaximumSize(QSize(80, 40))
         font6 = QFont()
-        font6.setFamily(u"Avenir Next")
+        font6.setFamilies([u"Avenir Next"])
         self.signupButton.setFont(font6)
         self.signupButton.setStyleSheet(u"QPushButton#signupButton{\n"
 "   background-color: rgb(148, 194, 130);\n"
