@@ -915,13 +915,13 @@ class TimeTable_window(QDialog):
                 self.currentDay = 6
         global currentClickingDay_int_ttb, timetablelst
         self.currentDay_objectName = self.dayBarButtonList[currentClickingDay_int_ttb]
-        print("ಥ_ಥ", currentClickingDay_int_ttb)
+        # print("ಥ_ಥ", currentClickingDay_int_ttb)
 
         timetablelst = nota.getTimetableByday(currentClickingDay_int_ttb, 0)
 
         self.today_TimetableTray.clear()
         for i in range(len(timetablelst)):
-            print(timetablelst[i].topic)
+            # print(timetablelst[i].topic)
             self.today_TimetableTray.addItem(timetablelst[i].topic)
         # self.today_TimetableTray.setSpacing(15)
 
@@ -1042,6 +1042,7 @@ class AddTimeTableWindow(QDialog):
         self.cancelTimetableButton.clicked.connect(self.cancelTimetable)
         self.welcomeUser.setText("Welcome,  "+userName)
         self.date.setText(nota.showDateOfToday().strftime("%B %d, %Y"))
+        self.checkBox = [True,True,True,True,True,True,True]
 
         self.timetabletitleName_textEdit.textChanged.connect(self.mytxtChanged)
         self.timetabletitleName_textEdit.setLineWrapMode(0)
@@ -1084,13 +1085,13 @@ class AddTimeTableWindow(QDialog):
 
     def setCurrent(self):
         for i in range(len(self.listDayButton)):
-            if self.listDayButton[i].objectName() == self.sender().objectName() and checkbox[i] == True:
-                checkbox[i] = False
+            if self.listDayButton[i].objectName() == self.sender().objectName() and self.checkBox[i] == True:
+                self.checkBox[i] = False
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: #FFAC4B; color: white; border-radius: 8px; }')
 
-            elif self.listDayButton[i].objectName() == self.sender().objectName() and checkbox[i] == False:
-                checkbox[i] = True
+            elif self.listDayButton[i].objectName() == self.sender().objectName() and self.checkBox[i] == False:
+                self.checkBox[i] = True
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: rgb(228, 226, 199); color: black; border-radius: 8px;  }')
 
@@ -1102,11 +1103,14 @@ class AddTimeTableWindow(QDialog):
         timetablelst[self.indexTimetable].description = '\\n'.join(
             temptext.splitlines())
 
-        a = str(self.timetable_Edittime.dateTime().toPyDateTime())
-        a = a[11:]
+        a = self.timetable_Edittime.dateTime().toPyDateTime()
         timetablelst[self.indexTimetable].dateTarget = a
-        # nota.editRecord(timetablelst[self.indexTimetable])
-        # nota.editTimetable(timetablelst[self.indexTimetable],)
+        global checkbox
+        l=list()
+        for i in range(len(self.checkBox)):
+            if self.checkBox[i] == False:
+                l.append(i)
+        nota.editTimetable(timetablelst[self.indexTimetable],l)
         if fromWho.objectName() in ["today_TimetableTray", "completed_TimetableTray"]:
             self.goToTimeTableWindow()
         else:
@@ -1116,7 +1120,7 @@ class AddTimeTableWindow(QDialog):
         time = self.timetable_Edittime.dateTime()
         time = time.toPyDateTime()
         flag = False
-        for i in checkbox:
+        for i in self.checkBox:
             if i == False:  # ถ้ามีการกดปุ่ม flagเป็น True
                 flag = True
         if self.timetabletitleName_textEdit.toPlainText() == "" or not flag:
@@ -1127,8 +1131,8 @@ class AddTimeTableWindow(QDialog):
                 self.warning.setText("Please choose at least one day!!")
         else:
             temp = list()
-            for i in range(len(checkbox)):
-                if checkbox[i] == False:
+            for i in range(len(self.checkBox)):
+                if self.checkBox[i] == False:
                     temp.append(i)
             temptext = self.timetable_description.toPlainText()
             temptext = '\\n'.join(temptext.splitlines())
