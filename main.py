@@ -302,34 +302,22 @@ class HomeWeek_window(QDialog):
             self.taskTray.clear()
             today_tasklst = nota.getTaskByDate(currentClickingDay)
             Sort.sortTaskDateTarget(today_tasklst)
-            # for i in range(len(today_tasklst)):
-            #     self.taskTray.addItem(today_tasklst[i].topic+(35-len(today_tasklst[i].topic))*" "
-            #                           + str(today_tasklst[i].dateTarget.strftime("%H:%M:%S")))
             self.showButton.setText("HIDE COMPLETED TASKS")
 
             self.timeTableTray.clear()
             timetablelst = nota.getTimetableAllByDateCompleteAndNot(
                 currentClickingDay)
             Sort.sortTaskDateTarget(timetablelst)
-            # for i in range(len(timetablelst)):
-            #     self.timeTableTray.addItem(timetablelst[i].topic+(35-len(timetablelst[i].topic))*" "
-            #                                + str(timetablelst[i].dateTarget.strftime("%H:%M:%S")))
             self.updateItemInListWidgets()
         else:
             today_tasklst = nota.getTaskByDateNotFinish(currentClickingDay)
             Sort.sortTaskDateTarget(today_tasklst)
             self.taskTray.clear()
-            # for k in range(len(today_tasklst)):
-            #     self.taskTray.addItem(today_tasklst[k].topic+(35-len(today_tasklst[k].topic))*" " + str(
-            #         today_tasklst[k].dateTarget.strftime("%H:%M:%S")))
             self.showButton.setText("SHOW COMPLETED TASKS")
 
             self.timeTableTray.clear()
             timetablelst = nota.getTimetableAllByDate(currentClickingDay, 0)
             Sort.sortTaskDateTarget(timetablelst)
-            # for i in range(len(timetablelst)):
-            #     self.timeTableTray.addItem(timetablelst[i].topic+(35-len(timetablelst[i].topic))*" "
-            #                                + str(timetablelst[i].dateTarget.strftime("%H:%M:%S")))
             self.updateItemInListWidgets()
 
         self.hideCompletedTask = not self.hideCompletedTask
@@ -340,45 +328,19 @@ class HomeWeek_window(QDialog):
             self.taskTray.clear()
             today_tasklst = nota.getTaskByDateNotFinish(currentClickingDay)
             Sort.sortTaskDateTarget(today_tasklst)
-            # for i in range(len(today_tasklst)):
-            #     self.taskTray.addItem(today_tasklst[i].topic+(35-len(today_tasklst[i].topic))*" " + str(
-            #         today_tasklst[i].dateTarget.strftime("%H:%M:%S")))
-
-            # self.timeTableTray.clear()
-            # timetablelst = nota.getTimetableAllByDateCompleteAndNot(
-            #     currentClickingDay)
-            # Sort.sortTaskDateTarget(timetablelst)
-            # for i in range(len(timetablelst)):
-            #     self.timeTableTray.addItem(timetablelst[i].topic+(35-len(timetablelst[i].topic))*" "
-            #                                + str(timetablelst[i].dateTarget.strftime("%H:%M:%S")))
+            Sort.sortTaskDateTarget(timetablelst)
             self.timeTableTray.clear()
             timetablelst = nota.getTimetableAllByDate(currentClickingDay, 0)
             Sort.sortTaskDateTarget(timetablelst)
-            # for i in range(len(timetablelst)):
-            #     self.timeTableTray.addItem(timetablelst[i].topic+(35-len(timetablelst[i].topic))*" "
-            #                                + str(timetablelst[i].dateTarget.strftime("%H:%M:%S")))
             self.updateItemInListWidgets()
         else:
             self.taskTray.clear()
             today_tasklst = nota.getTaskByDate(currentClickingDay)
             Sort.sortTaskDateTarget(today_tasklst)
-            # for i in range(len(today_tasklst)):
-            #     self.taskTray.addItem(today_tasklst[i].topic+(35-len(today_tasklst[i].topic))*" "
-            #                           + str(today_tasklst[i].dateTarget.strftime("%H:%M:%S")))
-
-            # self.timeTableTray.clear()
-            # timetablelst = nota.getTimetableAllByDate(currentClickingDay, 0)
-            # Sort.sortTaskDateTarget(timetablelst)
-            # for i in range(len(timetablelst)):
-            #     self.timeTableTray.addItem(timetablelst[i].topic+(35-len(timetablelst[i].topic))*" "
-            #                                + str(timetablelst[i].dateTarget.strftime("%H:%M:%S")))
             self.timeTableTray.clear()
             timetablelst = nota.getTimetableAllByDateCompleteAndNot(
                 currentClickingDay)
             Sort.sortTaskDateTarget(timetablelst)
-            # for i in range(len(timetablelst)):
-            #     self.timeTableTray.addItem(timetablelst[i].topic+(35-len(timetablelst[i].topic))*" "
-            #                                + str(timetablelst[i].dateTarget.strftime("%H:%M:%S")))
             self.updateItemInListWidgets()
 
     def homeWeekToLogin(self):
