@@ -891,21 +891,20 @@ class TimeTable_window(QDialog):
                 self.currentDay = 5
             elif dayhw == "Sun":
                 self.currentDay = 6
-
         global currentClickingDay_int_ttb, timetablelst
         self.currentDay_objectName = self.dayBarButtonList[currentClickingDay_int_ttb]
-        
+        print("ಥ_ಥ", currentClickingDay_int_ttb)
 
         timetablelst = nota.getTimetableByday(currentClickingDay_int_ttb, 0)
 
-
         self.today_TimetableTray.clear()
         for i in range(len(timetablelst)):
+            print(timetablelst[i].topic)
             self.today_TimetableTray.addItem(timetablelst[i].topic)
-            self.today_TimetableTray.item(i).setFont(QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))
         # self.today_TimetableTray.setSpacing(15)
 
         for i in range(len(self.listDayButton)):
+
             self.listDayButton[i].clicked.connect(self.setCurrent)
         self.setColorAtStart()
 
@@ -948,15 +947,12 @@ class TimeTable_window(QDialog):
                 for i in range(len(timetablelst)):
                     self.today_TimetableTray.addItem(timetablelst[i].topic)
                 # self.today_TimetableTray.setSpacing(15)
-                    self.today_TimetableTray.item(i).setFont(QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))
-                    
 
             else:
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: rgb(228, 226, 199); color: black; border-radius: 8px;  }')
 
     def setColorAtStart(self):
-        print("^_____^")
         for i in range(len(self.listDayButton)):
             if self.listDayButton[i].objectName() == self.currentDay_objectName:
                 self.listDayButton[i].setStyleSheet(
@@ -966,18 +962,16 @@ class TimeTable_window(QDialog):
                 self.today_TimetableTray.clear()
                 for i in range(len(timetablelst)):
                     self.today_TimetableTray.addItem(timetablelst[i].topic)
-                    self.today_TimetableTray.item(i).setFont(QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))
 
             else:
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: rgb(228, 226, 199); color: black; border-radius: 8px;  }')
-        # self.currentEditingDay = self.currentDay_objectName
-        
+        self.currentEditingDay = self.currentDay_objectName
+
     def setCurrent(self):
         self.currentEditingDay = self.sender().objectName()
-        #รกมาก เดะค่อยม่าแก้อีกที
-        # print("")
-        if self.sender().objectName() == self.currentDay_objectName: 
+        # รกมาก เดะค่อยม่าแก้อีกที
+        if self.sender().objectName() == self.currentDay_objectName:
             self.label.setText("TODAY")
         elif self.sender().objectName() == self.dayBarButtonList[0]:
             self.label.setText("MONDAY")
@@ -1005,13 +999,11 @@ class TimeTable_window(QDialog):
                 self.today_TimetableTray.clear()
                 for i in range(len(timetablelst)):
                     self.today_TimetableTray.addItem(timetablelst[i].topic)
-                    self.today_TimetableTray.item(i).setFont(QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))    
                 # self.today_TimetableTray.setSpacing(15)
 
             else:
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: rgb(228, 226, 199); color: black; border-radius: 8px;  }')
-
 
 class AddTimeTableWindow(QDialog):
     def __init__(self):
