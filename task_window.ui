@@ -187,11 +187,7 @@ color: #000000;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">position: absolute;
-width: 1024px;
-height: 640px;
-left: 0px;
-top: 0px;
+     <string notr="true">
 
 background: #84B289;</string>
     </property>
@@ -211,10 +207,7 @@ background: #84B289;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">width: 763px;
-height: 456px;
-left: 60px;
-top: 30px;
+      <string notr="true">
 
 background: #E4E2C7;
 </string>
@@ -387,91 +380,6 @@ background: #E4E2C7;
            <property name="styleSheet">
             <string notr="true">background-color: rgb(254, 250, 224);</string>
            </property>
-           <item>
-            <property name="text">
-             <string>ยฟหกฟหก</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>ฟหกฟหก</string>
-            </property>
-           </item>
           </widget>
          </item>
         </layout>
@@ -603,91 +511,6 @@ background: #E4E2C7;
            <property name="styleSheet">
             <string notr="true">background-color: rgb(254, 250, 224);</string>
            </property>
-           <item>
-            <property name="text">
-             <string>ยฟหกฟหก</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>New Item</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>ฟหกฟหก</string>
-            </property>
-           </item>
           </widget>
          </item>
         </layout>

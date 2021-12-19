@@ -108,7 +108,7 @@ border-radius: 35px;
         <property name="font">
          <font>
           <family>Tenor Sans</family>
-          <pointsize>1</pointsize>
+          <pointsize>-1</pointsize>
           <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
@@ -396,11 +396,7 @@ top: 414px;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">position: absolute;
-width: 1024px;
-height: 640px;
-left: 0px;
-top: 0px;
+     <string notr="true">
 
 background: #84B289;</string>
     </property>
@@ -421,12 +417,6 @@ background: #84B289;</string>
      </property>
      <property name="styleSheet">
       <string notr="true">
-position: absolute;
-width: 120px;
-height: 37px;
-left: 7px;
-top: 16px;
-
 background: #00FFFFFF;
       
 border-radius: 10px;</string>
@@ -461,8 +451,8 @@ border-radius: 10px;</string>
        <widget class="QLabel" name="label">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>10</y>
+          <x>0</x>
+          <y>0</y>
           <width>161</width>
           <height>21</height>
          </rect>
@@ -483,10 +473,10 @@ border-radius: 10px;</string>
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
-         <x>1</x>
-         <y>42</y>
+         <x>0</x>
+         <y>20</y>
          <width>871</width>
-         <height>391</height>
+         <height>412</height>
         </rect>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_4">

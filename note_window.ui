@@ -187,12 +187,7 @@ color: #000000;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">position: absolute;
-width: 1024px;
-height: 640px;
-left: 0px;
-top: 0px;
-
+     <string notr="true">
 background: #84B289;</string>
     </property>
     <property name="frameShape">
@@ -211,11 +206,7 @@ background: #84B289;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">width: 763px;
-height: 456px;
-left: 60px;
-top: 30px;
-
+      <string notr="true">
 background: #E4E2C7;
 </string>
      </property>
