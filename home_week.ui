@@ -196,10 +196,10 @@ background: #A3C5A7;</string>
             <cursorShape>ArrowCursor</cursorShape>
            </property>
            <property name="toolTip">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;home&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string/>
            </property>
            <property name="whatsThis">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;home&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string/>
            </property>
            <property name="styleSheet">
             <string notr="true">position: absolute;
@@ -359,13 +359,7 @@ left: 29px;
 top: 346px;
 background: #EC8E65;
 border-radius: 15px;
-
-QPushButton:hover#signOutButton{
-	background-color: rgb(148, 194, 130);
-	border-radius: 20px;
-	color: rgb(255, 255, 255);
-	font: 14pt;
-                                       }</string>
+</string>
        </property>
        <property name="text">
         <string>SIGN OUT</string>
@@ -464,12 +458,12 @@ border-radius: 10px;</string>
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
-       <widget class="QLabel" name="today_label">
+       <widget class="QLabel" name="label">
         <property name="geometry">
          <rect>
           <x>10</x>
           <y>10</y>
-          <width>61</width>
+          <width>161</width>
           <height>21</height>
          </rect>
         </property>
@@ -486,7 +480,7 @@ border-radius: 10px;</string>
         </property>
        </widget>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>1</x>
@@ -524,7 +518,7 @@ border-radius: 10px;</string>
                <string>TASK</string>
               </property>
               <property name="alignment">
-               <set>Qt::AlignCenter</set>
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
               </property>
              </widget>
             </item>
@@ -535,6 +529,36 @@ border-radius: 10px;</string>
               </property>
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="sortButton">
+              <property name="maximumSize">
+               <size>
+                <width>60</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton#sortButton{
+   background-color: rgb(252, 188, 64);
+	border-radius: 10px;
+}
+
+QPushButton:hover#sortButton{
+   background-color: rgb(252, 188, 64);
+	border-radius: 10px;
+	color: rgb(255, 255, 255);
+	font: 75 7pt &quot;AvenirNext LT Pro Bold&quot;;
+	
+}</string>
+              </property>
+              <property name="text">
+               <string>SORT</string>
               </property>
              </widget>
             </item>
@@ -577,47 +601,37 @@ border-radius: 10px;</string>
                <string>TIMETABLE</string>
               </property>
               <property name="alignment">
-               <set>Qt::AlignCenter</set>
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QFrame" name="frame_4">
-              <property name="frameShape">
-               <enum>QFrame::StyledPanel</enum>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Raised</enum>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="sortButton">
+             <widget class="QPushButton" name="showButton">
               <property name="maximumSize">
                <size>
-                <width>60</width>
-                <height>20</height>
+                <width>200</width>
+                <height>28</height>
                </size>
               </property>
               <property name="cursor">
                <cursorShape>PointingHandCursor</cursorShape>
               </property>
               <property name="styleSheet">
-               <string notr="true">QPushButton#sortButton{
+               <string notr="true">QPushButton#showButton{
    background-color: rgb(252, 188, 64);
 	border-radius: 10px;
 }
 
-QPushButton:hover#sortButton{
+QPushButton:hover#showButton{
    background-color: rgb(252, 188, 64);
 	border-radius: 10px;
 	color: rgb(255, 255, 255);
-	font: 75 7pt &quot;AvenirNext LT Pro Bold&quot;;
+	font: 75 8pt &quot;AvenirNext LT Pro Bold&quot;;
 	
 }</string>
               </property>
               <property name="text">
-               <string>SORT</string>
+               <string>SHOW COMPLETED TASKS</string>
               </property>
              </widget>
             </item>

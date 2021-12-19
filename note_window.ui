@@ -365,10 +365,10 @@ background: #A3C5A7;</string>
             <cursorShape>PointingHandCursor</cursorShape>
            </property>
            <property name="toolTip">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;home&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string/>
            </property>
            <property name="whatsThis">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;home&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string/>
            </property>
            <property name="styleSheet">
             <string notr="true">position: absolute;
