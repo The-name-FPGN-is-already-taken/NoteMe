@@ -280,7 +280,7 @@ class Ui_Dialog(object):
         self.frame_3.setObjectName(u"frame_3")
         self.frame_3.setGeometry(QRect(20, 80, 891, 431))
         self.frame_3.setStyleSheet(u"background: #E4E2C7;\n"
-"\n"
+"border-radius: 10px;\n"
 "")
         self.frame_3.setFrameShape(QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QFrame.Raised)
@@ -291,12 +291,19 @@ class Ui_Dialog(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_2 = QVBoxLayout()
+        self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.label = QLabel(self.layoutWidget1)
         self.label.setObjectName(u"label")
         self.label.setStyleSheet(u"font: 75 14pt \"AvenirNext LT Pro Bold\";")
 
         self.verticalLayout_2.addWidget(self.label)
+
+        self.label_3 = QLabel(self.layoutWidget1)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setStyleSheet(u"background: #84B289;")
+
+        self.verticalLayout_2.addWidget(self.label_3)
 
         self.today_TimetableTray = QListWidget(self.layoutWidget1)
         self.today_TimetableTray.setObjectName(u"today_TimetableTray")
@@ -309,6 +316,7 @@ class Ui_Dialog(object):
         self.horizontalLayout.addLayout(self.verticalLayout_2)
 
         self.verticalLayout_3 = QVBoxLayout()
+        self.verticalLayout_3.setSpacing(0)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.horizontalLayout_6 = QHBoxLayout()
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
@@ -320,6 +328,12 @@ class Ui_Dialog(object):
 
 
         self.verticalLayout_3.addLayout(self.horizontalLayout_6)
+
+        self.label_4 = QLabel(self.layoutWidget1)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setStyleSheet(u"background: #84B289;")
+
+        self.verticalLayout_3.addWidget(self.label_4)
 
         self.completed_TimetableTray = QListWidget(self.layoutWidget1)
         self.completed_TimetableTray.setObjectName(u"completed_TimetableTray")
@@ -511,7 +525,9 @@ class Ui_Dialog(object):
         self.sunday_button_2.setText(QCoreApplication.translate("Dialog", u"SUNDAY", None))
         self.next_button.setText("")
         self.label.setText(QCoreApplication.translate("Dialog", u"TODAY", None))
+        self.label_3.setText(QCoreApplication.translate("Dialog", u"  NAME                                                                TIME", None))
         self.label_2.setText(QCoreApplication.translate("Dialog", u"COMPLETED", None))
+        self.label_4.setText(QCoreApplication.translate("Dialog", u"  NAME                                                                TIME", None))
 #if QT_CONFIG(tooltip)
         self.homeButton.setToolTip("")
 #endif // QT_CONFIG(tooltip)

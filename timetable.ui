@@ -450,7 +450,7 @@ border-radius: 15px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background: #E4E2C7;
-
+border-radius: 10px;
 </string>
     </property>
     <property name="frameShape">
@@ -471,6 +471,9 @@ border-radius: 15px;</string>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_2">
+        <property name="spacing">
+         <number>0</number>
+        </property>
         <item>
          <widget class="QLabel" name="label">
           <property name="styleSheet">
@@ -478,6 +481,16 @@ border-radius: 15px;</string>
           </property>
           <property name="text">
            <string>TODAY</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="styleSheet">
+           <string notr="true">background: #84B289;</string>
+          </property>
+          <property name="text">
+           <string>  NAME                                                                TIME</string>
           </property>
          </widget>
         </item>
@@ -498,6 +511,9 @@ border-radius: 15px;</string>
       </item>
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_3">
+        <property name="spacing">
+         <number>0</number>
+        </property>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_6">
           <item>
@@ -511,6 +527,16 @@ border-radius: 15px;</string>
            </widget>
           </item>
          </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_4">
+          <property name="styleSheet">
+           <string notr="true">background: #84B289;</string>
+          </property>
+          <property name="text">
+           <string>  NAME                                                                TIME</string>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="QListWidget" name="completed_TimetableTray">

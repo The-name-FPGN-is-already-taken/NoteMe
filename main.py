@@ -71,6 +71,7 @@ class SignUpWindow(QDialog):
         fromWho = self.signUpButton
 
     def registing(self):
+        global userName
         userName = self.username.text()
         password = self.userPassword.text()
         if nota.registor(userName, password):
@@ -229,7 +230,8 @@ class HomeWeek_window(QDialog):
         elif self.sender().objectName() == "tuesday_button":
             self.label.setText("Tomorrow")
         else:
-            self.label.setText(self.sender().text())
+            a=self.sender().text()
+            self.label.setText(a[:-3])
         for i in range(len(self.listDayButton)):
             if self.listDayButton[i].objectName() == self.sender().objectName():
                 # print(self.sender().objectName())
@@ -274,7 +276,8 @@ class HomeWeek_window(QDialog):
         elif currentClickingDay_week.objectName() == "tuesday_button":
             self.label.setText("Tomorrow")
         else:
-            self.label.setText(currentClickingDay_week.text())
+            a=currentClickingDay_week.text()
+            self.label.setText(a[:-3])
         for i in range(len(self.listDayButton)):
             if self.listDayButton[i].objectName() == currentClickingDay_week.objectName():
                 # print(self.sender().objectName())
@@ -303,7 +306,7 @@ class HomeWeek_window(QDialog):
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: rgb(228, 226, 199); color: black; border-radius: 8px;  }')
 
-    def show_hide_completed_tasks(self):  # ได้แค่ของTask
+    def show_hide_completed_tasks(self):
         global timetablelst, today_tasklst
         if self.hideCompletedTask:
 
@@ -330,7 +333,7 @@ class HomeWeek_window(QDialog):
 
         self.hideCompletedTask = not self.hideCompletedTask
 
-    def refreshTable(self):  # ได้แค่ของTask
+    def refreshTable(self):
         global timetablelst, today_tasklst
         if self.hideCompletedTask:
             self.taskTray.clear()
@@ -977,20 +980,28 @@ class TimeTable_window(QDialog):
 
         self.today_TimetableTray.clear()
         self.completed_TimetableTray.clear()
-        for i in range(len(timetablelst)):
-            # print(timetablelst[i].topic)
-            self.today_TimetableTray.addItem(timetablelst[i].topic)
-        # self.today_TimetableTray.setSpacing(15)
-
-        for i in range(len(completetimetablelst)):
-            print(completetimetablelst[i].topic)
-            self.completed_TimetableTray.addItem(completetimetablelst[i].topic)
-
+        
+        self.updateItemInListWidgets()
         for i in range(len(self.listDayButton)):
 
             self.listDayButton[i].clicked.connect(self.setCurrent)
         self.setColorAtStart()
 
+    def updateItemInListWidgets(self):
+        for i in range(len(timetablelst)):
+            # print(timetablelst[i].topic)
+            self.today_TimetableTray.addItem(timetablelst[i].topic+(30-len(timetablelst[i].topic))*" "
+                                       + str(timetablelst[i].dateTarget.strftime("%H:%M:%S")))
+            self.today_TimetableTray.item(i).setFont(
+                QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))
+        # self.today_TimetableTray.setSpacing(15)
+
+        for i in range(len(completetimetablelst)):
+            self.completed_TimetableTray.addItem(completetimetablelst[i].topic+(30-len(completetimetablelst[i].topic))*" "
+                                       + str(completetimetablelst[i].dateTarget.strftime("%H:%M:%S")))
+            self.completed_TimetableTray.item(i).setFont(
+                QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))
+    
     def showPopUp(self):
         pop = Popup(self)
         pop.show()
@@ -1033,13 +1044,7 @@ class TimeTable_window(QDialog):
                 completetimetablelst = nota.getTimetableByday(i, 1)
                 self.today_TimetableTray.clear()
                 self.completed_TimetableTray.clear()
-                for i in range(len(timetablelst)):
-                    self.today_TimetableTray.addItem(timetablelst[i].topic)
-                # self.today_TimetableTray.setSpacing(15)
-
-                for i in range(len(completetimetablelst)):
-                    self.completed_TimetableTray.addItem(
-                        completetimetablelst[i].topic)
+                self.updateItemInListWidgets()
 
             else:
                 self.listDayButton[i].setStyleSheet(
@@ -1050,11 +1055,12 @@ class TimeTable_window(QDialog):
             if self.listDayButton[i].objectName() == self.currentDay_objectName:
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: #FFAC4B; color: white; border-radius: 8px; }')
-                global timetablelst
+                global timetablelst,completetimetablelst
                 timetablelst = nota.getTimetableByday(i, 0)
+                completetimetablelst = nota.getTimetableByday(i, 1)
                 self.today_TimetableTray.clear()
-                for i in range(len(timetablelst)):
-                    self.today_TimetableTray.addItem(timetablelst[i].topic)
+                self.completed_TimetableTray.clear()
+                self.updateItemInListWidgets()
 
             else:
                 self.listDayButton[i].setStyleSheet(
@@ -1093,12 +1099,13 @@ class TimeTable_window(QDialog):
                 completetimetablelst = nota.getTimetableByday(i, 1)
                 self.today_TimetableTray.clear()
                 self.completed_TimetableTray.clear()
-                for i in range(len(timetablelst)):
-                    self.today_TimetableTray.addItem(timetablelst[i].topic)
-                # self.today_TimetableTray.setSpacing(15)
-                for i in range(len(completetimetablelst)):
-                    self.completed_TimetableTray.addItem(
-                        completetimetablelst[i].topic)
+                # for i in range(len(timetablelst)):
+                #     self.today_TimetableTray.addItem(timetablelst[i].topic)
+                # # self.today_TimetableTray.setSpacing(15)
+                # for i in range(len(completetimetablelst)):
+                #     self.completed_TimetableTray.addItem(
+                #         completetimetablelst[i].topic)
+                self.updateItemInListWidgets()
 
             else:
                 self.listDayButton[i].setStyleSheet(

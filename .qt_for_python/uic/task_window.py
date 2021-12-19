@@ -71,6 +71,7 @@ class Ui_homeCal(object):
         self.welcomeUser.setObjectName(u"welcomeUser")
         font = QFont()
         font.setFamily(u"Tenor Sans")
+        font.setPointSize(1)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(50)
@@ -112,11 +113,7 @@ class Ui_homeCal(object):
         self.frame_5 = QFrame(self.backFrame)
         self.frame_5.setObjectName(u"frame_5")
         self.frame_5.setGeometry(QRect(90, 100, 941, 541))
-        self.frame_5.setStyleSheet(u"position: absolute;\n"
-"width: 1024px;\n"
-"height: 640px;\n"
-"left: 0px;\n"
-"top: 0px;\n"
+        self.frame_5.setStyleSheet(u"\n"
 "\n"
 "background: #84B289;")
         self.frame_5.setFrameShape(QFrame.StyledPanel)
@@ -124,10 +121,7 @@ class Ui_homeCal(object):
         self.frame = QFrame(self.frame_5)
         self.frame.setObjectName(u"frame")
         self.frame.setGeometry(QRect(30, 20, 871, 481))
-        self.frame.setStyleSheet(u"width: 763px;\n"
-"height: 456px;\n"
-"left: 60px;\n"
-"top: 30px;\n"
+        self.frame.setStyleSheet(u"border-radius: 10px;\n"
 "\n"
 "background: #E4E2C7;\n"
 "")
@@ -140,7 +134,7 @@ class Ui_homeCal(object):
         self.frame_6.setFrameShadow(QFrame.Raised)
         self.layoutWidget1 = QWidget(self.frame)
         self.layoutWidget1.setObjectName(u"layoutWidget1")
-        self.layoutWidget1.setGeometry(QRect(62, 31, 755, 442))
+        self.layoutWidget1.setGeometry(QRect(60, 30, 751, 421))
         self.horizontalLayout_4 = QHBoxLayout(self.layoutWidget1)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
@@ -148,24 +142,17 @@ class Ui_homeCal(object):
         self.verticalLayout_8.setSpacing(0)
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.horizontalLayout_2 = QHBoxLayout()
-        self.horizontalLayout_2.setSpacing(7)
+        self.horizontalLayout_2.setSpacing(90)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.Today_Label = QLabel(self.layoutWidget1)
         self.Today_Label.setObjectName(u"Today_Label")
         sizePolicy.setHeightForWidth(self.Today_Label.sizePolicy().hasHeightForWidth())
         self.Today_Label.setSizePolicy(sizePolicy)
-        self.Today_Label.setMaximumSize(QSize(100, 20))
+        self.Today_Label.setMaximumSize(QSize(100, 28))
         self.Today_Label.setStyleSheet(u"font: 75 14pt \"AvenirNext LT Pro Bold\";")
         self.Today_Label.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_2.addWidget(self.Today_Label)
-
-        self.frame_3 = QFrame(self.layoutWidget1)
-        self.frame_3.setObjectName(u"frame_3")
-        self.frame_3.setFrameShape(QFrame.StyledPanel)
-        self.frame_3.setFrameShadow(QFrame.Raised)
-
-        self.horizontalLayout_2.addWidget(self.frame_3)
 
         self.showButton = QPushButton(self.layoutWidget1)
         self.showButton.setObjectName(u"showButton")
@@ -189,24 +176,12 @@ class Ui_homeCal(object):
 
         self.verticalLayout_8.addLayout(self.horizontalLayout_2)
 
-        self.frame_7 = QFrame(self.layoutWidget1)
-        self.frame_7.setObjectName(u"frame_7")
-        self.frame_7.setStyleSheet(u"width: 763px;\n"
-"height: 456px;\n"
-"left: 60px;\n"
-"top: 30px;\n"
-"\n"
-"background: #E4E2C7;\n"
-"")
-        self.frame_7.setFrameShape(QFrame.NoFrame)
-        self.frame_7.setFrameShadow(QFrame.Raised)
-        self.frame_11 = QFrame(self.frame_7)
-        self.frame_11.setObjectName(u"frame_11")
-        self.frame_11.setGeometry(QRect(151, 33, 16, 28))
-        self.frame_11.setFrameShape(QFrame.StyledPanel)
-        self.frame_11.setFrameShadow(QFrame.Raised)
+        self.frame_3 = QFrame(self.layoutWidget1)
+        self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setFrameShape(QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QFrame.Raised)
 
-        self.verticalLayout_8.addWidget(self.frame_7)
+        self.verticalLayout_8.addWidget(self.frame_3)
 
         self.label_3 = QLabel(self.layoutWidget1)
         self.label_3.setObjectName(u"label_3")
@@ -215,23 +190,6 @@ class Ui_homeCal(object):
         self.verticalLayout_8.addWidget(self.label_3)
 
         self.listWidget = QListWidget(self.layoutWidget1)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
-        QListWidgetItem(self.listWidget)
         self.listWidget.setObjectName(u"listWidget")
         self.listWidget.setMaximumSize(QSize(371, 371))
         self.listWidget.setStyleSheet(u"background-color: rgb(254, 250, 224);")
@@ -309,23 +267,6 @@ class Ui_homeCal(object):
         self.verticalLayout_9.addWidget(self.label_2)
 
         self.listWidget_incoming = QListWidget(self.layoutWidget1)
-        QListWidgetItem(self.listWidget_incoming)
-        QListWidgetItem(self.listWidget_incoming)
-        QListWidgetItem(self.listWidget_incoming)
-        QListWidgetItem(self.listWidget_incoming)
-        QListWidgetItem(self.listWidget_incoming)
-        QListWidgetItem(self.listWidget_incoming)
-        QListWidgetItem(self.listWidget_incoming)
-        QListWidgetItem(self.listWidget_incoming)
-        QListWidgetItem(self.listWidget_incoming)
-        QListWidgetItem(self.listWidget_incoming)
-        QListWidgetItem(self.listWidget_incoming)
-        QListWidgetItem(self.listWidget_incoming)
-        QListWidgetItem(self.listWidget_incoming)
-        QListWidgetItem(self.listWidget_incoming)
-        QListWidgetItem(self.listWidget_incoming)
-        QListWidgetItem(self.listWidget_incoming)
-        QListWidgetItem(self.listWidget_incoming)
         self.listWidget_incoming.setObjectName(u"listWidget_incoming")
         self.listWidget_incoming.setMaximumSize(QSize(371, 371))
         self.listWidget_incoming.setStyleSheet(u"background-color: rgb(254, 250, 224);")
@@ -502,91 +443,13 @@ class Ui_homeCal(object):
         self.date.setText(QCoreApplication.translate("homeCal", u"November 21, 2021", None))
         self.Today_Label.setText(QCoreApplication.translate("homeCal", u"TODAY", None))
         self.showButton.setText(QCoreApplication.translate("homeCal", u"SHOW COMPLETED TASKS", None))
-        self.label_3.setText(QCoreApplication.translate("homeCal", u"  TASK                                           TIME", None))
-
-        __sortingEnabled = self.listWidget.isSortingEnabled()
-        self.listWidget.setSortingEnabled(False)
-        ___qlistwidgetitem = self.listWidget.item(0)
-        ___qlistwidgetitem.setText(QCoreApplication.translate("homeCal", u"\u0e22\u0e1f\u0e2b\u0e01\u0e1f\u0e2b\u0e01", None));
-        ___qlistwidgetitem1 = self.listWidget.item(1)
-        ___qlistwidgetitem1.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem2 = self.listWidget.item(2)
-        ___qlistwidgetitem2.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem3 = self.listWidget.item(3)
-        ___qlistwidgetitem3.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem4 = self.listWidget.item(4)
-        ___qlistwidgetitem4.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem5 = self.listWidget.item(5)
-        ___qlistwidgetitem5.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem6 = self.listWidget.item(6)
-        ___qlistwidgetitem6.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem7 = self.listWidget.item(7)
-        ___qlistwidgetitem7.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem8 = self.listWidget.item(8)
-        ___qlistwidgetitem8.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem9 = self.listWidget.item(9)
-        ___qlistwidgetitem9.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem10 = self.listWidget.item(10)
-        ___qlistwidgetitem10.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem11 = self.listWidget.item(11)
-        ___qlistwidgetitem11.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem12 = self.listWidget.item(12)
-        ___qlistwidgetitem12.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem13 = self.listWidget.item(13)
-        ___qlistwidgetitem13.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem14 = self.listWidget.item(14)
-        ___qlistwidgetitem14.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem15 = self.listWidget.item(15)
-        ___qlistwidgetitem15.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem16 = self.listWidget.item(16)
-        ___qlistwidgetitem16.setText(QCoreApplication.translate("homeCal", u"\u0e1f\u0e2b\u0e01\u0e1f\u0e2b\u0e01", None));
-        self.listWidget.setSortingEnabled(__sortingEnabled)
-
+        self.label_3.setText(QCoreApplication.translate("homeCal", u"  NAME                                           TIME", None))
 #if QT_CONFIG(tooltip)
         self.listWidget.setToolTip(QCoreApplication.translate("homeCal", u"<html><head/><body><p>double click to edit</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.Tomorrow_Label.setText(QCoreApplication.translate("homeCal", u"ALL TASKS", None))
         self.sortButton.setText(QCoreApplication.translate("homeCal", u"SORT", None))
-        self.label_2.setText(QCoreApplication.translate("homeCal", u"  TASK                                     DATE              TIME", None))
-
-        __sortingEnabled1 = self.listWidget_incoming.isSortingEnabled()
-        self.listWidget_incoming.setSortingEnabled(False)
-        ___qlistwidgetitem17 = self.listWidget_incoming.item(0)
-        ___qlistwidgetitem17.setText(QCoreApplication.translate("homeCal", u"\u0e22\u0e1f\u0e2b\u0e01\u0e1f\u0e2b\u0e01", None));
-        ___qlistwidgetitem18 = self.listWidget_incoming.item(1)
-        ___qlistwidgetitem18.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem19 = self.listWidget_incoming.item(2)
-        ___qlistwidgetitem19.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem20 = self.listWidget_incoming.item(3)
-        ___qlistwidgetitem20.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem21 = self.listWidget_incoming.item(4)
-        ___qlistwidgetitem21.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem22 = self.listWidget_incoming.item(5)
-        ___qlistwidgetitem22.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem23 = self.listWidget_incoming.item(6)
-        ___qlistwidgetitem23.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem24 = self.listWidget_incoming.item(7)
-        ___qlistwidgetitem24.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem25 = self.listWidget_incoming.item(8)
-        ___qlistwidgetitem25.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem26 = self.listWidget_incoming.item(9)
-        ___qlistwidgetitem26.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem27 = self.listWidget_incoming.item(10)
-        ___qlistwidgetitem27.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem28 = self.listWidget_incoming.item(11)
-        ___qlistwidgetitem28.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem29 = self.listWidget_incoming.item(12)
-        ___qlistwidgetitem29.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem30 = self.listWidget_incoming.item(13)
-        ___qlistwidgetitem30.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem31 = self.listWidget_incoming.item(14)
-        ___qlistwidgetitem31.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem32 = self.listWidget_incoming.item(15)
-        ___qlistwidgetitem32.setText(QCoreApplication.translate("homeCal", u"New Item", None));
-        ___qlistwidgetitem33 = self.listWidget_incoming.item(16)
-        ___qlistwidgetitem33.setText(QCoreApplication.translate("homeCal", u"\u0e1f\u0e2b\u0e01\u0e1f\u0e2b\u0e01", None));
-        self.listWidget_incoming.setSortingEnabled(__sortingEnabled1)
-
+        self.label_2.setText(QCoreApplication.translate("homeCal", u"  NAME                                     DATE              TIME", None))
 #if QT_CONFIG(tooltip)
         self.listWidget_incoming.setToolTip(QCoreApplication.translate("homeCal", u"<html><head/><body><p>double click to edit</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
