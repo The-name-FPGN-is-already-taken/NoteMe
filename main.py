@@ -827,17 +827,14 @@ class TimeTable_window(QDialog):
             elif dayhw == "Sun":
                 self.currentDay = 6
         global currentClickingDay_int_ttb,timetablelst
-        self.currentDay_objectName = self.dayBarButtonList[currentClickingDay_int_ttb] 
-        print("ಥ_ಥ",currentClickingDay_int_ttb)       
+        self.currentDay_objectName = self.listDayButton[self.currentDay]
         timetablelst = nota.getTimetableAll(currentClickingDay_int_ttb)
         self.today_TimetableTray.clear()
         for i in range(len(timetablelst)):
-            print(timetablelst[i].topic)
             self.today_TimetableTray.addItem(timetablelst[i].topic)
         # self.today_TimetableTray.setSpacing(15)
 
         for i in range(len(self.listDayButton)):
-
             self.listDayButton[i].clicked.connect(self.setCurrent)
         self.setColorAtStart()
 
@@ -884,24 +881,21 @@ class TimeTable_window(QDialog):
                     'QPushButton {background: rgb(228, 226, 199); color: black; border-radius: 8px;  }')
 
     def setColorAtStart(self):
+        print("^_____^")
         for i in range(len(self.listDayButton)):
             if self.listDayButton[i].objectName() == self.currentDay_objectName:
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: #FFAC4B; color: white; border-radius: 8px; }')
-                global timetablelst
-                timetablelst = nota.getTimetableAll(i)
-                self.today_TimetableTray.clear()
-                for i in range(len(timetablelst)):
-                    self.today_TimetableTray.addItem(timetablelst[i].topic)
 
             else:
                 self.listDayButton[i].setStyleSheet(
                     'QPushButton {background: rgb(228, 226, 199); color: black; border-radius: 8px;  }')
-        self.currentEditingDay = self.currentDay_objectName
+        # self.currentEditingDay = self.currentDay_objectName
         
     def setCurrent(self):
         self.currentEditingDay = self.sender().objectName()
         #รกมาก เดะค่อยม่าแก้อีกที
+        # print("")
         if self.sender().objectName() == self.currentDay_objectName: 
             self.label.setText("TODAY")
         elif self.sender().objectName() == self.dayBarButtonList[0]:
@@ -966,14 +960,15 @@ class AddTimeTableWindow(QDialog):
 
         if self.sender().objectName() == "edit":
             self.indexTimetable = fromWho.currentRow()
-            
             a = str(timetablelst[self.indexTimetable].dateTarget)
-            a = a[11:13]
-            a = int(a)
             b = str(timetablelst[self.indexTimetable].dateTarget)
-            b = b[14:16]
-            b = int(b)
-            self.timetable_Edittime.setTime(time(a, b))
+            if len(a) >  10 and len(b) >  10  : #เขียนดักบั๊ก
+                a = a[11:13]
+                b = b[14:16]
+            else:
+                a= a[:2]
+                b= b[:2] 
+            self.timetable_Edittime.setTime(time(int(a), int(b)))
             self.timetabletitleName_textEdit.setPlainText(
                 timetablelst[self.indexTimetable].topic)
 
@@ -1042,7 +1037,11 @@ class AddTimeTableWindow(QDialog):
         self.timetabletitleName_textEdit.clear()
         self.timetable_description.clear()
         print("UNSAVE TIME TABLE")
-        self.goToTimeTableWindow()
+        global fromWho
+        if fromWho.objectName() in ["today_TimetableTray","completed_TimetableTray"]:
+            self.goToTimeTableWindow()
+        else:
+            self.goToHomeWeek()
         
     def mytxtChanged(self):
         maxlengthtext = 15
