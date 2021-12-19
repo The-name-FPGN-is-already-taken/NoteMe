@@ -126,7 +126,7 @@ border-radius: 35px;
         <property name="font">
          <font>
           <family>Tenor Sans</family>
-          <pointsize>1</pointsize>
+          <pointsize>-1</pointsize>
           <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
@@ -232,7 +232,7 @@ background: #E4E2C7;
       <property name="geometry">
        <rect>
         <x>60</x>
-        <y>90</y>
+        <y>120</y>
         <width>761</width>
         <height>331</height>
        </rect>
@@ -325,6 +325,38 @@ QPushButton:hover#sortButton{
         </layout>
        </item>
       </layout>
+     </widget>
+     <widget class="QFrame" name="frame_4">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>90</y>
+        <width>761</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: #84B289;</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>761</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>  TASK                                                                                                                    DATE                               TIME</string>
+       </property>
+      </widget>
      </widget>
     </widget>
    </widget>
