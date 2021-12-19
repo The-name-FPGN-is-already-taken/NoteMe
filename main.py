@@ -6,7 +6,7 @@ from PyQt5.uic import loadUi
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import *
 from notaBack import *
-
+from PyQt5 import QtGui
 notelst = list()
 
 timetask = list()
