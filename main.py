@@ -1009,7 +1009,7 @@ class AddTimeTableWindow(QDialog):
                 b = b[14:16]
             else:
                 a= a[:2]
-                b= b[:2] 
+                b= b[2:4] 
             self.timetable_Edittime.setTime(time(int(a), int(b)))
             self.timetabletitleName_textEdit.setPlainText(
                 timetablelst[self.indexTimetable].topic)
