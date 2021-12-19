@@ -126,7 +126,7 @@ border-radius: 35px;
         <property name="font">
          <font>
           <family>Tenor Sans</family>
-          <pointsize>1</pointsize>
+          <pointsize>-1</pointsize>
           <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
@@ -247,14 +247,20 @@ background: #E4E2C7;
         <x>62</x>
         <y>31</y>
         <width>755</width>
-        <height>412</height>
+        <height>442</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_4">
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_8">
+         <property name="spacing">
+          <number>0</number>
+         </property>
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <property name="spacing">
+            <number>7</number>
+           </property>
            <item>
             <widget class="QLabel" name="Today_Label">
              <property name="sizePolicy">
@@ -321,6 +327,51 @@ QPushButton:hover#showButton{
             </widget>
            </item>
           </layout>
+         </item>
+         <item>
+          <widget class="QFrame" name="frame_7">
+           <property name="styleSheet">
+            <string notr="true">width: 763px;
+height: 456px;
+left: 60px;
+top: 30px;
+
+background: #E4E2C7;
+</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <widget class="QFrame" name="frame_11">
+            <property name="geometry">
+             <rect>
+              <x>151</x>
+              <y>33</y>
+              <width>16</width>
+              <height>28</height>
+             </rect>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+           </widget>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="styleSheet">
+            <string notr="true">background: #84B289;</string>
+           </property>
+           <property name="text">
+            <string>  TASK                                           TIME</string>
+           </property>
+          </widget>
          </item>
          <item>
           <widget class="QListWidget" name="listWidget">
@@ -427,6 +478,9 @@ QPushButton:hover#showButton{
        </item>
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_9">
+         <property name="spacing">
+          <number>0</number>
+         </property>
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_3">
            <item>
@@ -489,6 +543,51 @@ QPushButton:hover#sortButton{
             </widget>
            </item>
           </layout>
+         </item>
+         <item>
+          <widget class="QFrame" name="frame_12">
+           <property name="styleSheet">
+            <string notr="true">width: 763px;
+height: 456px;
+left: 60px;
+top: 30px;
+
+background: #E4E2C7;
+</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <widget class="QFrame" name="frame_13">
+            <property name="geometry">
+             <rect>
+              <x>151</x>
+              <y>33</y>
+              <width>16</width>
+              <height>28</height>
+             </rect>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+           </widget>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="styleSheet">
+            <string notr="true">background: #84B289;</string>
+           </property>
+           <property name="text">
+            <string>  TASK                                     DATE              TIME</string>
+           </property>
+          </widget>
          </item>
          <item>
           <widget class="QListWidget" name="listWidget_incoming">
