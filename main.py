@@ -385,11 +385,9 @@ class Note_window(QDialog):
         if self.sortFromNewToOld:
             Sort.sortNote(notelst, 0)
             for i in range(len(notelst)):
-
-                self.noteTray.addItem(notelst[i].topic + (150-len(str(notelst[i].dateCreate.strftime("%Y-%m-%d %H:%M:%S"))) - len(
-
-
-                    notelst[i].topic))*" "+str(notelst[i].dateCreate.strftime("%Y-%m-%d"+8*" " + "%H:%M:%S")))
+    
+                self.noteTray.addItem(notelst[i].topic + (52 - len(
+                    notelst[i].topic))*" "+str(notelst[i].dateCreate.strftime("%Y-%m-%d"+8*" "+"%H:%M:%S")))
                 self.noteTray.item(i).setFont(
                     QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))
 
@@ -562,7 +560,7 @@ class Task_window(QDialog):
         Sort.sortTaskDateTarget(today_tasklst)
         for i in range(len(today_tasklst)):
 
-            self.listWidget.addItem(today_tasklst[i].topic+(35-len(today_tasklst[i].topic))*" "
+            self.listWidget.addItem(today_tasklst[i].topic+(20-len(today_tasklst[i].topic))*" "
 
                                     + str(today_tasklst[i].dateTarget.strftime("%H:%M:%S")))
 
@@ -605,7 +603,7 @@ class Task_window(QDialog):
         Sort.sortTaskDateTarget(today_tasklst, x)
         for i in range(len(today_tasklst)):
 
-            self.listWidget.addItem(today_tasklst[i].topic+(21-len(today_tasklst[i].topic))*" "
+            self.listWidget.addItem(today_tasklst[i].topic+(20-len(today_tasklst[i].topic))*" "
                                     + str(today_tasklst[i].dateTarget.strftime("%H:%M:%S")))
             self.listWidget.item(i).setFont(
                 QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))
@@ -626,7 +624,7 @@ class Task_window(QDialog):
             Sort.sortTaskDateTarget(today_tasklst)
             for i in range(len(today_tasklst)):
 
-                self.listWidget.addItem(today_tasklst[i].topic+(21-len(today_tasklst[i].topic))*" "
+                self.listWidget.addItem(today_tasklst[i].topic+(20-len(today_tasklst[i].topic))*" "
                                         + str(today_tasklst[i].dateTarget.strftime("%H:%M:%S")))
                 self.listWidget.item(i).setFont(
                     QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))
@@ -649,7 +647,7 @@ class Task_window(QDialog):
             Sort.sortTaskDateTarget(today_tasklst)
             for i in range(len(today_tasklst)):
 
-                self.listWidget.addItem(today_tasklst[i].topic+(21-len(today_tasklst[i].topic))*" "
+                self.listWidget.addItem(today_tasklst[i].topic+(20-len(today_tasklst[i].topic))*" "
                                         + str(today_tasklst[i].dateTarget.strftime("%H:%M:%S")))
                 self.listWidget.item(i).setFont(
                     QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))
@@ -676,7 +674,7 @@ class Task_window(QDialog):
             Sort.sortTaskDateTarget(today_tasklst)
             for i in range(len(today_tasklst)):
 
-                self.listWidget.addItem(today_tasklst[i].topic+(21-len(
+                self.listWidget.addItem(today_tasklst[i].topic+(20-len(
                     today_tasklst[i].topic))*" " + str(today_tasklst[i].dateTarget.strftime("%H:%M:%S")))
                 self.listWidget.item(i).setFont(
                     QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))
@@ -698,7 +696,7 @@ class Task_window(QDialog):
             Sort.sortTaskDateTarget(today_tasklst)
             for i in range(len(today_tasklst)):
 
-                self.listWidget.addItem(today_tasklst[i].topic+(21-len(
+                self.listWidget.addItem(today_tasklst[i].topic+(20-len(
                     today_tasklst[i].topic))*" " + str(today_tasklst[i].dateTarget.strftime("%H:%M:%S")))
                 self.listWidget.item(i).setFont(
                     QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))
