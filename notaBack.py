@@ -41,7 +41,20 @@ class Record:
             return False
 
 class Sort:
-    
+    def sortTimetableNew(li,near=1):
+        for i in range(1,len(li)):
+            key = li[i]
+            j = i -1
+            if near == 1:
+                while j >= 0 and key.dateTarget < li[j].dateTarget:
+                    li[j+1] = li[j]
+                    j -= 1
+            elif near == 0:
+                while j >= 0 and key.dateTarget > li[j].dateTarget:
+                    li[j+1] = li[j]
+                    j -= 1
+            li[j+1] = key
+            
     def sortTaskDateTarget(li:list,near:int=1):
         """Insert list of Task object / near = 1 is going to sort nearest come first (near = 0 far come first)"""
         #This is insertion sort
