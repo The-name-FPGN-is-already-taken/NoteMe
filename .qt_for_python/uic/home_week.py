@@ -256,13 +256,7 @@ class Ui_homeWeek(object):
 "top: 346px;\n"
 "background: #EC8E65;\n"
 "border-radius: 15px;\n"
-"\n"
-"QPushButton:hover#signOutButton{\n"
-"	background-color: rgb(148, 194, 130);\n"
-"	border-radius: 20px;\n"
-"	color: rgb(255, 255, 255);\n"
-"	font: 14pt;\n"
-"                                       }")
+"")
 
         self.verticalLayout_7.addWidget(self.signOutButton)
 
@@ -313,18 +307,18 @@ class Ui_homeWeek(object):
         self.today_container.setGeometry(QRect(0, 0, 871, 31))
         self.today_container.setFrameShape(QFrame.StyledPanel)
         self.today_container.setFrameShadow(QFrame.Raised)
-        self.today_label = QLabel(self.today_container)
-        self.today_label.setObjectName(u"today_label")
-        self.today_label.setGeometry(QRect(10, 10, 61, 21))
+        self.label = QLabel(self.today_container)
+        self.label.setObjectName(u"label")
+        self.label.setGeometry(QRect(10, 10, 161, 21))
         font1 = QFont()
         font1.setFamilies([u"AvenirNext LT Pro Bold"])
         font1.setPointSize(12)
         font1.setBold(True)
-        self.today_label.setFont(font1)
-        self.widget = QWidget(self.scrollAreaWidgetContents)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(1, 42, 871, 391))
-        self.horizontalLayout_4 = QHBoxLayout(self.widget)
+        self.label.setFont(font1)
+        self.layoutWidget1 = QWidget(self.scrollAreaWidgetContents)
+        self.layoutWidget1.setObjectName(u"layoutWidget1")
+        self.layoutWidget1.setGeometry(QRect(1, 42, 871, 391))
+        self.horizontalLayout_4 = QHBoxLayout(self.layoutWidget1)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_8 = QVBoxLayout()
@@ -332,7 +326,7 @@ class Ui_homeWeek(object):
         self.horizontalLayout_5 = QHBoxLayout()
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
         self.horizontalLayout_5.setSizeConstraint(QLayout.SetDefaultConstraint)
-        self.Today_Label = QLabel(self.widget)
+        self.Today_Label = QLabel(self.layoutWidget1)
         self.Today_Label.setObjectName(u"Today_Label")
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -341,50 +335,18 @@ class Ui_homeWeek(object):
         self.Today_Label.setSizePolicy(sizePolicy)
         self.Today_Label.setMaximumSize(QSize(100, 20))
         self.Today_Label.setStyleSheet(u"font: 75 10pt \"AvenirNext LT Pro Bold\";")
-        self.Today_Label.setAlignment(Qt.AlignCenter)
+        self.Today_Label.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.horizontalLayout_5.addWidget(self.Today_Label)
 
-        self.frame_3 = QFrame(self.widget)
+        self.frame_3 = QFrame(self.layoutWidget1)
         self.frame_3.setObjectName(u"frame_3")
         self.frame_3.setFrameShape(QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QFrame.Raised)
 
         self.horizontalLayout_5.addWidget(self.frame_3)
 
-
-        self.verticalLayout_8.addLayout(self.horizontalLayout_5)
-
-        self.taskTray = QListWidget(self.widget)
-        self.taskTray.setObjectName(u"taskTray")
-        self.taskTray.setMaximumSize(QSize(371, 371))
-        self.taskTray.setStyleSheet(u"background-color: rgb(254, 250, 224);")
-
-        self.verticalLayout_8.addWidget(self.taskTray)
-
-
-        self.horizontalLayout_4.addLayout(self.verticalLayout_8)
-
-        self.verticalLayout_9 = QVBoxLayout()
-        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
-        self.horizontalLayout_6 = QHBoxLayout()
-        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.Tomorrow_Label = QLabel(self.widget)
-        self.Tomorrow_Label.setObjectName(u"Tomorrow_Label")
-        self.Tomorrow_Label.setMaximumSize(QSize(200, 20))
-        self.Tomorrow_Label.setStyleSheet(u"font: 75 10pt \"AvenirNext LT Pro Bold\";")
-        self.Tomorrow_Label.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_6.addWidget(self.Tomorrow_Label)
-
-        self.frame_4 = QFrame(self.widget)
-        self.frame_4.setObjectName(u"frame_4")
-        self.frame_4.setFrameShape(QFrame.StyledPanel)
-        self.frame_4.setFrameShadow(QFrame.Raised)
-
-        self.horizontalLayout_6.addWidget(self.frame_4)
-
-        self.sortButton = QPushButton(self.widget)
+        self.sortButton = QPushButton(self.layoutWidget1)
         self.sortButton.setObjectName(u"sortButton")
         self.sortButton.setMaximumSize(QSize(60, 20))
         self.sortButton.setCursor(QCursor(Qt.PointingHandCursor))
@@ -401,12 +363,56 @@ class Ui_homeWeek(object):
 "	\n"
 "}")
 
-        self.horizontalLayout_6.addWidget(self.sortButton)
+        self.horizontalLayout_5.addWidget(self.sortButton)
+
+
+        self.verticalLayout_8.addLayout(self.horizontalLayout_5)
+
+        self.taskTray = QListWidget(self.layoutWidget1)
+        self.taskTray.setObjectName(u"taskTray")
+        self.taskTray.setMaximumSize(QSize(371, 371))
+        self.taskTray.setStyleSheet(u"background-color: rgb(254, 250, 224);")
+
+        self.verticalLayout_8.addWidget(self.taskTray)
+
+
+        self.horizontalLayout_4.addLayout(self.verticalLayout_8)
+
+        self.verticalLayout_9 = QVBoxLayout()
+        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
+        self.horizontalLayout_6 = QHBoxLayout()
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.Tomorrow_Label = QLabel(self.layoutWidget1)
+        self.Tomorrow_Label.setObjectName(u"Tomorrow_Label")
+        self.Tomorrow_Label.setMaximumSize(QSize(200, 20))
+        self.Tomorrow_Label.setStyleSheet(u"font: 75 10pt \"AvenirNext LT Pro Bold\";")
+        self.Tomorrow_Label.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+
+        self.horizontalLayout_6.addWidget(self.Tomorrow_Label)
+
+        self.showButton = QPushButton(self.layoutWidget1)
+        self.showButton.setObjectName(u"showButton")
+        self.showButton.setMaximumSize(QSize(200, 28))
+        self.showButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.showButton.setStyleSheet(u"QPushButton#showButton{\n"
+"   background-color: rgb(252, 188, 64);\n"
+"	border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover#showButton{\n"
+"   background-color: rgb(252, 188, 64);\n"
+"	border-radius: 10px;\n"
+"	color: rgb(255, 255, 255);\n"
+"	font: 75 8pt \"AvenirNext LT Pro Bold\";\n"
+"	\n"
+"}")
+
+        self.horizontalLayout_6.addWidget(self.showButton)
 
 
         self.verticalLayout_9.addLayout(self.horizontalLayout_6)
 
-        self.timeTableTray = QListWidget(self.widget)
+        self.timeTableTray = QListWidget(self.layoutWidget1)
         self.timeTableTray.setObjectName(u"timeTableTray")
         self.timeTableTray.setMaximumSize(QSize(371, 371))
         self.timeTableTray.setStyleSheet(u"background-color: rgb(254, 250, 224);")
@@ -417,13 +423,13 @@ class Ui_homeWeek(object):
         self.horizontalLayout_4.addLayout(self.verticalLayout_9)
 
         self.task_tray.setWidget(self.scrollAreaWidgetContents)
-        self.layoutWidget1 = QWidget(self.frame_5)
-        self.layoutWidget1.setObjectName(u"layoutWidget1")
-        self.layoutWidget1.setGeometry(QRect(30, 20, 871, 61))
-        self.horizontalLayout_3 = QHBoxLayout(self.layoutWidget1)
+        self.layoutWidget2 = QWidget(self.frame_5)
+        self.layoutWidget2.setObjectName(u"layoutWidget2")
+        self.layoutWidget2.setGeometry(QRect(30, 20, 871, 61))
+        self.horizontalLayout_3 = QHBoxLayout(self.layoutWidget2)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.previous_button = QPushButton(self.layoutWidget1)
+        self.previous_button = QPushButton(self.layoutWidget2)
         self.previous_button.setObjectName(u"previous_button")
         self.previous_button.setMaximumSize(QSize(51, 31))
         self.previous_button.setCursor(QCursor(Qt.ArrowCursor))
@@ -443,7 +449,7 @@ class Ui_homeWeek(object):
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.monday_button = QPushButton(self.layoutWidget1)
+        self.monday_button = QPushButton(self.layoutWidget2)
         self.monday_button.setObjectName(u"monday_button")
         self.monday_button.setMaximumSize(QSize(93, 41))
         font2 = QFont()
@@ -462,7 +468,7 @@ class Ui_homeWeek(object):
 
         self.horizontalLayout_2.addWidget(self.monday_button)
 
-        self.tuesday_button = QPushButton(self.layoutWidget1)
+        self.tuesday_button = QPushButton(self.layoutWidget2)
         self.tuesday_button.setObjectName(u"tuesday_button")
         self.tuesday_button.setMaximumSize(QSize(93, 41))
         self.tuesday_button.setFont(font2)
@@ -479,7 +485,7 @@ class Ui_homeWeek(object):
 
         self.horizontalLayout_2.addWidget(self.tuesday_button)
 
-        self.wednesday_button = QPushButton(self.layoutWidget1)
+        self.wednesday_button = QPushButton(self.layoutWidget2)
         self.wednesday_button.setObjectName(u"wednesday_button")
         self.wednesday_button.setMaximumSize(QSize(93, 41))
         self.wednesday_button.setFont(font2)
@@ -498,7 +504,7 @@ class Ui_homeWeek(object):
 
         self.horizontalLayout_2.addWidget(self.wednesday_button)
 
-        self.thursday_button = QPushButton(self.layoutWidget1)
+        self.thursday_button = QPushButton(self.layoutWidget2)
         self.thursday_button.setObjectName(u"thursday_button")
         self.thursday_button.setMaximumSize(QSize(93, 41))
         self.thursday_button.setFont(font2)
@@ -517,7 +523,7 @@ class Ui_homeWeek(object):
 
         self.horizontalLayout_2.addWidget(self.thursday_button)
 
-        self.friday_button = QPushButton(self.layoutWidget1)
+        self.friday_button = QPushButton(self.layoutWidget2)
         self.friday_button.setObjectName(u"friday_button")
         self.friday_button.setMaximumSize(QSize(93, 41))
         self.friday_button.setFont(font2)
@@ -536,7 +542,7 @@ class Ui_homeWeek(object):
 
         self.horizontalLayout_2.addWidget(self.friday_button)
 
-        self.saturday_button = QPushButton(self.layoutWidget1)
+        self.saturday_button = QPushButton(self.layoutWidget2)
         self.saturday_button.setObjectName(u"saturday_button")
         self.saturday_button.setMaximumSize(QSize(93, 41))
         self.saturday_button.setFont(font2)
@@ -555,7 +561,7 @@ class Ui_homeWeek(object):
 
         self.horizontalLayout_2.addWidget(self.saturday_button)
 
-        self.sunday_button = QPushButton(self.layoutWidget1)
+        self.sunday_button = QPushButton(self.layoutWidget2)
         self.sunday_button.setObjectName(u"sunday_button")
         self.sunday_button.setMaximumSize(QSize(93, 41))
         self.sunday_button.setFont(font2)
@@ -577,7 +583,7 @@ class Ui_homeWeek(object):
 
         self.horizontalLayout_3.addLayout(self.horizontalLayout_2)
 
-        self.next_button = QPushButton(self.layoutWidget1)
+        self.next_button = QPushButton(self.layoutWidget2)
         self.next_button.setObjectName(u"next_button")
         self.next_button.setMaximumSize(QSize(51, 31))
         self.next_button.setCursor(QCursor(Qt.ArrowCursor))
@@ -593,10 +599,10 @@ class Ui_homeWeek(object):
 
         self.horizontalLayout_3.addWidget(self.next_button)
 
-        self.layoutWidget2 = QWidget(homeWeek)
-        self.layoutWidget2.setObjectName(u"layoutWidget2")
-        self.layoutWidget2.setGeometry(QRect(0, 0, 2, 2))
-        self.horizontalLayout = QHBoxLayout(self.layoutWidget2)
+        self.layoutWidget3 = QWidget(homeWeek)
+        self.layoutWidget3.setObjectName(u"layoutWidget3")
+        self.layoutWidget3.setGeometry(QRect(0, 0, 2, 2))
+        self.horizontalLayout = QHBoxLayout(self.layoutWidget3)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
 
@@ -610,10 +616,10 @@ class Ui_homeWeek(object):
         self.welcomeUser.setText(QCoreApplication.translate("homeWeek", u"Welcome,", None))
         self.date.setText(QCoreApplication.translate("homeWeek", u"November 21, 2021", None))
 #if QT_CONFIG(tooltip)
-        self.homeButton.setToolTip(QCoreApplication.translate("homeWeek", u"<html><head/><body><p><br/>home</p><p><br/></p></body></html>", None))
+        self.homeButton.setToolTip("")
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(whatsthis)
-        self.homeButton.setWhatsThis(QCoreApplication.translate("homeWeek", u"<html><head/><body><p>home</p></body></html>", None))
+        self.homeButton.setWhatsThis("")
 #endif // QT_CONFIG(whatsthis)
         self.homeButton.setText("")
         self.home_label.setText(QCoreApplication.translate("homeWeek", u"     HOME", None))
@@ -624,13 +630,14 @@ class Ui_homeWeek(object):
         self.taskButton.setText("")
         self.task_label.setText(QCoreApplication.translate("homeWeek", u"     TASK", None))
         self.signOutButton.setText(QCoreApplication.translate("homeWeek", u"SIGN OUT", None))
-        self.today_label.setText(QCoreApplication.translate("homeWeek", u"Today", None))
+        self.label.setText(QCoreApplication.translate("homeWeek", u"Today", None))
         self.Today_Label.setText(QCoreApplication.translate("homeWeek", u"TASK", None))
+        self.sortButton.setText(QCoreApplication.translate("homeWeek", u"SORT", None))
 #if QT_CONFIG(tooltip)
         self.taskTray.setToolTip(QCoreApplication.translate("homeWeek", u"<html><head/><body><p>double click to edit</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.Tomorrow_Label.setText(QCoreApplication.translate("homeWeek", u"TIMETABLE", None))
-        self.sortButton.setText(QCoreApplication.translate("homeWeek", u"SORT", None))
+        self.showButton.setText(QCoreApplication.translate("homeWeek", u"SHOW COMPLETED TASKS", None))
 #if QT_CONFIG(tooltip)
         self.timeTableTray.setToolTip(QCoreApplication.translate("homeWeek", u"<html><head/><body><p>double click to edit</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
