@@ -172,7 +172,6 @@ class HomeWeek_window(QDialog):
         self.homeWeekToLogin()
 
     def showPopUp(self):
-        print(timetablelst[self.sender().currentRow()].topic)
         pop = Popup(self)
         pop.show()
 
