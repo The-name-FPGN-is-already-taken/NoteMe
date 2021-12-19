@@ -65,6 +65,7 @@ class Ui_Dialog(object):
         self.welcomeUser.setObjectName(u"welcomeUser")
         font = QFont()
         font.setFamilies([u"Tenor Sans"])
+        font.setPointSize(1)
         font.setBold(False)
         font.setItalic(False)
         self.welcomeUser.setFont(font)

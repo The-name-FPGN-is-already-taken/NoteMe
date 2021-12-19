@@ -3,15 +3,21 @@
 ################################################################################
 ## Form generated from reading UI file 'nota.ui'
 ##
-## Created by: Qt User Interface Compiler version 5.15.2
+## Created by: Qt User Interface Compiler version 6.2.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide2.QtCore import *
-from PySide2.QtGui import *
-from PySide2.QtWidgets import *
-
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QHBoxLayout,
+    QLabel, QLineEdit, QPushButton, QSizePolicy,
+    QVBoxLayout, QWidget)
 
 class Ui_loginWindowDialog(object):
     def setupUi(self, loginWindowDialog):
@@ -78,7 +84,7 @@ class Ui_loginWindowDialog(object):
         self.busyText.setSizePolicy(sizePolicy2)
         self.busyText.setMaximumSize(QSize(700, 16777215))
         font = QFont()
-        font.setFamily(u"Telugu MN")
+        font.setFamilies([u"Telugu MN"])
         font.setPointSize(16)
         self.busyText.setFont(font)
         self.busyText.setStyleSheet(u"color: rgb(255, 255, 255);\n"
@@ -114,12 +120,11 @@ class Ui_loginWindowDialog(object):
         self.nota.setObjectName(u"nota")
         self.nota.setMaximumSize(QSize(16777215, 100))
         font1 = QFont()
-        font1.setFamily(u"Telugu MN")
+        font1.setFamilies([u"Telugu MN"])
         font1.setPointSize(75)
         font1.setBold(False)
         font1.setItalic(False)
         font1.setUnderline(False)
-        font1.setWeight(50)
         font1.setStrikeOut(False)
         font1.setKerning(True)
         self.nota.setFont(font1)
@@ -137,12 +142,11 @@ class Ui_loginWindowDialog(object):
         self.powerful.setObjectName(u"powerful")
         self.powerful.setMaximumSize(QSize(16777215, 30))
         font2 = QFont()
-        font2.setFamily(u"AvenirNext LT Pro Regular")
+        font2.setFamilies([u"AvenirNext LT Pro Regular"])
         font2.setPointSize(14)
         font2.setBold(False)
         font2.setItalic(False)
         font2.setUnderline(False)
-        font2.setWeight(50)
         font2.setStrikeOut(False)
         font2.setKerning(True)
         self.powerful.setFont(font2)
@@ -176,7 +180,7 @@ class Ui_loginWindowDialog(object):
         self.loginButton.setMinimumSize(QSize(0, 0))
         self.loginButton.setMaximumSize(QSize(80, 40))
         font3 = QFont()
-        font3.setFamily(u"AvenirNext LT Pro Regular")
+        font3.setFamilies([u"AvenirNext LT Pro Regular"])
         font3.setPointSize(10)
         self.loginButton.setFont(font3)
         self.loginButton.setCursor(QCursor(Qt.PointingHandCursor))
@@ -207,7 +211,7 @@ class Ui_loginWindowDialog(object):
         self.username.setMinimumSize(QSize(220, 40))
         self.username.setMaximumSize(QSize(220, 40))
         font4 = QFont()
-        font4.setFamily(u"AvenirNext LT Pro Regular")
+        font4.setFamilies([u"AvenirNext LT Pro Regular"])
         font4.setPointSize(14)
         self.username.setFont(font4)
         self.username.setFocusPolicy(Qt.StrongFocus)
@@ -274,7 +278,7 @@ class Ui_loginWindowDialog(object):
         self.warning.setEnabled(True)
         self.warning.setGeometry(QRect(30, 120, 551, 16))
         font5 = QFont()
-        font5.setFamily(u"MS Shell Dlg 2")
+        font5.setFamilies([u"MS Shell Dlg 2"])
         self.warning.setFont(font5)
         self.warning.setStyleSheet(u"color: rgb(255, 0, 0)")
 
@@ -300,12 +304,11 @@ class Ui_loginWindowDialog(object):
         self.signupButton.setSizePolicy(sizePolicy1)
         self.signupButton.setMaximumSize(QSize(130, 55))
         font6 = QFont()
-        font6.setFamily(u"AvenirNext LT Pro Bold")
+        font6.setFamilies([u"AvenirNext LT Pro Bold"])
         font6.setPointSize(15)
         font6.setBold(False)
         font6.setItalic(False)
         font6.setUnderline(True)
-        font6.setWeight(9)
         self.signupButton.setFont(font6)
         self.signupButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.signupButton.setStyleSheet(u"QPushButton#signupButton{\n"
