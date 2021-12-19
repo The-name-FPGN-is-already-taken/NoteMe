@@ -3,22 +3,15 @@
 ################################################################################
 ## Form generated from reading UI file 'signUp_temp.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.2.1
+## Created by: Qt User Interface Compiler version 5.15.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QHBoxLayout,
-    QLabel, QLineEdit, QPushButton, QSizePolicy,
-    QVBoxLayout, QWidget)
-import loginWindowSource_rc
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
+
 
 class Ui_loginWindowDialog(object):
     def setupUi(self, loginWindowDialog):
@@ -71,14 +64,14 @@ class Ui_loginWindowDialog(object):
         self.verticalFrame.setMaximumSize(QSize(16777215, 500))
         self.verticalFrame.setStyleSheet(u"")
         self.verticalFrame.setFrameShape(QFrame.NoFrame)
-        self.widget = QWidget(self.verticalFrame)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(330, 10, 371, 471))
-        self.verticalLayout = QVBoxLayout(self.widget)
+        self.layoutWidget = QWidget(self.verticalFrame)
+        self.layoutWidget.setObjectName(u"layoutWidget")
+        self.layoutWidget.setGeometry(QRect(330, 10, 371, 471))
+        self.verticalLayout = QVBoxLayout(self.layoutWidget)
         self.verticalLayout.setSpacing(7)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.notaIconFrame = QFrame(self.widget)
+        self.notaIconFrame = QFrame(self.layoutWidget)
         self.notaIconFrame.setObjectName(u"notaIconFrame")
         sizePolicy3 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         sizePolicy3.setHorizontalStretch(0)
@@ -95,15 +88,16 @@ class Ui_loginWindowDialog(object):
 
         self.verticalLayout.addWidget(self.notaIconFrame)
 
-        self.nota = QLabel(self.widget)
+        self.nota = QLabel(self.layoutWidget)
         self.nota.setObjectName(u"nota")
         self.nota.setMaximumSize(QSize(16777215, 100))
         font = QFont()
-        font.setFamilies([u"Telugu MN"])
+        font.setFamily(u"Telugu MN")
         font.setPointSize(75)
         font.setBold(False)
         font.setItalic(False)
         font.setUnderline(False)
+        font.setWeight(50)
         font.setStrikeOut(False)
         font.setKerning(True)
         self.nota.setFont(font)
@@ -117,7 +111,7 @@ class Ui_loginWindowDialog(object):
 
         self.verticalLayout.addWidget(self.nota)
 
-        self.frame_3 = QFrame(self.widget)
+        self.frame_3 = QFrame(self.layoutWidget)
         self.frame_3.setObjectName(u"frame_3")
         self.frame_3.setFrameShape(QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QFrame.Raised)
@@ -129,7 +123,7 @@ class Ui_loginWindowDialog(object):
         self.username.setMinimumSize(QSize(220, 40))
         self.username.setMaximumSize(QSize(220, 40))
         font1 = QFont()
-        font1.setFamilies([u"AvenirNext LT Pro Regular"])
+        font1.setFamily(u"AvenirNext LT Pro Regular")
         font1.setPointSize(14)
         self.username.setFont(font1)
         self.username.setFocusPolicy(Qt.StrongFocus)
@@ -194,7 +188,7 @@ class Ui_loginWindowDialog(object):
         self.signUpButton.setMinimumSize(QSize(0, 0))
         self.signUpButton.setMaximumSize(QSize(80, 40))
         font2 = QFont()
-        font2.setFamilies([u"AvenirNext LT Pro Regular"])
+        font2.setFamily(u"AvenirNext LT Pro Regular")
         font2.setPointSize(10)
         self.signUpButton.setFont(font2)
         self.signUpButton.setCursor(QCursor(Qt.PointingHandCursor))
@@ -214,22 +208,20 @@ class Ui_loginWindowDialog(object):
 
         self.verticalLayout.addWidget(self.frame_3)
 
-        self.notaIconFrame.raise_()
-        self.nota.raise_()
-        self.widget1 = QWidget(self.mainLayout)
-        self.widget1.setObjectName(u"widget1")
-        self.widget1.setGeometry(QRect(380, 480, 321, 151))
-        self.verticalLayout_3 = QVBoxLayout(self.widget1)
+        self.layoutWidget1 = QWidget(self.mainLayout)
+        self.layoutWidget1.setObjectName(u"layoutWidget1")
+        self.layoutWidget1.setGeometry(QRect(380, 480, 321, 151))
+        self.verticalLayout_3 = QVBoxLayout(self.layoutWidget1)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.warning = QLabel(self.widget1)
+        self.warning = QLabel(self.layoutWidget1)
         self.warning.setObjectName(u"warning")
         self.warning.setStyleSheet(u"color: rgb(255, 0, 0);")
         self.warning.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_3.addWidget(self.warning)
 
-        self.horizontalFrame_4 = QFrame(self.widget1)
+        self.horizontalFrame_4 = QFrame(self.layoutWidget1)
         self.horizontalFrame_4.setObjectName(u"horizontalFrame_4")
         self.horizontalFrame_4.setMinimumSize(QSize(0, 120))
         self.horizontalFrame_4.setMaximumSize(QSize(16777215, 50))
@@ -239,7 +231,7 @@ class Ui_loginWindowDialog(object):
         self.dontHaveAnyAccountYet = QLabel(self.horizontalFrame_4)
         self.dontHaveAnyAccountYet.setObjectName(u"dontHaveAnyAccountYet")
         font3 = QFont()
-        font3.setFamilies([u"MS Shell Dlg 2"])
+        font3.setFamily(u"MS Shell Dlg 2")
         self.dontHaveAnyAccountYet.setFont(font3)
         self.dontHaveAnyAccountYet.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
@@ -251,11 +243,12 @@ class Ui_loginWindowDialog(object):
         self.signInButton.setSizePolicy(sizePolicy1)
         self.signInButton.setMaximumSize(QSize(158, 55))
         font4 = QFont()
-        font4.setFamilies([u"AvenirNext LT Pro Bold"])
+        font4.setFamily(u"AvenirNext LT Pro Bold")
         font4.setPointSize(15)
         font4.setBold(False)
         font4.setItalic(False)
         font4.setUnderline(True)
+        font4.setWeight(9)
         self.signInButton.setFont(font4)
         self.signInButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.signInButton.setStyleSheet(u"QPushButton#signInButton{\n"
@@ -284,10 +277,10 @@ class Ui_loginWindowDialog(object):
 
         self.verticalLayout_2.addWidget(self.frame)
 
-        self.widget2 = QWidget(loginWindowDialog)
-        self.widget2.setObjectName(u"widget2")
-        self.widget2.setGeometry(QRect(0, 0, 2, 2))
-        self.verticalLayout_4 = QVBoxLayout(self.widget2)
+        self.layoutWidget2 = QWidget(loginWindowDialog)
+        self.layoutWidget2.setObjectName(u"layoutWidget2")
+        self.layoutWidget2.setGeometry(QRect(0, 0, 2, 2))
+        self.verticalLayout_4 = QVBoxLayout(self.layoutWidget2)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
 

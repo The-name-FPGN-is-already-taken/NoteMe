@@ -163,7 +163,20 @@ class Sort:
     def transposition(li:list,index:int):
         if index > 0:
             li[index],li[index-1] = li[index-1],li[index]
-
+            
+    def sortTimetableNew(li,near=True):
+        for i in range(1,len(li)):
+            key = li[i]
+            j = i -1
+            if near == 1:
+                while j >= 0 and key.dateTarget < li[j].dateTarget:
+                    li[j+1] = li[j]
+                    j -= 1
+            elif near == 0:
+                while j >= 0 and key.dateTarget > li[j].dateTarget:
+                    li[j+1] = li[j]
+                    j -= 1
+            li[j+1] = key
 class Nota:
     def __init__(self) -> None:
         self.userID = -1
