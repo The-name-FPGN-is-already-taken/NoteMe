@@ -94,7 +94,7 @@ class HomeWeek_window(QDialog):
         self.noteButton.clicked.connect(self.homeWeekToNoteWindow)
         self.taskButton.clicked.connect(self.homeWeekToTaskWindow)
         self.timeTableButton.clicked.connect(self.goToTimeTableWindow)
-        self.timeTableTray.itemDoubleClicked.connect(self.showPopUp)
+        self.timeTableTray.itemDoubleClicked.connect(self.checkBeforePOP)
         self.taskTray.itemDoubleClicked.connect(self.showPopUp)
         self.showButton.clicked.connect(self.show_hide_completed_tasks)
 
@@ -171,8 +171,22 @@ class HomeWeek_window(QDialog):
         nota.logout()
         self.homeWeekToLogin()
 
+    def checkBeforePOP(self):
+        indexobj = self.sender().currentRow()
+
+        print(timetablelst[indexobj].topic, indexobj,
+              timetablelst[indexobj].finish)
+        if timetablelst[indexobj].finish == 0:
+            self.showPopUp()
+        else:
+            self.showPopUpredo()
+
     def showPopUp(self):
         pop = Popup(self)
+        pop.show()
+
+    def showPopUpredo(self):
+        pop = Popup_Redo(self)
         pop.show()
 
     def setCurrent(self):  # edit here 4:22 PM. 12/16/2021
@@ -1396,6 +1410,7 @@ class Popup_Redo(QDialog):
             self.edit.clicked.connect(self.goToAddTask)'''
 
     def RedoCompleted(self):
+        # print("""""", fromWho.objectName())
         if fromWho.objectName() in ["listWidget", "taskTray"]:
             today_tasklst[self.indextask].finish = 0
             nota.editRecord(today_tasklst[self.indextask])
@@ -1405,9 +1420,15 @@ class Popup_Redo(QDialog):
             nota.editRecord(incoming_tasklst[self.indextask])
             self.parent().refreshTable()
         elif fromWho.objectName() in ["completed_TimetableTray", "timeTableTray"]:
-            print("_>_>_>_>_>_>", completetimetablelst[self.indextask].topic)
-            # timetablelst[self.indextask].finish =1
-            nota.markCompleteTimetable(completetimetablelst[self.indextask], 0)
+            if fromWho.objectName() == "completed_TimetableTray":
+                # print("_>_>_>_>_>_>",
+                #       completetimetablelst[self.indextask].topic)
+                # timetablelst[self.indextask].finish =1
+                nota.markCompleteTimetable(
+                    completetimetablelst[self.indextask], 0)
+            elif fromWho.objectName() == "timeTableTray":
+                nota.markCompleteTimetable(timetablelst[self.indextask], 0)
+
         # markCompleteTimetableToNotFinish
 
             self.parent().refreshTable()
