@@ -451,7 +451,7 @@ p, li { white-space: pre-wrap; }
        <string>NOTENAME</string>
       </property>
      </widget>
-     <widget class="QTextEdit" name="note_description">
+     <widget class="QPlainTextEdit" name="note_description">
       <property name="geometry">
        <rect>
         <x>60</x>
