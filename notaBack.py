@@ -552,10 +552,12 @@ class Nota:
                     result.append(i)
         return result
                     
-    def getTimetableAllByDate(self,x:datetime):
-
-        result = self.getTimetableAll(x.weekday())
+    def getTimetableAllByDate(self,x:datetime,finish=True):
+        result = self.getTimetableByday(x.weekday(),finish)
         return result
+    
+    def getTimetableAllByDateCompleteAndNot(self,x:datetime):
+        return self.getTimetableAll(x.weekday())
 
 
     def markCompleteTimetable(self,obj:Record,finish=1):
