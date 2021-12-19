@@ -3,16 +3,22 @@
 ################################################################################
 ## Form generated from reading UI file 'signUp_temp.ui'
 ##
-## Created by: Qt User Interface Compiler version 5.15.2
+## Created by: Qt User Interface Compiler version 6.2.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide2.QtCore import *
-from PySide2.QtGui import *
-from PySide2.QtWidgets import *
-
-
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QHBoxLayout,
+    QLabel, QLineEdit, QPushButton, QSizePolicy,
+    QVBoxLayout, QWidget)
+import loginWindowSource_rc
 
 class Ui_loginWindowDialog(object):
     def setupUi(self, loginWindowDialog):
@@ -93,12 +99,11 @@ class Ui_loginWindowDialog(object):
         self.nota.setObjectName(u"nota")
         self.nota.setMaximumSize(QSize(16777215, 100))
         font = QFont()
-        font.setFamily(u"Telugu MN")
+        font.setFamilies([u"Telugu MN"])
         font.setPointSize(75)
         font.setBold(False)
         font.setItalic(False)
         font.setUnderline(False)
-        font.setWeight(50)
         font.setStrikeOut(False)
         font.setKerning(True)
         self.nota.setFont(font)
@@ -124,7 +129,7 @@ class Ui_loginWindowDialog(object):
         self.username.setMinimumSize(QSize(220, 40))
         self.username.setMaximumSize(QSize(220, 40))
         font1 = QFont()
-        font1.setFamily(u"AvenirNext LT Pro Regular")
+        font1.setFamilies([u"AvenirNext LT Pro Regular"])
         font1.setPointSize(14)
         self.username.setFont(font1)
         self.username.setFocusPolicy(Qt.StrongFocus)
@@ -189,7 +194,7 @@ class Ui_loginWindowDialog(object):
         self.signUpButton.setMinimumSize(QSize(0, 0))
         self.signUpButton.setMaximumSize(QSize(80, 40))
         font2 = QFont()
-        font2.setFamily(u"AvenirNext LT Pro Regular")
+        font2.setFamilies([u"AvenirNext LT Pro Regular"])
         font2.setPointSize(10)
         self.signUpButton.setFont(font2)
         self.signUpButton.setCursor(QCursor(Qt.PointingHandCursor))
@@ -234,7 +239,7 @@ class Ui_loginWindowDialog(object):
         self.dontHaveAnyAccountYet = QLabel(self.horizontalFrame_4)
         self.dontHaveAnyAccountYet.setObjectName(u"dontHaveAnyAccountYet")
         font3 = QFont()
-        font3.setFamily(u"MS Shell Dlg 2")
+        font3.setFamilies([u"MS Shell Dlg 2"])
         self.dontHaveAnyAccountYet.setFont(font3)
         self.dontHaveAnyAccountYet.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
@@ -246,12 +251,11 @@ class Ui_loginWindowDialog(object):
         self.signInButton.setSizePolicy(sizePolicy1)
         self.signInButton.setMaximumSize(QSize(158, 55))
         font4 = QFont()
-        font4.setFamily(u"AvenirNext LT Pro Bold")
+        font4.setFamilies([u"AvenirNext LT Pro Bold"])
         font4.setPointSize(15)
         font4.setBold(False)
         font4.setItalic(False)
         font4.setUnderline(True)
-        font4.setWeight(9)
         self.signInButton.setFont(font4)
         self.signInButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.signInButton.setStyleSheet(u"QPushButton#signInButton{\n"

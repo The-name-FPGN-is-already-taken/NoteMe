@@ -280,7 +280,7 @@ class Ui_homeCal(object):
         self.noteName_textEdit.setStyleSheet(u"background: rgba(0,0,0,0);\n"
 "")
         self.noteName_textEdit.setTabStopWidth(80)
-        self.note_description = QPlainTextEdit(self.frame)
+        self.note_description = QTextEdit(self.frame)
         self.note_description.setObjectName(u"note_description")
         self.note_description.setGeometry(QRect(60, 80, 711, 301))
         self.line = QFrame(self.frame)

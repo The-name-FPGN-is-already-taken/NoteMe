@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'nota.ui'
+## Form generated from reading UI file 'nut.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.1
 ##
@@ -15,36 +15,31 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QHBoxLayout,
-    QLabel, QLineEdit, QPushButton, QSizePolicy,
-    QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
+    QLineEdit, QMainWindow, QPushButton, QSizePolicy,
+    QSpacerItem, QVBoxLayout, QWidget)
+import imageteest_rc
 
-class Ui_loginWindowDialog(object):
-    def setupUi(self, loginWindowDialog):
-        if not loginWindowDialog.objectName():
-            loginWindowDialog.setObjectName(u"loginWindowDialog")
-        loginWindowDialog.resize(1024, 640)
-        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        if not MainWindow.objectName():
+            MainWindow.setObjectName(u"MainWindow")
+        MainWindow.resize(974, 604)
+        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(loginWindowDialog.sizePolicy().hasHeightForWidth())
-        loginWindowDialog.setSizePolicy(sizePolicy)
-        loginWindowDialog.setMinimumSize(QSize(1024, 640))
-        loginWindowDialog.setMaximumSize(QSize(1920, 1080))
-        self.centralwidget = QWidget(loginWindowDialog)
+        sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
+        MainWindow.setSizePolicy(sizePolicy)
+        self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setEnabled(True)
-        self.centralwidget.setGeometry(QRect(0, 0, 1031, 641))
         self.verticalLayout_2 = QVBoxLayout(self.centralwidget)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.frame = QFrame(self.centralwidget)
         self.frame.setObjectName(u"frame")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.frame.sizePolicy().hasHeightForWidth())
-        self.frame.setSizePolicy(sizePolicy1)
+        sizePolicy.setHeightForWidth(self.frame.sizePolicy().hasHeightForWidth())
+        self.frame.setSizePolicy(sizePolicy)
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
         self.frame.setLineWidth(0)
@@ -54,43 +49,61 @@ class Ui_loginWindowDialog(object):
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.leftLayout = QFrame(self.frame)
         self.leftLayout.setObjectName(u"leftLayout")
-        sizePolicy1.setHeightForWidth(self.leftLayout.sizePolicy().hasHeightForWidth())
-        self.leftLayout.setSizePolicy(sizePolicy1)
+        sizePolicy.setHeightForWidth(self.leftLayout.sizePolicy().hasHeightForWidth())
+        self.leftLayout.setSizePolicy(sizePolicy)
         self.leftLayout.setMinimumSize(QSize(320, 0))
         self.leftLayout.setMaximumSize(QSize(320, 16777215))
         self.leftLayout.setStyleSheet(u"background-color: rgb(130, 164, 118);")
         self.leftLayout.setFrameShape(QFrame.StyledPanel)
         self.leftLayout.setFrameShadow(QFrame.Raised)
         self.leftLayout.setLineWidth(0)
+        self.verticalLayout = QVBoxLayout(self.leftLayout)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.frame_2 = QFrame(self.leftLayout)
         self.frame_2.setObjectName(u"frame_2")
-        self.frame_2.setGeometry(QRect(40, 0, 241, 251))
-        sizePolicy2 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.frame_2.sizePolicy().hasHeightForWidth())
-        self.frame_2.setSizePolicy(sizePolicy2)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.frame_2.sizePolicy().hasHeightForWidth())
+        self.frame_2.setSizePolicy(sizePolicy1)
         self.frame_2.setMinimumSize(QSize(200, 200))
-        self.frame_2.setStyleSheet(u"image: url(D:/NotaProject/pics/notaKung.png);\n"
+        self.frame_2.setStyleSheet(u"image: url(:/test/imageStartmenu/notaKung.png);\n"
 "border: none;\n"
 "padding-right: 30px;")
         self.frame_2.setFrameShape(QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QFrame.Raised)
         self.frame_2.setLineWidth(0)
+
+        self.horizontalLayout_2.addWidget(self.frame_2)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout_2)
+
+        self.horizontalLayout_5 = QHBoxLayout()
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
         self.busyText = QLabel(self.leftLayout)
         self.busyText.setObjectName(u"busyText")
-        self.busyText.setGeometry(QRect(10, 500, 271, 101))
-        sizePolicy2.setHeightForWidth(self.busyText.sizePolicy().hasHeightForWidth())
-        self.busyText.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.busyText.sizePolicy().hasHeightForWidth())
+        self.busyText.setSizePolicy(sizePolicy1)
         self.busyText.setMaximumSize(QSize(700, 16777215))
         font = QFont()
         font.setFamilies([u"Telugu MN"])
-        font.setPointSize(16)
+        font.setPointSize(21)
         self.busyText.setFont(font)
         self.busyText.setStyleSheet(u"color: rgb(255, 255, 255);\n"
 "padding-left: 35px;\n"
+"padding-top: 150px;\n"
 "\n"
 "")
+
+        self.horizontalLayout_5.addWidget(self.busyText)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout_5)
+
 
         self.horizontalLayout.addWidget(self.leftLayout)
 
@@ -106,11 +119,11 @@ class Ui_loginWindowDialog(object):
         self.verticalLayout_3.setContentsMargins(15, 0, 15, 0)
         self.verticalFrame = QFrame(self.rightLayout)
         self.verticalFrame.setObjectName(u"verticalFrame")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Preferred)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.verticalFrame.sizePolicy().hasHeightForWidth())
-        self.verticalFrame.setSizePolicy(sizePolicy3)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Preferred)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.verticalFrame.sizePolicy().hasHeightForWidth())
+        self.verticalFrame.setSizePolicy(sizePolicy2)
         self.verticalFrame.setMaximumSize(QSize(16777215, 140))
         self.verticalFrame.setStyleSheet(u"")
         self.verticalFrame.setFrameShape(QFrame.NoFrame)
@@ -121,7 +134,7 @@ class Ui_loginWindowDialog(object):
         self.nota.setMaximumSize(QSize(16777215, 100))
         font1 = QFont()
         font1.setFamilies([u"Telugu MN"])
-        font1.setPointSize(75)
+        font1.setPointSize(100)
         font1.setBold(False)
         font1.setItalic(False)
         font1.setUnderline(False)
@@ -142,8 +155,8 @@ class Ui_loginWindowDialog(object):
         self.powerful.setObjectName(u"powerful")
         self.powerful.setMaximumSize(QSize(16777215, 30))
         font2 = QFont()
-        font2.setFamilies([u"AvenirNext LT Pro Regular"])
-        font2.setPointSize(14)
+        font2.setFamilies([u"Avenir Next"])
+        font2.setPointSize(18)
         font2.setBold(False)
         font2.setItalic(False)
         font2.setUnderline(False)
@@ -167,53 +180,22 @@ class Ui_loginWindowDialog(object):
         self.verticalFrame_2 = QFrame(self.rightLayout)
         self.verticalFrame_2.setObjectName(u"verticalFrame_2")
         self.verticalFrame_2.setMaximumSize(QSize(9999, 150))
-        self.frame_3 = QFrame(self.verticalFrame_2)
-        self.frame_3.setObjectName(u"frame_3")
-        self.frame_3.setGeometry(QRect(0, 0, 562, 111))
-        self.frame_3.setFrameShape(QFrame.StyledPanel)
-        self.frame_3.setFrameShadow(QFrame.Raised)
-        self.loginButton = QPushButton(self.frame_3)
-        self.loginButton.setObjectName(u"loginButton")
-        self.loginButton.setGeometry(QRect(270, 30, 80, 40))
-        sizePolicy1.setHeightForWidth(self.loginButton.sizePolicy().hasHeightForWidth())
-        self.loginButton.setSizePolicy(sizePolicy1)
-        self.loginButton.setMinimumSize(QSize(0, 0))
-        self.loginButton.setMaximumSize(QSize(80, 40))
-        font3 = QFont()
-        font3.setFamilies([u"AvenirNext LT Pro Regular"])
-        font3.setPointSize(10)
-        self.loginButton.setFont(font3)
-        self.loginButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.loginButton.setStyleSheet(u"QPushButton#loginButton{\n"
-"   background-color: rgb(148, 194, 130);\n"
-"	border-radius: 20px;\n"
-"}\n"
-"\n"
-"QPushButton:hover#loginButton{\n"
-"   background-color: rgb(148, 194, 130);\n"
-"	border-radius: 20px;\n"
-"	color: rgb(255, 255, 255);\n"
-"	font: 75 10pt \"AvenirNext LT Pro Bold\";\n"
-"	\n"
-"}")
-        self.loginButton.setIconSize(QSize(20, 20))
-        self.loginButton.setAutoDefault(False)
-        self.widget = QWidget(self.frame_3)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(20, 10, 222, 89))
-        self.verticalLayout = QVBoxLayout(self.widget)
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.username = QLineEdit(self.widget)
+        self.horizontalLayout_12 = QHBoxLayout(self.verticalFrame_2)
+        self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
+        self.horizontalLayout_12.setContentsMargins(100, -1, -1, -1)
+        self.verticalFrame_3 = QFrame(self.verticalFrame_2)
+        self.verticalFrame_3.setObjectName(u"verticalFrame_3")
+        self.verticalLayout_9 = QVBoxLayout(self.verticalFrame_3)
+        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
+        self.verticalLayout_9.setContentsMargins(220, -1, 1, -1)
+        self.username = QLineEdit(self.verticalFrame_3)
         self.username.setObjectName(u"username")
         sizePolicy.setHeightForWidth(self.username.sizePolicy().hasHeightForWidth())
         self.username.setSizePolicy(sizePolicy)
-        self.username.setMinimumSize(QSize(220, 40))
-        self.username.setMaximumSize(QSize(220, 40))
-        font4 = QFont()
-        font4.setFamilies([u"AvenirNext LT Pro Regular"])
-        font4.setPointSize(14)
-        self.username.setFont(font4)
+        self.username.setMaximumSize(QSize(200, 40))
+        font3 = QFont()
+        font3.setPointSize(14)
+        self.username.setFont(font3)
         self.username.setFocusPolicy(Qt.StrongFocus)
         self.username.setStyleSheet(u"QLineEdit#username{\n"
 "background-color: rgb(241, 241, 241);\n"
@@ -238,15 +220,14 @@ class Ui_loginWindowDialog(object):
         self.username.setMaxLength(16)
         self.username.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
-        self.verticalLayout.addWidget(self.username)
+        self.verticalLayout_9.addWidget(self.username)
 
-        self.userPassword = QLineEdit(self.widget)
+        self.userPassword = QLineEdit(self.verticalFrame_3)
         self.userPassword.setObjectName(u"userPassword")
         sizePolicy.setHeightForWidth(self.userPassword.sizePolicy().hasHeightForWidth())
         self.userPassword.setSizePolicy(sizePolicy)
-        self.userPassword.setMinimumSize(QSize(220, 40))
-        self.userPassword.setMaximumSize(QSize(220, 40))
-        self.userPassword.setFont(font4)
+        self.userPassword.setMaximumSize(QSize(200, 40))
+        self.userPassword.setFont(font3)
         self.userPassword.setFocusPolicy(Qt.StrongFocus)
         self.userPassword.setStyleSheet(u"QLineEdit#userPassword{\n"
 "background-color: rgb(241, 241, 241);\n"
@@ -269,18 +250,38 @@ class Ui_loginWindowDialog(object):
 "\n"
 "}")
         self.userPassword.setMaxLength(16)
-        self.userPassword.setEchoMode(QLineEdit.Password)
+        self.userPassword.setEchoMode(QLineEdit.PasswordEchoOnEdit)
 
-        self.verticalLayout.addWidget(self.userPassword)
+        self.verticalLayout_9.addWidget(self.userPassword)
 
-        self.warning = QLabel(self.verticalFrame_2)
-        self.warning.setObjectName(u"warning")
-        self.warning.setEnabled(True)
-        self.warning.setGeometry(QRect(30, 120, 551, 16))
-        font5 = QFont()
-        font5.setFamilies([u"MS Shell Dlg 2"])
-        self.warning.setFont(font5)
-        self.warning.setStyleSheet(u"color: rgb(255, 0, 0)")
+
+        self.horizontalLayout_12.addWidget(self.verticalFrame_3)
+
+        self.loginButton = QPushButton(self.verticalFrame_2)
+        self.loginButton.setObjectName(u"loginButton")
+        sizePolicy.setHeightForWidth(self.loginButton.sizePolicy().hasHeightForWidth())
+        self.loginButton.setSizePolicy(sizePolicy)
+        self.loginButton.setMinimumSize(QSize(0, 0))
+        self.loginButton.setMaximumSize(QSize(80, 40))
+        font4 = QFont()
+        font4.setFamilies([u"Avenir Next"])
+        font4.setPointSize(13)
+        self.loginButton.setFont(font4)
+        self.loginButton.setStyleSheet(u"QPushButton#loginButton{\n"
+"   background-color: rgb(148, 194, 130);\n"
+"	border-radius: 20px;\n"
+"}\n"
+"\n"
+"QPushButton:hover#loginButton{\n"
+"   background-color: rgb(148, 194, 130);\n"
+"	border-radius: 20px;\n"
+"	color: rgb(255, 255, 255);\n"
+" 	font: 14pt\n"
+"}")
+        self.loginButton.setAutoDefault(False)
+
+        self.horizontalLayout_12.addWidget(self.loginButton)
+
 
         self.verticalLayout_3.addWidget(self.verticalFrame_2)
 
@@ -291,38 +292,43 @@ class Ui_loginWindowDialog(object):
         self.horizontalLayout_7 = QHBoxLayout(self.horizontalFrame_3)
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.horizontalLayout_7.setContentsMargins(1, 20, -1, -1)
-        self.dontHaveAnyAccountYet = QLabel(self.horizontalFrame_3)
-        self.dontHaveAnyAccountYet.setObjectName(u"dontHaveAnyAccountYet")
-        self.dontHaveAnyAccountYet.setFont(font5)
-        self.dontHaveAnyAccountYet.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.powerful_2 = QLabel(self.horizontalFrame_3)
+        self.powerful_2.setObjectName(u"powerful_2")
+        self.powerful_2.setMinimumSize(QSize(0, 100))
+        font5 = QFont()
+        font5.setFamilies([u"Avenir Next"])
+        font5.setPointSize(18)
+        font5.setBold(False)
+        font5.setItalic(True)
+        font5.setUnderline(False)
+        font5.setStrikeOut(False)
+        font5.setKerning(True)
+        self.powerful_2.setFont(font5)
+        self.powerful_2.setStyleSheet(u"color: rgb(150, 195, 131);")
+        self.powerful_2.setTextFormat(Qt.AutoText)
+        self.powerful_2.setScaledContents(False)
+        self.powerful_2.setWordWrap(False)
 
-        self.horizontalLayout_7.addWidget(self.dontHaveAnyAccountYet)
+        self.horizontalLayout_7.addWidget(self.powerful_2)
 
         self.signupButton = QPushButton(self.horizontalFrame_3)
         self.signupButton.setObjectName(u"signupButton")
-        sizePolicy1.setHeightForWidth(self.signupButton.sizePolicy().hasHeightForWidth())
-        self.signupButton.setSizePolicy(sizePolicy1)
-        self.signupButton.setMaximumSize(QSize(130, 55))
+        sizePolicy.setHeightForWidth(self.signupButton.sizePolicy().hasHeightForWidth())
+        self.signupButton.setSizePolicy(sizePolicy)
+        self.signupButton.setMaximumSize(QSize(80, 40))
         font6 = QFont()
-        font6.setFamilies([u"AvenirNext LT Pro Bold"])
-        font6.setPointSize(15)
-        font6.setBold(False)
-        font6.setItalic(False)
-        font6.setUnderline(True)
+        font6.setFamilies([u"Avenir Next"])
         self.signupButton.setFont(font6)
-        self.signupButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.signupButton.setStyleSheet(u"QPushButton#signupButton{\n"
-"   background-color:rgb(255, 255, 244);\n"
-"	text-decoration: underline;\n"
-"	font: 75 15pt \"AvenirNext LT Pro Bold\";\n"
+"   background-color: rgb(148, 194, 130);\n"
 "	border-radius: 20px;\n"
 "}\n"
 "\n"
 "QPushButton:hover#signupButton{\n"
-"   background-color: rgb(255, 255, 244);\n"
+"   background-color: rgb(148, 194, 130);\n"
 "	border-radius: 20px;\n"
-"	color: rgb(145, 191, 127);\n"
-"	font: 75 15pt \"AvenirNext LT Pro Bold\";\n"
+"	color: rgb(255, 255, 255);\n"
+" 	font: 14pt\n"
 "}")
         self.signupButton.setAutoDefault(False)
 
@@ -331,29 +337,33 @@ class Ui_loginWindowDialog(object):
 
         self.verticalLayout_3.addWidget(self.horizontalFrame_3)
 
+        self.verticalSpacer = QSpacerItem(20, 10, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.verticalLayout_3.addItem(self.verticalSpacer)
+
 
         self.horizontalLayout.addWidget(self.rightLayout)
 
 
         self.verticalLayout_2.addWidget(self.frame)
 
+        MainWindow.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(loginWindowDialog)
+        self.retranslateUi(MainWindow)
 
-        QMetaObject.connectSlotsByName(loginWindowDialog)
+        QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
-    def retranslateUi(self, loginWindowDialog):
-        loginWindowDialog.setWindowTitle(QCoreApplication.translate("loginWindowDialog", u"Nota", None))
-        self.busyText.setText(QCoreApplication.translate("loginWindowDialog", u"DON'T BE BUSY \n"
+    def retranslateUi(self, MainWindow):
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Nota", None))
+        self.busyText.setText(QCoreApplication.translate("MainWindow", u"DON'T BE BUSY \n"
 "BE PRODUCTIVE", None))
-        self.nota.setText(QCoreApplication.translate("loginWindowDialog", u"Nota", None))
-        self.powerful.setText(QCoreApplication.translate("loginWindowDialog", u"        powerful assistant to help you better manage your time.", None))
-        self.loginButton.setText(QCoreApplication.translate("loginWindowDialog", u"SIGN IN", None))
-        self.username.setPlaceholderText(QCoreApplication.translate("loginWindowDialog", u"Username", None))
-        self.userPassword.setPlaceholderText(QCoreApplication.translate("loginWindowDialog", u"Password", None))
-        self.warning.setText(QCoreApplication.translate("loginWindowDialog", u"Sign in failed. The username or password you entered is incorrect. Please try again.", None))
-        self.dontHaveAnyAccountYet.setText(QCoreApplication.translate("loginWindowDialog", u"DON'T HAVE ANY ACCOUNT YET ?", None))
-        self.signupButton.setText(QCoreApplication.translate("loginWindowDialog", u"SIGN UP", None))
+        self.nota.setText(QCoreApplication.translate("MainWindow", u"Nota", None))
+        self.powerful.setText(QCoreApplication.translate("MainWindow", u"        powerful assistant to help you better manage your time.", None))
+        self.username.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Username", None))
+        self.userPassword.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Password", None))
+        self.loginButton.setText(QCoreApplication.translate("MainWindow", u"LOGIN", None))
+        self.powerful_2.setText(QCoreApplication.translate("MainWindow", u"2021, FPGN team. CE KMITL 59", None))
+        self.signupButton.setText(QCoreApplication.translate("MainWindow", u"SIGN UP", None))
     # retranslateUi
 
