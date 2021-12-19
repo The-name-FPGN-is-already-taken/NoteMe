@@ -867,8 +867,8 @@ class AddTaskWindow(QDialog):
 
 class TimeTable_window(QDialog):
     def __init__(self):
-        global checkbox
-        checkbox = [True, True, True, True, True, True, True]
+        # global checkbox
+        # checkbox = [True, True, True, True, True, True, True]
         super(TimeTable_window, self).__init__()
         loadUi("timetable.ui", self)
         self.addTimeTableButton.clicked.connect(self.goToAddTimeTable)
@@ -1069,12 +1069,16 @@ class AddTimeTableWindow(QDialog):
             self.timetable_Edittime.setTime(time(int(a), int(b)))
             self.timetabletitleName_textEdit.setPlainText(
                 timetablelst[self.indexTimetable].topic)
-
             # self.timetable_description.setPlainText(
             #     timetablelst[self.indexTimetable].description)
             self.timetable_description.setPlainText(
                 timetablelst[self.indexTimetable].description.replace("\\n", '\n'))
-
+            dayListInRecord = nota.getDayFromTimetableID(timetablelst[self.indexTimetable])
+            for i in range(len(self.checkBox)):
+                if i in dayListInRecord:
+                    self.checkBox[i] = False
+                    self.listDayButton[i].setStyleSheet(
+                    'QPushButton {background: #FFAC4B; color: white; border-radius: 8px; }')
             self.saveTimetableButton.disconnect()
             self.saveTimetableButton.clicked.connect(self.saveTimetable)
             self.saveTimetableButton.setText("SAVE")
@@ -1105,16 +1109,26 @@ class AddTimeTableWindow(QDialog):
 
         a = self.timetable_Edittime.dateTime().toPyDateTime()
         timetablelst[self.indexTimetable].dateTarget = a
-        global checkbox
         l=list()
         for i in range(len(self.checkBox)):
             if self.checkBox[i] == False:
                 l.append(i)
-        nota.editTimetable(timetablelst[self.indexTimetable],l)
-        if fromWho.objectName() in ["today_TimetableTray", "completed_TimetableTray"]:
-            self.goToTimeTableWindow()
+        flag = False
+        for i in self.checkBox:
+            if i == False:  # ถ้ามีการกดปุ่ม flagเป็น True
+                flag = True
+        if self.timetabletitleName_textEdit.toPlainText() == "" or not flag:
+            self.warning.setVisible(True)
+            if self.timetabletitleName_textEdit.toPlainText() == "":
+                self.warning.setText("Please fill in task name!!!")
+            if not flag:
+                self.warning.setText("Please choose at least one day!!")
         else:
-            self.goToHomeWeek()
+            nota.editTimetable(timetablelst[self.indexTimetable],l)
+            if fromWho.objectName() in ["today_TimetableTray", "completed_TimetableTray"]:
+                self.goToTimeTableWindow()
+            else:
+                self.goToHomeWeek()
 
     def addTimetable(self):
         time = self.timetable_Edittime.dateTime()
