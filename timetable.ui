@@ -453,8 +453,8 @@ border-radius: 15px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: #E4E2C7;
-border-radius: 10px;
+     <string notr="true">border-radius: 10px;
+background: #E4E2C7;
 </string>
     </property>
     <property name="frameShape">
