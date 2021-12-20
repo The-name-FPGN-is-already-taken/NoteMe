@@ -98,7 +98,7 @@ border-radius: 35px;
        <property name="font">
         <font>
          <family>Tenor Sans</family>
-         <pointsize>1</pointsize>
+         <pointsize>-1</pointsize>
          <weight>50</weight>
          <italic>false</italic>
          <bold>false</bold>
@@ -507,7 +507,16 @@ border-radius: 10px;
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">background: #FEFAE0;</string>
+           <string notr="true">QListWidget{
+    border-radius: 10px;
+    background-color: rgb(254, 250, 224);
+}
+QScrollBar:vertical {
+     border: 0.5px solid grey;
+     background: #94b289;
+     width: 20px;
+    
+ }</string>
           </property>
          </widget>
         </item>
@@ -551,7 +560,16 @@ border-radius: 10px;
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">background: #FEFAE0;</string>
+           <string notr="true">QListWidget{
+    border-radius: 10px;
+    background-color: rgb(254, 250, 224);
+}
+QScrollBar:vertical {
+     border: 0.5px solid grey;
+     background: #94b289;
+     width: 20px;
+    
+ }</string>
           </property>
          </widget>
         </item>

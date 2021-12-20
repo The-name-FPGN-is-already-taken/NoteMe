@@ -112,7 +112,7 @@ border-radius: 35px;
         <property name="font">
          <font>
           <family>Tenor Sans</family>
-          <pointsize>1</pointsize>
+          <pointsize>-1</pointsize>
           <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
@@ -543,7 +543,17 @@ QPushButton:hover#sortButton{
              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;double click to edit&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(254, 250, 224);</string>
+             <string notr="true">
+QListWidget{
+    border-radius: 10px;
+    background-color: rgb(254, 250, 224);
+}
+QScrollBar:vertical {
+     border: 0.5px solid grey;
+     background: #94b289;
+     width: 20px;
+    
+ }</string>
             </property>
            </widget>
           </item>
@@ -610,7 +620,7 @@ QPushButton:hover#showButton{
              <string notr="true">background: #84B289;</string>
             </property>
             <property name="text">
-             <string>  NAME                                                              TIME</string>
+             <string>  NAME                                                          TIME</string>
             </property>
            </widget>
           </item>
@@ -626,7 +636,16 @@ QPushButton:hover#showButton{
              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;double click to edit&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(254, 250, 224);</string>
+             <string notr="true">QListWidget{
+    border-radius: 10px;
+    background-color: rgb(254, 250, 224);
+}
+QScrollBar:vertical {
+     border: 0.5px solid grey;
+     background: #94b289;
+     width: 20px;
+    
+ }</string>
             </property>
            </widget>
           </item>
