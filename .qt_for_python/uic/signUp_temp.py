@@ -12,7 +12,6 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
-import loginWindowSource_rc
 
 class Ui_loginWindowDialog(object):
     def setupUi(self, loginWindowDialog):
@@ -65,14 +64,14 @@ class Ui_loginWindowDialog(object):
         self.verticalFrame.setMaximumSize(QSize(16777215, 500))
         self.verticalFrame.setStyleSheet(u"")
         self.verticalFrame.setFrameShape(QFrame.NoFrame)
-        self.widget = QWidget(self.verticalFrame)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(330, 10, 371, 471))
-        self.verticalLayout = QVBoxLayout(self.widget)
+        self.layoutWidget = QWidget(self.verticalFrame)
+        self.layoutWidget.setObjectName(u"layoutWidget")
+        self.layoutWidget.setGeometry(QRect(330, 10, 371, 471))
+        self.verticalLayout = QVBoxLayout(self.layoutWidget)
         self.verticalLayout.setSpacing(7)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.notaIconFrame = QFrame(self.widget)
+        self.notaIconFrame = QFrame(self.layoutWidget)
         self.notaIconFrame.setObjectName(u"notaIconFrame")
         sizePolicy3 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         sizePolicy3.setHorizontalStretch(0)
@@ -89,7 +88,7 @@ class Ui_loginWindowDialog(object):
 
         self.verticalLayout.addWidget(self.notaIconFrame)
 
-        self.nota = QLabel(self.widget)
+        self.nota = QLabel(self.layoutWidget)
         self.nota.setObjectName(u"nota")
         self.nota.setMaximumSize(QSize(16777215, 100))
         font = QFont()
@@ -112,7 +111,7 @@ class Ui_loginWindowDialog(object):
 
         self.verticalLayout.addWidget(self.nota)
 
-        self.frame_3 = QFrame(self.widget)
+        self.frame_3 = QFrame(self.layoutWidget)
         self.frame_3.setObjectName(u"frame_3")
         self.frame_3.setFrameShape(QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QFrame.Raised)
@@ -148,7 +147,7 @@ class Ui_loginWindowDialog(object):
 "outline: none;\n"
 "\n"
 "}")
-        self.username.setMaxLength(16)
+        self.username.setMaxLength(12)
         self.username.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.userPassword = QLineEdit(self.frame_3)
         self.userPassword.setObjectName(u"userPassword")
@@ -179,7 +178,7 @@ class Ui_loginWindowDialog(object):
 "outline: none;\n"
 "\n"
 "}")
-        self.userPassword.setMaxLength(16)
+        self.userPassword.setMaxLength(8)
         self.userPassword.setEchoMode(QLineEdit.Normal)
         self.signUpButton = QPushButton(self.frame_3)
         self.signUpButton.setObjectName(u"signUpButton")
@@ -209,22 +208,20 @@ class Ui_loginWindowDialog(object):
 
         self.verticalLayout.addWidget(self.frame_3)
 
-        self.notaIconFrame.raise_()
-        self.nota.raise_()
-        self.widget1 = QWidget(self.mainLayout)
-        self.widget1.setObjectName(u"widget1")
-        self.widget1.setGeometry(QRect(380, 480, 321, 151))
-        self.verticalLayout_3 = QVBoxLayout(self.widget1)
+        self.layoutWidget1 = QWidget(self.mainLayout)
+        self.layoutWidget1.setObjectName(u"layoutWidget1")
+        self.layoutWidget1.setGeometry(QRect(380, 480, 321, 151))
+        self.verticalLayout_3 = QVBoxLayout(self.layoutWidget1)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.warning = QLabel(self.widget1)
+        self.warning = QLabel(self.layoutWidget1)
         self.warning.setObjectName(u"warning")
         self.warning.setStyleSheet(u"color: rgb(255, 0, 0);")
         self.warning.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_3.addWidget(self.warning)
 
-        self.horizontalFrame_4 = QFrame(self.widget1)
+        self.horizontalFrame_4 = QFrame(self.layoutWidget1)
         self.horizontalFrame_4.setObjectName(u"horizontalFrame_4")
         self.horizontalFrame_4.setMinimumSize(QSize(0, 120))
         self.horizontalFrame_4.setMaximumSize(QSize(16777215, 50))
@@ -280,10 +277,10 @@ class Ui_loginWindowDialog(object):
 
         self.verticalLayout_2.addWidget(self.frame)
 
-        self.widget2 = QWidget(loginWindowDialog)
-        self.widget2.setObjectName(u"widget2")
-        self.widget2.setGeometry(QRect(0, 0, 2, 2))
-        self.verticalLayout_4 = QVBoxLayout(self.widget2)
+        self.layoutWidget2 = QWidget(loginWindowDialog)
+        self.layoutWidget2.setObjectName(u"layoutWidget2")
+        self.layoutWidget2.setGeometry(QRect(0, 0, 2, 2))
+        self.verticalLayout_4 = QVBoxLayout(self.layoutWidget2)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
 

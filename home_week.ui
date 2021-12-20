@@ -108,7 +108,7 @@ border-radius: 35px;
         <property name="font">
          <font>
           <family>Tenor Sans</family>
-          <pointsize>-1</pointsize>
+          <pointsize>1</pointsize>
           <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
@@ -410,9 +410,9 @@ background: #84B289;</string>
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>80</y>
+       <y>100</y>
        <width>871</width>
-       <height>441</height>
+       <height>421</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -430,53 +430,16 @@ border-radius: 10px;</string>
         <x>0</x>
         <y>0</y>
         <width>871</width>
-        <height>441</height>
+        <height>421</height>
        </rect>
       </property>
-      <widget class="QFrame" name="today_container">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>871</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
-       </property>
-       <widget class="QLabel" name="label">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>161</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>AvenirNext LT Pro Bold</family>
-          <pointsize>12</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Today</string>
-        </property>
-       </widget>
-      </widget>
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>20</y>
+         <y>1</y>
          <width>871</width>
-         <height>412</height>
+         <height>431</height>
         </rect>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -553,6 +516,16 @@ QPushButton:hover#sortButton{
              </widget>
             </item>
            </layout>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="styleSheet">
+             <string notr="true">background: #84B289;</string>
+            </property>
+            <property name="text">
+             <string>  NAME                                     DATE                 TIME</string>
+            </property>
+           </widget>
           </item>
           <item>
            <widget class="QListWidget" name="taskTray">
@@ -638,6 +611,16 @@ QPushButton:hover#showButton{
            </layout>
           </item>
           <item>
+           <widget class="QLabel" name="label_3">
+            <property name="styleSheet">
+             <string notr="true">background: #84B289;</string>
+            </property>
+            <property name="text">
+             <string>  NAME                                                              TIME</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QListWidget" name="timeTableTray">
             <property name="maximumSize">
              <size>
@@ -672,7 +655,7 @@ QScrollBar:vertical {
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>20</y>
+       <y>0</y>
        <width>871</width>
        <height>61</height>
       </rect>
@@ -981,6 +964,43 @@ border-radius: 15px;</string>
       </item>
      </layout>
     </widget>
+    <widget class="QFrame" name="today_container">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>60</y>
+       <width>871</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>261</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>AvenirNext LT Pro Bold</family>
+        <pointsize>18</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Today</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QWidget" name="layoutWidget">
@@ -993,6 +1013,17 @@ border-radius: 15px;</string>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout"/>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>2</width>
+     <height>2</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_10"/>
   </widget>
  </widget>
  <resources/>

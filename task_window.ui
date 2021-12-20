@@ -126,7 +126,7 @@ border-radius: 35px;
         <property name="font">
          <font>
           <family>Tenor Sans</family>
-          <pointsize>-1</pointsize>
+          <pointsize>1</pointsize>
           <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
@@ -207,7 +207,7 @@ background: #84B289;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">
+      <string notr="true">border-radius: 10px;
 
 background: #E4E2C7;
 </string>
@@ -237,10 +237,10 @@ background: #E4E2C7;
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>62</x>
-        <y>31</y>
-        <width>755</width>
-        <height>442</height>
+        <x>60</x>
+        <y>30</y>
+        <width>751</width>
+        <height>421</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -252,7 +252,7 @@ background: #E4E2C7;
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_2">
            <property name="spacing">
-            <number>7</number>
+            <number>90</number>
            </property>
            <item>
             <widget class="QLabel" name="Today_Label">
@@ -265,7 +265,7 @@ background: #E4E2C7;
              <property name="maximumSize">
               <size>
                <width>100</width>
-               <height>20</height>
+               <height>28</height>
               </size>
              </property>
              <property name="styleSheet">
@@ -276,16 +276,6 @@ background: #E4E2C7;
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QFrame" name="frame_3">
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
              </property>
             </widget>
            </item>
@@ -322,38 +312,13 @@ QPushButton:hover#showButton{
           </layout>
          </item>
          <item>
-          <widget class="QFrame" name="frame_7">
-           <property name="styleSheet">
-            <string notr="true">width: 763px;
-height: 456px;
-left: 60px;
-top: 30px;
-
-background: #E4E2C7;
-</string>
-           </property>
+          <widget class="QFrame" name="frame_3">
            <property name="frameShape">
-            <enum>QFrame::NoFrame</enum>
+            <enum>QFrame::StyledPanel</enum>
            </property>
            <property name="frameShadow">
             <enum>QFrame::Raised</enum>
            </property>
-           <widget class="QFrame" name="frame_11">
-            <property name="geometry">
-             <rect>
-              <x>151</x>
-              <y>33</y>
-              <width>16</width>
-              <height>28</height>
-             </rect>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-           </widget>
           </widget>
          </item>
          <item>
@@ -362,7 +327,7 @@ background: #E4E2C7;
             <string notr="true">background: #84B289;</string>
            </property>
            <property name="text">
-            <string>  TASK                                           TIME</string>
+            <string>  NAME                                           TIME</string>
            </property>
           </widget>
          </item>
@@ -502,7 +467,7 @@ background: #E4E2C7;
             <string notr="true">background: #84B289;</string>
            </property>
            <property name="text">
-            <string>  TASK                                     DATE              TIME</string>
+            <string>  NAME                                     DATE              TIME</string>
            </property>
           </widget>
          </item>

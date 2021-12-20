@@ -71,7 +71,6 @@ class Ui_homeCal(object):
         self.welcomeUser.setObjectName(u"welcomeUser")
         font = QFont()
         font.setFamily(u"Tenor Sans")
-
         font.setPointSize(1)
         font.setBold(False)
         font.setItalic(False)
@@ -114,23 +113,14 @@ class Ui_homeCal(object):
         self.frame_5 = QFrame(self.backFrame)
         self.frame_5.setObjectName(u"frame_5")
         self.frame_5.setGeometry(QRect(90, 100, 941, 541))
-        self.frame_5.setStyleSheet(u"position: absolute;\n"
-"width: 1024px;\n"
-"height: 640px;\n"
-"left: 0px;\n"
-"top: 0px;\n"
-"\n"
+        self.frame_5.setStyleSheet(u"\n"
 "background: #84B289;")
         self.frame_5.setFrameShape(QFrame.StyledPanel)
         self.frame_5.setFrameShadow(QFrame.Raised)
         self.frame = QFrame(self.frame_5)
         self.frame.setObjectName(u"frame")
         self.frame.setGeometry(QRect(30, 20, 871, 481))
-        self.frame.setStyleSheet(u"width: 763px;\n"
-"height: 456px;\n"
-"left: 60px;\n"
-"top: 30px;\n"
-"\n"
+        self.frame.setStyleSheet(u"border-radius: 10px;\n"
 "background: #E4E2C7;\n"
 "")
         self.frame.setFrameShape(QFrame.VLine)
