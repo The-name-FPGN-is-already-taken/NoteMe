@@ -20,6 +20,9 @@ class Ui_Dialog(object):
         Dialog.resize(1024, 640)
         Dialog.setMinimumSize(QSize(1024, 640))
         Dialog.setMaximumSize(QSize(1024, 640))
+        icon = QIcon()
+        icon.addFile(u"pics/notaKung.png", QSize(), QIcon.Normal, QIcon.Off)
+        Dialog.setWindowIcon(icon)
         self.topBar = QFrame(Dialog)
         self.topBar.setObjectName(u"topBar")
         self.topBar.setGeometry(QRect(0, 0, 1024, 101))
@@ -286,7 +289,7 @@ class Ui_Dialog(object):
         self.frame_3.setFrameShadow(QFrame.Raised)
         self.layoutWidget1 = QWidget(self.frame_3)
         self.layoutWidget1.setObjectName(u"layoutWidget1")
-        self.layoutWidget1.setGeometry(QRect(31, 11, 821, 411))
+        self.layoutWidget1.setGeometry(QRect(21, 11, 851, 411))
         self.horizontalLayout = QHBoxLayout(self.layoutWidget1)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
@@ -512,7 +515,7 @@ class Ui_Dialog(object):
     # setupUi
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"NOTA", None))
         self.welcomeUser.setText(QCoreApplication.translate("Dialog", u"Welcome,", None))
         self.date.setText(QCoreApplication.translate("Dialog", u"November 21, 2021", None))
         self.previous_button.setText("")

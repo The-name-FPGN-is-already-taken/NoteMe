@@ -185,7 +185,7 @@ class Nota:
         self.timeTable = list()
         for i in range(7):
             self.timeTable.append(Link())
-        self.resetDay = 4
+        self.resetDay = 0
 
     def __str__(self) -> str:
         s = ''
@@ -283,6 +283,7 @@ class Nota:
         else:
             self.refreshTable()
             print("Login success")
+            self.resetCompleteTimetable()
 
     def logout(self):
         self.table.li.clear()

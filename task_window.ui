@@ -23,7 +23,11 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>NOTA</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>pics/notaKung.png</normaloff>pics/notaKung.png</iconset>
   </property>
   <widget class="QFrame" name="backFrame">
    <property name="geometry">
@@ -237,10 +241,10 @@ background: #E4E2C7;
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>60</x>
-        <y>30</y>
-        <width>751</width>
-        <height>421</height>
+        <x>30</x>
+        <y>20</y>
+        <width>811</width>
+        <height>431</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -327,7 +331,7 @@ QPushButton:hover#showButton{
             <string notr="true">background: #84B289;</string>
            </property>
            <property name="text">
-            <string>  NAME                                           TIME</string>
+            <string>  NAME                                                                   TIME</string>
            </property>
           </widget>
          </item>
@@ -335,7 +339,7 @@ QPushButton:hover#showButton{
           <widget class="QListWidget" name="listWidget">
            <property name="maximumSize">
             <size>
-             <width>371</width>
+             <width>400</width>
              <height>371</height>
             </size>
            </property>
@@ -458,7 +462,7 @@ background: #E4E2C7;
             <string notr="true">background: #84B289;</string>
            </property>
            <property name="text">
-            <string>  NAME                                     DATE              TIME</string>
+            <string>  NAME                                       DATE                    TIME</string>
            </property>
           </widget>
          </item>
@@ -466,7 +470,7 @@ background: #E4E2C7;
           <widget class="QListWidget" name="listWidget_incoming">
            <property name="maximumSize">
             <size>
-             <width>371</width>
+             <width>400</width>
              <height>371</height>
             </size>
            </property>

@@ -21,14 +21,12 @@ class LoginWindow(QDialog):
         self.warning.setVisible(False)
         self.loginButton.clicked.connect(self.loginIn)
         self.signupButton.clicked.connect(self.LoginToSignUp)
-        print("wcLogin", widget.currentIndex())
-        # this mf should not be here but, whatever
+        self.setWindowTitle("NOTA")
+        self.setWindowIcon(QtGui.QIcon("D:/NotaProject/pics/notaKung.png"))
         global currentClickingDay, currentClickingDay_week, currentClickingDay_int_ttb, currentClickingDay_int_hw
         global fromWho
-        # เก็บวันที่ของวันปัจจุบันที่เรากดอยู่
-        currentClickingDay = datetime.datetime.today().date()
-        # เก็บaddressของปุ่มวันที่กดในหน้าHome
-        currentClickingDay_week = self.loginButton
+        currentClickingDay = datetime.datetime.today().date()# เก็บวันที่ของวันปัจจุบันที่เรากดอยู่
+        currentClickingDay_week = self.loginButton# เก็บaddressของปุ่มวันที่กดในหน้าHome
         currentClickingDay_int_ttb = 0  # เก็บเลขวันที่กำลังกดอยู่ ณ ปัจจุบัน ใช้กับหน้าTTB
         currentClickingDay_int_hw = 0  # เก็บเลขวันที่กำลังกดอยู่ ณ ปัจจุบัน ใช้กับหน้าHome
         fromWho = self.loginButton
@@ -163,8 +161,8 @@ class HomeWeek_window(QDialog):
 
     def updateItemInListWidgets(self):
         for i in range(len(today_tasklst)):
-            self.taskTray.addItem(today_tasklst[i].topic+(17-len(today_tasklst[i].topic))*" "
-                                  + str(today_tasklst[i].dateTarget.strftime("%Y-%m-%d %H:%M:%S")))
+            self.taskTray.addItem(today_tasklst[i].topic+(20-len(today_tasklst[i].topic))*" "
+                                  + str(today_tasklst[i].dateTarget.strftime("%Y-%m-%d   %H:%M:%S")))
             self.taskTray.item(i).setFont(
                 QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))
         for i in range(len(timetablelst)):
@@ -300,7 +298,6 @@ class HomeWeek_window(QDialog):
                 Sort.sortTaskDateTarget(today_tasklst)
                 self.taskTray.clear()
                 self.updateItemInListWidgets()
-                # self.timeTableTray.setSpacing(15)
 
             else:
                 self.listDayButton[i].setStyleSheet(
@@ -395,20 +392,14 @@ class Note_window(QDialog):
         self.noteTray.clear()
         global notelst
         notelst = nota.getNoteAll()
+        self.noteTray.setSpacing(15)
 
         Sort.sortNote(notelst, 1)  # new =1 ใหม่ขึ้นก่อน new =0  เก่ามาก่อน
-        # self.noteTray.addItem(topictext.topic)
         for i in range(len(notelst)):
-            # self.noteTray.addItem(notelst[i].topic + (165-len(str(notelst[i].dateCreate.strftime("%Y-%m-%d %H:%M:%S"))) - len(
-            #    notelst[i].topic))*" "+str(notelst[i].dateCreate.strftime("%Y-%m-%d %H:%M:%S")))
-          #  tehehe= str(notelst[i].dateCreate.strftime("%Y-%m-%d %H:%M:%S"))
-            # self.noteTray.addItem(f"{notelst[i].topic : <1}{tehehe : >50}")
             self.noteTray.addItem(notelst[i].topic + (52 - len(str(
                 notelst[i].topic))) * " "+str(notelst[i].dateCreate.strftime("%Y-%m-%d"+8*" "+"%H:%M:%S")))
             self.noteTray.item(i).setFont(
                 QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))
-
-          #  self.noteTray.item(i).setTextAlignment(QtCore.Qt.AlignCenter)
 
     def sortNoteList(self):
         self.noteTray.clear()
@@ -539,7 +530,7 @@ class AddNoteWindow(QDialog):
         self.goToNoteWindow()
 
     def mytxtChanged(self):
-        maxlengthtext = 15
+        maxlengthtext = 30
         if (len(self.noteName_textEdit.toPlainText())) > maxlengthtext:
             maxstringtext = self.noteName_textEdit.toPlainText()
             print(len(maxstringtext))
@@ -593,23 +584,19 @@ class Task_window(QDialog):
         Sort.sortTaskDateTarget(today_tasklst)
         for i in range(len(today_tasklst)):
 
-            self.listWidget.addItem(today_tasklst[i].topic+(20-len(today_tasklst[i].topic))*" "
-
-
-                                    + str(today_tasklst[i].dateTarget.strftime("%H:%M:%S")))
-            self.listWidget.item(i).setFont(
-                QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))
-
+            self.listWidget.addItem(today_tasklst[i].topic+(30-len(today_tasklst[i].topic))*" "+ str(today_tasklst[i].dateTarget.strftime("%H:%M:%S")))
+            self.listWidget.item(i).setFont(QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))
         self.listWidget_incoming.clear()
         global incoming_tasklst
         incoming_tasklst = nota.getIncomingNotFinishTask()
         Sort.sortTaskDateTarget(incoming_tasklst)
         for i in range(len(incoming_tasklst)):
-            self.listWidget_incoming.addItem(incoming_tasklst[i].topic+(17-len(incoming_tasklst[i].topic))*" "
-                                             + str(incoming_tasklst[i].dateTarget.strftime("%Y-%m-%d %H:%M:%S")))
+            self.listWidget_incoming.addItem(incoming_tasklst[i].topic+(17-len(incoming_tasklst[i].topic))*" "+ str(incoming_tasklst[i].dateTarget.strftime("%Y-%m-%d   %H:%M:%S")))
             self.listWidget_incoming.item(i).setFont(
                 QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))
-
+        self.listWidget.setSpacing(15)
+        self.listWidget_incoming.setSpacing(15)
+        
     def showPopUp(self):
         pop = Popup(self)
         pop.show()
@@ -700,7 +687,7 @@ class Task_window(QDialog):
             Sort.sortTaskDateTarget(today_tasklst)
             for i in range(len(today_tasklst)):
 
-                self.listWidget.addItem(today_tasklst[i].topic+(20-len(
+                self.listWidget.addItem(today_tasklst[i].topic+(30-len(
 
                     today_tasklst[i].topic))*" " + str(today_tasklst[i].dateTarget.strftime("%H:%M:%S")))
                 self.listWidget.item(i).setFont(
@@ -711,7 +698,7 @@ class Task_window(QDialog):
             Sort.sortTaskDateTarget(incoming_tasklst)
             for i in range(len(incoming_tasklst)):
                 self.listWidget_incoming.addItem(incoming_tasklst[i].topic+(17-len(incoming_tasklst[i].topic))*" "
-                                                 + str(incoming_tasklst[i].dateTarget.strftime("%Y-%m-%d %H:%M:%S")))
+                                                 + str(incoming_tasklst[i].dateTarget.strftime("%Y-%m-%d   %H:%M:%S")))
                 self.listWidget_incoming.item(i).setFont(
                     QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))
         else:
@@ -720,7 +707,7 @@ class Task_window(QDialog):
             Sort.sortTaskDateTarget(today_tasklst)
             for i in range(len(today_tasklst)):
 
-                self.listWidget.addItem(today_tasklst[i].topic+(20-len(
+                self.listWidget.addItem(today_tasklst[i].topic+(30-len(
 
                     today_tasklst[i].topic))*" " + str(today_tasklst[i].dateTarget.strftime("%H:%M:%S")))
                 self.listWidget.item(i).setFont(
@@ -730,7 +717,7 @@ class Task_window(QDialog):
             Sort.sortTaskDateTarget(incoming_tasklst)
             for i in range(len(incoming_tasklst)):
                 self.listWidget_incoming.addItem(incoming_tasklst[i].topic+(17-len(incoming_tasklst[i].topic))*" "
-                                                 + str(incoming_tasklst[i].dateTarget.strftime("%Y-%m-%d %H:%M:%S")))
+                                                 + str(incoming_tasklst[i].dateTarget.strftime("%Y-%m-%d   %H:%M:%S")))
                 self.listWidget_incoming.item(i).setFont(
                     QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))
 
@@ -788,13 +775,7 @@ class AddTaskWindow(QDialog):
                 self.indextask = fromWho.currentRow()
                 self.taskName_textEdit.setPlainText(
                     today_tasklst[self.indextask].topic)
-
-                # self.task_description.setPlainText(
-                #     today_tasklst[self.indextask].description)
-                # temptxt = incoming_tasklst[self.indextask].description
-                # temptxt = temptxt.replace("\\n", '\n')
-                # print(temptxt)
-
+                
                 self.task_description.setPlainText(
                     today_tasklst[self.indextask].description.replace("\\n", '\n'))
 
@@ -817,9 +798,6 @@ class AddTaskWindow(QDialog):
     def saveTask(self):
         if self.sender().objectName() == "listWidget" or fromWho.objectName() == "taskTray":
             today_tasklst[self.indextask].topic = self.taskName_textEdit.toPlainText()
-            # today_tasklst[self.indextask].description = self.task_description.toPlainText(
-            # )
-
             temptext = self.task_description.toPlainText()
             today_tasklst[self.indextask].description = '\\n'.join(
                 temptext.splitlines())
@@ -830,15 +808,9 @@ class AddTaskWindow(QDialog):
             nota.editRecord(today_tasklst[self.indextask])
 
         else:
-            incoming_tasklst[self.indextask].topic = self.taskName_textEdit.toPlainText(
-            )
-
-            # incoming_tasklst[self.indextask].description = self.task_description.toPlainText(
-            # )
+            incoming_tasklst[self.indextask].topic = self.taskName_textEdit.toPlainText()
             temptext = self.task_description.toPlainText()
-            incoming_tasklst[self.indextask].description = '\\n'.join(
-                temptext.splitlines())
-
+            incoming_tasklst[self.indextask].description = '\\n'.join(temptext.splitlines())
             time = self.dateTimeEdit.dateTime()
             time = time.toPyDateTime()
             incoming_tasklst[self.indextask].dateTarget = time
@@ -853,21 +825,13 @@ class AddTaskWindow(QDialog):
     def addTask(self):
 
         if self.taskName_textEdit.toPlainText() != "":
-
-            # M/d/yy h:mm AP
-            # self.dateTimeEdit.setDateTime(incoming_tasklst[self.indextask].dateTarget)
-
             time = self.dateTimeEdit.dateTime()
-            # yy/m/d h:mm:ss
             time = time.toPyDateTime()
             temptext = self.task_description.toPlainText()
-
             temptext = '\\n'.join(temptext.splitlines())
-            nota.addRecord(
-                time, 0, self.taskName_textEdit.toPlainText(), temptext)
+            nota.addRecord(time, 0, self.taskName_textEdit.toPlainText(), temptext)
             self.taskName_textEdit.clear()
             self.task_description.clear()
-            # self.task_description.overwriteMode(True)
             self.goToTaskWindow()
         else:
             self.warning.setVisible(True)
@@ -889,7 +853,6 @@ class AddTaskWindow(QDialog):
         widget.setCurrentIndex(widget.currentIndex()+1)
 
     def mytxtChanged(self):
-        # dont use max 30      textlistwidget will bug cant see anything in list
         maxlengthtext = 15
         if (len(self.taskName_textEdit.toPlainText())) > maxlengthtext:
             maxstringtext = self.taskName_textEdit.toPlainText()
@@ -972,8 +935,6 @@ class TimeTable_window(QDialog):
                 self.currentDay = 6
         global currentClickingDay_int_ttb, timetablelst, completetimetablelst
         self.currentDay_objectName = self.dayBarButtonList[currentClickingDay_int_ttb]
-        # print("ಥ_ಥ", currentClickingDay_int_ttb)
-
         timetablelst = nota.getTimetableByday(currentClickingDay_int_ttb, 0)
         completetimetablelst = nota.getTimetableByday(
             currentClickingDay_int_ttb, 1)
@@ -994,13 +955,15 @@ class TimeTable_window(QDialog):
                                        + str(timetablelst[i].dateTarget.strftime("%H:%M:%S")))
             self.today_TimetableTray.item(i).setFont(
                 QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))
-        # self.today_TimetableTray.setSpacing(15)
+        
 
         for i in range(len(completetimetablelst)):
             self.completed_TimetableTray.addItem(completetimetablelst[i].topic+(30-len(completetimetablelst[i].topic))*" "
                                        + str(completetimetablelst[i].dateTarget.strftime("%H:%M:%S")))
             self.completed_TimetableTray.item(i).setFont(
                 QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))
+        self.today_TimetableTray.setSpacing(15)
+        self.completed_TimetableTray.setSpacing(15)
     
     def showPopUp(self):
         pop = Popup(self)

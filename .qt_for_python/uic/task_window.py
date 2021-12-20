@@ -20,6 +20,9 @@ class Ui_homeCal(object):
         homeCal.resize(1024, 640)
         homeCal.setMinimumSize(QSize(1024, 640))
         homeCal.setMaximumSize(QSize(1920, 1080))
+        icon = QIcon()
+        icon.addFile(u"pics/notaKung.png", QSize(), QIcon.Normal, QIcon.Off)
+        homeCal.setWindowIcon(icon)
         self.backFrame = QFrame(homeCal)
         self.backFrame.setObjectName(u"backFrame")
         self.backFrame.setGeometry(QRect(0, 0, 1024, 640))
@@ -134,7 +137,7 @@ class Ui_homeCal(object):
         self.frame_6.setFrameShadow(QFrame.Raised)
         self.layoutWidget1 = QWidget(self.frame)
         self.layoutWidget1.setObjectName(u"layoutWidget1")
-        self.layoutWidget1.setGeometry(QRect(60, 30, 751, 421))
+        self.layoutWidget1.setGeometry(QRect(30, 20, 811, 431))
         self.horizontalLayout_4 = QHBoxLayout(self.layoutWidget1)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
@@ -191,7 +194,7 @@ class Ui_homeCal(object):
 
         self.listWidget = QListWidget(self.layoutWidget1)
         self.listWidget.setObjectName(u"listWidget")
-        self.listWidget.setMaximumSize(QSize(371, 371))
+        self.listWidget.setMaximumSize(QSize(400, 371))
         self.listWidget.setStyleSheet(u"background-color: rgb(254, 250, 224);")
 
         self.verticalLayout_8.addWidget(self.listWidget)
@@ -268,7 +271,7 @@ class Ui_homeCal(object):
 
         self.listWidget_incoming = QListWidget(self.layoutWidget1)
         self.listWidget_incoming.setObjectName(u"listWidget_incoming")
-        self.listWidget_incoming.setMaximumSize(QSize(371, 371))
+        self.listWidget_incoming.setMaximumSize(QSize(400, 371))
         self.listWidget_incoming.setStyleSheet(u"background-color: rgb(254, 250, 224);")
 
         self.verticalLayout_9.addWidget(self.listWidget_incoming)
@@ -438,18 +441,18 @@ class Ui_homeCal(object):
     # setupUi
 
     def retranslateUi(self, homeCal):
-        homeCal.setWindowTitle(QCoreApplication.translate("homeCal", u"Form", None))
+        homeCal.setWindowTitle(QCoreApplication.translate("homeCal", u"NOTA", None))
         self.welcomeUser.setText(QCoreApplication.translate("homeCal", u"Welcome,", None))
         self.date.setText(QCoreApplication.translate("homeCal", u"November 21, 2021", None))
         self.Today_Label.setText(QCoreApplication.translate("homeCal", u"TODAY", None))
         self.showButton.setText(QCoreApplication.translate("homeCal", u"SHOW COMPLETED TASKS", None))
-        self.label_3.setText(QCoreApplication.translate("homeCal", u"  NAME                                           TIME", None))
+        self.label_3.setText(QCoreApplication.translate("homeCal", u"  NAME                                                                   TIME", None))
 #if QT_CONFIG(tooltip)
         self.listWidget.setToolTip(QCoreApplication.translate("homeCal", u"<html><head/><body><p>double click to edit</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.Tomorrow_Label.setText(QCoreApplication.translate("homeCal", u"ALL TASKS", None))
         self.sortButton.setText(QCoreApplication.translate("homeCal", u"SORT", None))
-        self.label_2.setText(QCoreApplication.translate("homeCal", u"  NAME                                     DATE              TIME", None))
+        self.label_2.setText(QCoreApplication.translate("homeCal", u"  NAME                                       DATE                    TIME", None))
 #if QT_CONFIG(tooltip)
         self.listWidget_incoming.setToolTip(QCoreApplication.translate("homeCal", u"<html><head/><body><p>double click to edit</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)

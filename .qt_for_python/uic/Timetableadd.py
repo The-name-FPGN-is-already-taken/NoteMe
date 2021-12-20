@@ -3,21 +3,15 @@
 ################################################################################
 ## Form generated from reading UI file 'Timetableadd.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.2.1
+## Created by: Qt User Interface Compiler version 5.15.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QHBoxLayout,
-    QLabel, QPushButton, QSizePolicy, QTextEdit,
-    QTimeEdit, QVBoxLayout, QWidget)
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
+
 
 class Ui_timetabledialog(object):
     def setupUi(self, timetabledialog):
@@ -26,6 +20,9 @@ class Ui_timetabledialog(object):
         timetabledialog.resize(1024, 640)
         timetabledialog.setMinimumSize(QSize(1024, 640))
         timetabledialog.setMaximumSize(QSize(1920, 1080))
+        icon = QIcon()
+        icon.addFile(u"pics/notaKung.png", QSize(), QIcon.Normal, QIcon.Off)
+        timetabledialog.setWindowIcon(icon)
         self.backFrame = QFrame(timetabledialog)
         self.backFrame.setObjectName(u"backFrame")
         self.backFrame.setGeometry(QRect(0, 0, 1024, 640))
@@ -76,10 +73,11 @@ class Ui_timetabledialog(object):
         self.welcomeUser = QLabel(self.layoutWidget)
         self.welcomeUser.setObjectName(u"welcomeUser")
         font = QFont()
-        font.setFamilies([u"Tenor Sans"])
+        font.setFamily(u"Tenor Sans")
         font.setPointSize(1)
         font.setBold(False)
         font.setItalic(False)
+        font.setWeight(50)
         self.welcomeUser.setFont(font)
         self.welcomeUser.setStyleSheet(u"position: absolute;\n"
 "width: 190px;\n"
@@ -490,7 +488,7 @@ class Ui_timetabledialog(object):
     # setupUi
 
     def retranslateUi(self, timetabledialog):
-        timetabledialog.setWindowTitle(QCoreApplication.translate("timetabledialog", u"Nota", None))
+        timetabledialog.setWindowTitle(QCoreApplication.translate("timetabledialog", u"NOTA", None))
         self.welcomeUser.setText(QCoreApplication.translate("timetabledialog", u"Welcome,", None))
         self.date.setText(QCoreApplication.translate("timetabledialog", u"November 21, 2021", None))
         self.cancelTimetableButton.setText(QCoreApplication.translate("timetabledialog", u"CANCEL", None))
@@ -502,6 +500,7 @@ class Ui_timetabledialog(object):
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><br /></p></body></html>", None))
         self.timetabletitleName_textEdit.setPlaceholderText(QCoreApplication.translate("timetabledialog", u"TASKNAME", None))
         self.timetable_description.setPlaceholderText(QCoreApplication.translate("timetabledialog", u"DESCRIPTION", None))
+        self.timetable_Edittime.setDisplayFormat(QCoreApplication.translate("timetabledialog", u"hh:mm:ss", None))
 #if QT_CONFIG(tooltip)
         self.monday_button_Repeat.setToolTip(QCoreApplication.translate("timetabledialog", u"<html><head/><body><p align=\"center\">Press to select the day that you want to do every day. </p></body></html>", None))
 #endif // QT_CONFIG(tooltip)

@@ -23,7 +23,11 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>NOTA</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>pics/notaKung.png</normaloff>pics/notaKung.png</iconset>
   </property>
   <widget class="QFrame" name="topBar">
    <property name="geometry">
@@ -462,9 +466,9 @@ border-radius: 10px;
     <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>31</x>
+       <x>21</x>
        <y>11</y>
-       <width>821</width>
+       <width>851</width>
        <height>411</height>
       </rect>
      </property>

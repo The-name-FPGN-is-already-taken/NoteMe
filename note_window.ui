@@ -23,7 +23,11 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>NOTA</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>pics/notaKung.png</normaloff>pics/notaKung.png</iconset>
   </property>
   <widget class="QFrame" name="backFrame">
    <property name="geometry">
@@ -345,7 +349,7 @@ QPushButton:hover#sortButton{
         </rect>
        </property>
        <property name="text">
-        <string>  TASK                                                                                                                    DATE                               TIME</string>
+        <string>  TASK                                                                                                                      DATE                               TIME</string>
        </property>
       </widget>
      </widget>

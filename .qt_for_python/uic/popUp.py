@@ -3,27 +3,24 @@
 ################################################################################
 ## Form generated from reading UI file 'popUp.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.2.1
+## Created by: Qt User Interface Compiler version 5.15.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QHBoxLayout,
-    QLabel, QPushButton, QSizePolicy, QVBoxLayout,
-    QWidget)
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
+
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
         Dialog.resize(531, 235)
+        icon = QIcon()
+        icon.addFile(u"pics/notaKung.png", QSize(), QIcon.Normal, QIcon.Off)
+        Dialog.setWindowIcon(icon)
         self.frame = QFrame(Dialog)
         self.frame.setObjectName(u"frame")
         self.frame.setGeometry(QRect(0, 0, 531, 241))
@@ -168,7 +165,7 @@ class Ui_Dialog(object):
     # setupUi
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"NOTA", None))
         self.direction.setText(QCoreApplication.translate("Dialog", u"Please choose action you want to do with this task", None))
         self.edit.setText(QCoreApplication.translate("Dialog", u"EDIT", None))
         self.mark.setText(QCoreApplication.translate("Dialog", u"MARK AS COMPLETED", None))

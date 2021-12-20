@@ -25,6 +25,9 @@ class Ui_loginWindowDialog(object):
         loginWindowDialog.setSizePolicy(sizePolicy)
         loginWindowDialog.setMinimumSize(QSize(1024, 640))
         loginWindowDialog.setMaximumSize(QSize(1920, 1080))
+        icon = QIcon()
+        icon.addFile(u"pics/notaKung.png", QSize(), QIcon.Normal, QIcon.Off)
+        loginWindowDialog.setWindowIcon(icon)
         self.centralwidget = QWidget(loginWindowDialog)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setEnabled(True)
@@ -290,7 +293,7 @@ class Ui_loginWindowDialog(object):
     # setupUi
 
     def retranslateUi(self, loginWindowDialog):
-        loginWindowDialog.setWindowTitle(QCoreApplication.translate("loginWindowDialog", u"Nota", None))
+        loginWindowDialog.setWindowTitle(QCoreApplication.translate("loginWindowDialog", u"NOTA", None))
         self.nota.setText(QCoreApplication.translate("loginWindowDialog", u"Nota", None))
         self.username.setPlaceholderText(QCoreApplication.translate("loginWindowDialog", u"Username", None))
         self.userPassword.setPlaceholderText(QCoreApplication.translate("loginWindowDialog", u"Password", None))

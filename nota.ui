@@ -31,6 +31,10 @@
   <property name="windowTitle">
    <string>Nota</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>D:/NotaProject/pics/notaKung.png</normaloff>D:/NotaProject/pics/notaKung.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <property name="enabled">
     <bool>true</bool>
@@ -426,7 +430,7 @@ QPushButton:hover#loginButton{
                <bool>false</bool>
               </property>
              </widget>
-             <widget class="QWidget" name="">
+             <widget class="QWidget" name="layoutWidget">
               <property name="geometry">
                <rect>
                 <x>20</x>

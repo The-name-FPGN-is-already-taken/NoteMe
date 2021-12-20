@@ -20,6 +20,9 @@ class Ui_homeCal(object):
         homeCal.resize(1024, 640)
         homeCal.setMinimumSize(QSize(1024, 640))
         homeCal.setMaximumSize(QSize(1920, 1080))
+        icon = QIcon()
+        icon.addFile(u"pics/notaKung.png", QSize(), QIcon.Normal, QIcon.Off)
+        homeCal.setWindowIcon(icon)
         self.backFrame = QFrame(homeCal)
         self.backFrame.setObjectName(u"backFrame")
         self.backFrame.setGeometry(QRect(0, 0, 1024, 640))
@@ -351,13 +354,13 @@ class Ui_homeCal(object):
     # setupUi
 
     def retranslateUi(self, homeCal):
-        homeCal.setWindowTitle(QCoreApplication.translate("homeCal", u"Form", None))
+        homeCal.setWindowTitle(QCoreApplication.translate("homeCal", u"NOTA", None))
         self.welcomeUser.setText(QCoreApplication.translate("homeCal", u"Welcome,", None))
         self.date.setText(QCoreApplication.translate("homeCal", u"November 21, 2021", None))
         self.noteName0.setText(QCoreApplication.translate("homeCal", u"Name", None))
         self.dateCreated0.setText(QCoreApplication.translate("homeCal", u"Date Modified", None))
         self.sortButton.setText(QCoreApplication.translate("homeCal", u"SORT", None))
-        self.label.setText(QCoreApplication.translate("homeCal", u"  TASK                                                                                                                    DATE                               TIME", None))
+        self.label.setText(QCoreApplication.translate("homeCal", u"  TASK                                                                                                                      DATE                               TIME", None))
 #if QT_CONFIG(tooltip)
         self.homeButton.setToolTip("")
 #endif // QT_CONFIG(tooltip)

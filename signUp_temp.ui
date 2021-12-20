@@ -29,7 +29,11 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Nota</string>
+   <string>NOTA</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>pics/notaKung.png</normaloff>pics/notaKung.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="enabled">

@@ -20,6 +20,9 @@ class Ui_homeWeek(object):
         homeWeek.resize(1024, 640)
         homeWeek.setMinimumSize(QSize(1024, 640))
         homeWeek.setMaximumSize(QSize(1024, 640))
+        icon = QIcon()
+        icon.addFile(u"pics/notaKung.png", QSize(), QIcon.Normal, QIcon.Off)
+        homeWeek.setWindowIcon(icon)
         self.backFrame = QFrame(homeWeek)
         self.backFrame.setObjectName(u"backFrame")
         self.backFrame.setGeometry(QRect(0, 0, 1024, 640))
@@ -277,7 +280,7 @@ class Ui_homeWeek(object):
         self.frame_5.setFrameShadow(QFrame.Raised)
         self.task_tray = QScrollArea(self.frame_5)
         self.task_tray.setObjectName(u"task_tray")
-        self.task_tray.setGeometry(QRect(30, 100, 871, 421))
+        self.task_tray.setGeometry(QRect(30, 100, 871, 441))
         self.task_tray.setStyleSheet(u"\n"
 "background: #00FFFFFF;\n"
 "      \n"
@@ -285,10 +288,10 @@ class Ui_homeWeek(object):
         self.task_tray.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 871, 421))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 871, 441))
         self.layoutWidget1 = QWidget(self.scrollAreaWidgetContents)
         self.layoutWidget1.setObjectName(u"layoutWidget1")
-        self.layoutWidget1.setGeometry(QRect(0, 1, 871, 431))
+        self.layoutWidget1.setGeometry(QRect(0, 1, 871, 421))
         self.horizontalLayout_4 = QHBoxLayout(self.layoutWidget1)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
@@ -347,7 +350,7 @@ class Ui_homeWeek(object):
 
         self.taskTray = QListWidget(self.layoutWidget1)
         self.taskTray.setObjectName(u"taskTray")
-        self.taskTray.setMaximumSize(QSize(371, 371))
+        self.taskTray.setMaximumSize(QSize(450, 380))
         self.taskTray.setStyleSheet(u"background-color: rgb(254, 250, 224);")
 
         self.verticalLayout_8.addWidget(self.taskTray)
@@ -397,7 +400,7 @@ class Ui_homeWeek(object):
 
         self.timeTableTray = QListWidget(self.layoutWidget1)
         self.timeTableTray.setObjectName(u"timeTableTray")
-        self.timeTableTray.setMaximumSize(QSize(371, 371))
+        self.timeTableTray.setMaximumSize(QSize(450, 380))
         self.timeTableTray.setStyleSheet(u"background-color: rgb(254, 250, 224);")
 
         self.verticalLayout_9.addWidget(self.timeTableTray)
@@ -602,10 +605,10 @@ class Ui_homeWeek(object):
         self.horizontalLayout = QHBoxLayout(self.layoutWidget3)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
-        self.widget = QWidget(homeWeek)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(0, 0, 2, 2))
-        self.verticalLayout_10 = QVBoxLayout(self.widget)
+        self.layoutWidget4 = QWidget(homeWeek)
+        self.layoutWidget4.setObjectName(u"layoutWidget4")
+        self.layoutWidget4.setGeometry(QRect(0, 0, 2, 2))
+        self.verticalLayout_10 = QVBoxLayout(self.layoutWidget4)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.verticalLayout_10.setContentsMargins(0, 0, 0, 0)
 
@@ -615,7 +618,7 @@ class Ui_homeWeek(object):
     # setupUi
 
     def retranslateUi(self, homeWeek):
-        homeWeek.setWindowTitle(QCoreApplication.translate("homeWeek", u"Form", None))
+        homeWeek.setWindowTitle(QCoreApplication.translate("homeWeek", u"NOTA", None))
         self.welcomeUser.setText(QCoreApplication.translate("homeWeek", u"Welcome,", None))
         self.date.setText(QCoreApplication.translate("homeWeek", u"November 21, 2021", None))
 #if QT_CONFIG(tooltip)
@@ -635,7 +638,7 @@ class Ui_homeWeek(object):
         self.signOutButton.setText(QCoreApplication.translate("homeWeek", u"SIGN OUT", None))
         self.Today_Label.setText(QCoreApplication.translate("homeWeek", u"TASK", None))
         self.sortButton.setText(QCoreApplication.translate("homeWeek", u"SORT", None))
-        self.label_2.setText(QCoreApplication.translate("homeWeek", u"  NAME                                     DATE                 TIME", None))
+        self.label_2.setText(QCoreApplication.translate("homeWeek", u"  NAME                                            DATE                    TIME", None))
 #if QT_CONFIG(tooltip)
         self.taskTray.setToolTip(QCoreApplication.translate("homeWeek", u"<html><head/><body><p>double click to edit</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)

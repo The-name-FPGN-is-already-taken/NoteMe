@@ -20,6 +20,9 @@ class Ui_homeCal(object):
         homeCal.resize(1024, 640)
         homeCal.setMinimumSize(QSize(1024, 640))
         homeCal.setMaximumSize(QSize(1920, 1080))
+        icon = QIcon()
+        icon.addFile(u"pics/notaKung.png", QSize(), QIcon.Normal, QIcon.Off)
+        homeCal.setWindowIcon(icon)
         self.backFrame = QFrame(homeCal)
         self.backFrame.setObjectName(u"backFrame")
         self.backFrame.setGeometry(QRect(0, 0, 1024, 640))
@@ -355,7 +358,7 @@ class Ui_homeCal(object):
     # setupUi
 
     def retranslateUi(self, homeCal):
-        homeCal.setWindowTitle(QCoreApplication.translate("homeCal", u"Form", None))
+        homeCal.setWindowTitle(QCoreApplication.translate("homeCal", u"NOTA", None))
         self.welcomeUser.setText(QCoreApplication.translate("homeCal", u"Welcome,", None))
         self.date.setText(QCoreApplication.translate("homeCal", u"November 21, 2021", None))
         self.cancelAdding.setText(QCoreApplication.translate("homeCal", u"CANCEL", None))
@@ -367,6 +370,7 @@ class Ui_homeCal(object):
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><br /></p></body></html>", None))
         self.taskName_textEdit.setPlaceholderText(QCoreApplication.translate("homeCal", u"TASKNAME", None))
         self.task_description.setPlaceholderText(QCoreApplication.translate("homeCal", u"DESCRIPTION", None))
+        self.dateTimeEdit.setDisplayFormat(QCoreApplication.translate("homeCal", u"M/d/yyyy hh:mm:ss", None))
         self.warning.setText(QCoreApplication.translate("homeCal", u"Please fill in task name!!", None))
 #if QT_CONFIG(tooltip)
         self.homeButton.setToolTip("")

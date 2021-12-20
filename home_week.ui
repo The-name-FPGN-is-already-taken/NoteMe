@@ -23,7 +23,11 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>NOTA</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>pics/notaKung.png</normaloff>pics/notaKung.png</iconset>
   </property>
   <widget class="QFrame" name="backFrame">
    <property name="geometry">
@@ -412,7 +416,7 @@ background: #84B289;</string>
        <x>30</x>
        <y>100</y>
        <width>871</width>
-       <height>421</height>
+       <height>441</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -430,7 +434,7 @@ border-radius: 10px;</string>
         <x>0</x>
         <y>0</y>
         <width>871</width>
-        <height>421</height>
+        <height>441</height>
        </rect>
       </property>
       <widget class="QWidget" name="layoutWidget">
@@ -439,7 +443,7 @@ border-radius: 10px;</string>
          <x>0</x>
          <y>1</y>
          <width>871</width>
-         <height>431</height>
+         <height>421</height>
         </rect>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -523,7 +527,7 @@ QPushButton:hover#sortButton{
              <string notr="true">background: #84B289;</string>
             </property>
             <property name="text">
-             <string>  NAME                                     DATE                 TIME</string>
+             <string>  NAME                                            DATE                    TIME</string>
             </property>
            </widget>
           </item>
@@ -531,8 +535,8 @@ QPushButton:hover#sortButton{
            <widget class="QListWidget" name="taskTray">
             <property name="maximumSize">
              <size>
-              <width>371</width>
-              <height>371</height>
+              <width>450</width>
+              <height>380</height>
              </size>
             </property>
             <property name="toolTip">
@@ -614,8 +618,8 @@ QPushButton:hover#showButton{
            <widget class="QListWidget" name="timeTableTray">
             <property name="maximumSize">
              <size>
-              <width>371</width>
-              <height>371</height>
+              <width>450</width>
+              <height>380</height>
              </size>
             </property>
             <property name="toolTip">
@@ -995,7 +999,7 @@ border-radius: 15px;</string>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout"/>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>0</x>
