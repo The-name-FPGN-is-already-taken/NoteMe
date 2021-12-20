@@ -108,7 +108,7 @@ border-radius: 35px;
         <property name="font">
          <font>
           <family>Tenor Sans</family>
-          <pointsize>1</pointsize>
+          <pointsize>-1</pointsize>
           <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
@@ -616,7 +616,7 @@ QPushButton:hover#showButton{
              <string notr="true">background: #84B289;</string>
             </property>
             <property name="text">
-             <string>  NAME                                                              TIME</string>
+             <string>  NAME                                                          TIME</string>
             </property>
            </widget>
           </item>
@@ -1014,7 +1014,7 @@ border-radius: 15px;</string>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout"/>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>0</x>

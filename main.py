@@ -168,7 +168,7 @@ class HomeWeek_window(QDialog):
             self.taskTray.item(i).setFont(
                 QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))
         for i in range(len(timetablelst)):
-            self.timeTableTray.addItem(timetablelst[i].topic+(28-len(timetablelst[i].topic))*" "
+            self.timeTableTray.addItem(timetablelst[i].topic+(26-len(timetablelst[i].topic))*" "
                                        + str(timetablelst[i].dateTarget.strftime("%H:%M:%S")))
             self.timeTableTray.item(i).setFont(
                 QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))
