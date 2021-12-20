@@ -22,7 +22,6 @@ class LoginWindow(QDialog):
         self.loginButton.clicked.connect(self.loginIn)
         self.signupButton.clicked.connect(self.LoginToSignUp)
         self.setWindowTitle("NOTA")
-        self.setWindowIcon(QtGui.QIcon("D:/NotaProject/pics/notaKung.png"))
         global currentClickingDay, currentClickingDay_week, currentClickingDay_int_ttb, currentClickingDay_int_hw
         global fromWho
         currentClickingDay = datetime.datetime.today().date()# เก็บวันที่ของวันปัจจุบันที่เรากดอยู่
@@ -620,7 +619,7 @@ class Task_window(QDialog):
         Sort.sortTaskDateTarget(today_tasklst, x)
         for i in range(len(today_tasklst)):
 
-            self.listWidget.addItem(today_tasklst[i].topic+(20-len(today_tasklst[i].topic))*" "
+            self.listWidget.addItem(today_tasklst[i].topic+(30-len(today_tasklst[i].topic))*" "
 
                                     + str(today_tasklst[i].dateTarget.strftime("%H:%M:%S")))
             self.listWidget.item(i).setFont(
@@ -628,7 +627,7 @@ class Task_window(QDialog):
         Sort.sortTaskDateTarget(incoming_tasklst, x)
         for i in range(len(incoming_tasklst)):
             self.listWidget_incoming.addItem(incoming_tasklst[i].topic+(17-len(incoming_tasklst[i].topic))*" "
-                                             + str(incoming_tasklst[i].dateTarget.strftime("%Y-%m-%d %H:%M:%S")))
+                                             + str(incoming_tasklst[i].dateTarget.strftime("%Y-%m-%d   %H:%M:%S")))
             self.listWidget_incoming.item(i).setFont(
                 QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))
         self.sortFromNearToFar = not self.sortFromNearToFar
@@ -641,7 +640,7 @@ class Task_window(QDialog):
             Sort.sortTaskDateTarget(today_tasklst)
             for i in range(len(today_tasklst)):
 
-                self.listWidget.addItem(today_tasklst[i].topic+(20-len(today_tasklst[i].topic))*" "
+                self.listWidget.addItem(today_tasklst[i].topic+(30-len(today_tasklst[i].topic))*" "
 
                                         + str(today_tasklst[i].dateTarget.strftime("%H:%M:%S")))
                 self.listWidget.item(i).setFont(
@@ -652,7 +651,7 @@ class Task_window(QDialog):
             Sort.sortTaskDateTarget(incoming_tasklst)
             for i in range(len(incoming_tasklst)):
                 self.listWidget_incoming.addItem(incoming_tasklst[i].topic+(17-len(incoming_tasklst[i].topic))*" "
-                                                 + str(incoming_tasklst[i].dateTarget.strftime("%Y-%m-%d %H:%M:%S")))
+                                                 + str(incoming_tasklst[i].dateTarget.strftime("%Y-%m-%d   %H:%M:%S")))
                 self.listWidget_incoming.item(i).setFont(
                     QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))
             self.showButton.setText("HIDE COMPLETED TASKS")
@@ -662,7 +661,7 @@ class Task_window(QDialog):
             Sort.sortTaskDateTarget(today_tasklst)
             for i in range(len(today_tasklst)):
 
-                self.listWidget.addItem(today_tasklst[i].topic+(20-len(today_tasklst[i].topic))*" "
+                self.listWidget.addItem(today_tasklst[i].topic+(30-len(today_tasklst[i].topic))*" "
 
                                         + str(today_tasklst[i].dateTarget.strftime("%H:%M:%S")))
                 self.listWidget.item(i).setFont(
@@ -672,7 +671,7 @@ class Task_window(QDialog):
             Sort.sortTaskDateTarget(incoming_tasklst)
             for i in range(len(incoming_tasklst)):
                 self.listWidget_incoming.addItem(incoming_tasklst[i].topic+(17-len(incoming_tasklst[i].topic))*" "
-                                                 + str(incoming_tasklst[i].dateTarget.strftime("%Y-%m-%d %H:%M:%S")))
+                                                 + str(incoming_tasklst[i].dateTarget.strftime("%Y-%m-%d   %H:%M:%S")))
                 self.listWidget_incoming.item(i).setFont(
                     QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.FixedFont))
             self.showButton.setText("SHOW COMPLETED TASKS")
@@ -1349,16 +1348,6 @@ class Popup_Redo(QDialog):
         global fromWho
         fromWho = self.sender()
         self.indextask = self.sender().currentRow()
-
-        '''  if fromWho.objectName() == 'noteTray':
-            self.Redo.setVisible(False)
-            self.direction.setText(
-                "Please choose action you want to do with this note")
-            self.edit.clicked.connect(self.goToAddNote)
-        elif fromWho.objectName() in ['timeTableTray', 'today_TimetableTray']:
-            self.edit.clicked.connect(self.goToAddTimeTable)
-        elif fromWho.objectName() in ['taskTray', 'listWidget', 'listWidget_incoming']:
-            self.edit.clicked.connect(self.goToAddTask)'''
 
     def RedoCompleted(self):
         # print("""""", fromWho.objectName())

@@ -351,7 +351,17 @@ class Ui_homeWeek(object):
         self.taskTray = QListWidget(self.layoutWidget1)
         self.taskTray.setObjectName(u"taskTray")
         self.taskTray.setMaximumSize(QSize(450, 380))
-        self.taskTray.setStyleSheet(u"background-color: rgb(254, 250, 224);")
+        self.taskTray.setStyleSheet(u"\n"
+"QListWidget{\n"
+"    border-radius: 10px;\n"
+"    background-color: rgb(254, 250, 224);\n"
+"}\n"
+"QScrollBar:vertical {\n"
+"     border: 0.5px solid grey;\n"
+"     background: #94b289;\n"
+"     width: 20px;\n"
+"    \n"
+" }")
 
         self.verticalLayout_8.addWidget(self.taskTray)
 
@@ -401,7 +411,16 @@ class Ui_homeWeek(object):
         self.timeTableTray = QListWidget(self.layoutWidget1)
         self.timeTableTray.setObjectName(u"timeTableTray")
         self.timeTableTray.setMaximumSize(QSize(450, 380))
-        self.timeTableTray.setStyleSheet(u"background-color: rgb(254, 250, 224);")
+        self.timeTableTray.setStyleSheet(u"QListWidget{\n"
+"    border-radius: 10px;\n"
+"    background-color: rgb(254, 250, 224);\n"
+"}\n"
+"QScrollBar:vertical {\n"
+"     border: 0.5px solid grey;\n"
+"     background: #94b289;\n"
+"     width: 20px;\n"
+"    \n"
+" }")
 
         self.verticalLayout_9.addWidget(self.timeTableTray)
 
@@ -644,7 +663,7 @@ class Ui_homeWeek(object):
 #endif // QT_CONFIG(tooltip)
         self.Tomorrow_Label.setText(QCoreApplication.translate("homeWeek", u"TIMETABLE", None))
         self.showButton.setText(QCoreApplication.translate("homeWeek", u"SHOW COMPLETED TASKS", None))
-        self.label_3.setText(QCoreApplication.translate("homeWeek", u"  NAME                                                              TIME", None))
+        self.label_3.setText(QCoreApplication.translate("homeWeek", u"  NAME                                                          TIME", None))
 #if QT_CONFIG(tooltip)
         self.timeTableTray.setToolTip(QCoreApplication.translate("homeWeek", u"<html><head/><body><p>double click to edit</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)

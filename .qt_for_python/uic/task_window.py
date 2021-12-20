@@ -195,7 +195,16 @@ class Ui_homeCal(object):
         self.listWidget = QListWidget(self.layoutWidget1)
         self.listWidget.setObjectName(u"listWidget")
         self.listWidget.setMaximumSize(QSize(400, 371))
-        self.listWidget.setStyleSheet(u"background-color: rgb(254, 250, 224);")
+        self.listWidget.setStyleSheet(u"QListWidget{\n"
+"    border-radius: 10px;\n"
+"    background-color: rgb(254, 250, 224);\n"
+"}\n"
+"QScrollBar:vertical {\n"
+"     border: 0.5px solid grey;\n"
+"     background: #94b289;\n"
+"     width: 20px;\n"
+"    \n"
+" }")
 
         self.verticalLayout_8.addWidget(self.listWidget)
 
@@ -272,7 +281,16 @@ class Ui_homeCal(object):
         self.listWidget_incoming = QListWidget(self.layoutWidget1)
         self.listWidget_incoming.setObjectName(u"listWidget_incoming")
         self.listWidget_incoming.setMaximumSize(QSize(400, 371))
-        self.listWidget_incoming.setStyleSheet(u"background-color: rgb(254, 250, 224);")
+        self.listWidget_incoming.setStyleSheet(u"QListWidget{\n"
+"    border-radius: 10px;\n"
+"    background-color: rgb(254, 250, 224);\n"
+"}\n"
+"QScrollBar:vertical {\n"
+"     border: 0.5px solid grey;\n"
+"     background: #94b289;\n"
+"     width: 20px;\n"
+"    \n"
+" }")
 
         self.verticalLayout_9.addWidget(self.listWidget_incoming)
 

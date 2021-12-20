@@ -311,7 +311,16 @@ class Ui_Dialog(object):
         self.today_TimetableTray = QListWidget(self.layoutWidget1)
         self.today_TimetableTray.setObjectName(u"today_TimetableTray")
         self.today_TimetableTray.setMaximumSize(QSize(600, 600))
-        self.today_TimetableTray.setStyleSheet(u"background: #FEFAE0;")
+        self.today_TimetableTray.setStyleSheet(u"QListWidget{\n"
+"    border-radius: 10px;\n"
+"    background-color: rgb(254, 250, 224);\n"
+"}\n"
+"QScrollBar:vertical {\n"
+"     border: 0.5px solid grey;\n"
+"     background: #94b289;\n"
+"     width: 20px;\n"
+"    \n"
+" }")
 
         self.verticalLayout_2.addWidget(self.today_TimetableTray)
 
@@ -341,7 +350,16 @@ class Ui_Dialog(object):
         self.completed_TimetableTray = QListWidget(self.layoutWidget1)
         self.completed_TimetableTray.setObjectName(u"completed_TimetableTray")
         self.completed_TimetableTray.setMaximumSize(QSize(600, 600))
-        self.completed_TimetableTray.setStyleSheet(u"background: #FEFAE0;")
+        self.completed_TimetableTray.setStyleSheet(u"QListWidget{\n"
+"    border-radius: 10px;\n"
+"    background-color: rgb(254, 250, 224);\n"
+"}\n"
+"QScrollBar:vertical {\n"
+"     border: 0.5px solid grey;\n"
+"     background: #94b289;\n"
+"     width: 20px;\n"
+"    \n"
+" }")
 
         self.verticalLayout_3.addWidget(self.completed_TimetableTray)
 

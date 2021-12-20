@@ -131,11 +131,21 @@ class Ui_homeCal(object):
         self.frame.setLineWidth(0)
         self.noteTray = QListWidget(self.frame)
         self.noteTray.setObjectName(u"noteTray")
-        self.noteTray.setGeometry(QRect(60, 120, 761, 331))
-        self.noteTray.setStyleSheet(u"background-color: rgb(254, 250, 224);")
+        self.noteTray.setGeometry(QRect(50, 120, 771, 331))
+        self.noteTray.setStyleSheet(u"\n"
+"QListWidget{\n"
+"    border-radius: 10px;\n"
+"    background-color: rgb(254, 250, 224);\n"
+"}\n"
+"QScrollBar:vertical {\n"
+"     border: 0.5px solid grey;\n"
+"     background: #94b289;\n"
+"     width: 20px;\n"
+"    \n"
+" }")
         self.layoutWidget1 = QWidget(self.frame)
         self.layoutWidget1.setObjectName(u"layoutWidget1")
-        self.layoutWidget1.setGeometry(QRect(61, 40, 751, 32))
+        self.layoutWidget1.setGeometry(QRect(41, 41, 771, 31))
         self.horizontalLayout_3 = QHBoxLayout(self.layoutWidget1)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
@@ -186,7 +196,7 @@ class Ui_homeCal(object):
 
         self.frame_4 = QFrame(self.frame)
         self.frame_4.setObjectName(u"frame_4")
-        self.frame_4.setGeometry(QRect(60, 90, 761, 21))
+        self.frame_4.setGeometry(QRect(50, 90, 771, 21))
         self.frame_4.setStyleSheet(u"background: #84B289;")
         self.frame_4.setFrameShape(QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QFrame.Raised)

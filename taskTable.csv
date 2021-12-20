@@ -1,13 +1,13 @@
 -1,-1,-1,date,dateTarget,topic,descrption,2021-12-20,0,0
 0,1,2,2021-12-20 12:45:58,-1,I luv dataStruc,dataStructure is so fun\nToday I learn a lot from professor Kanut !!,-1,0,0,-1
 1,1,2,2021-12-20 12:49:07,-1,I luv kmitl,I luv everyone!!,-1,0,0,-1
-2,1,2,2021-12-20 12:49:22,-1,DS is so fun,,-1,0,0,-1
+2,1,2,2021-12-20 15:20:45,-1,DS is so fun,edited,-1,0,0,-1
 3,1,2,2021-12-20 12:51:09,-1,sad girl luv money lyric,"Oh, there's dollars all around\nDolla, dolla bills, yeah\nDolla, dolla bills (Kali)\nYeah, you've been staring at me\n(But que me mires)\nI don't really know how long now\nI feel like there's nothing in my way\nAll this money on me it feels amazing\nIn the Range Rover I'm racing\nMe and your nigga still dating\nI don't wanna talk I'm dancing, dancing",-1,0,0,-1
 4,1,2,2021-12-20 12:52:12,-1,mama lyrics,"Where should we run to?\nWe got the world in our hands and we're ready to play\nThey say we're wasted\nBut how can we waste it if we're loving every day?\nOkay\nI got the keys to the universe so stay\nWith me, 'cause I got the keys, baby\nDon't wanna wake up one day wishing that we'd done more\nI wanna live fast and never look back, that's what we here for\nDon't wanna wake up one day wondering ""where'd it all go?""\n'Cause we'll be home before we know, I wanna hear you sing it",-1,0,0,-1
 5,1,2,2021-12-20 12:53:26,-1,data struct lecture,"Merge Sort\nDifficulty Level : Medium\nLast Updated : 15 Dec, 2021\nLike QuickSort, Merge Sort is a Divide and Conquer algorithm. It divides the input array into two halves, calls itself for the two halves, and then merges the two sorted halves. The merge() function is used for merging two halves. The merge(arr, l, m, r) is a key process that assumes that arr[l..m] and arr[m+1..r] are sorted and merges the two sorted sub-arrays into one. ",-1,0,0,-1
 6,1,2,2021-12-20 12:54:14,-1,Data  com lecture,Data communications refers to the transmission of this digital data between two or more computers and a computer network or data network is a telecommunications network that allows computers to exchange data. The physical connection between networked computing devices is established using either cable media or wireless media. The best-known computer network is the Internet.\n\nThis tutorial should teach you basics of Data Communication and Computer Network (DCN) and will also take you through various advance concepts related to Data Communication and Computer Network.,-1,0,0,-1
 7,1,2,2021-12-20 12:54:44,-1,digital system,"A digital system is a something that represents information by using digits. Each digit represents a small amount of information because each digit comes from a small set of choices. ... A digital system is different than an analogue (US- analog) system, which represents information in a continuous way.",-1,0,0,-1
-8,1,0,2021-12-20 12:56:12,2021-12-20 05:00:23,wake up,wake up early to start a fresh day (❁´◡`❁),-1,0,1,-1
+8,1,0,2021-12-20 12:56:12,2021-12-20 05:00:00,wake up,wake up early to start a fresh day (❁´◡`❁),-1,0,1,-1
 9,1,1,2021-12-20 13:02:14,07:00:00,meditation,,0,0,0,-1
 9,1,1,2021-12-20 13:02:14,07:00:00,meditation,,1,0,0,-1
 9,1,1,2021-12-20 13:02:14,07:00:00,meditation,,2,0,0,-1
@@ -24,7 +24,7 @@
 16,1,0,2021-12-20 13:14:11,2021-12-25 13:00:00,task4,,-1,0,0,-1
 17,1,0,2021-12-20 13:27:24,2021-12-20 19:00:00,Dinner with mom,at senadale st. LA,-1,0,0,-1
 18,1,0,2021-12-20 13:28:53,2021-12-20 22:00:00,go to sleep,,-1,0,0,-1
-19,1,0,2021-12-20 13:33:55,2021-12-26 09:00:00,greet grand pa,,-1,0,0,-1
+19,1,0,2021-12-20 13:33:55,2021-12-26 10:00:00,greet grand pa,,-1,0,0,-1
 20,1,0,2021-12-20 13:34:16,2021-12-27 13:00:00,see noma,,-1,0,0,-1
 21,1,1,2021-12-20 13:35:23,06:00:00,exercise,,0,0,0,-1
 21,1,1,2021-12-20 13:35:23,06:00:00,exercise,,2,0,0,-1
@@ -62,3 +62,4 @@
 29,1,1,2021-12-20 13:48:46,21:00:00,Revision,,3,0,0,-1
 29,1,1,2021-12-20 13:48:46,21:00:00,Revision,,4,0,0,-1
 30,1,1,2021-12-20 13:54:43,21:00:00,watch netflix,,5,0,0,-1
+31,1,0,2021-12-20 15:19:21,2021-12-20 09:00:00,Wake up at 9,,-1,0,1,-1

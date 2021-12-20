@@ -226,15 +226,16 @@ background: #E4E2C7;
      <widget class="QListWidget" name="noteTray">
       <property name="geometry">
        <rect>
-        <x>60</x>
+        <x>50</x>
         <y>120</y>
-        <width>761</width>
+        <width>771</width>
         <height>331</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">QListWidget{
-    
+       <string notr="true">
+QListWidget{
+    border-radius: 10px;
     background-color: rgb(254, 250, 224);
 }
 QScrollBar:vertical {
@@ -248,10 +249,10 @@ QScrollBar:vertical {
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>61</x>
-        <y>40</y>
-        <width>751</width>
-        <height>32</height>
+        <x>41</x>
+        <y>41</y>
+        <width>771</width>
+        <height>31</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -333,9 +334,9 @@ QPushButton:hover#sortButton{
      <widget class="QFrame" name="frame_4">
       <property name="geometry">
        <rect>
-        <x>60</x>
+        <x>50</x>
         <y>90</y>
-        <width>761</width>
+        <width>771</width>
         <height>21</height>
        </rect>
       </property>
