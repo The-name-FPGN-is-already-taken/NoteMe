@@ -1,0 +1,1035 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>homeWeek</class>
+ <widget class="QDialog" name="homeWeek">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>640</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1024</width>
+    <height>640</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1024</width>
+    <height>640</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>NOTA</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>pics/notaKung.png</normaloff>pics/notaKung.png</iconset>
+  </property>
+  <widget class="QFrame" name="backFrame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1024</width>
+     <height>640</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QFrame" name="topBar">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1024</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">position: absolute;
+width: 1024px;
+height: 100px;
+left: 0px;
+top: 0px;
+text-align: center;
+
+background: #FEFAE0;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QFrame" name="app_icon">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>81</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">width: 85px;
+height: 85px;
+image: url(D:/NotaProject/pics/notaKung.png);
+left: 3px;
+top: 5px;
+
+background: #86B18B;
+      
+border-radius: 35px;
+</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>20</y>
+       <width>581</width>
+       <height>53</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="welcomeUser">
+        <property name="font">
+         <font>
+          <family>Tenor Sans</family>
+          <pointsize>1</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">position: absolute;
+width: 190px;
+height: 44px;
+left: 103px;
+top: 28px;
+text-align: center;
+font-family: Tenor Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 21px;
+
+color: #000000;</string>
+        </property>
+        <property name="text">
+         <string>Welcome,</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="date">
+        <property name="styleSheet">
+         <string notr="true">position: absolute;
+width: 190px;
+height: 44px;
+left: 103px;
+top: 28px;
+
+font-family: Tenor Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 21px;
+
+color: #000000;</string>
+        </property>
+        <property name="text">
+         <string>November 21, 2021</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="leftBar">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>100</y>
+      <width>91</width>
+      <height>551</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+
+position: absolute;
+width: 140px;
+height: 540px;
+left: 0px;
+top: 100px;
+
+background: #A3C5A7;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_7">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QPushButton" name="homeButton">
+           <property name="cursor">
+            <cursorShape>ArrowCursor</cursorShape>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">position: absolute;
+image: url(D:/NotaProject/pics/home.png);
+width: 120px;
+height: 37px;
+left: 7px;
+top: 16px;
+text-align: right;
+background: #ECF39E;
+      
+border-radius: 10px;
+</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="home_label">
+           <property name="styleSheet">
+            <string notr="true">text-align: center;</string>
+           </property>
+           <property name="text">
+            <string>     HOME</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QPushButton" name="timeTableButton">
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">image: url(D:/NotaProject/pics/timetable.png);
+position: absolute;
+width: 120px;
+height: 37px;
+left: 7px;
+top: 160px;
+text-align: right;
+background: #C4C4C4;
+border: 1px solid #000000;
+
+border-radius: 10px;
+text-align: center;</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="timeTable_label">
+           <property name="text">
+            <string> TIMETABLE</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <widget class="QPushButton" name="noteButton">
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">image: url(D:/NotaProject/pics/writing.png);
+position: absolute;
+width: 120px;
+height: 37px;
+left: 7px;
+top: 160px;
+text-align: right;
+background: #C4C4C4;
+border: 1px solid #000000;
+
+border-radius: 10px;</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="note_label">
+           <property name="text">
+            <string>    NOTE</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
+         <item>
+          <widget class="QPushButton" name="taskButton">
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">image: url(D:/NotaProject/pics/task.png);
+position: absolute;
+width: 120px;
+height: 37px;
+left: 7px;
+top: 160px;
+text-align: right;
+background: #C4C4C4;
+border: 1px solid #000000;
+
+border-radius: 10px;</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="task_label">
+           <property name="text">
+            <string>     TASK</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QFrame" name="emptyFrameInLeftBar">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="signOutButton">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">position: absolute;
+width: 65px;
+height: 40px;
+left: 29px;
+top: 346px;
+background: #EC8E65;
+border-radius: 15px;
+</string>
+       </property>
+       <property name="text">
+        <string>SIGN OUT</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="flower_frame">
+       <property name="styleSheet">
+        <string notr="true">width: 126px;
+image: url(D:/NotaProject/pics/sunlight.png);
+height: 126px;
+left: 7px;
+top: 414px;
+</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QFrame" name="frame_5">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>100</y>
+      <width>941</width>
+      <height>541</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+
+background: #84B289;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QScrollArea" name="task_tray">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>100</y>
+       <width>871</width>
+       <height>441</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+background: #00FFFFFF;
+      
+border-radius: 10px;</string>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>871</width>
+        <height>441</height>
+       </rect>
+      </property>
+      <widget class="QWidget" name="layoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>1</y>
+         <width>871</width>
+         <height>421</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_8">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <property name="sizeConstraint">
+             <enum>QLayout::SetDefaultConstraint</enum>
+            </property>
+            <item>
+             <widget class="QLabel" name="Today_Label">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font: 75 10pt &quot;AvenirNext LT Pro Bold&quot;;</string>
+              </property>
+              <property name="text">
+               <string>TASK</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="frame_3">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="sortButton">
+              <property name="maximumSize">
+               <size>
+                <width>60</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton#sortButton{
+   background-color: rgb(252, 188, 64);
+	border-radius: 10px;
+}
+
+QPushButton:hover#sortButton{
+   background-color: rgb(252, 188, 64);
+	border-radius: 10px;
+	color: rgb(255, 255, 255);
+	font: 75 7pt &quot;AvenirNext LT Pro Bold&quot;;
+	
+}</string>
+              </property>
+              <property name="text">
+               <string>SORT</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="styleSheet">
+             <string notr="true">background: #84B289;</string>
+            </property>
+            <property name="text">
+             <string>  NAME                                            DATE                    TIME</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QListWidget" name="taskTray">
+            <property name="maximumSize">
+             <size>
+              <width>450</width>
+              <height>380</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;double click to edit&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">
+QListWidget{
+    border-radius: 10px;
+    background-color: rgb(254, 250, 224);
+}
+QScrollBar:vertical {
+     border: 0.5px solid grey;
+     background: #94b289;
+     width: 20px;
+    
+ }</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_9">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
+            <item>
+             <widget class="QLabel" name="Tomorrow_Label">
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font: 75 10pt &quot;AvenirNext LT Pro Bold&quot;;</string>
+              </property>
+              <property name="text">
+               <string>TIMETABLE</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="showButton">
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>28</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton#showButton{
+   background-color: rgb(252, 188, 64);
+	border-radius: 10px;
+}
+
+QPushButton:hover#showButton{
+   background-color: rgb(252, 188, 64);
+	border-radius: 10px;
+	color: rgb(255, 255, 255);
+	font: 75 8pt &quot;AvenirNext LT Pro Bold&quot;;
+	
+}</string>
+              </property>
+              <property name="text">
+               <string>SHOW COMPLETED TASKS</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="styleSheet">
+             <string notr="true">background: #84B289;</string>
+            </property>
+            <property name="text">
+             <string>  NAME                                                          TIME</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QListWidget" name="timeTableTray">
+            <property name="maximumSize">
+             <size>
+              <width>450</width>
+              <height>380</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;double click to edit&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QListWidget{
+    border-radius: 10px;
+    background-color: rgb(254, 250, 224);
+}
+QScrollBar:vertical {
+     border: 0.5px solid grey;
+     background: #94b289;
+     width: 20px;
+    
+ }</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>0</y>
+       <width>871</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QPushButton" name="previous_button">
+        <property name="maximumSize">
+         <size>
+          <width>51</width>
+          <height>31</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>ArrowCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">image: url(:/leftArrow/pics/right-arrow.png);
+image: url(:/leftArrow/pics/left-arrow.png);
+position: absolute;
+width: 90px;
+height: 50px;
+left: 806px;
+top: 31px;
+text-align: center;
+background: #84B289;
+border-radius: 15px;
+</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QPushButton" name="monday_button">
+          <property name="maximumSize">
+           <size>
+            <width>93</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>7</pointsize>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">;
+padding: 8px 0px;
+width: 40px;
+left: calc(50% - 40px/2 - 189.71px);
+top: 0%;
+bottom: 0%;
+border-radius: 8px;
+color: rgb(255, 255, 255);
+background: #FFAC4B;</string>
+          </property>
+          <property name="text">
+           <string>MONDAY
+21</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="tuesday_button">
+          <property name="maximumSize">
+           <size>
+            <width>93</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>7</pointsize>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">;
+        
+
+padding: 8px 0px;
+background-color: rgb(228, 226, 199);
+width: 40px;
+left: calc(50% - 40px/2 - 189.71px);
+
+border-radius: 8px;</string>
+          </property>
+          <property name="text">
+           <string>TUESDAY
+21</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="wednesday_button">
+          <property name="maximumSize">
+           <size>
+            <width>93</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>7</pointsize>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">;
+        
+
+padding: 8px 0px;
+position: static;
+width: 40px;
+left: calc(50% - 40px/2 - 189.71px);
+top: 0%;
+bottom: 0%;
+background-color: rgb(228, 226, 199);
+border-radius: 8px;</string>
+          </property>
+          <property name="text">
+           <string>WEDNESDAY
+1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="thursday_button">
+          <property name="maximumSize">
+           <size>
+            <width>93</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>7</pointsize>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">;
+        
+
+padding: 8px 0px;
+position: static;
+width: 40px;
+left: calc(50% - 40px/2 - 189.71px);
+top: 0%;
+bottom: 0%;
+background-color: rgb(228, 226, 199);
+border-radius: 8px;</string>
+          </property>
+          <property name="text">
+           <string>THURSDAY
+1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="friday_button">
+          <property name="maximumSize">
+           <size>
+            <width>93</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>7</pointsize>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">;
+        
+
+padding: 8px 0px;
+position: static;
+width: 40px;
+left: calc(50% - 40px/2 - 189.71px);
+top: 0%;
+bottom: 0%;
+background-color: rgb(228, 226, 199);
+border-radius: 8px;</string>
+          </property>
+          <property name="text">
+           <string>FRIDAY
+1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="saturday_button">
+          <property name="maximumSize">
+           <size>
+            <width>93</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>7</pointsize>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">;
+        
+
+padding: 8px 0px;
+position: static;
+width: 40px;
+left: calc(50% - 40px/2 - 189.71px);
+top: 0%;
+bottom: 0%;
+background-color: rgb(228, 226, 199);
+border-radius: 8px;</string>
+          </property>
+          <property name="text">
+           <string>SATURDAY
+1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="sunday_button">
+          <property name="maximumSize">
+           <size>
+            <width>93</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>7</pointsize>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">;
+        
+
+padding: 8px 0px;
+position: static;
+width: 40px;
+left: calc(50% - 40px/2 - 189.71px);
+top: 0%;
+bottom: 0%;
+background-color: rgb(228, 226, 199);
+border-radius: 8px;</string>
+          </property>
+          <property name="text">
+           <string>SUNDAY
+1</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QPushButton" name="next_button">
+        <property name="maximumSize">
+         <size>
+          <width>51</width>
+          <height>31</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>ArrowCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">image: url(:/rightArrow/pics/right-arrow.png);
+position: absolute;
+width: 90px;
+height: 50px;
+left: 806px;
+top: 31px;
+text-align: center;
+background: #84B289;
+border-radius: 15px;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QFrame" name="today_container">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>60</y>
+       <width>871</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>261</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>AvenirNext LT Pro Bold</family>
+        <pointsize>18</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Today</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>2</width>
+     <height>2</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout"/>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>2</width>
+     <height>2</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_10"/>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
